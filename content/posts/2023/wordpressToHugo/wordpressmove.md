@@ -78,11 +78,11 @@ http://localhost:1313。
 
 1
 
-{{ $image := .Resources.Get "hugofinish.png" }}
+{{ $image := .Resources.Get "wordpressToHugo/hugofinish.png" }}
 
 2 
 
-![](hugonewsite.png)
+![](wordpressToHugo/hugonewsite.png)
 
 
 可以先不要安裝自己喜歡的theme，免得把問題複雜化。
