@@ -37,7 +37,7 @@ Wordpress的Tools選單裡有Export，點Export，選擇All content,然後就可
 ### xml to Markdown
 
 靜態網頁要發文，要把文章以Markdown語法寫成「原始碼」，之後讓靜態網頁生成器「編譯」成一頁頁的HTML頁面。
-所以要把舊博客里的文章變成**.md**結尾的文章
+所以要把舊博客里的文章變成.md結尾的文章
 
   #### 下載 wordpress-export-to-markdown 軟體包
     mkdir oldpost  
@@ -47,7 +47,7 @@ Wordpress的Tools選單裡有Export，點Export，選擇All content,然後就可
 
 ### 轉檔
 
-將之前下載的xml文件放入wordpress-export-to-markdown文件夾中
+將之前下載的xml文件放入wordpress-export-to-markdown文件夾中.
 
 運行：
       npm install && node index.js 
@@ -61,7 +61,7 @@ Wordpress的Tools選單裡有Export，點Export，選擇All content,然後就可
 - 把vs code提示紅字的部分，按照Markdown的語法規則改掉
 - 把內部鏈接刪除，因為之前的網站等到期後就會關閉。
 
-此步驟我花了大概75分鐘調整約200篇文章
+此步驟我花了大概75分鐘調整約200篇文章.
 
 
 ## 2.選擇靜態網站生成器
@@ -75,7 +75,9 @@ Wordpress的Tools選單裡有Export，點Export，選擇All content,然後就可
 
 按照[這篇文章](https://ivonblog.com/posts/build-a-website-with-hugo/)的步驟設置Hugo網站，直到出現
 http://localhost:1313。
-![](hugofinish.png)
+
+{{ $image := .Resources.Get "hugofinish.png" }}
+
 可以先不要安裝自己喜歡的theme，免得把問題複雜化。
 
 增加文章測試是否成功。
