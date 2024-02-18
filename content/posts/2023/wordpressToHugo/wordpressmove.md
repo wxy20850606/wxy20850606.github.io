@@ -76,7 +76,14 @@ Wordpress的Tools選單裡有Export，點Export，選擇All content,然後就可
 按照[這篇文章](https://ivonblog.com/posts/build-a-website-with-hugo/)的步驟設置Hugo網站，直到出現
 http://localhost:1313。
 
+1
+
 {{ $image := .Resources.Get "hugofinish.png" }}
+
+2 
+
+![](hugonewsite.png)
+
 
 可以先不要安裝自己喜歡的theme，免得把問題複雜化。
 
@@ -100,7 +107,7 @@ http://localhost:1313。
      git add . && git commit -m 'new hugo blog' -a && git push
 
 ### 設置Github Pages，啟用Hugo blog
-主要就是按照[指示](https://gohugo.io/hosting-and-deployment/hosting-on-github/)，新建文件``.github/workflows/hugo.yaml``後然後修改文件。
+主要就是按照[指示](https://gohugo.io/hosting-and-deployment/hosting-on-github/)，新建文件``.github/workflows/hugo.yaml``,然後修改文件。
 
 ## 6.導入舊文章
 
