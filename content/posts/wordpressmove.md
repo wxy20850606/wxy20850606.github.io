@@ -82,7 +82,7 @@ http://localhost:1313。
 
 2 
 
-![](hugonewsite.png)
+![](images/hugonewsite.png)
 
 
 可以先不要安裝自己喜歡的theme，免得把問題複雜化。
