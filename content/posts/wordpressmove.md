@@ -80,17 +80,19 @@ http://localhost:1313。
 
 {{ $image := .Resources.Get "hugofinish.png" }}
 
+![hugonewsite](images/hugonewsite.png)
+
 2 
 
-![](\images\hugonewsite.png)
+![hugonewsite](/images/hugonewsite.png)
 
 3
 
-![](\images\hugofinish.png)
+![hugofinish](\images\hugofinish.png)
 
 4
 
-![](images\hugofinish.png)
+![hugofinish](images\hugofinish.png)
 
 
 可以先不要安裝自己喜歡的theme，免得把問題複雜化。
