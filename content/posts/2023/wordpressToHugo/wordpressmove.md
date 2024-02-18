@@ -93,7 +93,7 @@ http://localhost:1313。
 
 ### 設置baseURL
 在hugo.toml文件中更改baseURL
-     baseURL = 'https://wxy20850606.github.io/' 
+    baseURL = 'https://wxy20850606.github.io/' 
     
 ### 將Hugo blog push到github
      hugo server -D
