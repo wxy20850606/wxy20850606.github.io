@@ -2,6 +2,9 @@
 ---
 title: "用Hugo將Wordpress部落格搬家到Github Pages"
 date: 2024-02-17T14:36:03+08:00
+tags:
+- Hugo
+- Blog
 # bookComments: false
 # bookSearchExclude: false
 ---

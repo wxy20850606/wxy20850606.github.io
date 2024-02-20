@@ -135,7 +135,7 @@ params:
       url: "index.xml"
 
   label: # 左上角图标
-    text: "Sulv's Blog"
+    text: "Ariel's Blog"
     icon: "img/Q.gif"
     iconHeight: 35
 
@@ -165,12 +165,8 @@ params:
     minMatchCharLength: 0
     keys: [ "title", "permalink", "summary" ]
 
-  StartYear: 2020 # 底部开始年份
-  FilingNo: 填写自己的备案号 # 底部备案号
-  PublicSecurityIconLink: 填自己的公安图标链接 # 填自己的公安图标链接,可用绝对路径，相对路径如 img/beian.png
-  PublicNetworkSecurity: 填自己的公网安备 # 底部公网安备号
 
-  Reward: true #打赏是否开启
+  Reward: false #打赏是否开启
   # 打赏微信图片地址，
   # 可用绝对和相对地址，相对地址的图片需放在static/img下，
   # 填写格式为img/wechat_pay.png
