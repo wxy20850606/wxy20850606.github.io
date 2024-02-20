@@ -1,0 +1,25 @@
+{{- if not (.Param "hideMeta") }}
+<div class="post-meta">
+    {{- partial "post_meta.html" . -}} <!--在这里引用头部信息-->
+
+<!--在头部显示可跳转的标签-->
+&nbsp;|&nbsp;标签: &nbsp;
+{{- if .Params.tags }}
+<ul class="post-tags-meta">
+    {{- range $index, $value := ($.GetTerms "tags") }}
+    {{- if eq $index 0}}
+    <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+    {{- else }}
+    <a href="{{ .Permalink }}">、{{ .LinkTitle }}</a>
+    {{- end }}
+    {{- end }}
+</ul>
+{{- end }}
+
+
+
+    {{- partial "translation_list.html" . -}}
+    {{- partial "edit_post.html" . -}}
+    {{- partial "post_canonical.html" . -}}
+</div>
+{{- end }}
