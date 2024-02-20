@@ -7,3 +7,6 @@
 [submodule "themes/sulv"]
 	path = themes/sulv
 	url = https://github.com/xyming108/sulv-hugo-papermod.git
+[submodule "themes/Hugo-PaperMod"]
+	path = themes/Hugo-PaperMod
+	url = https://github.com/xyming108/sulv-hugo-papermod.git
