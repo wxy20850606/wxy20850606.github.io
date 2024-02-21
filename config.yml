@@ -52,7 +52,7 @@ menu:
       url: archives/
       weight: 20
     - identifier: about
-      name: 🙋🏻‍♂️ 关于
+      name: About
       url: about
       weight: 50
     - identifier: links
