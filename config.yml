@@ -35,30 +35,23 @@ menu:
       name: 🔍 搜索
       url: search
       weight: 1
-    - identifier: home
-      name: 🏠 主页
-      url: /
-      weight: 2
     - identifier: posts
-      name: 📚 文章
+      name: 文章
       url: posts
       weight: 3
     - identifier: tags
-      name: 🧩 标签
+      name: 标签
       url: tags
       weight: 15
     - identifier: archives
-      name: ⏱️ 时间轴
+      name: 时间轴
       url: archives/
       weight: 20
     - identifier: about
       name: About
       url: about
       weight: 50
-    - identifier: links
-      name: 🤝 友链
-      url: links
-      weight: 60
+
 
 outputs:
   home:
@@ -105,14 +98,11 @@ params:
     imageWidth: 150
     imageHeight: 150
     buttons:
-      - name: 🧱 建站
-        url: posts/blog
-      - name: 👨🏻‍💻 技术
-        url: posts/tech
-      - name: 📕 阅读
-        url: posts/read
-      - name: 🏖 生活
-        url: posts/life
+      - name: 👨🏻‍💻 Notes
+        url: posts/notes
+      - name: 📕 Blogs
+        url: posts/blogs
+
 
   socialIcons:
     - name: github
