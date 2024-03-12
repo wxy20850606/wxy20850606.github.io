@@ -40,11 +40,11 @@ menu:
       url: posts
       weight: 3
     - identifier: tags
-      name: 标签
+      name: 標籤
       url: tags
       weight: 15
     - identifier: archives
-      name: 时间轴
+      name: 時間軸
       url: archives/
       weight: 20
     - identifier: about
@@ -90,43 +90,30 @@ params:
 
   profileMode:
     enabled: true
-    title: (〃'▽'〃)
-    subtitle:
-    # subtitle: "🧨学而时习之，不亦说乎？有朋自远方来，不亦乐乎？<br/>👇联系方式"
+    title: Ariel's Blog
+    subtitle: "学而时习之，不亦说乎？"
     imageUrl: "img/Q.gif"
     imageTitle:
     imageWidth: 150
     imageHeight: 150
     buttons:
-      - name: 👨🏻‍💻 Notes
-        url: posts/notes
-      - name: 📕 Blogs
-        url: posts/blogs
+      - name: 👨🏻‍💻 文章
+        url: posts/
+      - name: 📕 標籤
+        url: tags/
 
 
   socialIcons:
     - name: github
-      url: "https://github.com/xyming108"
-    - name: twitter
-      url: "img/twitter.png"
-    - name: facebook
-      url: "https://www.facebook.com/profile.php?id=100027782410997"
-    - name: instagram
-      url: "img/instagram.png"
-    - name: QQ
-      url: "img/qq.png"
-    - name: WeChat
-      url: "img/wechat.png"
-    - name: bilibili
-      url: "https://space.bilibili.com/234461224"
+      url: "https://github.com/wxy20850606"
+
     - name: email
-      url: "mailto:1931559710@qq.com"
-    - name: RSS
-      url: "index.xml"
+      url: "mailto:wxy20850606@gmail.com"
+
 
   label: # 左上角图标
     text: "Ariel's Blog"
-    icon: "img/Q.gif"
+    icon: 
     iconHeight: 35
 
   analytics:
