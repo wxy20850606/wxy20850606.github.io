@@ -70,58 +70,58 @@ cover:
 下面是部分書單：
 
 奇先生妙小姐-我的性格改變了!
-1.搔癢先生（Mr. Tickle）   
-2.強壯先生（Mr. Strong）   
-3.意外先生（Mr. Bump）   
-4.勇敢先生（Mr. Brave）   
-5.荒唐先生（Mr. Nonsense）   
-6.小不點先生（Mr. Small）   
-7.趣味先生（Mr. Funny）   
-8.長腿先生（Mr. Tall）   
-9.好奇小姐（Little Miss Curious）   
-10.翻筋斗小姐（Little Miss Somersault）   
-11.胖嘟嘟小姐（Little Miss Greedy）   
-12.玲瓏小姐（Little Miss Tiny）   
-13.緊張先生與強盜（Mr. Jelly and the Pirates）   
-14.吵鬧先生與巨人（Mr. Noisy and the Giant）   
-15.虛榮小姐與公主（Little Miss Splendid and the Princess）   
-16.樂觀小姐與女巫（Little Miss Sunshine and the Wicked Witch）
+1. 搔癢先生（Mr. Tickle）   
+2. 強壯先生（Mr. Strong）   
+3. 意外先生（Mr. Bump）   
+4. 勇敢先生（Mr. Brave）   
+5. 荒唐先生（Mr. Nonsense）   
+6. 小不點先生（Mr. Small）   
+7. 趣味先生（Mr. Funny）   
+8. 長腿先生（Mr. Tall）   
+9. 好奇小姐（Little Miss Curious）   
+10. 翻筋斗小姐（Little Miss Somersault）   
+11. 胖嘟嘟小姐（Little Miss Greedy）   
+12. 玲瓏小姐（Little Miss Tiny）   
+13. 緊張先生與強盜（Mr. Jelly and the Pirates）   
+14. 吵鬧先生與巨人（Mr. Noisy and the Giant）   
+15. 虛榮小姐與公主（Little Miss Splendid and the Princess）   
+16. 樂觀小姐與女巫（Little Miss Sunshine and the Wicked Witch）
 
 奇先生妙小姐-我的壞習慣不見了!
-1.固執小姐（Little Miss Stubborn）   
-2.霸道小姐（Little Miss Bossy）   
-3.神奇小姐（Little Miss Magic）   
-4.忙碌小姐（Little Miss Busy）   
-5.明星小姐（Little Miss Star）   
-6.嘮叨小姐（Little Miss Chatterbox）   
-7.整齊小姐（Little Miss Tidy）   
-8.樂觀小姐（Little Miss Sunshine）  
-9.智慧小姐（Little Miss Wise）   
-10.遲到小姐（Little Miss Late）   
-11.笑嘻嘻小姐（Little Miss Giggles）   
-12.善變小姐（Little Miss Fickle）   
-13.生日小姐（Little Miss Birthday）   
-14.聖誕小姐（Little Miss Christmas）   
-15.幸運小姐與妖精（Little Miss Lucky and the Naughty Pixies）   
-16.淘氣小姐與精靈（Little Miss Naughty and the Good Fairy）
+1. 固執小姐（Little Miss Stubborn）   
+2. 霸道小姐（Little Miss Bossy）   
+3. 神奇小姐（Little Miss Magic）   
+4. 忙碌小姐（Little Miss Busy）   
+5. 明星小姐（Little Miss Star）   
+6. 嘮叨小姐（Little Miss Chatterbox）   
+7. 整齊小姐（Little Miss Tidy）   
+8. 樂觀小姐（Little Miss Sunshine）  
+9. 智慧小姐（Little Miss Wise）   
+10. 遲到小姐（Little Miss Late）   
+11. 笑嘻嘻小姐（Little Miss Giggles）   
+12. 善變小姐（Little Miss Fickle）   
+13. 生日小姐（Little Miss Birthday）   
+14. 聖誕小姐（Little Miss Christmas）   
+15. 幸運小姐與妖精（Little Miss Lucky and the Naughty Pixies）   
+16. 淘氣小姐與精靈（Little Miss Naughty and the Good Fairy）
 
 奇先生妙小姐-我的EQ長高了!
-1.健忘先生（Mr. Forgetful）   
-2.懶惰先生（Mr. Lazy）   
-3.惡作劇先生（Mr. Mischief）  
-4.匆忙先生（Mr. Rush）   
-5.邋遢先生（Mr. Messy）   
-6.聰明先生（Mr. Clever）   
-7.好奇先生（Mr. Nosey）   
-8.開心先生（Mr. Cheerful）   
-9.快樂先生（Mr Happy）   
-10.白日夢先生（Mr. Daydream）   
-11.傲慢先生（Mr. Uppity）   
-12.傷腦筋先生（Mr. Dizzy）   
-13.生日先生（Mr. Birthday）   
-14.意外先生與騎士（Mr. Bump and the Knight）   
-15.聖誕先生（Mr. Christmas）   
-16.快樂先生與男巫（Mr. Happy and the Wizard）
+1. 健忘先生（Mr. Forgetful）   
+2. 懶惰先生（Mr. Lazy）   
+3. 惡作劇先生（Mr. Mischief）  
+4. 忙先生（Mr. Rush）   
+5. 邋遢先生（Mr. Messy）   
+6. 聰明先生（Mr. Clever）   
+7. 好奇先生（Mr. Nosey）   
+8. 開心先生（Mr. Cheerful）   
+9. 快樂先生（Mr Happy）   
+10. 白日夢先生（Mr. Daydream）   
+11. 傲慢先生（Mr. Uppity）   
+12. 傷腦筋先生（Mr. Dizzy）   
+13. 生日先生（Mr. Birthday）   
+14. 意外先生與騎士（Mr. Bump and the Knight）   
+15. 聖誕先生（Mr. Christmas）   
+16. 快樂先生與男巫（Mr. Happy and the Wizard）
 
 # 東方寓言故事
 
