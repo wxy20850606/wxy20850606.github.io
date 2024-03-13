@@ -5,6 +5,7 @@ lastmod: 2024-03-12T10:16:51+08:00
 author: ["Ariel"]
 keywords: 
 - 
+disableShare: true # 底部不显示分享栏
 ---
 # 關於我 
 
