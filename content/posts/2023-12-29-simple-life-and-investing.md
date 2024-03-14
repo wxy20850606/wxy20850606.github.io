@@ -3,6 +3,9 @@ title: "全面實踐簡單生活/投資"
 date: "2023-12-29"
 categories: 
   - "心得"
+tags:
+- 年終總結
+- 投資學習
 disableShare: true # 底部不显示分享栏
 ---
 

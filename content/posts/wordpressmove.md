@@ -79,24 +79,7 @@ Wordpress的Tools選單裡有Export，點Export，選擇All content,然後就可
 按照[這篇文章](https://ivonblog.com/posts/build-a-website-with-hugo/)的步驟設置Hugo網站，直到出現
 http://localhost:1313。
 
-1
-
-{{ $image := .Resources.Get "hugofinish.png" }}
-
-![hugonewsite](images/hugonewsite.png)
-
-2 
-
 ![hugonewsite](/images/hugonewsite.png)
-
-3
-
-![hugofinish](\images\hugofinish.png)
-
-4
-
-![hugofinish](images\hugofinish.png)
-
 
 可以先不要安裝自己喜歡的theme，免得把問題複雜化。
 
