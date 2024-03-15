@@ -57,7 +57,7 @@ git add hello.txt
 
 可以看到隱藏的文件夾.git下面新增了一個object文件：
 
-![](images/image.png)
+![s](/images/2024031401.png)
 
 這就是為什麼我們如果忘記了commit，哪怕一年以後再用git status還是可以看到這個沒有commit的文件，因為資料已經寫入了硬盤。
 
@@ -115,7 +115,7 @@ Git的核心是commit，每個commit就是當下文件夾的一個快照。
 
 Git的每個commit就相當於幫我們這樣手動的工作完全自動化了。
 
-![](images/Screenshot-2023-02-18-at-5.49.39-AM.png)
+![s](/images/Screenshot-2023-02-18-at-5.49.39-AM.png)
 
 至於如何存儲或復原任一個時間點的文件夾，這個靠的就是把內容（blob）和commit的物件用一個隱藏文件夾(.git) 存在硬盤上，利用序列化來處理。
 
@@ -163,7 +163,7 @@ Design Document：[Gitlet design document](https://fulltimemammy.com/gitlet-desi
 
 對於初學者來說，這是一個很好的項目，幾乎從無到有，給人極大的成就感和信心。
 
-![](images/Screenshot-2023-06-11-at-10.19.57-PM-1024x427.png)
+![s](/images/Screenshot-2023-06-11-at-10.19.57-PM-1024x427.png)
 
 項目需要的最多的是耐心，估計我前後花了40天，總共超過80個小時。不過這80個小時專注在這個任務上面，心無旁騖，也是很快樂的。
 

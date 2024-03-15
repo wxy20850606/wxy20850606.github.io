@@ -79,7 +79,7 @@ Wordpress的Tools選單裡有Export，點Export，選擇All content,然後就可
 按照[這篇文章](https://ivonblog.com/posts/build-a-website-with-hugo/)的步驟設置Hugo網站，直到出現
 http://localhost:1313。
 
-![hugonewsite](/images/hugonewsite.png)
+![](/images/hugonewsite.png)
 
 可以先不要安裝自己喜歡的theme，免得把問題複雜化。
 
@@ -106,4 +106,10 @@ http://localhost:1313。
 主要就是按照[指示](https://gohugo.io/hosting-and-deployment/hosting-on-github/)，新建文件``.github/workflows/hugo.yaml``,然後修改文件。
 
 ## 6.導入舊文章
+
+導入舊文章超級簡單，把md的文件複製到content/post文件夾，把image複製到statci/images文件夾，再git commit/push後就完成了。
+
+# 總結
+
+現在完全不用擔心網站備份的問題，現在每個commit都可以備份當下時間點的完整部落格，可以放心的折騰，大不了再reset到之前的commit就好了。真是太棒了。
 
