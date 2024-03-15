@@ -1,5 +1,5 @@
 ---
-title: "Abmonition"
+title: "Hugo網站Papermod主題下增加Abmonition"
 date: 2024-03-15T09:26:28+08:00
 lastmod: 2024-03-15T09:26:28+08:00
 author: ["Ariel"]
@@ -33,9 +33,23 @@ cover:
     relative: false
 ---
 
-# 參考資料：
+# 設置步驟
+
+1. 增加文件 assets/css/extended/admonition.css
+
+2. 增加文件 layouts/shortcodes/admonition.html
+
+code可參考[commit](https://github.com/wxy20850606/wxy20850606.github.io/commit/15b7060278e295c771f7180761333a475cccc006)
+
+# 參考資料
+
 - 大部分的code來自於kenshin2438.top 的 [commit](https://github.com/Kenshin2438/kenshin2438.top/commit/25887404d22c640d7cb62640e47435965add8f64)
+
 - [Admonitions for My Hugo Website](https://huanlin.cc/blog/2023/08/07/admonitions-for-hugo-website/)
+
+
+# 更多寫法
+如下更多寫法可參考[commit](https://github.com/wxy20850606/wxy20850606.github.io/commit/15b7060278e295c771f7180761333a475cccc006)裡的content/posts/blog/abmonition.md
 
 {{% admonition type=note title="This is a note" %}}
 It's not who you are underneath, it's what you do that defines you.
@@ -94,3 +108,5 @@ It's not who you are underneath, it's what you do that defines you.
 - test list
 {{% /admonition %}}
 
+# 文章裡使用
+![](/images/abmonition.png)
