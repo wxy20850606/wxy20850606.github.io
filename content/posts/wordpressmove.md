@@ -7,6 +7,10 @@ tags:
 - Blog
 # bookComments: false
 # bookSearchExclude: false
+cover:
+    image: "https://image.lvbibir.cn/blog/hugo-logo-wide.svg"
+    hidden: false
+    hiddenInSingle: false
 ---
 
 # 決定從Wordpress搬家的原因
@@ -42,11 +46,17 @@ Wordpress的Tools選單裡有Export，點Export，選擇All content,然後就可
 靜態網頁要發文，要把文章以Markdown語法寫成「原始碼」，之後讓靜態網頁生成器「編譯」成一頁頁的HTML頁面。
 所以要把舊博客里的文章變成.md結尾的文章
 
+
   #### 下載 wordpress-export-to-markdown 軟體包
-    mkdir oldpost  
-    cd oldpost
-    git clone https://github.com/lonekorean/wordpress-export-to-markdown
-    cd wordpress-export-to-markdown
+  ```shell
+  mkdir oldpost
+
+  cd oldpost
+
+  git clone https://github.com/lonekorean/wordpress-export-to-markdown
+
+  cd wordpress-export-to-markdown
+  ```
 
 ### 轉檔
 
@@ -99,8 +109,11 @@ http://localhost:1313。
     baseURL = 'https://wxy20850606.github.io/' 
     
 ### 將Hugo blog push到github
-     hugo server -D
-     git add . && git commit -m 'new hugo blog' -a && git push
+
+```shell
+hugo server -D
+git add . && git commit -m 'new hugo blog' -a && git push
+```
 
 ### 設置Github Pages，啟用Hugo blog
 主要就是按照[指示](https://gohugo.io/hosting-and-deployment/hosting-on-github/)，新建文件``.github/workflows/hugo.yaml``,然後修改文件。
