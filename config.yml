@@ -1,4 +1,4 @@
-baseURL: https://wxy20850606.github.io/ # 绑定的域名
+baseURL: https://everydaydiva.blog  #绑定的域名
 languageCode: zh # en-us
 title: Ariel's Blog
 theme: PaperMod  # 主题名字，和themes文件夹下的一致
