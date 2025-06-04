@@ -1,6 +1,6 @@
 baseURL: https://everydaydiva.blog  #绑定的域名
 languageCode: zh # en-us
-title: Ariel's Blog
+title: Everydaydiva's Blog
 theme: PaperMod  # 主题名字，和themes文件夹下的一致
 
 enableInlineShortcodes: true
@@ -91,8 +91,8 @@ params:
 
   profileMode:
     enabled: true
-    title: Ariel's Blog
-    subtitle: "学而时习之，不亦说乎？"
+    title: Everydaydiva's Blog
+    subtitle: "Keep improving!"
     imageUrl: "img/Q.gif"
     imageTitle:
     imageWidth: 150
@@ -105,15 +105,15 @@ params:
 
 
   socialIcons:
-    - name: github
-      url: "https://github.com/wxy20850606"
+    - name: youtube
+      url: "https://www.youtube.com/@everydaydiva-blog"
 
     - name: email
-      url: "mailto:wxy20850606@gmail.com"
+      url: "mailto:everydaydiva11@gmail.com"
 
 
   label: # 左上角图标
-    text: "Ariel's Blog"
+    text: "Everydaydiva's Blog"
     icon: 
     iconHeight: 35
 
