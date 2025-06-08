@@ -91,9 +91,8 @@ params:
 
   profileMode:
     enabled: true
-    title: Everydaydiva's Blog
-    subtitle: "Keep improving!"
-    imageUrl: "img/Q.gif"
+    title: Everydaydiva's Blog # subtitle: "Keep improving!"
+    imageUrl: "images/DSC08262"
     imageTitle:
     imageWidth: 150
     imageHeight: 150
@@ -123,11 +122,11 @@ params:
 
   assets:
     disableHLJS: true
-    favicon: "img/Q.gif"
-    favicon16x16: "img/Q.gif"
-    favicon32x32: "img/Q.gif"
-    apple_touch_icon: "img/Q.gif"
-    safari_pinned_tab: "img/Q.gif"
+    favicon: "images/DSC08262"
+    favicon16x16: "images/DSC08262"
+    favicon32x32: "images/DSC08262"
+    apple_touch_icon: "images/DSC08262"
+    safari_pinned_tab: "images/DSC08262"
     disableFingerprinting: true # 禁用指纹
 
   cover:
