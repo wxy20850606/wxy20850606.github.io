@@ -92,7 +92,7 @@ params:
   profileMode:
     enabled: true
     title: Everydaydiva's Blog # subtitle: "Keep improving!"
-    imageUrl: "images/DSC08262"
+    imageUrl: "/images/DSC08262.JPG" 
     imageTitle:
     imageWidth: 150
     imageHeight: 150
@@ -112,7 +112,7 @@ params:
 
 
   label: # 左上角图标
-    text: "Everydaydiva's Blog"
+    text: "Keep Improving"
     icon: 
     iconHeight: 35
 
@@ -122,11 +122,11 @@ params:
 
   assets:
     disableHLJS: true
-    favicon: "images/DSC08262"
-    favicon16x16: "images/DSC08262"
-    favicon32x32: "images/DSC08262"
-    apple_touch_icon: "images/DSC08262"
-    safari_pinned_tab: "images/DSC08262"
+    favicon: "/images/DSC08262.JPG"
+    favicon16x16: "/images/DSC08262.JPG"
+    favicon32x32: "/images/DSC08262.JPG"
+    apple_touch_icon: "/images/DSC08262.JPG"
+    safari_pinned_tab: "/images/DSC08262.JPG"
     disableFingerprinting: true # 禁用指纹
 
   cover:
