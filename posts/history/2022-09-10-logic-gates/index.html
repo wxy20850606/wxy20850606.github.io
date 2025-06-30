@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>從0和1開始造一台電腦1-邏輯門 | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="如何製造一台電腦">
+<meta name="description" content="在學習CS50wk0的時候有學到電腦最底層都是一堆的0和1，當時就產生一堆的好奇心。感嘆每天自己使用的電子產品竟然都是從0和1這麼簡單的開和關一步步構造出來的。 所以在看到Nand2tetris part1課程號稱從NAND邏輯閘開始造一台可以跑簡單程式的電腦時，沒多想就開始上課了。">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2022-09-10-logic-gates/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="從0和1開始造一台電腦1-邏輯門" />
+<meta property="og:description" content="在學習CS50wk0的時候有學到電腦最底層都是一堆的0和1，當時就產生一堆的好奇心。感嘆每天自己使用的電子產品竟然都是從0和1這麼簡單的開和關一步步構造出來的。 所以在看到Nand2tetris part1課程號稱從NAND邏輯閘開始造一台可以跑簡單程式的電腦時，沒多想就開始上課了。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2022-09-10-logic-gates/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-09-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-09-10T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="從0和1開始造一台電腦1-邏輯門"/>
+<meta name="twitter:description" content="在學習CS50wk0的時候有學到電腦最底層都是一堆的0和1，當時就產生一堆的好奇心。感嘆每天自己使用的電子產品竟然都是從0和1這麼簡單的開和關一步步構造出來的。 所以在看到Nand2tetris part1課程號稱從NAND邏輯閘開始造一台可以跑簡單程式的電腦時，沒多想就開始上課了。"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "從0和1開始造一台電腦1-邏輯門",
+      "item": "https://everydaydiva.blog/posts/history/2022-09-10-logic-gates/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "從0和1開始造一台電腦1-邏輯門",
+  "name": "從0和1開始造一台電腦1-邏輯門",
+  "description": "在學習CS50wk0的時候有學到電腦最底層都是一堆的0和1，當時就產生一堆的好奇心。感嘆每天自己使用的電子產品竟然都是從0和1這麼簡單的開和關一步步構造出來的。 所以在看到Nand2tetris part1課程號稱從NAND邏輯閘開始造一台可以跑簡單程式的電腦時，沒多想就開始上課了。",
+  "keywords": [
+    "如何製造一台電腦"
+  ],
+  "articleBody": "在學習CS50wk0的時候有學到電腦最底層都是一堆的0和1，當時就產生一堆的好奇心。感嘆每天自己使用的電子產品竟然都是從0和1這麼簡單的開和關一步步構造出來的。\n所以在看到Nand2tetris part1課程號稱從NAND邏輯閘開始造一台可以跑簡單程式的電腦時，沒多想就開始上課了。\n上完了前五章，我從一開始連Nor這種邏輯門都不能理解的人，看書然後跟著課程，慢慢從簡單的邏輯門開始，用模擬器構造出RAM/register/ALU，最後做出CPU。這個過程使用教授專門為了課程設計的硬體模擬語言HDL，在老師的指導下通過5週的作業做出了簡單的HACK電腦。不是真的連一堆電線，而是用模擬的方式學習背後的邏輯。\n我的感受就是：哇！太神奇了。造就了現在聯繫數十億人的有史以來的最大的人類網路，只是電流加上最簡單的開和關（0和1）。也感嘆電腦科學的抽象化通過將各個部分模塊化然後組合在一起，最後可以產生如此複雜的系統。\n雖然寫完作業做出電腦，但是心裡還是沒底，所以準備寫些文章總結下課程wk1-wk5所學，以提高學習留存率。\n以下是正文：\n電腦科學廣泛使用抽象化Abstraction的概念，把這門學科分為很多抽象層（Abstraction layer）。每一層關注自己的實作就可以了，把所有的底層知識當作理所當然。\n下圖是Nand2tetris 課程實作項目，可以看出分了很多層，每一個底層完成就封裝起來直接使用。像是很多補習班會開設JAVA班或者C++班，直接教授高階語言，學員學習3個月就可就業，不用深入學習此層以下其他的知識，就得益於電腦科學的抽象化，也可以說是分層化或模塊化。\n來源：Nand2tetris課程\n繼電器與邏輯門 上述層級最底層是由晶體管構建的邏輯門，而晶體管是建立在固態物理和量子理論基礎上的，理論深奧難理解。\n晶體管本質上是一種開關，它有兩個前輩：繼電器和真空管。1944 第一台電腦Harvard Mark1使用繼電器， 1946 第一台可編程電腦ENIAC使用真空管，1947貝爾實驗室發明晶體管後，科技進步然後形成現在一個指甲大小到芯片上有數十億個晶體管。\n我一開始學Nand2tetris課程看不懂邏輯門，然後看到CODE這本書，才發現用繼電器就可以幫助理解邏輯門後面的邏輯。\n繼電器是利用電磁鐵產生的磁力吸引開關的金屬條，來達到控制開關的目的。有電流通過電磁鐵，電磁鐵產生磁力，會吸下上方的開關金屬片，從而閉合開關。\n繼電器示意圖，source：CODE\n通過不同的方式連結繼電器就會製造出如下基本的的邏輯門。\n1）AND gate 與門，兩個開關都閉合，讓電磁鐵產生磁力吸引兩個開關的彈簧片，從而閉合電路，點亮燈泡。\n與門示意圖，source：CODE\n其中，V表示電源輸入，燈泡亮表示輸出為1，燈泡不亮表示輸出為0，下同。\n真值表：\nAnd01000101 2）NOT gate(inverter） 反向器，開關閉合會拉下上方的金屬彈簧片，導致電流斷開，燈泡熄滅。\nNOT gate示意圖，source：CODE\n真值表：\nNOT0110 3）OR gate 或門，有任意一個開關或者兩個都閉合，都可以接通電路。\nOR gate示意圖，source：CODE\n真值表：\nOR01001111 4)NOR gate 或非門，兩個開關都打開，電路才能通，如果有任一開關閉合，電磁鐵產生電流，會吸引上方的彈簧片，導致電路斷開。\nNOR gate示意圖，source：CODE\n真值表：\nNOR01010100 5）NAND gate 因為燈泡有兩個電源輸入，任一個電路連通都會點亮燈泡。\n此電路只有兩個輸入開關都閉合的情況下，才會導致燈泡熄滅。\nNAND gate示意圖，source：CODE\n真值表：\nNAND01011110 總結 所有的門都可以通過AND/OR/NOT來構造，也可以通過NAND來構造。比如:\nNOT(x)=(x)NAND(x)，NAND的兩個信號一樣，兩個開關為0，輸出為1，兩個開關為1輸出為0。 (x)AND(y)=NOT(x NAND y)，把NAND門反過來，就獲得AND門。 (x)OR(y)=(NOT x) NAND (NOT y)，把信號取反，然後在連NAND門，獲得OR門。 這也是Nand2tetris這門課名字的來由，老師提供NAND，學生用NAND門構造出NOT/AND/OR後，在運用這些基礎邏輯門構造出如下的邏輯門，然後在這些邏輯門的基礎上構建整個電腦體系。\nXor Mux DMux Not16 And16 Or16 Mux16 Or8Way Mux4Way16 Mux8Way16 DMux4Way DMux8Way 本文參考資料：\nCODE（The Hidden Language of Computer Hardware and Software)\nFrom Nand to Tetris課程\nCrash Course Compter Science視頻：\nhttps://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo\n",
+  "wordCount" : "1751",
+  "inLanguage": "zh",
+  "datePublished": "2022-09-10T00:00:00Z",
+  "dateModified": "2022-09-10T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2022-09-10-logic-gates/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      從0和1開始造一台電腦1-邏輯門
+    </h1>
+    <div class="post-meta"><span title='2022-09-10 00:00:00 +0000 UTC'>2022-09-10</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e7%b9%bc%e9%9b%bb%e5%99%a8%e8%88%87%e9%82%8f%e8%bc%af%e9%96%80" aria-label="繼電器與邏輯門">繼電器與邏輯門</a><ul>
+                            
+                    <li>
+                        <a href="#1and-gate" aria-label="1）AND gate">1）AND gate</a></li>
+                    <li>
+                        <a href="#2not-gateinverter" aria-label="2）NOT gate(inverter）">2）NOT gate(inverter）</a></li>
+                    <li>
+                        <a href="#3or-gate" aria-label="3）OR gate">3）OR gate</a></li>
+                    <li>
+                        <a href="#4nor-gate" aria-label="4)NOR gate">4)NOR gate</a></li>
+                    <li>
+                        <a href="#5nand-gate" aria-label="5）NAND gate">5）NAND gate</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e7%b8%bd%e7%b5%90" aria-label="總結">總結</a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p>在學習CS50wk0的時候有學到電腦最底層都是一堆的0和1，當時就產生一堆的好奇心。感嘆每天自己使用的電子產品竟然都是從0和1這麼簡單的開和關一步步構造出來的。</p>
+<p>所以在看到Nand2tetris part1課程號稱從NAND邏輯閘開始造一台可以跑簡單程式的電腦時，沒多想就開始上課了。</p>
+<p>上完了前五章，我從一開始連Nor這種邏輯門都不能理解的人，看書然後跟著課程，慢慢從簡單的邏輯門開始，用模擬器構造出RAM/register/ALU，最後做出CPU。這個過程使用教授專門為了課程設計的硬體模擬語言HDL，在老師的指導下通過5週的作業做出了簡單的HACK電腦。不是真的連一堆電線，而是用模擬的方式學習背後的邏輯。</p>
+<p>我的感受就是：哇！太神奇了。造就了現在聯繫數十億人的有史以來的最大的人類網路，只是電流加上最簡單的開和關（0和1）。也感嘆電腦科學的抽象化通過將各個部分模塊化然後組合在一起，最後可以產生如此複雜的系統。</p>
+<p>雖然寫完作業做出電腦，但是心裡還是沒底，所以準備寫些文章總結下課程wk1-wk5所學，以提高學習留存率。</p>
+<p>以下是正文：</p>
+<p>電腦科學廣泛使用<a href="https://zh.m.wikipedia.org/zh/%e6%8a%bd%e8%b1%a1%e5%8c%96_%28%e8%a8%88%e7%ae%97%e6%a9%9f%e7%a7%91%e5%ad%b8%29" target="_blank" rel="noopener" style="color:#42b983";>抽象化</a>Abstraction的概念，把這門學科分為很多<a href="https://zh.m.wikipedia.org/wiki/%E6%8A%BD%E8%B1%A1%E5%B1%A4" target="_blank" rel="noopener" style="color:#42b983";>抽象層</a>（Abstraction layer）。每一層關注自己的實作就可以了，把所有的底層知識當作理所當然。</p>
+<p>下圖是Nand2tetris 課程實作項目，可以看出分了很多層，每一個底層完成就封裝起來直接使用。像是很多補習班會開設JAVA班或者C++班，直接教授高階語言，學員學習3個月就可就業，不用深入學習此層以下其他的知識，就得益於電腦科學的抽象化，也可以說是分層化或模塊化。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2022-09-10-at-7.55.51-AM-1024x588.png" alt=""  />
+</p>
+<p>來源：Nand2tetris課程</p>
+<h2 id="繼電器與邏輯門">繼電器與邏輯門<a hidden class="anchor" aria-hidden="true" href="#繼電器與邏輯門">#</a></h2>
+<p>上述層級最底層是由晶體管構建的邏輯門，而晶體管是建立在固態物理和量子理論基礎上的，理論深奧難理解。</p>
+<p>晶體管本質上是一種開關，它有兩個前輩：繼電器和真空管。1944 第一台電腦Harvard Mark1使用繼電器， 1946 第一台可編程電腦ENIAC使用真空管，1947貝爾實驗室發明晶體管後，科技進步然後形成現在一個指甲大小到芯片上有數十億個晶體管。</p>
+<p>我一開始學Nand2tetris課程看不懂邏輯門，然後看到CODE這本書，才發現用繼電器就可以幫助理解邏輯門後面的邏輯。</p>
+<p>繼電器是利用電磁鐵產生的磁力吸引開關的金屬條，來達到控制開關的目的。有電流通過電磁鐵，電磁鐵產生磁力，會吸下上方的開關金屬片，從而閉合開關。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2022-09-10-at-7.23.06-AM-300x203.png" alt=""  />
+</p>
+<p>繼電器示意圖，source：CODE</p>
+<p>通過不同的方式連結繼電器就會製造出如下基本的的邏輯門。</p>
+<h3 id="1and-gate">1）AND gate<a hidden class="anchor" aria-hidden="true" href="#1and-gate">#</a></h3>
+<p>與門，兩個開關都閉合，讓電磁鐵產生磁力吸引兩個開關的彈簧片，從而閉合電路，點亮燈泡。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2022-09-10-at-7.20.10-AM-300x280.png" alt=""  />
+</p>
+<p>與門示意圖，source：CODE</p>
+<p>其中，V表示電源輸入，燈泡亮表示輸出為1，燈泡不亮表示輸出為0，下同。</p>
+<p>真值表：</p>
+<table class="has-fixed-layout"><tbody><tr><td>And</td><td>0</td><td>1</td></tr><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>1</td><td>0</td><td>1</td></tr></tbody></table>
+<h3 id="2not-gateinverter">2）NOT gate(inverter）<a hidden class="anchor" aria-hidden="true" href="#2not-gateinverter">#</a></h3>
+<p>反向器，開關閉合會拉下上方的金屬彈簧片，導致電流斷開，燈泡熄滅。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2022-09-10-at-7.32.26-AM.png" alt=""  />
+</p>
+<p>NOT gate示意圖，source：CODE</p>
+<p>真值表：</p>
+<table class="has-fixed-layout"><tbody><tr><td>NOT</td><td></td></tr><tr><td>0</td><td>1</td></tr><tr><td>1</td><td>0</td></tr></tbody></table>
+<h3 id="3or-gate">3）OR gate<a hidden class="anchor" aria-hidden="true" href="#3or-gate">#</a></h3>
+<p>或門，有任意一個開關或者兩個都閉合，都可以接通電路。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2022-09-10-at-7.36.59-AM.png" alt=""  />
+</p>
+<p>OR gate示意圖，source：CODE</p>
+<p>真值表：</p>
+<table class="has-fixed-layout"><tbody><tr><td>OR</td><td>0</td><td>1</td></tr><tr><td>0</td><td>0</td><td>1</td></tr><tr><td>1</td><td>1</td><td>1</td></tr></tbody></table>
+<h3 id="4nor-gate">4)NOR gate<a hidden class="anchor" aria-hidden="true" href="#4nor-gate">#</a></h3>
+<p>或非門，兩個開關都打開，電路才能通，如果有任一開關閉合，電磁鐵產生電流，會吸引上方的彈簧片，導致電路斷開。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2022-09-10-at-8.02.58-AM.png" alt=""  />
+</p>
+<p>NOR gate示意圖，source：CODE</p>
+<p>真值表：</p>
+<table><tbody><tr><td>NOR</td><td>0</td><td>1</td></tr><tr><td>0</td><td>1</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td></tr></tbody></table>
+<h3 id="5nand-gate">5）NAND gate<a hidden class="anchor" aria-hidden="true" href="#5nand-gate">#</a></h3>
+<p>因為燈泡有兩個電源輸入，任一個電路連通都會點亮燈泡。</p>
+<p>此電路只有兩個輸入開關都閉合的情況下，才會導致燈泡熄滅。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2022-09-10-at-8.07.17-AM.png" alt=""  />
+</p>
+<p>NAND gate示意圖，source：CODE</p>
+<p>真值表：</p>
+<table><tbody><tr><td>NAND</td><td>0</td><td>1</td></tr><tr><td>0</td><td>1</td><td>1</td></tr><tr><td>1</td><td>1</td><td>0</td></tr></tbody></table>
+<h2 id="總結">總結<a hidden class="anchor" aria-hidden="true" href="#總結">#</a></h2>
+<p>所有的門都可以通過AND/OR/NOT來構造，也可以通過NAND來構造。比如:</p>
+<ul>
+<li>NOT(x)=(x)NAND(x)，NAND的兩個信號一樣，兩個開關為0，輸出為1，兩個開關為1輸出為0。</li>
+<li>(x)AND(y)=NOT(x NAND y)，把NAND門反過來，就獲得AND門。</li>
+<li>(x)OR(y)=(NOT x) NAND (NOT y)，把信號取反，然後在連NAND門，獲得OR門。</li>
+</ul>
+<p>這也是Nand2tetris這門課名字的來由，老師提供NAND，學生用NAND門構造出NOT/AND/OR後，在運用這些基礎邏輯門構造出如下的邏輯門，然後在這些邏輯門的基礎上構建整個電腦體系。</p>
+<ul>
+<li>Xor</li>
+<li>Mux</li>
+<li>DMux</li>
+<li>Not16</li>
+<li>And16</li>
+<li>Or16</li>
+<li>Mux16</li>
+<li>Or8Way</li>
+<li>Mux4Way16</li>
+<li>Mux8Way16</li>
+<li>DMux4Way</li>
+<li>DMux8Way</li>
+</ul>
+<p>本文參考資料：</p>
+<p><a href="https://bobcarp.files.wordpress.com/2014/07/code-charles-petzold.pdf" target="_blank" rel="noopener" style="color:#42b983";>CODE（The Hidden Language of Computer Hardware and Software)</a></p>
+<p><a href="https://www.nand2tetris.org/" target="_blank" rel="noopener" style="color:#42b983";>From Nand to Tetris</a>課程</p>
+<p>Crash Course Compter Science視頻：</p>
+<p><a href="https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo" target="_blank" rel="noopener" style="color:#42b983";>https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo</a></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/nandtotetris/">NandToTetris</a></li>
+      <li><a href="https://everydaydiva.blog/tags/%E9%9B%BB%E8%85%A6%E9%AB%94%E7%B3%BB/">電腦體系</a></li>
+      <li><a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">CS自學</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/history/2022-09-12-2s-complement-adder-adder/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>從0和1開始造一台電腦2-電腦如何運算/2補數/加法器/ALU</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2022-07-09-cs50-wk9-flask/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>CS50 wk9 Flask學習和Finance作業心得</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2022-09-10 00:00:00 +0000 UTC'>2022-09-10</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/nandtotetris/">NandToTetris</a>
+    <a href="https://everydaydiva.blog/tags/%E9%9B%BB%E8%85%A6%E9%AB%94%E7%B3%BB/">、電腦體系</a>
+    <a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">、CS自學</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

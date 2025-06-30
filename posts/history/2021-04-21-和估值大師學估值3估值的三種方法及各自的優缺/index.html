@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>和估值大師學估值3，估值的三種方法及各自的優缺點 | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="投資學習">
+<meta name="description" content="注：本文是學習估值大师Prof. Aswath Damodaran（達摩德仁教授）估值課程的學習筆記。附視頻鏈接和相關資料（Session2&amp;3）。 三種估值方法簡介： 1.Intrinsic valuation內含價值估值法 基於現金流、增長和風險三要素來做現金流折現取得現在股票的價值。 2.Relative valuation/P">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2021-04-21-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%AB%E5%AD%B8%E4%BC%B0%E5%80%BC3%E4%BC%B0%E5%80%BC%E7%9A%84%E4%B8%89%E7%A8%AE%E6%96%B9%E6%B3%95%E5%8F%8A%E5%90%84%E8%87%AA%E7%9A%84%E5%84%AA%E7%BC%BA/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="和估值大師學估值3，估值的三種方法及各自的優缺點" />
+<meta property="og:description" content="注：本文是學習估值大师Prof. Aswath Damodaran（達摩德仁教授）估值課程的學習筆記。附視頻鏈接和相關資料（Session2&amp;3）。 三種估值方法簡介： 1.Intrinsic valuation內含價值估值法 基於現金流、增長和風險三要素來做現金流折現取得現在股票的價值。 2.Relative valuation/P" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2021-04-21-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%AB%E5%AD%B8%E4%BC%B0%E5%80%BC3%E4%BC%B0%E5%80%BC%E7%9A%84%E4%B8%89%E7%A8%AE%E6%96%B9%E6%B3%95%E5%8F%8A%E5%90%84%E8%87%AA%E7%9A%84%E5%84%AA%E7%BC%BA/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-04-21T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="和估值大師學估值3，估值的三種方法及各自的優缺點"/>
+<meta name="twitter:description" content="注：本文是學習估值大师Prof. Aswath Damodaran（達摩德仁教授）估值課程的學習筆記。附視頻鏈接和相關資料（Session2&amp;3）。 三種估值方法簡介： 1.Intrinsic valuation內含價值估值法 基於現金流、增長和風險三要素來做現金流折現取得現在股票的價值。 2.Relative valuation/P"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "和估值大師學估值3，估值的三種方法及各自的優缺點",
+      "item": "https://everydaydiva.blog/posts/history/2021-04-21-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%AB%E5%AD%B8%E4%BC%B0%E5%80%BC3%E4%BC%B0%E5%80%BC%E7%9A%84%E4%B8%89%E7%A8%AE%E6%96%B9%E6%B3%95%E5%8F%8A%E5%90%84%E8%87%AA%E7%9A%84%E5%84%AA%E7%BC%BA/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "和估值大師學估值3，估值的三種方法及各自的優缺點",
+  "name": "和估值大師學估值3，估值的三種方法及各自的優缺點",
+  "description": "注：本文是學習估值大师Prof. Aswath Damodaran（達摩德仁教授）估值課程的學習筆記。附視頻鏈接和相關資料（Session2\u0026amp;3）。 三種估值方法簡介： 1.Intrinsic valuation內含價值估值法 基於現金流、增長和風險三要素來做現金流折現取得現在股票的價值。 2.Relative valuation/P",
+  "keywords": [
+    "投資學習"
+  ],
+  "articleBody": "注：本文是學習估值大师Prof. Aswath Damodaran（達摩德仁教授）估值課程的學習筆記。附視頻鏈接和相關資料（Session2\u00263）。\n三種估值方法簡介：\n1.Intrinsic valuation內含價值估值法\n基於現金流、增長和風險三要素來做現金流折現取得現在股票的價值。\n2.Relative valuation/Pricing相對價值估值法\n和市場上其他相似資產進行比較，找到相對比較便宜的標的。\n3.Contigent claim(or real option) valuation或有求償權估值法\n評估只有在特定情況發生了才可以獲取現金流，怎麼去估值。\nIntrinsic valuation內含價值估值-DCF 企業的內含價值，是通過現金流折現法（DCF，Discounted Cash Flow Valuation）來估計的。\n1.DCF現金流折現法是什麼\n現金流折現法是指企業的內含價值是其未來可以創造的現金流按照一定的風險折現到今天的價值總和。\n2.現金流折現法估值步驟\n1）預估資產的壽命\n2）計算預期壽命裡的現金流\n3）用折現率提醒資產的風險\n3.現金流折現法作用機制\n1）市場不是一直有效的\n2）發現這些低估的股票\n3）時間（讓市場修正其錯誤），時間越長，市場越有時間糾正其錯誤。\n4.DCF估值法優點：\n比較不受市場先生的情緒干擾 巴菲特唯一著作巴菲特寫個股東的信裡說：不要把股票投資僅僅看作是股票投資，而是擁有某項事業一部分的股權，是事業投資。\n如果真的當成事業投資，就必須估算這個事業的價值，所以巴菲特常常強調Intrinsic value。\n現金流折現法是從公司的基本面來考慮，公司的基本面即事業本身的波動性不像股票上的價格上下波動那麼劇烈。比如台積電最近一年股票上漲100%，台積電收益的年增長率沒有上漲100%。\n更詳細的了解公司 跟單純的比較一些財務指標相比，現金流折現法需要更多的基本面考慮，會被迫更詳細的研究公司。\n會變成長期持有。 因為使用現金流折現法的人都是相信公司的價值是其未來現金流的折現，而慢慢的等待價格回歸價值，這需要時間。\n5.DCF估值法缺點：\n1）更費時間。\n估值被包裝的很專業很複雜，一般人很難用現金流折現估值，我自己投資了3年多，也從未使用過，因為不會。\n即使會了，也需要耗費很多的時間。\n2）很多環節有可能出錯。\n估算折現率、估算現金流、統計基本數據等等都有可能出錯，犯錯不可避免。\n3）沒公司可買。\n巴菲特就是一個例子，1969年巴菲特解散了自己的投資基金，原因之一就是市場高估，沒什麼好買的。\n6.DCF比較適合誰？\n1）長期投資者\n因為低估的股票需要給市場時間讓其糾正錯誤。\n影響投資期限的因素很多，比如個性是不是很有耐心，比如有沒有急著用錢。\n多數的共同基金都沒有長期的視野，因為後面的投資者都比較看中短期的收益。比如我的朋友，她去年買的基金虧錢了，她今年馬上換理專換基金。\n巴菲特之所以可以保持長期視野是因為他是用Geico的保險浮存金投資，而不是共同基金投資人的資金。\n2）不從眾的投資者\n如果你在幼稚園的時候，所有的小孩都玩蕩鞦韆，就你去玩溜滑梯，那你就非常適合內在價值投資。\n如果你常常是最不合群的那個人，你就非常適合DCF。\n巴菲特的名言：別人恐懼我貪婪，別人貪婪我恐懼。\n內在價值投資者不會在大家都蜂擁追逐的時候購買，因為這個時候其股票價格往往會高估。而是在價格低估幾乎無人問津的時候才買。\n相對價值估值法-Pricing 1.相對價值估值法是什麼？\n用市場上其他相似產品的價格來評估資產。\n2.相對價值估值法估值步驟\n1）找到相似的資產，越相似越好。\n2）把價格換算成可以比較各種資產的標準化指標。比如PE,Price to book,EV/EBITDA等。\n3）當資產沒有那麼相似時，需要再次調整資產的價格。\n3.相對價值估值法優點：\n1）與市場共舞\n不同於價值投資是孤獨的，相對估值法是熱鬧的，與市場同步。\n2）隨時都有低估的股票可以購買\n因為相對來說，總有更便宜的，比如台積電PE30，英特爾PE10,英特爾相對來說很便宜。\n對於那些基金經理來說，用相對價值估值法就不用擔心沒有標的可以購買。\n3）更簡單\n5.相對價值估值法缺點：\n1）有可能高估。\n相對估值，意思是相對便宜，不是絕對便宜。尤其在全市場都高估的時候，任何相對低估的股票，其實有可能都大大超過了其內在價值。\n2）相對價值估值法是假設市場總體有效，只有在個別股票上無效。\n如果市場總體的被高估或者被低估，相對價值估值法就會有很大的風險。\n6.相對價值估值法比較適合誰\n1）短期投資者\n相對價值低估很容易被發現，低估的價格也可以在更短的時間內回歸價值。\n如果你的投資期限在6個月以內，甚至1年以內，可以用相對價值估值法。\n2）做多和做空的投資者\n內在價值投資者一般只會做多不會做空。但是相對價值投資者看到高估的股票可以做空。\nContigent claim(or real option) valuation或有求償權估值法 1.是什麼？\n收益是不確定性的，只有在某些前提條件發生的情況下才能獲得收益，研究這種事業的估值方法就是或有求償權估值法。\nOption（選擇權）和其他資產相比，最大的特點是損失是有限，但是收益是無限的。\n比如疫苗公司投入疫苗研究，有可能成功也有可能失敗，只有在成功了的條件下才可以獲得現金流量。那前兩種估值方法都沒辦法估值，只能用或有求償權估值法。\n比如醫藥公司的藥品等待審批，只有審批通過，才可以帶來現金流量。\n比如石油公司投入大筆經費開採石油，只有開採成功且價格低於市價才可以獲利。\n達摩德仁教授認為Contigent claim valuation只是內含價值估值法的Add-on，即外掛。\n2.優點:\n可以估算內含價值估值法和相對價值估值法都無法估計的公司。\n提供另外一種視野。\n比如Fackbook大家庭的成員之一Whatsapp，一直沒有商業化，這就是一種選擇權。如果你相信Fackbook最後可以找到辦法商業化Whatsapp的話，在估內含價值的時候，就會把這個部分也考慮進去。\n3.缺點\n1）很難，很多數據很難找。\n比如怎么预估一个专利通过了可以帶來多少收益就很難。\n2）或有求償權是標的資產延伸出來的價值，在做或有求償權估值法的時候，需要先估計公司的價值，然後再估或有求償權，然後再加總。\n3）有重複計算的風險。\n比如在估醫療公司的價值的時候，有一項潛在的專利等待批准，這時候做現金流折現法是有可能預估了更高的增長率（假設專利獲批）然後又再加上或有求償權也就是專利獲批帶來的收益，這樣就重複計算了。\n總結 有三種估值方法：內含價值估值法，相對價值估值法，或有求償權估值法。\n達摩德仁教授並沒有推薦哪一種，而是建議每個人根據自己的喜好找到適合自己的估值方法。\n注：本站所有學習達摩德仁教授課程的心得文章均已獲達摩德仁教授授權。\n",
+  "wordCount" : "2665",
+  "inLanguage": "zh",
+  "datePublished": "2021-04-21T00:00:00Z",
+  "dateModified": "2021-04-21T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2021-04-21-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%AB%E5%AD%B8%E4%BC%B0%E5%80%BC3%E4%BC%B0%E5%80%BC%E7%9A%84%E4%B8%89%E7%A8%AE%E6%96%B9%E6%B3%95%E5%8F%8A%E5%90%84%E8%87%AA%E7%9A%84%E5%84%AA%E7%BC%BA/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      和估值大師學估值3，估值的三種方法及各自的優缺點
+    </h1>
+    <div class="post-meta"><span title='2021-04-21 00:00:00 +0000 UTC'>2021-04-21</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#intrinsic-valuation%e5%85%a7%e5%90%ab%e5%83%b9%e5%80%bc%e4%bc%b0%e5%80%bc-dcf" aria-label="Intrinsic valuation內含價值估值-DCF">Intrinsic valuation內含價值估值-DCF</a></li>
+                    <li>
+                        <a href="#%e7%9b%b8%e5%b0%8d%e5%83%b9%e5%80%bc%e4%bc%b0%e5%80%bc%e6%b3%95-pricing" aria-label="相對價值估值法-Pricing"><strong>相對價值估值法-Pricing</strong></a></li>
+                    <li>
+                        <a href="#contigent-claimor-real-option-valuation%e6%88%96%e6%9c%89%e6%b1%82%e5%84%9f%e6%ac%8a%e4%bc%b0%e5%80%bc%e6%b3%95" aria-label="Contigent claim(or real option) valuation或有求償權估值法">Contigent claim(or real option) valuation<strong>或有求償權估值法</strong></a></li>
+                    <li>
+                        <a href="#%e7%b8%bd%e7%b5%90" aria-label="總結"><strong>總結</strong></a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p>注：本文是學習估值大师Prof. Aswath Damodaran（達摩德仁教授）估值課程的學習筆記。附<a href="https://www.youtube.com/watch?v=oi6M5KBWydg&amp;list=PLUkh9m2BorqlJsEfix7R9jtSXClFZhGvC" target="_blank" rel="noopener" style="color:#42b983";>視頻鏈接</a>和<a href="http://pages.stern.nyu.edu/~adamodar/" target="_blank" rel="noopener" style="color:#42b983";>相關資料</a>（Session2&amp;3）。</p>
+<p>三種估值方法簡介：</p>
+<p><strong>1.Intrinsic valuation內含價值估值法</strong></p>
+<p>基於現金流、增長和風險三要素來做現金流折現取得現在股票的價值。</p>
+<p><strong>2.Relative valuation/Pricing相對價值估值法</strong></p>
+<p>和市場上其他相似資產進行比較，找到相對比較便宜的標的。</p>
+<p><strong>3.Contigent claim(or real option) valuation或有求償權估值法</strong></p>
+<p>評估只有在特定情況發生了才可以獲取現金流，怎麼去估值。</p>
+<h2 id="intrinsic-valuation內含價值估值-dcf">Intrinsic valuation內含價值估值-DCF<a hidden class="anchor" aria-hidden="true" href="#intrinsic-valuation內含價值估值-dcf">#</a></h2>
+<p>企業的內含價值，是通過現金流折現法（DCF，Discounted Cash Flow Valuation）來估計的。</p>
+<p><strong>1.DCF現金流折現法是什麼</strong></p>
+<p>現金流折現法是指企業的內含價值是其未來可以創造的現金流按照一定的風險折現到今天的價值總和。</p>
+<p><strong>2.現金流折現法估值步驟</strong></p>
+<p>1）預估資產的壽命</p>
+<p>2）計算預期壽命裡的現金流</p>
+<p>3）用折現率提醒資產的風險</p>
+<p><strong>3.現金流折現法作用機制</strong></p>
+<p>1）市場不是一直有效的</p>
+<p>2）發現這些低估的股票</p>
+<p>3）時間（讓市場修正其錯誤），時間越長，市場越有時間糾正其錯誤。</p>
+<p><strong>4.DCF估值法優點：</strong></p>
+<ol>
+<li>比較不受市場先生的情緒干擾</li>
+</ol>
+<p>巴菲特唯一著作<a href="https://fulltimemammy.com/%e3%80%8a%e5%b7%b4%e8%8f%b2%e7%89%b9%e5%af%ab%e7%b5%a6%e8%82%a1%e6%9d%b1%e7%9a%84%e4%bf%a1%e3%80%8b-%e8%ae%80%e6%9b%b8%e6%91%98%e8%a6%81%e8%88%87%e5%bf%83%e5%be%97/" target="_blank" rel="noopener" style="color:#42b983";>巴菲特寫個股東的信</a>裡說：不要把股票投資僅僅看作是股票投資，而是擁有某項事業一部分的股權，是事業投資。</p>
+<p>如果真的當成事業投資，就必須估算這個事業的價值，所以巴菲特常常強調Intrinsic value。</p>
+<p>現金流折現法是從公司的基本面來考慮，公司的基本面即事業本身的波動性不像股票上的價格上下波動那麼劇烈。比如台積電最近一年股票上漲100%，台積電收益的年增長率沒有上漲100%。</p>
+<ol start="2">
+<li>更詳細的了解公司</li>
+</ol>
+<p>跟單純的比較一些財務指標相比，現金流折現法需要更多的基本面考慮，會被迫更詳細的研究公司。</p>
+<ol start="3">
+<li>會變成長期持有。</li>
+</ol>
+<p>因為使用現金流折現法的人都是相信公司的價值是其未來現金流的折現，而慢慢的等待價格回歸價值，這需要時間。</p>
+<p><strong>5.DCF估值法缺點：</strong></p>
+<p>1）更費時間。</p>
+<p>估值被包裝的很專業很複雜，一般人很難用現金流折現估值，我自己投資了3年多，也從未使用過，因為不會。</p>
+<p>即使會了，也需要耗費很多的時間。</p>
+<p>2）很多環節有可能出錯。</p>
+<p>估算折現率、估算現金流、統計基本數據等等都有可能出錯，犯錯不可避免。</p>
+<p>3）沒公司可買。</p>
+<p>巴菲特就是一個例子，1969年巴菲特解散了自己的投資基金，原因之一就是市場高估，沒什麼好買的。</p>
+<p><strong>6.DCF比較適合誰？</strong></p>
+<p><strong>1）長期投資者</strong></p>
+<p>因為低估的股票需要給市場時間讓其糾正錯誤。</p>
+<p>影響投資期限的因素很多，比如個性是不是很有耐心，比如有沒有急著用錢。</p>
+<p>多數的共同基金都沒有長期的視野，因為後面的投資者都比較看中短期的收益。比如我的朋友，她去年買的基金虧錢了，她今年馬上換理專換基金。</p>
+<p>巴菲特之所以可以保持長期視野是因為他是用Geico的保險浮存金投資，而不是共同基金投資人的資金。</p>
+<p><strong>2）不從眾的投資者</strong></p>
+<p>如果你在幼稚園的時候，所有的小孩都玩蕩鞦韆，就你去玩溜滑梯，那你就非常適合內在價值投資。</p>
+<p>如果你常常是最不合群的那個人，你就非常適合DCF。</p>
+<p>巴菲特的名言：別人恐懼我貪婪，別人貪婪我恐懼。</p>
+<p>內在價值投資者不會在大家都蜂擁追逐的時候購買，因為這個時候其股票價格往往會高估。而是在價格低估幾乎無人問津的時候才買。</p>
+<h2 id="相對價值估值法-pricing"><strong>相對價值估值法-Pricing</strong><a hidden class="anchor" aria-hidden="true" href="#相對價值估值法-pricing">#</a></h2>
+<p><strong>1.相對價值估值法是什麼？</strong></p>
+<p>用市場上其他相似產品的價格來評估資產。</p>
+<p><strong>2.相對價值估值法估值步驟</strong></p>
+<p>1）找到相似的資產，越相似越好。</p>
+<p>2）把價格換算成可以比較各種資產的標準化指標。比如PE,Price to book,EV/EBITDA等。</p>
+<p>3）當資產沒有那麼相似時，需要再次調整資產的價格。</p>
+<p><strong>3.相對價值估值法優點：</strong></p>
+<p>1）與市場共舞</p>
+<p>不同於價值投資是孤獨的，相對估值法是熱鬧的，與市場同步。</p>
+<p>2）隨時都有低估的股票可以購買</p>
+<p>因為相對來說，總有更便宜的，比如台積電PE30，英特爾PE10,英特爾相對來說很便宜。</p>
+<p>對於那些基金經理來說，用相對價值估值法就不用擔心沒有標的可以購買。</p>
+<p>3）更簡單</p>
+<p><strong>5.相對價值估值法缺點：</strong></p>
+<p>1）有可能高估。</p>
+<p>相對估值，意思是相對便宜，不是絕對便宜。尤其在全市場都高估的時候，任何相對低估的股票，其實有可能都大大超過了其內在價值。</p>
+<p>2）相對價值估值法是假設市場總體有效，只有在個別股票上無效。</p>
+<p>如果市場總體的被高估或者被低估，相對價值估值法就會有很大的風險。</p>
+<p><strong>6.相對價值估值法比較適合誰</strong></p>
+<p>1）短期投資者</p>
+<p>相對價值低估很容易被發現，低估的價格也可以在更短的時間內回歸價值。</p>
+<p>如果你的投資期限在6個月以內，甚至1年以內，可以用相對價值估值法。</p>
+<p>2）做多和做空的投資者</p>
+<p>內在價值投資者一般只會做多不會做空。但是相對價值投資者看到高估的股票可以做空。</p>
+<h2 id="contigent-claimor-real-option-valuation或有求償權估值法">Contigent claim(or real option) valuation<strong>或有求償權估值法</strong><a hidden class="anchor" aria-hidden="true" href="#contigent-claimor-real-option-valuation或有求償權估值法">#</a></h2>
+<p><strong>1.是什麼？</strong></p>
+<p>收益是不確定性的，只有在某些前提條件發生的情況下才能獲得收益，研究這種事業的估值方法就是<strong>或有求償權估值法</strong>。</p>
+<p>Option（選擇權）和其他資產相比，最大的特點是損失是有限，但是收益是無限的。</p>
+<p>比如疫苗公司投入疫苗研究，有可能成功也有可能失敗，只有在成功了的條件下才可以獲得現金流量。那前兩種估值方法都沒辦法估值，只能用或有求償權估值法。</p>
+<p>比如醫藥公司的藥品等待審批，只有審批通過，才可以帶來現金流量。</p>
+<p>比如石油公司投入大筆經費開採石油，只有開採成功且價格低於市價才可以獲利。</p>
+<p>達摩德仁教授認為Contigent claim valuation只是內含價值估值法的Add-on，即外掛。</p>
+<p><strong>2.優點:</strong></p>
+<ul>
+<li>
+<p>可以估算內含價值估值法和相對價值估值法都無法估計的公司。</p>
+</li>
+<li>
+<p>提供另外一種視野。</p>
+</li>
+</ul>
+<p>比如Fackbook大家庭的成員之一Whatsapp，一直沒有商業化，這就是一種選擇權。如果你相信Fackbook最後可以找到辦法商業化Whatsapp的話，在估內含價值的時候，就會把這個部分也考慮進去。</p>
+<p><strong>3.缺點</strong></p>
+<p>1）很難，很多數據很難找。</p>
+<p>比如怎么预估一个专利通过了可以帶來多少收益就很難。</p>
+<p>2）或有求償權是標的資產延伸出來的價值，在做或有求償權估值法的時候，需要先估計公司的價值，然後再估或有求償權，然後再加總。</p>
+<p>3）有重複計算的風險。</p>
+<p>比如在估醫療公司的價值的時候，有一項潛在的專利等待批准，這時候做現金流折現法是有可能預估了更高的增長率（假設專利獲批）然後又再加上或有求償權也就是專利獲批帶來的收益，這樣就重複計算了。</p>
+<h2 id="總結"><strong>總結</strong><a hidden class="anchor" aria-hidden="true" href="#總結">#</a></h2>
+<p>有三種估值方法：內含價值估值法，相對價值估值法，或有求償權估值法。</p>
+<p>達摩德仁教授並沒有推薦哪一種，而是建議每個人根據自己的喜好找到適合自己的估值方法。</p>
+<p>注：本站所有學習達摩德仁教授課程的心得文章均已獲達摩德仁教授授權。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/%E6%8A%95%E8%B3%87%E5%AD%B8%E7%BF%92/">投資學習</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/history/2021-04-24-%E5%9F%BA%E9%9A%86%E8%A6%AA%E5%AD%90%E9%81%8A%E4%B9%8B%E5%A4%AA%E5%B9%B3%E5%B3%B6%E6%B5%B7%E9%82%8A%E7%8E%A9%E6%B2%99%E7%8E%A9%E6%B0%B4/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>基隆親子遊之太平島海邊玩沙玩水</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2021-04-19-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%AB%E5%AD%B8%E4%BC%B0%E5%80%BC2%E4%BC%B0%E5%80%BC%E4%B8%89%E5%A4%A7%E5%B1%80%E9%99%90%E5%92%8C%E6%8C%91%E6%88%B0%E5%81%8F%E8%A6%8B/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>和估值大師學估值2：估值三大局限和挑戰：偏見、不確定性、複雜性</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2021-04-21 00:00:00 +0000 UTC'>2021-04-21</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/%E6%8A%95%E8%B3%87%E5%AD%B8%E7%BF%92/">投資學習</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>會計 on Everydaydiva&#39;s Blog</title>
+    <link>https://everydaydiva.blog/categories/%E6%9C%83%E8%A8%88/</link>
+    <description>Recent content in 會計 on Everydaydiva&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 11 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://everydaydiva.blog/categories/%E6%9C%83%E8%A8%88/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>各種資產報酬率學習，ROE,ROC/ROIC,ROA,Cash Flow ROIC(CFROI)</title>
+      <link>https://everydaydiva.blog/posts/history/2021-06-11-roeroc-roicroacash-flow-roiccfroi/</link>
+      <pubDate>Fri, 11 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2021-06-11-roeroc-roicroacash-flow-roiccfroi/</guid>
+      <description>註：本文主要參考估值大師Aswath Damodaran的論文，是從估值角度，而非會計角度。 本文主要內容： ROE是什麼？計算公式，怎麼使用？多少算高？ ROC/ROIC是什麼？計算公式，怎麼使用？多少算高？ ROE和ROC關係？ ROA是什麼？計算公式。 Cash Flow ROIC是什麼？計算公式？ 會計</description>
+    </item>
+    <item>
+      <title>費用化的研發支出（R&amp;D）重新資本化</title>
+      <link>https://everydaydiva.blog/posts/history/2021-04-11-%E8%B2%BB%E7%94%A8%E5%8C%96%E7%9A%84%E7%A0%94%E7%99%BC%E6%94%AF%E5%87%BArd%E9%87%8D%E6%96%B0%E8%B3%87%E6%9C%AC%E5%8C%96/</link>
+      <pubDate>Sun, 11 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2021-04-11-%E8%B2%BB%E7%94%A8%E5%8C%96%E7%9A%84%E7%A0%94%E7%99%BC%E6%94%AF%E5%87%BArd%E9%87%8D%E6%96%B0%E8%B3%87%E6%9C%AC%E5%8C%96/</guid>
+      <description>註：本文為學習筆記。是和估值大師Aswath Damodaran 學習會計的心得筆記之十，原始視頻鏈接（Session 5和Session5A）和講義習題鏈接. 1.R&amp;amp;D是資本支出。 怎麼區別營業費用或資本支出呢？ 關鍵指標是這些支出是否超過一個會計年度。用在一個會計年度內的就是營業費用，可以使用</description>
+    </item>
+    <item>
+      <title>Stock-based compensation，股票薪酬要不要加回到現金流量裡面？</title>
+      <link>https://everydaydiva.blog/posts/history/2021-04-09-stock-based-compensation%E8%82%A1%E7%A5%A8%E8%96%AA%E9%85%AC%E8%A6%81%E4%B8%8D%E8%A6%81%E5%8A%A0%E5%9B%9E%E5%88%B0%E7%8F%BE%E9%87%91%E6%B5%81%E9%87%8F%E8%A3%A1%E9%9D%A2/</link>
+      <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2021-04-09-stock-based-compensation%E8%82%A1%E7%A5%A8%E8%96%AA%E9%85%AC%E8%A6%81%E4%B8%8D%E8%A6%81%E5%8A%A0%E5%9B%9E%E5%88%B0%E7%8F%BE%E9%87%91%E6%B5%81%E9%87%8F%E8%A3%A1%E9%9D%A2/</guid>
+      <description>註：本文為學習筆記。是和估值大師Aswath Damodaran 學習會計的心得筆記之九，原始視頻鏈接（Session 5和Session5A）和講義習題鏈接 1.股票薪酬起源 股票薪酬在80年代還很少，90年代後變得越來越常見，起源是90年代有很多新公司付不出薪水，所以薪資由一部分股票代替。然後這股風潮</description>
+    </item>
+    <item>
+      <title>從財務報表看公司繳了多少稅，邊際稅率、有效稅率、遞延所得稅、遞延所得稅資產/負債解釋</title>
+      <link>https://everydaydiva.blog/posts/history/2021-04-08-%E5%BE%9E%E8%B2%A1%E5%8B%99%E5%A0%B1%E8%A1%A8%E7%9C%8B%E5%85%AC%E5%8F%B8%E7%B9%B3%E4%BA%86%E5%A4%9A%E5%B0%91%E7%A8%85%E9%82%8A%E9%9A%9B%E7%A8%85%E7%8E%87%E6%9C%89%E6%95%88%E7%A8%85/</link>
+      <pubDate>Thu, 08 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2021-04-08-%E5%BE%9E%E8%B2%A1%E5%8B%99%E5%A0%B1%E8%A1%A8%E7%9C%8B%E5%85%AC%E5%8F%B8%E7%B9%B3%E4%BA%86%E5%A4%9A%E5%B0%91%E7%A8%85%E9%82%8A%E9%9A%9B%E7%A8%85%E7%8E%87%E6%9C%89%E6%95%88%E7%A8%85/</guid>
+      <description>註：本文為學習筆記。是和估值大師Aswath Damodaran 學習會計的心得筆記之八，原始視頻鏈接（Session 5和Session5A）和講義習題鏈接。 1.稅的不同種類 1）marginal tax rate邊際稅率 美國的企業所得稅聯邦級別2017年從最高35%（分為4級）降低為21%，再加上州級別的稅</description>
+    </item>
+    <item>
+      <title>不同生命週期公司現金流量表舉例——和估值大師Aswath Damodaran 學習會計心得筆記七</title>
+      <link>https://everydaydiva.blog/posts/history/2021-04-05-%E4%B8%8D%E5%90%8C%E7%94%9F%E5%91%BD%E9%80%B1%E6%9C%9F%E5%85%AC%E5%8F%B8%E7%8F%BE%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8%E8%88%89%E4%BE%8B-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%ABas/</link>
+      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2021-04-05-%E4%B8%8D%E5%90%8C%E7%94%9F%E5%91%BD%E9%80%B1%E6%9C%9F%E5%85%AC%E5%8F%B8%E7%8F%BE%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8%E8%88%89%E4%BE%8B-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%ABas/</guid>
+      <description>本文是和估值大師Aswath Damodaran達摩德仁 學習會計的心得筆記之七，主要看不同生命週期的公司的現金流量表的差異。附原始視頻鏈接和講義習題鏈接。 註：Aswath Damodaran是估值權威，而非會計師，他開課目標是教授學生學習夠用的會計來幫助估值，非專業會計。Aswath</description>
+    </item>
+    <item>
+      <title>零基礎學現金流量表——和估值大師Aswath Damodaran 學習會計心得筆記六</title>
+      <link>https://everydaydiva.blog/posts/history/2021-03-22-%E9%9B%B6%E5%9F%BA%E7%A4%8E%E5%AD%B8%E7%8F%BE%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%ABaswath-damodaran-%E5%AD%B8%E7%BF%92%E6%9C%83%E8%A8%88/</link>
+      <pubDate>Mon, 22 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2021-03-22-%E9%9B%B6%E5%9F%BA%E7%A4%8E%E5%AD%B8%E7%8F%BE%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%ABaswath-damodaran-%E5%AD%B8%E7%BF%92%E6%9C%83%E8%A8%88/</guid>
+      <description>本文是和估值大師Aswath Damodaran 學習會計的心得筆記之六，主要內容為現金流量表，附學習視頻鏈接和講義習題鏈接。 註：Aswath Damodaran達摩德仁是估值權威，而非會計師，他開課目標是教授學生獲得估值夠用的會計就好，非專業會計。Aswath Damodaran的youtube頻道和</description>
+    </item>
+    <item>
+      <title>不同生命週期公司資產負債表舉例——和估值大師Aswath Damodaran 學習會計心得筆記五</title>
+      <link>https://everydaydiva.blog/posts/history/2021-03-17-%E4%B8%8D%E5%90%8C%E7%94%9F%E5%91%BD%E9%80%B1%E6%9C%9F%E5%85%AC%E5%8F%B8%E8%B3%87%E7%94%A2%E8%B2%A0%E5%82%B5%E8%A1%A8%E8%88%89%E4%BE%8B-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%ABas/</link>
+      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2021-03-17-%E4%B8%8D%E5%90%8C%E7%94%9F%E5%91%BD%E9%80%B1%E6%9C%9F%E5%85%AC%E5%8F%B8%E8%B3%87%E7%94%A2%E8%B2%A0%E5%82%B5%E8%A1%A8%E8%88%89%E4%BE%8B-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%ABas/</guid>
+      <description>本文是和估值大師Aswath Damodaran 學習會計的心得筆記之五，主要看不同生命週期的公司的資產負債表。附原始視頻鏈接和講義習題鏈接。 註：Aswath Damodaran達摩德仁是估值權威，而非會計師，他開課目標是教授學生學習夠用的會計來幫助估值，非專業會計。Aswath Damodaran的y</description>
+    </item>
+    <item>
+      <title>零基礎學資產負債表——和估值大師Aswath Damodaran 學習會計心得筆記四</title>
+      <link>https://everydaydiva.blog/posts/history/2021-03-16-%E9%9B%B6%E5%9F%BA%E7%A4%8E%E5%AD%B8%E8%B3%87%E7%94%A2%E8%B2%A0%E5%82%B5%E8%A1%A8-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%ABaswath-damodaran-%E5%AD%B8%E7%BF%92%E6%9C%83%E8%A8%88/</link>
+      <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2021-03-16-%E9%9B%B6%E5%9F%BA%E7%A4%8E%E5%AD%B8%E8%B3%87%E7%94%A2%E8%B2%A0%E5%82%B5%E8%A1%A8-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%ABaswath-damodaran-%E5%AD%B8%E7%BF%92%E6%9C%83%E8%A8%88/</guid>
+      <description>本文是和估值大師Aswath Damodaran 學習資產負債表的心得筆記之四，附學習視頻鏈接和講義習題鏈接。 註：Aswath Damodaran是估值權威，而非會計師，他開課目標是教授學生獲得估值夠用的會計就好，非專業會計。Aswath Damodaran達摩德仁的youtube頻道和網站就像個知識寶</description>
+    </item>
+    <item>
+      <title>不同生命週期公司損益表比較——和估值大師Aswath Damodaran 學習會計心得筆記三</title>
+      <link>https://everydaydiva.blog/posts/history/2021-03-15-%E4%B8%8D%E5%90%8C%E7%94%9F%E5%91%BD%E9%80%B1%E6%9C%9F%E5%85%AC%E5%8F%B8%E6%90%8D%E7%9B%8A%E8%A1%A8%E6%AF%94%E8%BC%83-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%ABaswath-damodaran/</link>
+      <pubDate>Mon, 15 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2021-03-15-%E4%B8%8D%E5%90%8C%E7%94%9F%E5%91%BD%E9%80%B1%E6%9C%9F%E5%85%AC%E5%8F%B8%E6%90%8D%E7%9B%8A%E8%A1%A8%E6%AF%94%E8%BC%83-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%ABaswath-damodaran/</guid>
+      <description>本文是和估值大師Aswath Damodaran達摩德仁 學習會計的心得筆記之三，主要看不同生命週期的公司和三個特別行業的損益表。附原始視頻鏈接和講義習題鏈接。 註：Aswath Damodaran是估值權威，而非會計師，他開課目標是教授學生學習夠用的會計來幫助估值，非專業會計。Aswa</description>
+    </item>
+    <item>
+      <title>為了投資學損益表——和估值大師Aswath Damodaran 學習會計心得筆記二</title>
+      <link>https://everydaydiva.blog/posts/history/2021-03-12-%E7%82%BA%E4%BA%86%E6%8A%95%E8%B3%87%E5%AD%B8%E6%90%8D%E7%9B%8A%E8%A1%A8-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%ABaswath-damodaran-%E5%AD%B8%E7%BF%92%E6%9C%83%E8%A8%88%E5%BF%83/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2021-03-12-%E7%82%BA%E4%BA%86%E6%8A%95%E8%B3%87%E5%AD%B8%E6%90%8D%E7%9B%8A%E8%A1%A8-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%ABaswath-damodaran-%E5%AD%B8%E7%BF%92%E6%9C%83%E8%A8%88%E5%BF%83/</guid>
+      <description>本文是和估值大師Aswath Damodaran 學習損益表的心得筆記之二，附學習視頻鏈接和講義習題鏈接。 註：Aswath Damodaran是估值權威，而非會計師，他開課目標是教授學生學習夠用的會計來幫助估值，非專業會計。Aswath Damodaran達摩德仁的youtube頻道和網站就像個知識寶庫</description>
+    </item>
+    <item>
+      <title>零基礎學財務報表——和估值大師Aswath Damodaran 學習會計心得筆記一</title>
+      <link>https://everydaydiva.blog/posts/history/2021-02-27-%E4%B8%BA%E4%BA%86%E6%8A%95%E8%B5%84%E5%AD%A6%E4%BC%9A%E8%AE%A1-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%ABaswath-damodaran%E5%AD%B8%E6%9C%83%E8%A8%88%E5%AD%B8%E7%BF%92%E7%AD%86/</link>
+      <pubDate>Sat, 27 Feb 2021 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2021-02-27-%E4%B8%BA%E4%BA%86%E6%8A%95%E8%B5%84%E5%AD%A6%E4%BC%9A%E8%AE%A1-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%ABaswath-damodaran%E5%AD%B8%E6%9C%83%E8%A8%88%E5%AD%B8%E7%BF%92%E7%AD%86/</guid>
+      <description>雖然之前上過會計和財務管理的課程，但是基本上都還給老師了，記得當時考試也是低分通過。 投資了3年多，從來沒有認真仔細看過一份財報，現在想想有些後怕。雖然會讀財報也不見得投資就能大獲成功，但是投資不讀財報的話總是覺得自己像是在海上漫步，一不小心有可能就會掉入大海。 這兩年也借了些會計的</description>
+    </item>
+  </channel>
+</rss>

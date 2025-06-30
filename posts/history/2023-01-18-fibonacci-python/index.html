@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>9種方法寫Fibonacci（Python） | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="Fibonacci">
+<meta name="description" content="受A Python Guide to the Fibonacci Sequence啟發，我也來試試看用CS61A課程所學寫Fibonacci，感覺又好玩，又可以順便複習下課程。是的，好的課程一定要花些時間好好複習。 Fibonacci是什麼？ Fibonacci，翻譯為斐波那契数。 請參考如下維基百科的定義。 source：Fibonac">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2023-01-18-fibonacci-python/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="9種方法寫Fibonacci（Python）" />
+<meta property="og:description" content="受A Python Guide to the Fibonacci Sequence啟發，我也來試試看用CS61A課程所學寫Fibonacci，感覺又好玩，又可以順便複習下課程。是的，好的課程一定要花些時間好好複習。 Fibonacci是什麼？ Fibonacci，翻譯為斐波那契数。 請參考如下維基百科的定義。 source：Fibonac" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2023-01-18-fibonacci-python/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-01-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-01-18T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="9種方法寫Fibonacci（Python）"/>
+<meta name="twitter:description" content="受A Python Guide to the Fibonacci Sequence啟發，我也來試試看用CS61A課程所學寫Fibonacci，感覺又好玩，又可以順便複習下課程。是的，好的課程一定要花些時間好好複習。 Fibonacci是什麼？ Fibonacci，翻譯為斐波那契数。 請參考如下維基百科的定義。 source：Fibonac"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "9種方法寫Fibonacci（Python）",
+      "item": "https://everydaydiva.blog/posts/history/2023-01-18-fibonacci-python/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "9種方法寫Fibonacci（Python）",
+  "name": "9種方法寫Fibonacci（Python）",
+  "description": "受A Python Guide to the Fibonacci Sequence啟發，我也來試試看用CS61A課程所學寫Fibonacci，感覺又好玩，又可以順便複習下課程。是的，好的課程一定要花些時間好好複習。 Fibonacci是什麼？ Fibonacci，翻譯為斐波那契数。 請參考如下維基百科的定義。 source：Fibonac",
+  "keywords": [
+    "Fibonacci"
+  ],
+  "articleBody": "受A Python Guide to the Fibonacci Sequence啟發，我也來試試看用CS61A課程所學寫Fibonacci，感覺又好玩，又可以順便複習下課程。是的，好的課程一定要花些時間好好複習。\nFibonacci是什麼？ Fibonacci，翻譯為斐波那契数。\n請參考如下維基百科的定義。\nsource：Fibonacci number\n維基百科中文版也有不同語言版本的程式參考：\nhttps://zh.wikipedia.org/wiki/斐波那契数#程式參考\n1.Iteration 迴圈是在CS50學到的。只有這一個是上這門課之前自己會的。\ndef fib_iter(n): previous, current = 0, 1 k = 1 while n \u003e k: previous,current = current,previous+current k += 1 if n == 0: return previous return current \u003e\u003e\u003e fib_iter(10) 55 \u003e\u003e\u003e [fib_iter(i) for i in range(10)] [0, 1, 1, 2, 3, 5, 8, 13, 21, 34] 計算fib(300000)，共花費1秒多。\nfrom datetime import datetime start_time = datetime.now() fib_iter(300000) end_time = datetime.now() print('Duration: {}'.format(end_time - start_time)) Duration: 0:00:01.171638 我也真夠閒，還特別丟到LeetCode看看。我的LeetCode第一題。\n發現速度不錯，但是Memory成績不理想。\n2.Recursion 遞歸的代碼簡單明瞭，非常好懂。\ndef fib_recur(n): if n == 0: return 0 elif n == 1: return 1 else: return fib_recur(n-1) + fib_recur(n-2) 但是速度真慢，光是計算到fib_recur(40)就花了快22秒。\n\u003e\u003e\u003e fib_recur(40) end_time = datetime.now() print('Duration: {}'.format(end_time - start_time)) 102334155 \u003e\u003e\u003e end_time = datetime.now() \u003e\u003e\u003e print('Duration: {}'.format(end_time - start_time)) Duration: 0:00:21.863339 因為普通的遞歸會產生無數的frame和大量的重複計算，所以使用尾遞歸。\n丟到LeetCode發現速度果然夠慢，但是memory成績這麽好有點失真，我猜有可能是測試的數據太小導致的。\n3.Tail recursion 尾調用（tail call）是返回單純原函數的recursion，和上面的遞歸返回兩個函數相加不同，尾調用只返回原函數，沒有任何多餘的其他運算。\n對於有支持尾遞歸的解釋器的語言（比如Scheme）來說，在解釋器的層面會進行優化，使得空間複雜度變為O(1)。（詳情參考CS61A 學習筆記和心得4-Tail Call）\ndef fib_tail(n,a=0,b=1): if n == 0: return a elif n == 1: return b else: return fib_tail(n-1,b,a+b) \u003e\u003e\u003e fib_tail(990) 353410009178752575339944833520459068284945046358154977604109175253890696634271360121583566110064725510836075851584985143412396868586425109102723291106570618750075392710633321729992106743321640281356794177320 \u003e\u003e\u003e end_time = datetime.now() \u003e\u003e\u003e print('Duration: {}'.format(end_time - start_time)) Duration: 0:00:00.001396 可以看到即使Python不支持尾遞歸優化，但是尾遞歸還是傳入了部分結果，比傳統的遞歸更有效率。\nsource：pythontutor\n不過最後還是overflow了。\n\u003e\u003e\u003e fib_tail(1000) Traceback (most recent call last): File \"\", line 1, in File \"\", line 7, in fib_tail File \"\", line 7, in fib_tail File \"\", line 7, in fib_tail [Previous line repeated 995 more times] File \"\", line 2, in fib_tail RecursionError: maximum recursion depth exceeded in comparison 因為Python不支持尾遞歸，所以改用cache來手動存取數字避免重複計算。\n4.Memoization/Decorator 如下程式參考自CS61A教學視頻。\n這裡先設立一個memo的函數來存取cache，再用此裝飾器來修飾原來的recursion版本的fib函數。\ndef memo(f): cache = {} def memoized(n): if n not in cache: cache[n] = f(n) return cache[n] return memoized @memo def fib_recur(n): if n == 0: return 0 elif n == 1: return 1 else: return fib_recur(n-1)+fib_recur(n-2) 雖然有記憶的功能，但是還是需要從大數一直計算到小數，開啟很多的frame，導致空間複雜度增加。\n點擊pythontutor觀看\n計算到fib(500)時overflow。\nfib_recur(500) RecursionError: maximum recursion depth exceeded fib_recur(400)所費時間：\nfib_recur(400) 176023680645013966468226945392411250770384383304492191886725992896575345044216019675 \u003e\u003e\u003e end_time = datetime.now() \u003e\u003e\u003e print('Duration: {}'.format(end_time - start_time)) Duration: 0:00:00.000881 不過很有意思的是，可以不斷累加call下去。好像每下一次都能夠自動獲得上一次存取的數值一樣。\nfib_recur(300) fib_recur(600) fib_recur(900) fib_recur(1200) ... fib_recur(10000) ... 5.High Order Function 高階函數一來可以把函數當參數，二來可以函數回傳函數。\n下面就用到了函數回傳函數。\n利用高階函數(下面的helper)從小到大將所有比n小的fibonacci放入cache{}，避免重複計算。\ndef fib_memo(n): def helper(n,k,cache): if n \u003c k: return cache[n] while n \u003e k: k += 1 cache[k] = cache[k-1] + cache[k-2] return cache[k] return helper(n,1,cache={0:0,1:1}) \u003e\u003e\u003e fib_memo(10) 55 \u003e\u003e\u003e [fib_memo(i) for i in range(10)] [0, 1, 1, 2, 3, 5, 8, 13, 21, 34] 才花了0.3秒輕鬆計算第300000個fibnocci。\nfib_memo(300000) end_time = datetime.now() print('Duration: {}'.format(end_time - start_time)) Duration: 0:00:03.162044 好奇查了下到底有多大，結果發現這個數字有62696個位數。\n\u003e\u003e\u003ex=fib_memo(300000) \u003e\u003e\u003eimport math \u003e\u003e\u003edef countDigit(n): ... return math.floor(math.log10(n)+1) ... \u003e\u003e\u003e countDigit(x) 62696 LeetCode的分數尚可。\n6.Generator 1）使用Generator獲得list 和list comprehension相比，generator不會先產生全部的數值，而是惰性求值，被要求多少產生多少，節省內存消耗。\ndef fib_gener(n): a,b = 0,1 for _ in range(n): yield a a,b = b,a+b 也可以將generator產生的數值變成list：\n\u003e\u003e\u003e print list(fib_gener(10)) [0, 1, 1, 2, 3, 5, 8, 13, 21, 34] 可以處理非常龐大的fibonacci list。\nx=list(fib_gener(10000)) end_time = datetime.now() print('Duration: {}'.format(end_time - start_time)) Duration: 0:00:00.482573 list最後一個數字有2090個位數。\nx=list(fib_gener(10000)) \u003e\u003e\u003e countDigit(x[-1]) 2090 上面的方法只能獲得一個list，如果想要獲得第n位數的fibonacci，需要多一個步驟。\n2）使用Generator獲得fibonacci number： def fib_gener(n): a,b = 0,1 for _ in range(n+1): yield a a,b = b,a+b def fib_gener_number(n): return list(fib_gener(n))[-1] 只用了4秒鐘，就計算出了第30萬個fibnacci。\n\u003e\u003e\u003e x=fib_gener_number(300000) end_time = datetime.now() print('Duration: {}'.format(end_time - start_time)) \u003e\u003e\u003e end_time = datetime.now() \u003e\u003e\u003e print('Duration: {}'.format(end_time - start_time)) Duration: 0:00:04.249106 Leetcode分數和迴圈差不多。\n7.List Comprehension List Comprehension 模板：\n[ for in if ] \u003e\u003e\u003e [i**2 for i in [1, 2, 3, 4] if i % 2 == 0] [4, 16] 代碼如下：\ns = [0, 1] s += [(s := [s[1], s[0] + s[1]]) and s[1] for k in range(10)] \u003e\u003e\u003e s [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89] 參考自文章：How can I create the fibonacci series using a list comprehension?\n其中這個 := 是Python3.8後才有的，叫做Assignment Expressions。\n用了18秒計算出來第30萬個fibonacci.\nstart_time = datetime.now() s = [0, 1] s += [(s := [s[1], s[0] + s[1]]) and s[1] for k in range(300000)] fib_lis = s[-3] print(fib_lis) end_time = datetime.now() print('Duration: {}'.format(end_time - start_time)) Duration: 0:00:17.897750 花了點時間弄懂，解釋如下：\n#賦值 (s := [s[1], s[0] + s[1]]) #s := [s[1], s[0] + s[1]]的目的在於從初始動[0,1]滾動變為[1,1]，然後[2, 3]等等。 \u003e\u003e\u003e s=[0,1] \u003e\u003e\u003e s += [(s := [s[1], s[0] + s[1]]) for i in range(3)] \u003e\u003e\u003e s [0, 1, [1, 1], [1, 2], [2, 3]] #and的意思是取s的第二個數值 \u003e\u003e\u003es=[1,2] \u003e\u003e\u003e s and s[1] 2 其他參考文章：How To Use Assignment Expressions in Python\n8.Reduce and Lambda Python中的reduce是來自於funtools模塊，借鑑自函數式編程。\nhttps://docs.python.org/3/library/functools.html\nfunctools.reduce(function, iterable[, initializer]) 代碼受如下這篇文章啟發：\nPython | Find fibonacci series upto n using lambda\nfrom functools import reduce def fib_reduce(n): if n \u003c 2: return n lst = reduce(lambda x,y:x+[x[-1]+x[-2]], range(n - 1), [0,1]) return lst[-1] 解釋：\n一般的reduce運作方式如下，如下的range(5)是迭代器（iterator），此處的迭代器也參與運算。\n\u003e\u003e\u003e reduce(lambda x,y:x+y,range(5),100) 55 執行的順序如下：((((100+1)+2)+3)+4) \u003e\u003e\u003e reduce(lambda x,y:x+[y],range(5),[100]) [100, 0, 1, 2, 3, 4] 下面的y對應從迭代器range(10,20)裡一直迭代的值在lambda裡沒有起到計算的作用，但是起到了類似迴圈的作用。\n\u003e\u003e\u003e reduce(lambda x,y:x+[x[-1]+x[-2]],range(10,20),[1,2,3]) [1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377] 下面的y即range(10,20)就參與運算了。\n\u003e\u003e\u003e reduce(lambda x,y:x+[y],range(10,20),[1,2,3]) [1, 2, 3, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] 為什麼可以產生類似迴圈的特性呢？\n是因為上面兩個的起始值都是list，list是一個pointer，不是object本身，只是一個地址。所以reduce函數起到了不斷往這個地址裡放東西的作用，就累積成有點迴圈的感覺。\n解釋完畢，最後看下效能。\n因為是先生成list的關係，所以處理到第50000個fibonacci就花了4.8秒。\nfib_reduce(50000) Duration: 0:00:04.815144 LeetCode成績也普通。\n9.Map and Lambda 代碼參考自：Python | Find fibonacci series upto n using lambda\ndef fib_map(n): lst=[0,1] any(map(lambda _:lst.append(sum(lst[-2:])),range(2,n))) return lst[-1] 這麽高深的寫法我自己肯定想破頭也想不出。\n解釋：\nmap因為是iterator，所以只會運行一次，用any讓程式可以一直運行直到超出range。\n_表示不用給這個lambda名字，也可以給任意名字比如lambda x:lst.append(sum(lst[-2:]))。\n\u003e\u003e\u003elst=[1,2] \u003e\u003e\u003ex=map(lambda x:lst.append(3),range(2)) \u003e\u003e\u003e x \u003e\u003e\u003e next(x) \u003e\u003e\u003e lst [1, 2, 3] \u003e\u003e\u003e next(x) \u003e\u003e\u003e lst [1, 2, 3, 3] \u003e\u003e\u003e next(x) Traceback (most recent call last): File \"\", line 1, in StopIteration 重新翻看了下課程視頻，發現可以用list來迫使所有的iterator運行完畢。\n所以修改以上程式如下：\ndef fib_map(n): lst=[0,1] if n \u003c 2: return n list(map(lambda x:lst.append(sum(lst[-2:])),range(1,n))) return lst[-1] 使用list版本的fib_map運行時間為4秒。\n\u003e\u003e\u003efib_map(300000) 0:00:04.120279 總結： CS61A之前我連fibonacci是什麼都不知道，上完課，現在我可以看得懂這麼多種思路寫的fibonacci。非常有成就感。\n感謝老師最好的方式就是自己好好學習，再推薦更多的人來學習。\n希望有更多的人來學習這麽課程。最後再次強烈推薦CS61A。\n",
+  "wordCount" : "2986",
+  "inLanguage": "zh",
+  "datePublished": "2023-01-18T00:00:00Z",
+  "dateModified": "2023-01-18T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2023-01-18-fibonacci-python/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      9種方法寫Fibonacci（Python）
+    </h1>
+    <div class="post-meta"><span title='2023-01-18 00:00:00 +0000 UTC'>2023-01-18</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#fibonacci%e6%98%af%e4%bb%80%e9%ba%bc" aria-label="Fibonacci是什麼？">Fibonacci是什麼？</a></li>
+                    <li>
+                        <a href="#1iteration" aria-label="1.Iteration">1.Iteration</a></li>
+                    <li>
+                        <a href="#2recursion" aria-label="2.Recursion">2.Recursion</a></li>
+                    <li>
+                        <a href="#3tail-recursion" aria-label="3.Tail recursion">3.Tail recursion</a></li>
+                    <li>
+                        <a href="#4memoizationdecorator" aria-label="4.Memoization/Decorator">4.Memoization/Decorator</a></li>
+                    <li>
+                        <a href="#5high-order-function" aria-label="5.High Order Function">5.High Order Function</a></li>
+                    <li>
+                        <a href="#6generator" aria-label="6.Generator">6.Generator</a><ul>
+                            
+                    <li>
+                        <a href="#1%e4%bd%bf%e7%94%a8generator%e7%8d%b2%e5%be%97list" aria-label="1）使用Generator獲得list">1）使用Generator獲得list</a></li>
+                    <li>
+                        <a href="#2%e4%bd%bf%e7%94%a8generator%e7%8d%b2%e5%be%97fibonacci-number" aria-label="2）使用Generator獲得fibonacci number：">2）使用Generator獲得fibonacci number：</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#7list-comprehension" aria-label="7.List Comprehension">7.List Comprehension</a></li>
+                    <li>
+                        <a href="#8reduce-and-lambda" aria-label="8.Reduce and Lambda">8.Reduce and Lambda</a></li>
+                    <li>
+                        <a href="#9map-and-lambda" aria-label="9.Map and Lambda">9.Map and Lambda</a></li>
+                    <li>
+                        <a href="#%e7%b8%bd%e7%b5%90" aria-label="總結：">總結：</a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p>受<a href="https://realpython.com/fibonacci-sequence-python/#optimizing-the-recursive-algorithm-for-the-fibonacci-sequence" target="_blank" rel="noopener" style="color:#42b983";>A Python Guide to the Fibonacci Sequence</a>啟發，我也來試試看用CS61A課程所學寫Fibonacci，感覺又好玩，又可以順便複習下課程。是的，好的課程一定要花些時間好好複習。</p>
+<h2 id="fibonacci是什麼">Fibonacci是什麼？<a hidden class="anchor" aria-hidden="true" href="#fibonacci是什麼">#</a></h2>
+<p>Fibonacci，翻譯為<strong>斐波那契数</strong>。</p>
+<p>請參考如下維基百科的定義。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2023-01-16-at-9.15.35-AM-1024x455.png" alt=""  />
+</p>
+<p>source：<a href="https://en.wikipedia.org/wiki/Fibonacci_number" target="_blank" rel="noopener" style="color:#42b983";>Fibonacci number</a></p>
+<p>維基百科中文版也有不同語言版本的程式參考：</p>
+<p><a href="https://zh.wikipedia.org/wiki/%e6%96%90%e6%b3%a2%e9%82%a3%e5%a5%91%e6%95%b0#%e7%a8%8b%e5%bc%8f%e5%8f%83%e8%80%83" target="_blank" rel="noopener" style="color:#42b983";>https://zh.wikipedia.org/wiki/斐波那契数#程式參考</a></p>
+<h2 id="1iteration">1.Iteration<a hidden class="anchor" aria-hidden="true" href="#1iteration">#</a></h2>
+<p>迴圈是在CS50學到的。只有這一個是上這門課之前自己會的。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def fib_iter(n):
+</span></span><span style="display:flex;"><span>    previous, current = 0, 1
+</span></span><span style="display:flex;"><span>    k = 1
+</span></span><span style="display:flex;"><span>    while n &gt; k:
+</span></span><span style="display:flex;"><span>        previous,current = current,previous+current
+</span></span><span style="display:flex;"><span>        k += 1
+</span></span><span style="display:flex;"><span>    if n == 0:
+</span></span><span style="display:flex;"><span>        return previous
+</span></span><span style="display:flex;"><span>    return current
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&gt;&gt;&gt; fib_iter(10)
+</span></span><span style="display:flex;"><span>55
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; [fib_iter(i) for i in range(10)]
+</span></span><span style="display:flex;"><span>[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+</span></span></code></pre></div><p>計算fib(300000)，共花費1秒多。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>from datetime import datetime
+</span></span><span style="display:flex;"><span>start_time = datetime.now()
+</span></span><span style="display:flex;"><span>fib_iter(300000)
+</span></span><span style="display:flex;"><span>end_time = datetime.now()
+</span></span><span style="display:flex;"><span>print(&#39;Duration: {}&#39;.format(end_time - start_time))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Duration: 0:00:01.171638
+</span></span></code></pre></div><p>我也真夠閒，還特別丟到LeetCode看看。我的LeetCode第一題。</p>
+<p>發現速度不錯，但是Memory成績不理想。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2023-01-18-at-10.21.43-AM-1024x264.png" alt=""  />
+</p>
+<h2 id="2recursion">2.Recursion<a hidden class="anchor" aria-hidden="true" href="#2recursion">#</a></h2>
+<p>遞歸的代碼簡單明瞭，非常好懂。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def fib_recur(n):
+</span></span><span style="display:flex;"><span>    if n == 0:
+</span></span><span style="display:flex;"><span>        return 0
+</span></span><span style="display:flex;"><span>    elif n == 1:
+</span></span><span style="display:flex;"><span>        return 1
+</span></span><span style="display:flex;"><span>    else:
+</span></span><span style="display:flex;"><span>        return fib_recur(n-1) + fib_recur(n-2)
+</span></span></code></pre></div><p>但是速度真慢，光是計算到fib_recur(40)就花了快22秒。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&gt;&gt;&gt; fib_recur(40)
+</span></span><span style="display:flex;"><span>end_time = datetime.now()
+</span></span><span style="display:flex;"><span>print(&#39;Duration: {}&#39;.format(end_time - start_time))
+</span></span><span style="display:flex;"><span>102334155
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; end_time = datetime.now()
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; print(&#39;Duration: {}&#39;.format(end_time - start_time))
+</span></span><span style="display:flex;"><span>Duration: 0:00:21.863339
+</span></span></code></pre></div><p>因為普通的遞歸會產生無數的frame和大量的重複計算，所以使用尾遞歸。</p>
+<p>丟到LeetCode發現速度果然夠慢，但是memory成績這麽好有點失真，我猜有可能是測試的數據太小導致的。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2023-01-18-at-11.04.31-AM-1024x211.png" alt=""  />
+</p>
+<h2 id="3tail-recursion">3.Tail recursion<a hidden class="anchor" aria-hidden="true" href="#3tail-recursion">#</a></h2>
+<p>尾調用（tail call）是返回單純原函數的recursion，和上面的遞歸返回兩個函數相加不同，尾調用只返回原函數，沒有任何多餘的其他運算。</p>
+<p>對於有支持尾遞歸的解釋器的語言（比如Scheme）來說，在解釋器的層面會進行優化，使得空間複雜度變為O(1)。（詳情參考<a href="https://fulltimemammy.com/scheme-interperter-tail-call/" target="_blank" rel="noopener" style="color:#42b983";>CS61A 學習筆記和心得4-Tail Call</a>）</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def fib_tail(n,a=0,b=1):
+</span></span><span style="display:flex;"><span>    if n == 0:
+</span></span><span style="display:flex;"><span>        return a
+</span></span><span style="display:flex;"><span>    elif n == 1:
+</span></span><span style="display:flex;"><span>        return b
+</span></span><span style="display:flex;"><span>    else:
+</span></span><span style="display:flex;"><span>        return fib_tail(n-1,b,a+b)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&gt;&gt;&gt; fib_tail(990)
+</span></span><span style="display:flex;"><span>353410009178752575339944833520459068284945046358154977604109175253890696634271360121583566110064725510836075851584985143412396868586425109102723291106570618750075392710633321729992106743321640281356794177320
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; end_time = datetime.now()
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; print(&#39;Duration: {}&#39;.format(end_time - start_time))
+</span></span><span style="display:flex;"><span>Duration: 0:00:00.001396
+</span></span></code></pre></div><p>可以看到即使Python不支持尾遞歸優化，但是尾遞歸還是傳入了部分結果，比傳統的遞歸更有效率。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2023-01-18-at-11.00.59-AM-1024x228.png" alt=""  />
+</p>
+<p><img loading="lazy" src="images/Screen-Shot-2023-01-16-at-3.45.50-PM-1024x593.png" alt=""  />
+</p>
+<p>source：pythontutor</p>
+<p>不過最後還是overflow了。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&gt;&gt;&gt; fib_tail(1000)
+</span></span><span style="display:flex;"><span>Traceback (most recent call last):
+</span></span><span style="display:flex;"><span>  File &#34;&lt;stdin&gt;&#34;, line 1, in &lt;module&gt;
+</span></span><span style="display:flex;"><span>  File &#34;&lt;stdin&gt;&#34;, line 7, in fib_tail
+</span></span><span style="display:flex;"><span>  File &#34;&lt;stdin&gt;&#34;, line 7, in fib_tail
+</span></span><span style="display:flex;"><span>  File &#34;&lt;stdin&gt;&#34;, line 7, in fib_tail
+</span></span><span style="display:flex;"><span>  [Previous line repeated 995 more times]
+</span></span><span style="display:flex;"><span>  File &#34;&lt;stdin&gt;&#34;, line 2, in fib_tail
+</span></span><span style="display:flex;"><span>RecursionError: maximum recursion depth exceeded in comparison
+</span></span></code></pre></div><p>因為Python不支持尾遞歸，所以改用cache來手動存取數字避免重複計算。</p>
+<h2 id="4memoizationdecorator">4.Memoization/Decorator<a hidden class="anchor" aria-hidden="true" href="#4memoizationdecorator">#</a></h2>
+<p>如下程式參考自CS61A<a href="https://www.youtube.com/watch?v=IB8VSP9EZQs&amp;list=PL6BsET-8jgYWM8A8vfI5mdIocAvgxVmJt&amp;index=3" target="_blank" rel="noopener" style="color:#42b983";>教學視頻</a>。</p>
+<p>這裡先設立一個memo的函數來存取cache，再用此裝飾器來修飾原來的recursion版本的fib函數。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def memo(f):
+</span></span><span style="display:flex;"><span>    cache = {}
+</span></span><span style="display:flex;"><span>    def memoized(n):
+</span></span><span style="display:flex;"><span>        if n not in cache:
+</span></span><span style="display:flex;"><span>            cache[n] = f(n)
+</span></span><span style="display:flex;"><span>        return cache[n]
+</span></span><span style="display:flex;"><span>    return memoized
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>@memo
+</span></span><span style="display:flex;"><span>def fib_recur(n):
+</span></span><span style="display:flex;"><span>    if n == 0:
+</span></span><span style="display:flex;"><span>        return 0
+</span></span><span style="display:flex;"><span>    elif n == 1:
+</span></span><span style="display:flex;"><span>        return 1
+</span></span><span style="display:flex;"><span>    else:
+</span></span><span style="display:flex;"><span>        return fib_recur(n-1)+fib_recur(n-2)
+</span></span></code></pre></div><p>雖然有記憶的功能，但是還是需要從大數一直計算到小數，開啟很多的frame，導致空間複雜度增加。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2023-01-16-at-7.26.30-PM-1024x744.png" alt=""  />
+</p>
+<p>點擊<a href="https://pythontutor.com/visualize.html#code=def%20memo%28f%29%3A%0A%20%20%20%20cache%20%3D%20%7B%7D%0A%20%20%20%20def%20memoized%28n%29%3A%0A%20%20%20%20%20%20%20%20if%20n%20not%20in%20cache%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20cache%5Bn%5D%20%3D%20f%28n%29%0A%20%20%20%20%20%20%20%20return%20cache%5Bn%5D%0A%20%20%20%20return%20memoized%0A%20%20%20%20%0A%40memo%0Adef%20fib_recur%28n%29%3A%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20elif%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%20fib_recur%28n-1%29%2Bfib_recur%28n-2%29%0Afib_recur%2810%29&amp;cumulative=false&amp;curInstr=22&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" target="_blank" rel="noopener" style="color:#42b983";>pythontutor</a>觀看</p>
+<p>計算到fib(500)時overflow。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fib_recur(500)
+</span></span><span style="display:flex;"><span>RecursionError: maximum recursion depth exceeded
+</span></span></code></pre></div><p>fib_recur(400)所費時間：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fib_recur(400)
+</span></span><span style="display:flex;"><span>176023680645013966468226945392411250770384383304492191886725992896575345044216019675
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; end_time = datetime.now()
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; print(&#39;Duration: {}&#39;.format(end_time - start_time))
+</span></span><span style="display:flex;"><span>Duration: 0:00:00.000881
+</span></span></code></pre></div><p>不過很有意思的是，可以不斷累加call下去。好像每下一次都能夠自動獲得上一次存取的數值一樣。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fib_recur(300)
+</span></span><span style="display:flex;"><span>fib_recur(600)
+</span></span><span style="display:flex;"><span>fib_recur(900)
+</span></span><span style="display:flex;"><span>fib_recur(1200)
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>fib_recur(10000)
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><h2 id="5high-order-function">5.High Order Function<a hidden class="anchor" aria-hidden="true" href="#5high-order-function">#</a></h2>
+<p>高階函數一來可以把函數當參數，二來可以函數回傳函數。</p>
+<p>下面就用到了函數回傳函數。</p>
+<p>利用高階函數(下面的helper)從小到大將所有比n小的fibonacci放入cache{}，避免重複計算。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def fib_memo(n):
+</span></span><span style="display:flex;"><span>    def helper(n,k,cache):
+</span></span><span style="display:flex;"><span>        if n &lt; k:
+</span></span><span style="display:flex;"><span>            return cache[n]
+</span></span><span style="display:flex;"><span>        while n &gt; k:
+</span></span><span style="display:flex;"><span>            k += 1
+</span></span><span style="display:flex;"><span>            cache[k] = cache[k-1] + cache[k-2]
+</span></span><span style="display:flex;"><span>        return cache[k]
+</span></span><span style="display:flex;"><span>    return helper(n,1,cache={0:0,1:1})
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&gt;&gt;&gt; fib_memo(10)
+</span></span><span style="display:flex;"><span>55
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; [fib_memo(i) for i in range(10)]
+</span></span><span style="display:flex;"><span>[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+</span></span></code></pre></div><p>才花了0.3秒輕鬆計算第300000個fibnocci。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fib_memo(300000) 
+</span></span><span style="display:flex;"><span>end_time = datetime.now()
+</span></span><span style="display:flex;"><span>print(&#39;Duration: {}&#39;.format(end_time - start_time))
+</span></span><span style="display:flex;"><span>Duration: 0:00:03.162044
+</span></span></code></pre></div><p>好奇查了下到底有多大，結果發現這個數字有62696個位數。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&gt;&gt;&gt;x=fib_memo(300000)
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt;import math
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt;def countDigit(n):
+</span></span><span style="display:flex;"><span>...     return math.floor(math.log10(n)+1)
+</span></span><span style="display:flex;"><span>... 
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; countDigit(x)
+</span></span><span style="display:flex;"><span>62696
+</span></span></code></pre></div><p>LeetCode的分數尚可。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2023-01-18-at-8.09.27-AM-1-1024x219.png" alt=""  />
+</p>
+<h2 id="6generator">6.Generator<a hidden class="anchor" aria-hidden="true" href="#6generator">#</a></h2>
+<h3 id="1使用generator獲得list">1）使用Generator獲得list<a hidden class="anchor" aria-hidden="true" href="#1使用generator獲得list">#</a></h3>
+<p>和list comprehension相比，generator不會先產生全部的數值，而是惰性求值，被要求多少產生多少，節省內存消耗。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def fib_gener(n):
+</span></span><span style="display:flex;"><span>    a,b = 0,1
+</span></span><span style="display:flex;"><span>    for _ in range(n):
+</span></span><span style="display:flex;"><span>        yield a
+</span></span><span style="display:flex;"><span>        a,b = b,a+b
+</span></span></code></pre></div><p>也可以將generator產生的數值變成list：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&gt;&gt;&gt; print list(fib_gener(10))
+</span></span><span style="display:flex;"><span>[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+</span></span></code></pre></div><p>可以處理非常龐大的fibonacci list。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>x=list(fib_gener(10000))
+</span></span><span style="display:flex;"><span>end_time = datetime.now()
+</span></span><span style="display:flex;"><span>print(&#39;Duration: {}&#39;.format(end_time - start_time))
+</span></span><span style="display:flex;"><span>Duration: 0:00:00.482573
+</span></span></code></pre></div><p>list最後一個數字有2090個位數。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>x=list(fib_gener(10000))
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; countDigit(x[-1])
+</span></span><span style="display:flex;"><span>2090
+</span></span></code></pre></div><p>上面的方法只能獲得一個list，如果想要獲得第n位數的fibonacci，需要多一個步驟。</p>
+<h3 id="2使用generator獲得fibonacci-number">2）使用Generator獲得fibonacci number：<a hidden class="anchor" aria-hidden="true" href="#2使用generator獲得fibonacci-number">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def fib_gener(n):
+</span></span><span style="display:flex;"><span>    a,b = 0,1
+</span></span><span style="display:flex;"><span>    for _ in range(n+1):
+</span></span><span style="display:flex;"><span>        yield a
+</span></span><span style="display:flex;"><span>        a,b = b,a+b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>def fib_gener_number(n):
+</span></span><span style="display:flex;"><span>    return list(fib_gener(n))[-1]
+</span></span></code></pre></div><p>只用了4秒鐘，就計算出了第30萬個fibnacci。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&gt;&gt;&gt; x=fib_gener_number(300000)
+</span></span><span style="display:flex;"><span>end_time = datetime.now()
+</span></span><span style="display:flex;"><span>print(&#39;Duration: {}&#39;.format(end_time - start_time))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; end_time = datetime.now()
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; print(&#39;Duration: {}&#39;.format(end_time - start_time))
+</span></span><span style="display:flex;"><span>Duration: 0:00:04.249106
+</span></span></code></pre></div><p>Leetcode分數和迴圈差不多。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2023-01-18-at-10.53.37-AM-1024x223.png" alt=""  />
+</p>
+<h2 id="7list-comprehension">7.List Comprehension<a hidden class="anchor" aria-hidden="true" href="#7list-comprehension">#</a></h2>
+<p>List Comprehension 模板：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>[&lt;expression&gt; for &lt;element&gt; in &lt;sequence&gt; if &lt;conditional&gt;] 
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; [i**2 for i in [1, 2, 3, 4] if i % 2 == 0] 
+</span></span><span style="display:flex;"><span>[4, 16]
+</span></span></code></pre></div><p>代碼如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>s = [0, 1]
+</span></span><span style="display:flex;"><span>s += [(s := [s[1], s[0] + s[1]]) and s[1] for k in range(10)]
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; s
+</span></span><span style="display:flex;"><span>[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+</span></span></code></pre></div><p>參考自文章：<a href="https://stackoverflow.com/questions/42370456/how-can-i-create-the-fibonacci-series-using-a-list-comprehension" target="_blank" rel="noopener" style="color:#42b983";>How can I create the fibonacci series using a list comprehension?</a></p>
+<p>其中這個 <strong>:=</strong> 是Python3.8後才有的，叫做Assignment Expressions。</p>
+<p>用了18秒計算出來第30萬個fibonacci.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>start_time = datetime.now()
+</span></span><span style="display:flex;"><span>s = [0, 1]
+</span></span><span style="display:flex;"><span>s += [(s := [s[1], s[0] + s[1]]) and s[1] for k in range(300000)]
+</span></span><span style="display:flex;"><span>fib_lis = s[-3]
+</span></span><span style="display:flex;"><span>print(fib_lis)
+</span></span><span style="display:flex;"><span>end_time = datetime.now()
+</span></span><span style="display:flex;"><span>print(&#39;Duration: {}&#39;.format(end_time - start_time))
+</span></span><span style="display:flex;"><span>Duration: 0:00:17.897750
+</span></span></code></pre></div><p>花了點時間弄懂，解釋如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#賦值
+</span></span><span style="display:flex;"><span>(s := [s[1], s[0] + s[1]]) 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#s := [s[1], s[0] + s[1]]的目的在於從初始動[0,1]滾動變為[1,1]，然後[2, 3]等等。
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; s=[0,1]
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; s += [(s := [s[1], s[0] + s[1]]) for i in range(3)]
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; s
+</span></span><span style="display:flex;"><span>[0, 1, [1, 1], [1, 2], [2, 3]]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#and的意思是取s的第二個數值
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt;s=[1,2]
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; s and s[1]
+</span></span><span style="display:flex;"><span>2
+</span></span></code></pre></div><p>其他參考文章：<a href="https://www.digitalocean.com/community/tutorials/how-to-use-assignment-expressions-in-python" target="_blank" rel="noopener" style="color:#42b983";>How To Use Assignment Expressions in Python</a></p>
+<h2 id="8reduce-and-lambda">8.Reduce and Lambda<a hidden class="anchor" aria-hidden="true" href="#8reduce-and-lambda">#</a></h2>
+<p>Python中的reduce是來自於funtools模塊，借鑑自函數式編程。</p>
+<p><a href="https://docs.python.org/3/library/functools.html" target="_blank" rel="noopener" style="color:#42b983";>https://docs.python.org/3/library/functools.html</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>functools<span style="color:#5bc4bf">.</span>reduce(function, iterable[, initializer])
+</span></span></code></pre></div><p>代碼受如下這篇文章啟發：</p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-use-assignment-expressions-in-python" target="_blank" rel="noopener" style="color:#42b983";>Python | Find fibonacci series upto n using lambda</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>from functools import reduce
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#815ba4">def</span> <span style="color:#06b6ef">fib_reduce</span>(n):
+</span></span><span style="display:flex;"><span>    <span style="color:#815ba4">if</span> n <span style="color:#5bc4bf">&lt;</span> <span style="color:#f99b15">2</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">return</span> n
+</span></span><span style="display:flex;"><span>    lst <span style="color:#5bc4bf">=</span> reduce(lambda x,y:x<span style="color:#5bc4bf">+</span>[x[<span style="color:#5bc4bf">-</span><span style="color:#f99b15">1</span>]<span style="color:#5bc4bf">+</span>x[<span style="color:#5bc4bf">-</span><span style="color:#f99b15">2</span>]], range(n <span style="color:#5bc4bf">-</span> <span style="color:#f99b15">1</span>), [<span style="color:#f99b15">0</span>,<span style="color:#f99b15">1</span>])
+</span></span><span style="display:flex;"><span>    <span style="color:#815ba4">return</span> lst[<span style="color:#5bc4bf">-</span><span style="color:#f99b15">1</span>]
+</span></span></code></pre></div><p>解釋：</p>
+<p>一般的reduce運作方式如下，如下的range(5)是迭代器（iterator），此處的迭代器也參與運算。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&gt;&gt;&gt; reduce(lambda x,y:x+y,range(5),100)
+</span></span><span style="display:flex;"><span>55
+</span></span><span style="display:flex;"><span>執行的順序如下：((((100+1)+2)+3)+4)
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; reduce(lambda x,y:x+[y],range(5),[100])
+</span></span><span style="display:flex;"><span>[100, 0, 1, 2, 3, 4]
+</span></span></code></pre></div><p>下面的y對應從迭代器range(10,20)裡一直迭代的值在lambda裡沒有起到計算的作用，但是起到了類似迴圈的作用。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&gt;&gt;&gt; reduce(lambda x,y:x+[x[-1]+x[-2]],range(10,20),[1,2,3])
+</span></span><span style="display:flex;"><span>[1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377]
+</span></span></code></pre></div><p>下面的y即range(10,20)就參與運算了。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&gt;&gt;&gt; reduce(lambda x,y:x+[y],range(10,20),[1,2,3])
+</span></span><span style="display:flex;"><span>[1, 2, 3, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+</span></span></code></pre></div><p>為什麼可以產生類似迴圈的特性呢？</p>
+<p>是因為上面兩個的起始值都是list，list是一個pointer，不是object本身，只是一個地址。所以reduce函數起到了不斷往這個地址裡放東西的作用，就累積成有點迴圈的感覺。</p>
+<p>解釋完畢，最後看下效能。</p>
+<p>因為是先生成list的關係，所以處理到第50000個fibonacci就花了4.8秒。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fib_reduce(50000)
+</span></span><span style="display:flex;"><span>Duration: 0:00:04.815144
+</span></span></code></pre></div><p>LeetCode成績也普通。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2023-01-18-at-10.47.27-AM-1024x174.png" alt=""  />
+</p>
+<h2 id="9map-and-lambda">9.Map and Lambda<a hidden class="anchor" aria-hidden="true" href="#9map-and-lambda">#</a></h2>
+<p>代碼參考自：<a href="https://www.geeksforgeeks.org/python-find-fibonacci-series-upto-n-using-lambda/" target="_blank" rel="noopener" style="color:#42b983";>Python | Find fibonacci series upto n using lambda</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def fib_map(n):
+</span></span><span style="display:flex;"><span>    lst=[0,1]
+</span></span><span style="display:flex;"><span>    any(map(lambda _:lst.append(sum(lst[-2:])),range(2,n)))
+</span></span><span style="display:flex;"><span>    return lst[-1]
+</span></span></code></pre></div><p>這麽高深的寫法我自己肯定想破頭也想不出。</p>
+<p>解釋：</p>
+<ul>
+<li>
+<p>map因為是iterator，所以只會運行一次，用any讓程式可以一直運行直到超出range。</p>
+</li>
+<li>
+<p>_表示不用給這個lambda名字，也可以給任意名字比如lambda x:lst.append(sum(lst[-2:]))。</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&gt;&gt;&gt;lst=[1,2]
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt;x=map(lambda x:lst.append(3),range(2))
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; x
+</span></span><span style="display:flex;"><span>&lt;map object at 0x100f731f0&gt;
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; next(x)
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; lst
+</span></span><span style="display:flex;"><span>[1, 2, 3]
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; next(x)
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; lst
+</span></span><span style="display:flex;"><span>[1, 2, 3, 3]
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; next(x)
+</span></span><span style="display:flex;"><span>Traceback (most recent call last):
+</span></span><span style="display:flex;"><span>  File &#34;&lt;stdin&gt;&#34;, line 1, in &lt;module&gt;
+</span></span><span style="display:flex;"><span>StopIteration
+</span></span></code></pre></div><p>重新翻看了下<a href="https://www.youtube.com/watch?v=bYtkZGU4h_E&amp;list=PL6BsET-8jgYWtQwrnaluW2W6NdCuuHEW2&amp;index=5" target="_blank" rel="noopener" style="color:#42b983";>課程視頻</a>，發現可以用list來迫使所有的iterator運行完畢。</p>
+<p>所以修改以上程式如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def fib_map(n):
+</span></span><span style="display:flex;"><span>    lst=[0,1]
+</span></span><span style="display:flex;"><span>    if n &lt; 2:
+</span></span><span style="display:flex;"><span>        return n
+</span></span><span style="display:flex;"><span>    list(map(lambda x:lst.append(sum(lst[-2:])),range(1,n)))
+</span></span><span style="display:flex;"><span>    return lst[-1]
+</span></span></code></pre></div><p>使用list版本的fib_map運行時間為4秒。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&gt;&gt;&gt;fib_map(300000)
+</span></span><span style="display:flex;"><span>0:00:04.120279
+</span></span></code></pre></div><p><img loading="lazy" src="images/Screen-Shot-2023-01-18-at-10.41.38-AM-1024x231.png" alt=""  />
+</p>
+<h2 id="總結">總結：<a hidden class="anchor" aria-hidden="true" href="#總結">#</a></h2>
+<p>CS61A之前我連fibonacci是什麼都不知道，上完課，現在我可以看得懂這麼多種思路寫的fibonacci。非常有成就感。</p>
+<p>感謝老師最好的方式就是自己好好學習，再推薦更多的人來學習。</p>
+<p>希望有更多的人來學習這麽課程。最後再次強烈推薦CS61A。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/cs61a/">CS61A</a></li>
+      <li><a href="https://everydaydiva.blog/tags/python/">Python</a></li>
+      <li><a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">CS自學</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/history/2023-02-18-git-internal/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Git 原理學習筆記</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2023-01-18-first-grade-reading-list/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>小一上英文閱讀書單和心得</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2023-01-18 00:00:00 +0000 UTC'>2023-01-18</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/cs61a/">CS61A</a>
+    <a href="https://everydaydiva.blog/tags/python/">、Python</a>
+    <a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">、CS自學</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

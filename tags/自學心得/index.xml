@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>自學心得 on Everydaydiva&#39;s Blog</title>
+    <link>https://everydaydiva.blog/tags/%E8%87%AA%E5%AD%B8%E5%BF%83%E5%BE%97/</link>
+    <description>Recent content in 自學心得 on Everydaydiva&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Mon, 02 Jan 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://everydaydiva.blog/tags/%E8%87%AA%E5%AD%B8%E5%BF%83%E5%BE%97/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>為什麼自學程式</title>
+      <link>https://everydaydiva.blog/posts/history/2023-01-02-why-learn-cs-2/</link>
+      <pubDate>Mon, 02 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2023-01-02-why-learn-cs-2/</guid>
+      <description>2022年我利用帶小孩和運動之外的時間，學習了三門CS的課程：哈佛大學CS入門課CS50、Coursera上被數百所高校採用的計算機體系入門課Nand2Tetris（前5章）和伯克利大一學生程式入門課CS61A（跳過SQL部分因為與CS50重疊），下面分享下我為什麼自學程式。 以下</description>
+    </item>
+  </channel>
+</rss>

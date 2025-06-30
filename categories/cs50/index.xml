@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>cs50 on Everydaydiva&#39;s Blog</title>
+    <link>https://everydaydiva.blog/categories/cs50/</link>
+    <description>Recent content in cs50 on Everydaydiva&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 09 Jul 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://everydaydiva.blog/categories/cs50/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CS50 wk9 Flask學習和Finance作業心得</title>
+      <link>https://everydaydiva.blog/posts/history/2022-07-09-cs50-wk9-flask/</link>
+      <pubDate>Sat, 09 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-07-09-cs50-wk9-flask/</guid>
+      <description>學習心得： CS50 wk9 是學習用Flask框架做網絡應用，作業是做一個簡易的股票買賣網站。 wk8和wk9都是網頁相關的，一開始有些抗拒，感覺沒有前半部分的會涉及電腦底層知識的課程有趣。然後又一口氣教這麼多，壓力很大。 加上Finance是一個很大的作業，會不想下手。所以我改變想法，讓自己每天</description>
+    </item>
+    <item>
+      <title>我為什麼學習電腦科學（從CS50開始）</title>
+      <link>https://everydaydiva.blog/posts/history/2022-06-20-why-learn-cs/</link>
+      <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-06-20-why-learn-cs/</guid>
+      <description>1月的時候寫了篇文章，寫了為什麼學習Python，文科生為什麼學Python？ 現在學完了CS50 哈佛大學的電腦科學入門導論課程 後，我想學習的不僅僅是Python了，被挖了很多坑想學習，比如演算法、計算機網絡、高等數學等等。 1.減少mind wondering 如果沒有很專注的工作或者學習的話，很容易</description>
+    </item>
+    <item>
+      <title>CS50 wk8 TCP,IP,HTTP,HTML,CSS,JavaScript課程筆記</title>
+      <link>https://everydaydiva.blog/posts/history/2022-05-18-2022-05-cs50-wk8-tcpiphttphtmlcssjavascript%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-05-18-2022-05-cs50-wk8-tcpiphttphtmlcssjavascript%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98/</guid>
+      <description>本週學習： TCP(Transmission Control Protocol) IP(Internet Protocol) HTTP(HyperText Transfer Protocol) DNS（Domain NameS） HTML CSS JavaScript DOM 本週課程前面40分鐘講解了Computer Networking相關知識，教授用傳輸信件這個方式來形象的解釋了互聯網是如何傳輸信息的。 在2016年的wk6課程中，教授是用google網上的信息這個例子來說明信息是如何</description>
+    </item>
+    <item>
+      <title>CS50 wk7 SQL學習心得</title>
+      <link>https://everydaydiva.blog/posts/history/2022-04-23-cs50-wk7-sql%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</link>
+      <pubDate>Sat, 23 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-04-23-cs50-wk7-sql%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</guid>
+      <description>學習心得： 本週學習SQL，處理數據庫的語言，句法簡單。主要的句法參考下面兩個網站。 SQL Keywords Reference https://www.sqlstyle.guide 為什麼不寫筆記？ 1.可以google 2.細節內容太多太費時間 3.可以通過code練習 4.理解概念之類的可以做筆記。 不過這個對於初學者很難，比如OOP這個概念，我也沒有完全弄懂。想要用自己的話</description>
+    </item>
+    <item>
+      <title>CS50 wk6 Python課程筆記和學習心得</title>
+      <link>https://everydaydiva.blog/posts/history/2022-04-14-cs50-wk6-python%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E5%92%8C%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</link>
+      <pubDate>Thu, 14 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-04-14-cs50-wk6-python%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E5%92%8C%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</guid>
+      <description>心得： 本週從C語言轉到Python，一開課教授就說：過去的六週通過學習C語言學了很多語言的基礎，之後學任何語言靠google和stackoverflow學一下句法就可以了。經過這一個多月的學習，好像對Python稍微有點感覺了。 一週學習Python一門語言的基本語法，這節課課程本</description>
+    </item>
+    <item>
+      <title>CS50 wk5 課程筆記和作業心得</title>
+      <link>https://everydaydiva.blog/posts/history/2022-03-28-cs50-wk5-%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E5%92%8C%E4%BD%9C%E6%A5%AD%E5%BF%83%E5%BE%97/</link>
+      <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-03-28-cs50-wk5-%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E5%92%8C%E4%BD%9C%E6%A5%AD%E5%BF%83%E5%BE%97/</guid>
+      <description>註：本課程筆記參考CS50官方課程和官方notes。 本週的課程是數據結構（data structure）。 當解決複雜的問題，需要面對大量的數據的時候，就需要先想想怎麼組織這些數據。比如很多app用戶量上億，這麼大的數量，怎麼存儲用戶名和密碼，然後讓用戶花最少的時間登陸自己的帳號，這</description>
+    </item>
+    <item>
+      <title>CS50 wk4 課程筆記和作業心得</title>
+      <link>https://everydaydiva.blog/posts/history/2022-03-16-cs50-wk4-%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E5%92%8C%E4%BD%9C%E6%A5%AD%E5%BF%83%E5%BE%97/</link>
+      <pubDate>Wed, 16 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-03-16-cs50-wk4-%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E5%92%8C%E4%BD%9C%E6%A5%AD%E5%BF%83%E5%BE%97/</guid>
+      <description>註：本課程筆記參考CS50官方課程和官方notes。 課程筆記： 1.image-RGB 圖片是怎麼存儲的呢？圖片是無數個小小的格子。像是電視的4k是3840×2160個格子，vcd畫面是352×240個格子。 每個格子由R(red)，G(green)，和B（blue）組成，不同的數值形成不同的顏色。 white, with R:</description>
+    </item>
+    <item>
+      <title>CS50 wk3 &#43; C 學習心得</title>
+      <link>https://everydaydiva.blog/posts/history/2022-03-04-cs50-wk3-c-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</link>
+      <pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-03-04-cs50-wk3-c-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</guid>
+      <description>本週關鍵詞： algorithms searching(linear search, binary search) data structures sorting(selection sort, bubble sort，merge sort) recursion running times 我不會寫課程筆記，只是紀錄下課程的關鍵詞。因為： 1.電腦科學裡的內容很多，也不可能所有的都記住，學過然後通過作業複習所學掌握個三五成也ok，等到再次需要用的時候還可以再google。 2.沒辦法像別的學科一樣寫課程筆記，要</description>
+    </item>
+    <item>
+      <title>CS50 wk2 &#43; C 學習心得</title>
+      <link>https://everydaydiva.blog/posts/history/2022-02-18-cs50-wk2-c-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</link>
+      <pubDate>Fri, 18 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-02-18-cs50-wk2-c-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</guid>
+      <description>註：本文是個人心得筆記，初學者能力有限，內容不保證正確，請謹慎參考。 wk2主要有下面幾個內容： compiling（preprocessing, compiling, assembling, linking） debug三種方法（printf，debug50，對著鴨子復述一遍步驟） 數據類型：array（array就是儲存到電腦</description>
+    </item>
+    <item>
+      <title>CS50 wk1 &#43; C 學習心得和作業</title>
+      <link>https://everydaydiva.blog/posts/history/2022-02-12-cs50-wk1-c-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97%E5%92%8C%E4%BD%9C%E6%A5%AD/</link>
+      <pubDate>Sat, 12 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-02-12-cs50-wk1-c-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97%E5%92%8C%E4%BD%9C%E6%A5%AD/</guid>
+      <description>筆記： 1.負數的表示方法： 這是huli大大的課程導讀裡教的。huli大大補充的非常好，因為CS50沒有教電腦怎麼顯示負數。 我理解的是：先設定好幾個bits，比如4個bite，那可以用x+（-x）=0這個公式推導出來-x。因為只有4個bite，所以進位的時候變成0000，剛好等於0</description>
+    </item>
+    <item>
+      <title>CS50 wk0&#43;Scratch 學習心得和作業</title>
+      <link>https://everydaydiva.blog/posts/history/2022-02-05-cs50-wk0scratch-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</link>
+      <pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-02-05-cs50-wk0scratch-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</guid>
+      <description>為什麼是wk0？ 之前學了Coursera 的Python for Everybody的前兩門課，老師在結尾的時候說：現在你們已經達到Level 0了。 現在想想，只是學了functions/conditionals/variables/loops等等概念，但是卻不知道背後的邏輯是什麼。也不知道</description>
+    </item>
+  </channel>
+</rss>

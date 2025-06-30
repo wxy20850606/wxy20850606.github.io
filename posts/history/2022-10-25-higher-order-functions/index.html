@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>CS61A 學習筆記和心得1：Python 函數式編程/遞歸 | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="年終總結">
+<meta name="description" content="CS61A（Fall 2022）第一部分的課程在介紹函數式編程，對應課本第一章，主要包含： 高階函數Higher-Order Functions 遞歸（一直call自己循環的函數） 也簡單帶過如下內容 Lambda( 匿名函數) Currying（只有一個argument的一串函數） Decorators（函數裝飾器，高階函">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2022-10-25-higher-order-functions/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="CS61A 學習筆記和心得1：Python 函數式編程/遞歸" />
+<meta property="og:description" content="CS61A（Fall 2022）第一部分的課程在介紹函數式編程，對應課本第一章，主要包含： 高階函數Higher-Order Functions 遞歸（一直call自己循環的函數） 也簡單帶過如下內容 Lambda( 匿名函數) Currying（只有一個argument的一串函數） Decorators（函數裝飾器，高階函" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2022-10-25-higher-order-functions/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-10-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-10-25T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CS61A 學習筆記和心得1：Python 函數式編程/遞歸"/>
+<meta name="twitter:description" content="CS61A（Fall 2022）第一部分的課程在介紹函數式編程，對應課本第一章，主要包含： 高階函數Higher-Order Functions 遞歸（一直call自己循環的函數） 也簡單帶過如下內容 Lambda( 匿名函數) Currying（只有一個argument的一串函數） Decorators（函數裝飾器，高階函"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "CS61A 學習筆記和心得1：Python 函數式編程/遞歸",
+      "item": "https://everydaydiva.blog/posts/history/2022-10-25-higher-order-functions/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "CS61A 學習筆記和心得1：Python 函數式編程/遞歸",
+  "name": "CS61A 學習筆記和心得1：Python 函數式編程\/遞歸",
+  "description": "CS61A（Fall 2022）第一部分的課程在介紹函數式編程，對應課本第一章，主要包含： 高階函數Higher-Order Functions 遞歸（一直call自己循環的函數） 也簡單帶過如下內容 Lambda( 匿名函數) Currying（只有一個argument的一串函數） Decorators（函數裝飾器，高階函",
+  "keywords": [
+    "年終總結"
+  ],
+  "articleBody": "CS61A（Fall 2022）第一部分的課程在介紹函數式編程，對應課本第一章，主要包含：\n高階函數Higher-Order Functions\n遞歸（一直call自己循環的函數）\n也簡單帶過如下內容\nLambda( 匿名函數)\nCurrying（只有一個argument的一串函數）\nDecorators（函數裝飾器，高階函數的替代）\n提示：本文參考課本所寫的筆記，方便自己以後複習，舉例含有部分作業代碼，要上課的同學請不要閱讀。\n筆記： 1.Environment Diagrams 第一章花了很多的時間學習Environment Diagrams。Environment Diagrams可以讓我們直觀的看到程式是如何被一步一步執行的。對於初學者，知道程式碼怎麼被執行能幫助我們寫出來自己需要的程式。\n學習Environment Diagrams一靠畫圖，二靠把代碼敲進**Python Tutor**看，不是靠寫筆記。而且這篇文章總結了Environment Diagrams的很多細節，我就不贅述了。\n下面是作業hog裡面我犯的一個錯誤，本來我helper的名字取的是original_function，這樣就導致了重新綁定導致錯誤。\ndef make_averaged(original_function, total_samples=1000): def helper(*args): i=0 total=[] while i",
+  "wordCount" : "2551",
+  "inLanguage": "zh",
+  "datePublished": "2022-10-25T00:00:00Z",
+  "dateModified": "2022-10-25T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2022-10-25-higher-order-functions/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      CS61A 學習筆記和心得1：Python 函數式編程/遞歸
+    </h1>
+    <div class="post-meta"><span title='2022-10-25 00:00:00 +0000 UTC'>2022-10-25</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e7%ad%86%e8%a8%98" aria-label="筆記：">筆記：</a></li>
+                    <li>
+                        <a href="#1environment-diagrams" aria-label="1.Environment Diagrams">1.Environment Diagrams</a></li>
+                    <li>
+                        <a href="#2hof" aria-label="2.HOF">2.HOF</a><ul>
+                            
+                    <li>
+                        <a href="#1-functions-as-arguments" aria-label="1. Functions as Arguments">1. Functions as Arguments</a></li>
+                    <li>
+                        <a href="#2-return-functions-from-other-functions" aria-label="2. Return functions from other functions">2. Return functions from other functions</a></li>
+                    <li>
+                        <a href="#3-functions-as-general-methods" aria-label="3.  Functions as General Methods">3.  Functions as General Methods</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e6%80%8e%e9%ba%bc%e7%94%a8%e9%ab%98%e9%9a%8e%e5%87%bd%e6%95%b8%e5%af%ab%e7%a8%8b%e5%bc%8f" aria-label="怎麼用高階函數寫程式">怎麼用高階函數寫程式</a><ul>
+                            
+                    <li>
+                        <a href="#1%e5%af%abhof%e7%9a%84%e6%a1%86%e6%9e%b6" aria-label="1.寫HOF的框架">1.寫HOF的框架</a></li>
+                    <li>
+                        <a href="#2%e5%af%abrecursive%e7%9a%84%e6%a1%86%e6%9e%b6" aria-label="2.寫Recursive的框架">2.寫Recursive的框架</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#3lambda" aria-label="3.Lambda">3.Lambda</a></li>
+                    <li>
+                        <a href="#4currying" aria-label="4.Currying">4.Currying</a></li>
+                    <li>
+                        <a href="#%e5%bf%83%e5%be%97" aria-label="心得：">心得：</a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p>CS61A（<a href="https://cs61a.org" target="_blank" rel="noopener" style="color:#42b983";>Fall 2022</a>）第一部分的課程在介紹函數式編程，對應課本第一章，主要包含：</p>
+<ul>
+<li>
+<p>高階函數Higher-Order Functions</p>
+</li>
+<li>
+<p>遞歸（一直call自己循環的函數）</p>
+</li>
+</ul>
+<p>也簡單帶過如下內容</p>
+<ul>
+<li>
+<p>Lambda( 匿名函數)</p>
+</li>
+<li>
+<p>Currying（只有一個argument的一串函數）</p>
+</li>
+<li>
+<p>Decorators（函數裝飾器，高階函數的替代）</p>
+</li>
+</ul>
+<p>提示：本文參考<a href="http://composingprograms.com" target="_blank" rel="noopener" style="color:#42b983";>課本</a>所寫的筆記，方便自己以後複習，舉例含有部分作業代碼，要上課的同學請不要閱讀。</p>
+<h2 id="筆記">筆記：<a hidden class="anchor" aria-hidden="true" href="#筆記">#</a></h2>
+<h2 id="1environment-diagrams">1.Environment Diagrams<a hidden class="anchor" aria-hidden="true" href="#1environment-diagrams">#</a></h2>
+<p>第一章花了很多的時間學習Environment Diagrams。Environment Diagrams可以讓我們直觀的看到程式是如何被一步一步執行的。對於初學者，知道程式碼怎麼被執行能幫助我們寫出來自己需要的程式。</p>
+<p>學習Environment Diagrams一靠畫圖，二靠把代碼敲進**<a href="https://pythontutor.com/visualize.html#mode=edit" target="_blank" rel="noopener" style="color:#42b983";>Python Tutor</a>**看，不是靠寫筆記。而且這篇文章總結了<a href="http://albertwu.org/cs61a/notes/environments" target="_blank" rel="noopener" style="color:#42b983";>Environment Diagrams</a>的很多細節，我就不贅述了。</p>
+<p>下面是作業hog裡面我犯的一個錯誤，本來我helper的名字取的是original_function，這樣就導致了重新綁定導致錯誤。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def make_averaged(original_function, total_samples=1000):    
+</span></span><span style="display:flex;"><span>    def helper(*args):
+</span></span><span style="display:flex;"><span>        i=0
+</span></span><span style="display:flex;"><span>        total=[]
+</span></span><span style="display:flex;"><span>        while i&lt;total_samples:
+</span></span><span style="display:flex;"><span>            result=original_function(*args)
+</span></span><span style="display:flex;"><span>            total.append(result)
+</span></span><span style="display:flex;"><span>            i+=1
+</span></span><span style="display:flex;"><span>        return sum(total)/len(total)        
+</span></span><span style="display:flex;"><span>    return helper   
+</span></span></code></pre></div><p>課程中我遇到的最難畫圖的HOF程式Church numerals：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def zero(f):
+</span></span><span style="display:flex;"><span>    return lambda x: x
+</span></span><span style="display:flex;"><span>def successor(n):
+</span></span><span style="display:flex;"><span>    return lambda f: lambda x: f(n(f)(x))
+</span></span><span style="display:flex;"><span>def one(f):
+</span></span><span style="display:flex;"><span>    return lambda x:f(x)
+</span></span><span style="display:flex;"><span>def two(f):
+</span></span><span style="display:flex;"><span>    return lambda x:f(f(x))
+</span></span><span style="display:flex;"><span>three = successor(two)
+</span></span><span style="display:flex;"><span>def church_to_int(n):
+</span></span><span style="display:flex;"><span>    return n(lambda x: x + 1)(0)
+</span></span><span style="display:flex;"><span>church_to_int(three)
+</span></span></code></pre></div><h2 id="2hof">2.HOF<a hidden class="anchor" aria-hidden="true" href="#2hof">#</a></h2>
+<p>高階函數Higher-Order Functions是更高一層的抽象，像硬體靠一層一層的抽象只管in和out這倆個管腳不管每個部分的實作細節一樣。像下面的Counter芯片，裡面用了5個芯片來完成，只把管腳（pin）接好就好。因為這種抽象，才可以從一個個基本的芯片門構建出龐大的計算機體系。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2022-10-25-at-5.54.53-AM-1024x682.png" alt=""  />
+</p>
+<p>HOF就是實現軟體層面抽象的一種方法，把函數當作一般的數據類型，像整數一樣，可以作為函數的返回值和參數。</p>
+<h3 id="1-functions-as-arguments">1. Functions as Arguments<a hidden class="anchor" aria-hidden="true" href="#1-functions-as-arguments">#</a></h3>
+<p>把函式當作參數傳入另一個函式：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def product(n, term):
+</span></span><span style="display:flex;"><span>    product, k = 1, 1
+</span></span><span style="display:flex;"><span>    while k &lt;= n:
+</span></span><span style="display:flex;"><span>        product,k = product * term(k), k + 1
+</span></span><span style="display:flex;"><span>    return product
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>triple = lambda x: 3 * x
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>product(3, triple) 
+</span></span></code></pre></div><h3 id="2-return-functions-from-other-functions">2. Return functions from other functions<a hidden class="anchor" aria-hidden="true" href="#2-return-functions-from-other-functions">#</a></h3>
+<p>在函式裡面回傳函式：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def outer(x):
+</span></span><span style="display:flex;"><span>    def inner(y):
+</span></span><span style="display:flex;"><span>        return x + y
+</span></span><span style="display:flex;"><span>    return inner
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fn = outer(2)
+</span></span><span style="display:flex;"><span>fn(3)
+</span></span></code></pre></div><h3 id="3-functions-as-general-methods">3.  Functions as General Methods<a hidden class="anchor" aria-hidden="true" href="#3-functions-as-general-methods">#</a></h3>
+<p>函式可以作為一種解決問題的通用方法。</p>
+<p>這是第一章的難點，老師用了兩個例子來說明怎麼用無限接近的方法求的最大近似值。</p>
+<p>第一個是求黃金比例（phi）的例子。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2022-10-25-at-9.12.54-AM.png" alt=""  />
+</p>
+<p><a href="https://en.wikipedia.org/wiki/Golden_ratio" target="_blank" rel="noopener" style="color:#42b983";>https://en.wikipedia.org/wiki/Golden_ratio</a></p>
+<p>黃金比例，(a+b)/a=a/b。假設a=x,b=1，可得：</p>
+<p>(x+1)/x=x 即x=1+1/x，就是下圖利用golden_update(guess)這個函數來不斷的求近似值。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def improve(update, close, guess=1):
+</span></span><span style="display:flex;"><span>    while not close(guess):
+</span></span><span style="display:flex;"><span>        guess = update(guess)
+</span></span><span style="display:flex;"><span>    return guess
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>def golden_update(guess):
+</span></span><span style="display:flex;"><span>    return 1/guess + 1
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>def square_close_to_successor(guess):
+</span></span><span style="display:flex;"><span>    return approx_eq(guess * guess,guess + 1)
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>def approx_eq(x, y, tolerance=1e-3):
+</span></span><span style="display:flex;"><span>    return abs(x - y) &lt; tolerance
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>phi = improve(golden_update,square_close_to_successor)
+</span></span></code></pre></div><p>但是這裡update和 close函式只有一個參數，如果有兩個參數的話怎麼求最大近似值呢？</p>
+<p>那就是利用高階函數的概念，把其中一個參數放在外層（比如a放在sqrt這個函數裡）。這樣裡面的函數sqrt_update和sqrt_close自動獲得參數a的數值。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def average(x, y):
+</span></span><span style="display:flex;"><span>    return (x + y)/2
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>def improve(update, close, guess=1):
+</span></span><span style="display:flex;"><span>    while not close(guess):
+</span></span><span style="display:flex;"><span>        guess = update(guess)
+</span></span><span style="display:flex;"><span>    return guess
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>def approx_eq(x, y, tolerance=1e-3):
+</span></span><span style="display:flex;"><span>    return abs(x - y) &lt; tolerance
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>def sqrt(a):
+</span></span><span style="display:flex;"><span>    def sqrt_update(x):
+</span></span><span style="display:flex;"><span>        return average(x, a/x)
+</span></span><span style="display:flex;"><span>    def sqrt_close(x):
+</span></span><span style="display:flex;"><span>        return approx_eq(x * x, a)
+</span></span><span style="display:flex;"><span>    return improve(sqrt_update, sqrt_close)	
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>result = sqrt(256)
+</span></span></code></pre></div><p>The sqrt_update function carries with it some data: the value for a referenced in the environment in which it was defined. Because they &ldquo;enclose&rdquo; information in this way, locally defined functions are often called <em>closures</em>.</p>
+<h2 id="怎麼用高階函數寫程式">怎麼用高階函數寫程式<a hidden class="anchor" aria-hidden="true" href="#怎麼用高階函數寫程式">#</a></h2>
+<h3 id="1寫hof的框架">1.寫HOF的框架<a hidden class="anchor" aria-hidden="true" href="#1寫hof的框架">#</a></h3>
+<p>比較常見的是在函數中回傳函式：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def outer(x):
+</span></span><span style="display:flex;"><span>    def inner(y):
+</span></span><span style="display:flex;"><span>        return x + y
+</span></span><span style="display:flex;"><span>    return inner
+</span></span></code></pre></div><p>還可以傳遞數值進去：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def is_prime(n):
+</span></span><span style="display:flex;"><span>    def helper(i):
+</span></span><span style="display:flex;"><span>        if i&gt;n**0.5:
+</span></span><span style="display:flex;"><span>            return True
+</span></span><span style="display:flex;"><span>        if n==1:
+</span></span><span style="display:flex;"><span>            return False
+</span></span><span style="display:flex;"><span>        if n%i==0:
+</span></span><span style="display:flex;"><span>            return False
+</span></span><span style="display:flex;"><span>        else:
+</span></span><span style="display:flex;"><span>            return helper(i+1)
+</span></span><span style="display:flex;"><span>    return helper(2)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>is_prime(521)
+</span></span></code></pre></div><p>HOF 傳遞一樣的argument還可以用*args,也可以call：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def printed(f):
+</span></span><span style="display:flex;"><span>    def print_and_return(*args):
+</span></span><span style="display:flex;"><span>        result = f(*args)
+</span></span><span style="display:flex;"><span>        print(&#39;Result:&#39;, result)
+</span></span><span style="display:flex;"><span>        return result
+</span></span><span style="display:flex;"><span>    return print_and_return
+</span></span><span style="display:flex;"><span>printed_pow = printed(pow)
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt;printed_pow(2, 8)
+</span></span><span style="display:flex;"><span>Result: 256
+</span></span><span style="display:flex;"><span>256
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; printed_abs = printed(abs)
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; printed_abs(-10)
+</span></span><span style="display:flex;"><span>Result: 10
+</span></span><span style="display:flex;"><span>10
+</span></span></code></pre></div><p><img loading="lazy" src="images/Screen-Shot-2022-10-20-at-11.50.44-AM-1024x616.png" alt=""  />
+</p>
+<h3 id="2寫recursive的框架">2.寫Recursive的框架<a hidden class="anchor" aria-hidden="true" href="#2寫recursive的框架">#</a></h3>
+<p>Recursive是一種自己call自己的HOF。</p>
+<p>1.iteration轉為recursion</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def fn(input):
+</span></span><span style="display:flex;"><span>    if &lt;base case&gt;:
+</span></span><span style="display:flex;"><span>        return ...
+</span></span><span style="display:flex;"><span>    else:
+</span></span><span style="display:flex;"><span>        return &lt;combine input and fn(input_reduced)&gt;
+</span></span></code></pre></div><p><img loading="lazy" src="images/Screen-Shot-2022-10-09-at-6.24.37-AM-1024x428.png" alt=""  />
+</p>
+<p>其中的關鍵在於利用return“部分結果和剩下問題”，達成計算效果。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>if pos&lt;10 and pos%10!=8:
+</span></span><span style="display:flex;"><span>    return 0
+</span></span><span style="display:flex;"><span>if pos%10==8:
+</span></span><span style="display:flex;"><span>    return 1+num_eights(pos//10)
+</span></span><span style="display:flex;"><span>else:
+</span></span><span style="display:flex;"><span>    return num_eights(pos//10)
+</span></span></code></pre></div><p><img loading="lazy" src="images/Screen-Shot-2022-10-13-at-8.01.03-AM-1024x927.png" alt=""  />
+</p>
+<p>如果沒有return，默認return：None</p>
+<p><img loading="lazy" src="images/Screen-Shot-2022-10-11-at-12.14.31-PM-1024x461.png" alt=""  />
+</p>
+<p>可以利用helper function 遞歸：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def is_prime(n):
+</span></span><span style="display:flex;"><span>    def helper(i):
+</span></span><span style="display:flex;"><span>        if i&gt;n**0.5:
+</span></span><span style="display:flex;"><span>            return True
+</span></span><span style="display:flex;"><span>        if n==1:
+</span></span><span style="display:flex;"><span>            return False
+</span></span><span style="display:flex;"><span>        if n%i==0:
+</span></span><span style="display:flex;"><span>            return False
+</span></span><span style="display:flex;"><span>        else:
+</span></span><span style="display:flex;"><span>            return helper(i+1)
+</span></span><span style="display:flex;"><span>    return helper(2)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>is_prime(521)
+</span></span></code></pre></div><p>可以在helper中設計多個變量來控制結果，下面的這個作業利用變量step”負負得正“的方法來控制方向。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def num_eights(pos):
+</span></span><span style="display:flex;"><span>    if pos &lt; 10 and pos % 10 != 8:
+</span></span><span style="display:flex;"><span>        return 0
+</span></span><span style="display:flex;"><span>    if pos % 10 == 8:
+</span></span><span style="display:flex;"><span>        return 1 + num_eights(pos//10)
+</span></span><span style="display:flex;"><span>    else:
+</span></span><span style="display:flex;"><span>        return num_eights(pos//10)   
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>def pingpong(n):
+</span></span><span style="display:flex;"><span>    def helper(i,step,j):
+</span></span><span style="display:flex;"><span>        elif i==n:
+</span></span><span style="display:flex;"><span>            return j
+</span></span><span style="display:flex;"><span>        elif  i%8==0 or num_eights(i)&gt;0:
+</span></span><span style="display:flex;"><span>            return helper(i+1,-step,j-step)
+</span></span><span style="display:flex;"><span>        else:
+</span></span><span style="display:flex;"><span>            return helper(i+1,step,j+step)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    return helper(1,1,1)
+</span></span><span style="display:flex;"><span>pingpong(19)
+</span></span></code></pre></div><p>Tree recursion：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def next_smaller_coin(coin):
+</span></span><span style="display:flex;"><span>    if coin == 25:
+</span></span><span style="display:flex;"><span>        return 10
+</span></span><span style="display:flex;"><span>    elif coin == 10:
+</span></span><span style="display:flex;"><span>        return 5
+</span></span><span style="display:flex;"><span>    elif coin == 5:
+</span></span><span style="display:flex;"><span>        return 1
+</span></span><span style="display:flex;"><span>def count_coins(change):
+</span></span><span style="display:flex;"><span>    def helper(largest,change):
+</span></span><span style="display:flex;"><span>        if change==0:
+</span></span><span style="display:flex;"><span>            return 1
+</span></span><span style="display:flex;"><span>        if change&lt;0:
+</span></span><span style="display:flex;"><span>            return 0
+</span></span><span style="display:flex;"><span>        elif largest==1:
+</span></span><span style="display:flex;"><span>            return 1
+</span></span><span style="display:flex;"><span>        else:
+</span></span><span style="display:flex;"><span>            with_largest=helper(largest,change-largest)
+</span></span><span style="display:flex;"><span>            without_largest=helper(next_smaller_coin(largest),change)
+</span></span><span style="display:flex;"><span>            return with_largest+without_largest
+</span></span><span style="display:flex;"><span>    if change&gt;25:
+</span></span><span style="display:flex;"><span>        return helper(25,change)
+</span></span><span style="display:flex;"><span>    elif change in range(10,25):
+</span></span><span style="display:flex;"><span>        return helper(10,change)
+</span></span><span style="display:flex;"><span>    elif change in range(5,10):
+</span></span><span style="display:flex;"><span>        return helper(5,change)
+</span></span><span style="display:flex;"><span>    elif change in range(1,5):
+</span></span><span style="display:flex;"><span>        return helper(1,change)
+</span></span><span style="display:flex;"><span>count_coins(20)
+</span></span></code></pre></div><p>recursion裡包含while/for loop(例子摘自disc04)</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def count_k(n, k):
+</span></span><span style="display:flex;"><span>    if n==0:
+</span></span><span style="display:flex;"><span>        return 1
+</span></span><span style="display:flex;"><span>    elif n==1:
+</span></span><span style="display:flex;"><span>        return 1
+</span></span><span style="display:flex;"><span>    elif n&lt;0:
+</span></span><span style="display:flex;"><span>        return 0
+</span></span><span style="display:flex;"><span>    else:
+</span></span><span style="display:flex;"><span>        i=1
+</span></span><span style="display:flex;"><span>        total=0
+</span></span><span style="display:flex;"><span>        while i&lt;=k:
+</span></span><span style="display:flex;"><span>            total=total+count_k(n-i,k)
+</span></span><span style="display:flex;"><span>            i+=1
+</span></span><span style="display:flex;"><span>        return total
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>count_k(3, 3) 
+</span></span></code></pre></div><p>tree 和 recursion結合，下面這個是<a href="https://cs61a.org/disc/sol-disc05/" target="_blank" rel="noopener" style="color:#42b983";>disc05</a>的作業，比較特別的是黑體標註的地方，根據判斷返回結果。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def tree(label, branches=[]):
+</span></span><span style="display:flex;"><span>    &#34;&#34;&#34;Construct a tree with the given label value and a list of branches.&#34;&#34;&#34;
+</span></span><span style="display:flex;"><span>    return [label] + list(branches)
+</span></span><span style="display:flex;"><span>def label(tree):
+</span></span><span style="display:flex;"><span>    &#34;&#34;&#34;Return the label value of a tree.&#34;&#34;&#34;
+</span></span><span style="display:flex;"><span>    return tree[0]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>def branches(tree):
+</span></span><span style="display:flex;"><span>    &#34;&#34;&#34;Return the list of branches of the given tree.&#34;&#34;&#34;
+</span></span><span style="display:flex;"><span>    return tree[1:]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>def is_leaf(tree):
+</span></span><span style="display:flex;"><span>    &#34;&#34;&#34;Returns True if the given tree&#39;s list of branches is empty, and False
+</span></span><span style="display:flex;"><span>    otherwise.
+</span></span><span style="display:flex;"><span>    &#34;&#34;&#34;
+</span></span><span style="display:flex;"><span>    return not branches(tree)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>def find_path(t, x):
+</span></span><span style="display:flex;"><span>    if label(t) == x:
+</span></span><span style="display:flex;"><span>        return [label(t)]
+</span></span><span style="display:flex;"><span>    for b in branches(t):
+</span></span><span style="display:flex;"><span>        path = find_path(b,x)
+</span></span><span style="display:flex;"><span>        if path:
+</span></span><span style="display:flex;"><span>            return [label(t)] + path
+</span></span><span style="display:flex;"><span>t = tree(3, [tree(5, [tree(1)]), tree(2)])
+</span></span><span style="display:flex;"><span>find_path(t, 10)
+</span></span></code></pre></div><p>（筆記：在做CS61B的gitlet作業時，增加了一個recursion的例子）</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    private static Map&lt;String,Integer&gt; getCommitDepthMap(Commit commit,Integer i){
+</span></span><span style="display:flex;"><span>        Map&lt;String,Integer&gt; map = new HashMap&lt;&gt;();
+</span></span><span style="display:flex;"><span>        if(!commit.havaParent1()){
+</span></span><span style="display:flex;"><span>            map.put(commit.getSHA1(),i);
+</span></span><span style="display:flex;"><span>            return map;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        map.put(commit.getSHA1(),i);
+</span></span><span style="display:flex;"><span>        i = i + 1;
+</span></span><span style="display:flex;"><span>        for(Commit x:commit.getParent()){
+</span></span><span style="display:flex;"><span>            map.putAll(getCommitDepthMap(x,i));
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        return map;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><h2 id="3lambda">3.Lambda<a hidden class="anchor" aria-hidden="true" href="#3lambda">#</a></h2>
+<p>匿名函數，不重要的函數，常常是只用一次，所以直接用一句話來代替，使得代碼簡潔。</p>
+<p>可以當參數傳入：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def product(n, term):
+</span></span><span style="display:flex;"><span>    product, k = 1, 1
+</span></span><span style="display:flex;"><span>    while k &lt;= n:
+</span></span><span style="display:flex;"><span>        product,k = product * term(k), k + 1
+</span></span><span style="display:flex;"><span>    return product
+</span></span><span style="display:flex;"><span>product(3, lambda x: 3 * x)
+</span></span></code></pre></div><p>lambda的結果可以回傳函數：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def lambda_curry2(func):
+</span></span><span style="display:flex;"><span>    return lambda x: lambda y: func(x,y)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>from operator import add, mul, mod
+</span></span><span style="display:flex;"><span>curried_add = lambda_curry2(add)
+</span></span><span style="display:flex;"><span>add_three = curried_add(3)
+</span></span><span style="display:flex;"><span>add_three(5)
+</span></span></code></pre></div><h2 id="4currying">4.Currying<a hidden class="anchor" aria-hidden="true" href="#4currying">#</a></h2>
+<p>Currying只是把有很多個參數的函數，變成只有一個參數的一串函數。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2022-10-06-at-11.24.40-AM.png" alt=""  />
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>from operator import add
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>curry2 = lambda f:lambda x:lambda y:f(x,y)
+</span></span><span style="display:flex;"><span>m=curry2(add)
+</span></span><span style="display:flex;"><span>m(2)(3)
+</span></span></code></pre></div><p><img loading="lazy" src="images/Screen-Shot-2022-10-06-at-10.27.10-AM-1024x843.png" alt=""  />
+</p>
+<p>from:<a href="https://pythontutor.com" target="_blank" rel="noopener" style="color:#42b983";>https://pythontutor.com</a></p>
+<p>參考資料：</p>
+<p>官方筆記：<a href="https://cs61a.org/assets/pdfs/61a-mt1-study-guide.pdf" target="_blank" rel="noopener" style="color:#42b983";>https://cs61a.org/assets/pdfs/61a-mt1-study-guide.pdf</a></p>
+<h2 id="心得">心得：<a hidden class="anchor" aria-hidden="true" href="#心得">#</a></h2>
+<p>1.理解code怎麼被執行才能知道怎麼寫（<a href="http://albertwu.org/cs61a/notes/environments.html" target="_blank" rel="noopener" style="color:#42b983";>Environment Diagrams</a>）</p>
+<p>把所有理解有困難的code比如HOF敲進**<a href="https://pythontutor.com/visualize.html#mode=edit" target="_blank" rel="noopener" style="color:#42b983";>Python Tutor</a>**看看電腦怎麼一步一步執行code。</p>
+<p>在寫作業的時候也可以用**<a href="https://pythontutor.com/visualize.html#mode=edit" target="_blank" rel="noopener" style="color:#42b983";>Python Tutor</a>**來觀察看看怎麼執行的，再進行修改。</p>
+<p>2.當作業卡關的時候，先看教材（Class Material）和所有的輔助材料（每週的Resources），一開始寫HOF毫無頭緒，看了教材和輔助材料後就會寫了。</p>
+<p>3.每個章節最後再做project，我第一章所有的作業和lab，disc都做完了，才做hog，發現沒有很難。做起來比CS50簡單多了。</p>
+<p>4.我把作業放在github上，我的id：wxy20850606</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/cs61a/">CS61A</a></li>
+      <li><a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">CS自學</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/history/2023-01-02-why-learn-cs-2/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>為什麼自學程式</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2022-09-13-computer-memory/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>從0和1開始造一台電腦3-電腦如何記憶</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2022-10-25 00:00:00 +0000 UTC'>2022-10-25</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/cs61a/">CS61A</a>
+    <a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">、CS自學</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

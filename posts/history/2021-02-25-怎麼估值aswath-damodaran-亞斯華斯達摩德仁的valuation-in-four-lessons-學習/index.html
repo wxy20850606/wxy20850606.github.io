@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>怎麼估值？Aswath Damodaran 亞斯華斯‧達摩德仁的Valuation in Four Lessons 學習筆記 | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="投資學習">
+<meta name="description" content="傳統意義上的教育是去大學學堂讀書，但是現在只要可以上網，就可以學習。網上有滿山滿海的資源，不用花錢，就可以找自己喜歡的老師感興趣的內容好好學起來，這真是天底下最棒的投資。 下面就是我看youtube視頻Valuation in Four Lessons 後的學習筆記。 Aswath Damodaran是誰？ Aswath Damodar">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2021-02-25-%E6%80%8E%E9%BA%BC%E4%BC%B0%E5%80%BCaswath-damodaran-%E4%BA%9E%E6%96%AF%E8%8F%AF%E6%96%AF%E9%81%94%E6%91%A9%E5%BE%B7%E4%BB%81%E7%9A%84valuation-in-four-lessons-%E5%AD%B8%E7%BF%92/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="怎麼估值？Aswath Damodaran 亞斯華斯‧達摩德仁的Valuation in Four Lessons 學習筆記" />
+<meta property="og:description" content="傳統意義上的教育是去大學學堂讀書，但是現在只要可以上網，就可以學習。網上有滿山滿海的資源，不用花錢，就可以找自己喜歡的老師感興趣的內容好好學起來，這真是天底下最棒的投資。 下面就是我看youtube視頻Valuation in Four Lessons 後的學習筆記。 Aswath Damodaran是誰？ Aswath Damodar" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2021-02-25-%E6%80%8E%E9%BA%BC%E4%BC%B0%E5%80%BCaswath-damodaran-%E4%BA%9E%E6%96%AF%E8%8F%AF%E6%96%AF%E9%81%94%E6%91%A9%E5%BE%B7%E4%BB%81%E7%9A%84valuation-in-four-lessons-%E5%AD%B8%E7%BF%92/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-02-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-02-25T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="怎麼估值？Aswath Damodaran 亞斯華斯‧達摩德仁的Valuation in Four Lessons 學習筆記"/>
+<meta name="twitter:description" content="傳統意義上的教育是去大學學堂讀書，但是現在只要可以上網，就可以學習。網上有滿山滿海的資源，不用花錢，就可以找自己喜歡的老師感興趣的內容好好學起來，這真是天底下最棒的投資。 下面就是我看youtube視頻Valuation in Four Lessons 後的學習筆記。 Aswath Damodaran是誰？ Aswath Damodar"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "怎麼估值？Aswath Damodaran 亞斯華斯‧達摩德仁的Valuation in Four Lessons 學習筆記",
+      "item": "https://everydaydiva.blog/posts/history/2021-02-25-%E6%80%8E%E9%BA%BC%E4%BC%B0%E5%80%BCaswath-damodaran-%E4%BA%9E%E6%96%AF%E8%8F%AF%E6%96%AF%E9%81%94%E6%91%A9%E5%BE%B7%E4%BB%81%E7%9A%84valuation-in-four-lessons-%E5%AD%B8%E7%BF%92/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "怎麼估值？Aswath Damodaran 亞斯華斯‧達摩德仁的Valuation in Four Lessons 學習筆記",
+  "name": "怎麼估值？Aswath Damodaran 亞斯華斯‧達摩德仁的Valuation in Four Lessons 學習筆記",
+  "description": "傳統意義上的教育是去大學學堂讀書，但是現在只要可以上網，就可以學習。網上有滿山滿海的資源，不用花錢，就可以找自己喜歡的老師感興趣的內容好好學起來，這真是天底下最棒的投資。 下面就是我看youtube視頻Valuation in Four Lessons 後的學習筆記。 Aswath Damodaran是誰？ Aswath Damodar",
+  "keywords": [
+    "投資學習"
+  ],
+  "articleBody": "傳統意義上的教育是去大學學堂讀書，但是現在只要可以上網，就可以學習。網上有滿山滿海的資源，不用花錢，就可以找自己喜歡的老師感興趣的內容好好學起來，這真是天底下最棒的投資。\n下面就是我看youtube視頻Valuation in Four Lessons 後的學習筆記。\nAswath Damodaran是誰？ Aswath Damodaran達摩德仁是NYU紐約大學商學院的教授，早在1986年就開始教授估值課程，也寫了很多估值方面的書，是估值方面的權威和大師。他現在主要在教MBA學生Corporate Finance（企業金融學） 和Valuation（估值）課程。\n和其他的老師不同的是：他的課很有趣也很新。一開始在NYU他被要求教學生Security Analysis,也就是巴菲特的老師在1950年教的。Aswath沒有選擇比較無聊有歷史的證券分析課程，而是自創估值課程。在80年代，市場上沒有什麼相關材料可以用來教學，所以Aswath向市場學習，一路估值一路總結，一邊教一邊分析市場上的公司一邊學估值。所以30多年研究教學下來，Aswath奠定了估值教父的地位。\n還有一點不一樣的是他不僅僅教MBA的學生，他有自己的youtube頻道和自己的網站，沒有任何廣告，他歡迎任何想學的人和他學習，提供所有的支援材料（ppt，表格，背景材料，閱讀材料，甚至習題和習題答案）。其實他的課程如果放到什麼Coursera上面，隨便都可以每人收成千上萬美金。他的網站和YouTube頻道，只要開放廣告，每月可以收成千上萬美金甚至更多。但是對於這樣業餘自學的學生，他分文不取，提供最多的資料和最大的便利。\n從這一點上來看，他真的是我遇到過的最不愛錢的老師。\n估值很簡單，基本上每個人都可以做到。但是相關從業人員故意選擇把它包裝的複雜化，因為他們要以此為生。 演講只有40多分鐘，沒有辦法包含所以細節，所以Aswath主要從以下四個我們常常誤解的地方做闡述：\n1.估值不是會計。Don’t mistake accounting with finance. Valuation is not accounting. 絕大部分的人聽到估值，想到的是財務和財務報表，以為研究財務報表就可以做好估值。\nAccountting，會計做的事是記錄歷史，而估值需要預測未來。\n比如分析會計資產負債表的話：\n1）Fixed Asset，固定資產是按成本價記錄，並且每年折舊，所以會有價值和價格不符的時候。\n2）Fiancial Investment(Investment in securities and assets in other firms),金融資產根據不同的主觀動機記錄。有些是根據市場價格，有些是根據成本價，根據管理層的需要選擇什麼樣的記錄方法。\n3）Intangible Assets,無形資產諸如品牌、專利、研發之類的並未列入，相反的沒什麼用的Goodwill（商譽）反而佔了無形資產的大部分。而商譽只是Plug variable，也就是為了收購時資產負債表的平衡創造出來的一個變量。商譽只有在收購時才會產生，比如收購價10億，但是公司市值5億，剩下5億的差額就需要當成商譽記錄以確保資產負債表平衡。如果一個好公司從來沒有收購過，那麼Goodwill為零。\n4）Equity（股東權益），一般會計會教：資產-負債=股東權益。但是Aswath認為股東權益是反映原始的資本投資和企業從誕生以後累積的留存收益。股東權益反映的是過去的成績，如果一個公司剛剛新創，當然不能期待有多大的股東權益。\n解決上面提到的問題，Aswath用Finance balance sheet 取代 Accounting balance sheet。\nFinance balance sheet：\nAssets資產:\n**Assets in place：**公司已經做的投資，用內含價值根據現金流和風險計算，而非成本價格計算。\n**Growth Assets：**是預期公司未來做的帶來高增長的投資。\n商學院教的大部分的指標都是適用於成熟的公司，比如PE,ROC等等。如果用這些指標來評判成長型的公司，會覺得無從下手,因為很多的成長型公司都沒有盈利，PE無從計算。\n所以對於成長型公司，大部分的研究時間要放在未來的增長預期上。因為會計只是記錄已有的交易，所以從一般的會計報表裡無法找到關於未來的Growth assets部分。\nLiabilities負債：\n**Debt：**負債，借的錢。\n**Equity：**權益，自有資本。\n2. Don’t mistake modeling for valuation.估值不僅僅是用excel做出的花俏報表。 我們常常會以為一堆報表做出來的好看電子表格的Excel專家是估值大師。其實不是。\n在估值前，我們要思考的是是什麼主導了公司的價值增長。主要要尋找下面四個問題的答案：\nWhat are the cash flows from existing assets?現有資產帶來的現金流量如何？\nWhat is value-added by growth assets?未來增長資產創造的價值如何？\n增長可以是正面的，中性的或者負面的，因為增長也需要成本，只有增長的價值大於成本才有價值。增長創造的正向價值才是重要的觀察點。\nHow risky are the cash flows from existing assets and growth assets?兩種資產的現金流風險多高？\nWhen will the firm become a mature firm and what are the potential roadblocks?公司何時成為成熟公司？有哪些潛在障礙？\n所以尋找這些問題的答案可不僅僅是報表製作的多漂亮而已。\n有了上面四個問題的答案，就可以用Discount Cash Flow（現金流折現法）來估值。\n為了更好的估值，Aswath提出了一個概念：\nAre you numbers people? Are you story people?你是數字派的？還是故事派的？ 估值有兩派。\n數字派。數字派只講數字，一切數字說話。\n故事派。故事派只講故事，不看數字，只談夢想，比如VC（風險投資）產業。\n問題在於，故事派的人認為數字派的都是宅男Geek，而數字派的人認為故事派的人都是瘋狂夢想家。\nAswath認為要做好估值，兩派要互相取長補短，也就是數字派的人需要有想象力，故事派的人需要足夠多的數據來檢視自己是不是太空想。\n對於每個想學好估值的人來說，最關鍵的是：如果你是數字派的，逼自己多些想象力，如果你是故事派的，逼自己多找些數據來支撐自己的故事，想想自己哪方面比較欠缺，就在哪方面多努力。 3.價格和價值不一樣，Are you pricing or valuing？ 比如一套房子售價99.5萬美金。價格是怎麼來的，是房屋經紀人比較周圍的房子價格然後根據這套的情況加加減減得出的。那banker對於公司的價格怎麼得出的，和房屋經紀人一樣，找出類似的公司，然後再稍作調整，得出價格。\n所以是價格，而非估值。影響價格和估值的因素完全不同。\n影響價格的因素有：Demand and Supply需求和供給，Mood and Momentum情緒和動能。\n影響估值的因素有：Cash flow， growth and risk。\n所以二者不同。\n在比較了市場上所有的社交媒體價格後，Aswath發現市場給這些媒體公司的定價有個相似的規律，那就是用戶，一個用戶100美金。所以，市場上的大部分的價格都不是估值。\n4.投資其實更靠運氣。Don’t mistake luck for skill. Investing is a game where luck is dominant paradigm.投資是由運氣起決定性作用的一種遊戲。\n我們常常認為投資獲得成功是靠專業才能和努力，其實不是，其實是靠運氣。\n當我們在投資上賺錢了後，我們會以為我們很有才能。比如有很多共同基金經理人覺得自己很厲害，其實所有共同基金的收益平均下來比標準普爾指數低一個百分點。\n5.學估值就是要不斷的去估公司。The final lesson。。。I firmly believe you learn valuation by doing. Aswath舉了 The Wizard of OZ這部電影當例子。Dorothy被龍捲風卷到一個奇怪的地方OZ，她問OZ的居民她要怎麼回家，大家告訴她：去找Wizard of OZ.他是OZ王國裡最偉大的魔法師。\nDorothy在路上認識了稻草人、錫人和獅子。稻草人覺得自己很笨想問wizard of OZ要一顆頭腦，錫人沒有愛心所以想要一顆心，獅子很膽小所以想要勇氣。他們四個人一路披荊斬棘來到Wizard of OZ的城堡才發現原來偉大的魔法師只不過是個躲在佈簾後面操作投影機的小老頭，沒有任何魔法。\n雖然沒有魔法師，但他們卻發現正是通過這個旅程，因為有了這段歷練，他們全部的人最後都得到了自己想要的。\n所以，就像想要做好飯就需要做飯一樣，想要做好估值就要不斷的去估。\n最後Aswath提到，如果你竭盡所能做好了估值，價格回歸到價值還需要一段時間，而且不是100%的，這個時候就需要信念。\n上面只是我的學習心得，歡迎有興趣的人一定要看Aswath的Valuation in Four Lessons 的演講。除此之外，Aswath的頻道和網站還有更多的大師智慧等著感興趣的人去學習。\n鏈接如下：\nyoutube頻道和Aswath的網站\n",
+  "wordCount" : "3356",
+  "inLanguage": "zh",
+  "datePublished": "2021-02-25T00:00:00Z",
+  "dateModified": "2021-02-25T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2021-02-25-%E6%80%8E%E9%BA%BC%E4%BC%B0%E5%80%BCaswath-damodaran-%E4%BA%9E%E6%96%AF%E8%8F%AF%E6%96%AF%E9%81%94%E6%91%A9%E5%BE%B7%E4%BB%81%E7%9A%84valuation-in-four-lessons-%E5%AD%B8%E7%BF%92/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      怎麼估值？Aswath Damodaran 亞斯華斯‧達摩德仁的Valuation in Four Lessons 學習筆記
+    </h1>
+    <div class="post-meta"><span title='2021-02-25 00:00:00 +0000 UTC'>2021-02-25</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#aswath-damodaran%e6%98%af%e8%aa%b0" aria-label="Aswath Damodaran是誰？">Aswath Damodaran是誰？</a><ul>
+                            
+                    <li>
+                        <a href="#%e4%bc%b0%e5%80%bc%e5%be%88%e7%b0%a1%e5%96%ae%e5%9f%ba%e6%9c%ac%e4%b8%8a%e6%af%8f%e5%80%8b%e4%ba%ba%e9%83%bd%e5%8f%af%e4%bb%a5%e5%81%9a%e5%88%b0%e4%bd%86%e6%98%af%e7%9b%b8%e9%97%9c%e5%be%9e%e6%a5%ad%e4%ba%ba%e5%93%a1%e6%95%85%e6%84%8f%e9%81%b8%e6%93%87%e6%8a%8a%e5%ae%83%e5%8c%85%e8%a3%9d%e7%9a%84%e8%a4%87%e9%9b%9c%e5%8c%96%e5%9b%a0%e7%82%ba%e4%bb%96%e5%80%91%e8%a6%81%e4%bb%a5%e6%ad%a4%e7%82%ba%e7%94%9f" aria-label="估值很簡單，基本上每個人都可以做到。但是相關從業人員故意選擇把它包裝的複雜化，因為他們要以此為生。"><strong>估值很簡單，基本上每個人都可以做到。但是相關從業人員故意選擇把它包裝的複雜化，因為他們要以此為生。</strong></a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#1%e4%bc%b0%e5%80%bc%e4%b8%8d%e6%98%af%e6%9c%83%e8%a8%88dont-mistake-accounting-with-finance-valuation-is-not-accounting" aria-label="1.估值不是會計。Don&amp;rsquo;t mistake accounting with finance. Valuation is not accounting.">1.估值不是會計。Don&rsquo;t mistake accounting with finance. Valuation is not accounting.</a></li>
+                    <li>
+                        <a href="#2-dont-mistake-modeling-for-valuation%e4%bc%b0%e5%80%bc%e4%b8%8d%e5%83%85%e5%83%85%e6%98%af%e7%94%a8excel%e5%81%9a%e5%87%ba%e7%9a%84%e8%8a%b1%e4%bf%8f%e5%a0%b1%e8%a1%a8" aria-label="2. Don&amp;rsquo;t mistake modeling for valuation.估值不僅僅是用excel做出的花俏報表。">2. Don&rsquo;t mistake modeling for valuation.估值不僅僅是用excel做出的花俏報表。</a><ul>
+                            
+                    <li>
+                        <a href="#are-you-numbers-people-are-you-story-people%e4%bd%a0%e6%98%af%e6%95%b8%e5%ad%97%e6%b4%be%e7%9a%84%e9%82%84%e6%98%af%e6%95%85%e4%ba%8b%e6%b4%be%e7%9a%84" aria-label="Are you numbers people? Are you story people?你是數字派的？還是故事派的？">Are you numbers people? Are you story people?你是數字派的？還是故事派的？</a></li>
+                    <li>
+                        <a href="#%e5%b0%8d%e6%96%bc%e6%af%8f%e5%80%8b%e6%83%b3%e5%ad%b8%e5%a5%bd%e4%bc%b0%e5%80%bc%e7%9a%84%e4%ba%ba%e4%be%86%e8%aa%aa%e6%9c%80%e9%97%9c%e9%8d%b5%e7%9a%84%e6%98%af%e5%a6%82%e6%9e%9c%e4%bd%a0%e6%98%af%e6%95%b8%e5%ad%97%e6%b4%be%e7%9a%84%e9%80%bc%e8%87%aa%e5%b7%b1%e5%a4%9a%e4%ba%9b%e6%83%b3%e8%b1%a1%e5%8a%9b%e5%a6%82%e6%9e%9c%e4%bd%a0%e6%98%af%e6%95%85%e4%ba%8b%e6%b4%be%e7%9a%84%e9%80%bc%e8%87%aa%e5%b7%b1%e5%a4%9a%e6%89%be%e4%ba%9b%e6%95%b8%e6%93%9a%e4%be%86%e6%94%af%e6%92%90%e8%87%aa%e5%b7%b1%e7%9a%84%e6%95%85%e4%ba%8b%e6%83%b3%e6%83%b3%e8%87%aa%e5%b7%b1%e5%93%aa%e6%96%b9%e9%9d%a2%e6%af%94%e8%bc%83%e6%ac%a0%e7%bc%ba%e5%b0%b1%e5%9c%a8%e5%93%aa%e6%96%b9%e9%9d%a2%e5%a4%9a%e5%8a%aa%e5%8a%9b" aria-label="對於每個想學好估值的人來說，最關鍵的是：如果你是數字派的，逼自己多些想象力，如果你是故事派的，逼自己多找些數據來支撐自己的故事，想想自己哪方面比較欠缺，就在哪方面多努力。">對於每個想學好估值的人來說，最關鍵的是：如果你是數字派的，逼自己多些想象力，如果你是故事派的，逼自己多找些數據來支撐自己的故事，想想自己哪方面比較欠缺，就在哪方面多努力。</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#3%e5%83%b9%e6%a0%bc%e5%92%8c%e5%83%b9%e5%80%bc%e4%b8%8d%e4%b8%80%e6%a8%a3are-you-pricing-or-valuing" aria-label="3.價格和價值不一樣，Are you pricing or valuing？">3.價格和價值不一樣，Are you pricing or valuing？</a></li>
+                    <li>
+                        <a href="#4%e6%8a%95%e8%b3%87%e5%85%b6%e5%af%a6%e6%9b%b4%e9%9d%a0%e9%81%8b%e6%b0%a3dont-mistake-luck-for-skill" aria-label="4.投資其實更靠運氣。Don&amp;rsquo;t mistake luck for skill.">4.投資其實更靠運氣。Don&rsquo;t mistake luck for skill.</a></li>
+                    <li>
+                        <a href="#5%e5%ad%b8%e4%bc%b0%e5%80%bc%e5%b0%b1%e6%98%af%e8%a6%81%e4%b8%8d%e6%96%b7%e7%9a%84%e5%8e%bb%e4%bc%b0%e5%85%ac%e5%8f%b8the-final-lessoni-firmly-believe-you-learn-valuation-by-doing" aria-label="5.學估值就是要不斷的去估公司。The final lesson。。。I firmly believe you learn valuation by doing.">5.學估值就是要不斷的去估公司。The final lesson。。。I firmly believe you learn valuation by doing.</a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p>傳統意義上的教育是去大學學堂讀書，但是現在只要可以上網，就可以學習。網上有滿山滿海的資源，不用花錢，就可以找自己喜歡的老師感興趣的內容好好學起來，這真是天底下最棒的投資。</p>
+<p>下面就是我看youtube視頻<a href="https://www.youtube.com/watch?v=Z5chrxMuBoo&amp;t=2667s" target="_blank" rel="noopener" style="color:#42b983";>Valuation in Four Lessons</a> 後的學習筆記。</p>
+<h1 id="aswath-damodaran是誰">Aswath Damodaran是誰？<a hidden class="anchor" aria-hidden="true" href="#aswath-damodaran是誰">#</a></h1>
+<p>Aswath Damodaran達摩德仁是NYU紐約大學商學院的教授，早在1986年就開始教授估值課程，也寫了很多估值方面的書，是估值方面的權威和大師。他現在主要在教MBA學生Corporate Finance（企業金融學） 和Valuation（估值）課程。</p>
+<p>和其他的老師不同的是：他的課很有趣也很新。一開始在NYU他被要求教學生Security Analysis,也就是巴菲特的老師在1950年教的。Aswath沒有選擇比較無聊有歷史的證券分析課程，而是自創估值課程。在80年代，市場上沒有什麼相關材料可以用來教學，所以Aswath向市場學習，一路估值一路總結，一邊教一邊分析市場上的公司一邊學估值。所以30多年研究教學下來，Aswath奠定了估值教父的地位。</p>
+<p>還有一點不一樣的是他不僅僅教MBA的學生，他有自己的<a href="https://www.youtube.com/c/AswathDamodaranonValuation/featured" target="_blank" rel="noopener" style="color:#42b983";>youtube頻</a>道和<a href="http://people.stern.nyu.edu/adamodar/New_Home_Page/home.htm" target="_blank" rel="noopener" style="color:#42b983";>自己的網站</a>，沒有任何廣告，他歡迎任何想學的人和他學習，提供所有的支援材料（ppt，表格，背景材料，閱讀材料，甚至習題和習題答案）。其實他的課程如果放到什麼Coursera上面，隨便都可以每人收成千上萬美金。他的網站和YouTube頻道，只要開放廣告，每月可以收成千上萬美金甚至更多。但是對於這樣業餘自學的學生，他分文不取，提供最多的資料和最大的便利。</p>
+<p>從這一點上來看，他真的是我遇到過的最不愛錢的老師。</p>
+<h2 id="估值很簡單基本上每個人都可以做到但是相關從業人員故意選擇把它包裝的複雜化因為他們要以此為生"><strong>估值很簡單，基本上每個人都可以做到。但是相關從業人員故意選擇把它包裝的複雜化，因為他們要以此為生。</strong><a hidden class="anchor" aria-hidden="true" href="#估值很簡單基本上每個人都可以做到但是相關從業人員故意選擇把它包裝的複雜化因為他們要以此為生">#</a></h2>
+<p> </p>
+<p>演講只有40多分鐘，沒有辦法包含所以細節，所以Aswath主要從以下四個我們常常誤解的地方做闡述：</p>
+<h1 id="1估值不是會計dont-mistake-accounting-with-finance-valuation-is-not-accounting">1.估值不是會計。Don&rsquo;t mistake accounting with finance. Valuation is not accounting.<a hidden class="anchor" aria-hidden="true" href="#1估值不是會計dont-mistake-accounting-with-finance-valuation-is-not-accounting">#</a></h1>
+<p>絕大部分的人聽到估值，想到的是財務和財務報表，以為研究財務報表就可以做好估值。</p>
+<p>Accountting，會計做的事是記錄歷史，而估值需要預測未來。</p>
+<p>比如分析會計資產負債表的話：</p>
+<p>1）Fixed Asset，固定資產是按成本價記錄，並且每年折舊，所以會有價值和價格不符的時候。</p>
+<p>2）Fiancial Investment(Investment in securities and assets in other firms),金融資產根據不同的主觀動機記錄。有些是根據市場價格，有些是根據成本價，根據管理層的需要選擇什麼樣的記錄方法。</p>
+<p>3）Intangible Assets,無形資產諸如品牌、專利、研發之類的並未列入，相反的沒什麼用的Goodwill（商譽）反而佔了無形資產的大部分。而商譽只是Plug variable，也就是為了收購時資產負債表的平衡創造出來的一個變量。商譽只有在收購時才會產生，比如收購價10億，但是公司市值5億，剩下5億的差額就需要當成商譽記錄以確保資產負債表平衡。如果一個好公司從來沒有收購過，那麼Goodwill為零。</p>
+<p>4）Equity（股東權益），一般會計會教：資產-負債=股東權益。但是Aswath認為股東權益是反映原始的資本投資和企業從誕生以後累積的<a href="https://zh.wikipedia.org/wiki/%E7%95%99%E5%AD%98%E6%94%B6%E7%9B%8A" target="_blank" rel="noopener" style="color:#42b983";>留存收益</a>。股東權益反映的是過去的成績，如果一個公司剛剛新創，當然不能期待有多大的股東權益。</p>
+<p>解決上面提到的問題，Aswath用Finance balance sheet 取代 Accounting balance sheet。</p>
+<p>Finance balance sheet：</p>
+<p><strong>Assets資產:</strong></p>
+<p>**Assets in place：**公司已經做的投資，用內含價值根據現金流和風險計算，而非成本價格計算。</p>
+<p>**Growth Assets：**是預期公司未來做的帶來高增長的投資。</p>
+<p>商學院教的大部分的指標都是適用於成熟的公司，比如PE,ROC等等。如果用這些指標來評判成長型的公司，會覺得無從下手,因為很多的成長型公司都沒有盈利，PE無從計算。</p>
+<p>所以對於成長型公司，大部分的研究時間要放在未來的增長預期上。因為會計只是記錄已有的交易，所以從一般的會計報表裡無法找到關於未來的Growth assets部分。</p>
+<p><strong>Liabilities負債：</strong></p>
+<p>**Debt：**負債，借的錢。</p>
+<p>**Equity：**權益，自有資本。</p>
+<h1 id="2-dont-mistake-modeling-for-valuation估值不僅僅是用excel做出的花俏報表">2. Don&rsquo;t mistake modeling for valuation.估值不僅僅是用excel做出的花俏報表。<a hidden class="anchor" aria-hidden="true" href="#2-dont-mistake-modeling-for-valuation估值不僅僅是用excel做出的花俏報表">#</a></h1>
+<p>我們常常會以為一堆報表做出來的好看電子表格的Excel專家是估值大師。其實不是。</p>
+<p>在估值前，我們要思考的是是什麼主導了公司的價值增長。主要要尋找下面四個問題的答案：</p>
+<ol>
+<li>
+<p>What are the cash flows from existing assets?現有資產帶來的現金流量如何？</p>
+</li>
+<li>
+<p>What is value-added by growth assets?未來增長資產創造的價值如何？</p>
+</li>
+</ol>
+<p>增長可以是正面的，中性的或者負面的，因為增長也需要成本，只有增長的價值大於成本才有價值。增長創造的正向價值才是重要的觀察點。</p>
+<ol start="3">
+<li>
+<p>How risky are the cash flows from existing assets and growth assets?兩種資產的現金流風險多高？</p>
+</li>
+<li>
+<p>When will the firm become a mature firm and what are the potential roadblocks?公司何時成為成熟公司？有哪些潛在障礙？</p>
+</li>
+</ol>
+<p>所以尋找這些問題的答案可不僅僅是報表製作的多漂亮而已。</p>
+<p>有了上面四個問題的答案，就可以用Discount Cash Flow（現金流折現法）來估值。</p>
+<p>為了更好的估值，Aswath提出了一個概念：</p>
+<h2 id="are-you-numbers-people-are-you-story-people你是數字派的還是故事派的">Are you numbers people? Are you story people?你是數字派的？還是故事派的？<a hidden class="anchor" aria-hidden="true" href="#are-you-numbers-people-are-you-story-people你是數字派的還是故事派的">#</a></h2>
+<p> </p>
+<p>估值有兩派。</p>
+<ul>
+<li>
+<p>數字派。數字派只講數字，一切數字說話。</p>
+</li>
+<li>
+<p>故事派。故事派只講故事，不看數字，只談夢想，比如VC（風險投資）產業。</p>
+</li>
+</ul>
+<p>問題在於，故事派的人認為數字派的都是宅男Geek，而數字派的人認為故事派的人都是瘋狂夢想家。</p>
+<p>Aswath認為要做好估值，兩派要互相取長補短，也就是數字派的人需要有想象力，故事派的人需要足夠多的數據來檢視自己是不是太空想。</p>
+<h2 id="對於每個想學好估值的人來說最關鍵的是如果你是數字派的逼自己多些想象力如果你是故事派的逼自己多找些數據來支撐自己的故事想想自己哪方面比較欠缺就在哪方面多努力">對於每個想學好估值的人來說，最關鍵的是：如果你是數字派的，逼自己多些想象力，如果你是故事派的，逼自己多找些數據來支撐自己的故事，想想自己哪方面比較欠缺，就在哪方面多努力。<a hidden class="anchor" aria-hidden="true" href="#對於每個想學好估值的人來說最關鍵的是如果你是數字派的逼自己多些想象力如果你是故事派的逼自己多找些數據來支撐自己的故事想想自己哪方面比較欠缺就在哪方面多努力">#</a></h2>
+<p> </p>
+<h1 id="3價格和價值不一樣are-you-pricing-or-valuing">3.價格和價值不一樣，Are you pricing or valuing？<a hidden class="anchor" aria-hidden="true" href="#3價格和價值不一樣are-you-pricing-or-valuing">#</a></h1>
+<p>比如一套房子售價99.5萬美金。價格是怎麼來的，是房屋經紀人比較周圍的房子價格然後根據這套的情況加加減減得出的。那banker對於公司的價格怎麼得出的，和房屋經紀人一樣，找出類似的公司，然後再稍作調整，得出價格。</p>
+<p>所以是價格，而非估值。影響價格和估值的因素完全不同。</p>
+<p>影響價格的因素有：Demand and Supply需求和供給，Mood and Momentum情緒和動能。</p>
+<p>影響估值的因素有：Cash flow， growth and risk。</p>
+<p>所以二者不同。</p>
+<p>在比較了市場上所有的社交媒體價格後，Aswath發現市場給這些媒體公司的定價有個相似的規律，那就是用戶，一個用戶100美金。所以，市場上的大部分的價格都不是估值。</p>
+<h1 id="4投資其實更靠運氣dont-mistake-luck-for-skill">4.投資其實更靠運氣。Don&rsquo;t mistake luck for skill.<a hidden class="anchor" aria-hidden="true" href="#4投資其實更靠運氣dont-mistake-luck-for-skill">#</a></h1>
+<p>Investing is a game where luck is dominant paradigm.投資是由運氣起決定性作用的一種遊戲。</p>
+<p>我們常常認為投資獲得成功是靠專業才能和努力，其實不是，其實是靠運氣。</p>
+<p>當我們在投資上賺錢了後，我們會以為我們很有才能。比如有很多共同基金經理人覺得自己很厲害，其實所有共同基金的收益平均下來比標準普爾指數低一個百分點。</p>
+<h1 id="5學估值就是要不斷的去估公司the-final-lessoni-firmly-believe-you-learn-valuation-by-doing">5.學估值就是要不斷的去估公司。The final lesson。。。I firmly believe you learn valuation by doing.<a hidden class="anchor" aria-hidden="true" href="#5學估值就是要不斷的去估公司the-final-lessoni-firmly-believe-you-learn-valuation-by-doing">#</a></h1>
+<p>Aswath舉了 The Wizard of OZ這部電影當例子。Dorothy被龍捲風卷到一個奇怪的地方OZ，她問OZ的居民她要怎麼回家，大家告訴她：去找Wizard of OZ.他是OZ王國裡最偉大的魔法師。</p>
+<p>Dorothy在路上認識了稻草人、錫人和獅子。稻草人覺得自己很笨想問wizard of OZ要一顆頭腦，錫人沒有愛心所以想要一顆心，獅子很膽小所以想要勇氣。他們四個人一路披荊斬棘來到Wizard of OZ的城堡才發現原來偉大的魔法師只不過是個躲在佈簾後面操作投影機的小老頭，沒有任何魔法。</p>
+<p>雖然沒有魔法師，但他們卻發現正是通過這個旅程，因為有了這段歷練，他們全部的人最後都得到了自己想要的。</p>
+<p>所以，就像想要做好飯就需要做飯一樣，想要做好估值就要不斷的去估。</p>
+<p> </p>
+<p>最後Aswath提到，如果你竭盡所能做好了估值，價格回歸到價值還需要一段時間，而且不是100%的，這個時候就需要信念。</p>
+<p> </p>
+<p>上面只是我的學習心得，歡迎有興趣的人一定要看Aswath的<a href="https://www.youtube.com/watch?v=Z5chrxMuBoo&amp;t=2667s" target="_blank" rel="noopener" style="color:#42b983";>Valuation in Four Lessons</a> 的演講。除此之外，Aswath的頻道和網站還有更多的大師智慧等著感興趣的人去學習。</p>
+<p>鏈接如下：</p>
+<p><a href="https://www.youtube.com/c/AswathDamodaranonValuation/featured" target="_blank" rel="noopener" style="color:#42b983";>youtube頻</a>道和<a href="http://people.stern.nyu.edu/adamodar/New_Home_Page/home.htm" target="_blank" rel="noopener" style="color:#42b983";>Aswath的網站</a></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/%E6%8A%95%E8%B3%87%E5%AD%B8%E7%BF%92/">投資學習</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/history/2021-02-26-%E6%B2%B9%E9%B9%BD%E9%85%B8%E7%86%B1-%E8%AE%80%E6%9B%B8%E7%AD%86%E8%A8%98/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>油、鹽、酸、熱——讀書筆記</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2021-02-19-%E5%B0%8F%E6%9C%8B%E5%8F%8B%E6%9C%80%E6%84%9B%E8%B6%85%E7%B0%A1%E5%96%AE%E7%BE%8E%E5%91%B3%E7%95%AA%E8%8C%84%E9%9B%9E%E8%9B%8B%E9%BA%B5%E5%81%9A%E6%B3%95%E5%92%8C%E5%A5%BD%E5%90%83%E7%9A%84%E8%A6%81/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>小朋友最愛超簡單美味番茄雞蛋麵做法和好吃的要點分享</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2021-02-25 00:00:00 +0000 UTC'>2021-02-25</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/%E6%8A%95%E8%B3%87%E5%AD%B8%E7%BF%92/">投資學習</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

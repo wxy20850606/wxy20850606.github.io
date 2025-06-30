@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Python on Everydaydiva&#39;s Blog</title>
+    <link>https://everydaydiva.blog/tags/python/</link>
+    <description>Recent content in Python on Everydaydiva&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 07 Apr 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://everydaydiva.blog/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java 和 Python 的區別</title>
+      <link>https://everydaydiva.blog/posts/history/2023-04-07-java-python-difference/</link>
+      <pubDate>Fri, 07 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2023-04-07-java-python-difference/</guid>
+      <description>最近開始學Java，感覺和Python蠻不一樣，於是在網上找找資料，看看二者的不同之處。 先分享一篇好玩又很有啟發的文章： 两年，我学会了所有的编程语言！ 下面進入正題。 Java是編譯式的語言， Python是直譯式的語言？ 想要清楚這個問題，要稍微了解下二者的程序是如何運行的。 Pytho</description>
+    </item>
+    <item>
+      <title>9種方法寫Fibonacci（Python）</title>
+      <link>https://everydaydiva.blog/posts/history/2023-01-18-fibonacci-python/</link>
+      <pubDate>Wed, 18 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2023-01-18-fibonacci-python/</guid>
+      <description>受A Python Guide to the Fibonacci Sequence啟發，我也來試試看用CS61A課程所學寫Fibonacci，感覺又好玩，又可以順便複習下課程。是的，好的課程一定要花些時間好好複習。 Fibonacci是什麼？ Fibonacci，翻譯為斐波那契数。 請參考如下維基百科的定義。 source：Fibonac</description>
+    </item>
+    <item>
+      <title>CS61A 學習筆記和心得4-Tail Call</title>
+      <link>https://everydaydiva.blog/posts/history/2023-01-11-scheme-interperter-tail-call/</link>
+      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2023-01-11-scheme-interperter-tail-call/</guid>
+      <description>注：本文部分引用代碼來自CS61A(Structure and Interpretation of Computer Programs) Scheme作業，請小心劇透。個人學習筆記，請小心參考。 上一篇筆記提到了Read-Eval-Print-Loop，這篇筆記記錄其中的附加題-tail call optimization。 尾調用（tail call） 在计算机学裡，</description>
+    </item>
+    <item>
+      <title>CS61A 學習筆記和心得3-通過學習用Python寫個Scheme Interpreter來學習編程語言</title>
+      <link>https://everydaydiva.blog/posts/history/2023-01-05-scheme-interpreter-use-python/</link>
+      <pubDate>Thu, 05 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2023-01-05-scheme-interpreter-use-python/</guid>
+      <description>注：本文引用代碼來自CS61A(Structure and Interpretation of Computer Programs) Scheme作業，請小心劇透。個人學習筆記，水平有限，請小心參考。 心得： 本來我想學Scheme版本的CS61A，弄了很久環境都沒有設置成功，然後轉學Python版本的CS61A。 沒想到課程第三章是先用一個python寫的</description>
+    </item>
+  </channel>
+</rss>

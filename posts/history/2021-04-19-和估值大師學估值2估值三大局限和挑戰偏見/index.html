@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>和估值大師學估值2：估值三大局限和挑戰：偏見、不確定性、複雜性 | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="投資學習">
+<meta name="description" content="注：本文是學習估值大师Prof. Aswath Damodaran（達摩德仁教授）估值課程的學習筆記。附視頻鏈接和相關資料（Session2）。 估值最難的不是估計現金流量，也不是設計高深的估值模型，而是對抗我們心中固有的偏見、不確定性和複雜性。 1.估值很難避免偏見 所有的估值都是有偏見的。 偏見來">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2021-04-19-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%AB%E5%AD%B8%E4%BC%B0%E5%80%BC2%E4%BC%B0%E5%80%BC%E4%B8%89%E5%A4%A7%E5%B1%80%E9%99%90%E5%92%8C%E6%8C%91%E6%88%B0%E5%81%8F%E8%A6%8B/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="和估值大師學估值2：估值三大局限和挑戰：偏見、不確定性、複雜性" />
+<meta property="og:description" content="注：本文是學習估值大师Prof. Aswath Damodaran（達摩德仁教授）估值課程的學習筆記。附視頻鏈接和相關資料（Session2）。 估值最難的不是估計現金流量，也不是設計高深的估值模型，而是對抗我們心中固有的偏見、不確定性和複雜性。 1.估值很難避免偏見 所有的估值都是有偏見的。 偏見來" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2021-04-19-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%AB%E5%AD%B8%E4%BC%B0%E5%80%BC2%E4%BC%B0%E5%80%BC%E4%B8%89%E5%A4%A7%E5%B1%80%E9%99%90%E5%92%8C%E6%8C%91%E6%88%B0%E5%81%8F%E8%A6%8B/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-04-19T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="和估值大師學估值2：估值三大局限和挑戰：偏見、不確定性、複雜性"/>
+<meta name="twitter:description" content="注：本文是學習估值大师Prof. Aswath Damodaran（達摩德仁教授）估值課程的學習筆記。附視頻鏈接和相關資料（Session2）。 估值最難的不是估計現金流量，也不是設計高深的估值模型，而是對抗我們心中固有的偏見、不確定性和複雜性。 1.估值很難避免偏見 所有的估值都是有偏見的。 偏見來"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "和估值大師學估值2：估值三大局限和挑戰：偏見、不確定性、複雜性",
+      "item": "https://everydaydiva.blog/posts/history/2021-04-19-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%AB%E5%AD%B8%E4%BC%B0%E5%80%BC2%E4%BC%B0%E5%80%BC%E4%B8%89%E5%A4%A7%E5%B1%80%E9%99%90%E5%92%8C%E6%8C%91%E6%88%B0%E5%81%8F%E8%A6%8B/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "和估值大師學估值2：估值三大局限和挑戰：偏見、不確定性、複雜性",
+  "name": "和估值大師學估值2：估值三大局限和挑戰：偏見、不確定性、複雜性",
+  "description": "注：本文是學習估值大师Prof. Aswath Damodaran（達摩德仁教授）估值課程的學習筆記。附視頻鏈接和相關資料（Session2）。 估值最難的不是估計現金流量，也不是設計高深的估值模型，而是對抗我們心中固有的偏見、不確定性和複雜性。 1.估值很難避免偏見 所有的估值都是有偏見的。 偏見來",
+  "keywords": [
+    "投資學習"
+  ],
+  "articleBody": "注：本文是學習估值大师Prof. Aswath Damodaran（達摩德仁教授）估值課程的學習筆記。附視頻鏈接和相關資料（Session2）。\n估值最難的不是估計現金流量，也不是設計高深的估值模型，而是對抗我們心中固有的偏見、不確定性和複雜性。\n1.估值很難避免偏見 所有的估值都是有偏見的。\n偏見來源於自己的潛意識** 我們每個人的潛意識裡都有從眾心裡（Herd Behavior），我們的估值傾向於像市場價值靠攏。\n比如最近我又不小心買了台積電。不同於第一次在PE15時買入，這次我買入的價格大概是PE34,仔細想想我也受到了從眾心裡的影響，覺得大家都看好它就值這個價錢。\n比如最近我想估Coursera,為什麼呢？我喜歡這個公司因為它提供很多的線上課程。我想我肯定會高估它的價值。\n偏見來源於利益相關** 如果直接有利益相關的話，偏見無可避免。\n比如股票分析師對個股的分析，Buy是Sell的9倍，因為他們要與公司保持良好的關係從中獲益，所以不會輕易給出Sell的評級。\n对于自己已經持有的股票，自己的估值也會因為直接利益相關而有偏見。比如我幾乎都是買入持有，買入持有就是相信他們的股價肯定會上漲，那我的估值肯定會偏高。\n偏見來源於別人的建議** 如果有比自己厲害的人說股票很便宜被低估，我們也常常會跟著形成這樣的印象。\n我投資剛開始有一段時間很相信Seeking Alpha上的buyandhold2012，他說低估我就相信並且常常根據其建議買入。\n啟發：\n看別人估值的時候，要考慮這個人的立場和利益相關。** 考慮他會不會存在偏見。\n最常見的例子就是銀行理專。身边常常有朋友说听理專的建议购买然后亏损，然后想换理專。其实想想，理專最在意的应该就是交易手续费吧，所以在估值的时候肯定有偏见。\n自己估值的時候，先看公司的財務報表等客觀的材料。** 不要先看別人的分析，以免有先入為主的偏見。\n收集資訊的順序要正確。先看客觀的材料，比如年報季報等等，最後再看券商出版的股票研究報告。\n寫下自己的偏見。** 不要否认偏見的存在，而是寫下来提醒自己是帶有偏見的。比如在估蘋果的時候，寫下來自己的偏見就是太喜歡這個公司了。比如在估BMY的時候，寫下我的偏見：Seeking Alpha上的分析師推薦過這個公司，巴菲特也買過他家的股票。\n寫下來幫助自己正視自己的偏見。可以帮助提醒自己去思考是否高估或低估。\n2.估值面臨很大的不確定性 不確定性來自於三個方面\n1）估值過程存在不確定性\n估值過程需要用到很多數據，這些數據的來源和計算等等有可能有出錯。\n2）公司經營管理具有不確定性\n公司的實際表現可以比我們估計的好，也有可能比我們估計的差，這是我們無法控制的。\n3）宏觀經濟具有不確定性\n2020年初的時候，沒人知道疫情會帶來這麼大的災難。\n啟發：\n不確定性和收益的關係。\n比如MMM公司和Coursera，一個是老牌大公司，一個是還在虧錢的新創公司。估MMM很簡單，因為有很多的歷史數據可以用，但是估Coursera就很難，面臨很多的不確定性。按照巴菲特的觀點，不在能力範圍的不碰。估計大家都會避免這種還在虧錢的新公司吧。\n達摩德仁教授認為大家面臨的不確定性是一樣的。因為大部分的人討厭不確定性，會傾向避免。這反而給願意估值的人機會。如果可以對不確定性高的公司做出估值，儘管結果沒有那麼準確，卻往往可以獲得更高的收益，前提當然是等到自己估算的價格而非無腦買入。\n3.太複雜的估值方法反而無用 現在數據取得容易，Excel建模型容易，於是估值就變得越來越複雜。\n比如很多的投資公司，在估值時需要先估計三大表。達摩德仁教授就認為完全沒有必要。因為只需要裡面的幾個數據而已，根本不用把全部的報表估計出來。\n達摩德仁教授認為，簡單的估值反而比複雜的好用。\n總結：\n估值肯定帶有偏見，未來也永遠具有不確定性。這都是我們無法控制的。我們唯一可以做的就是，避免估值太過於複雜化，學習用簡單一點的估值模型來做估值。\n巴菲特屢次強調投資最重要的有2點，第一點是不要虧錢，第二點是永遠記住第一點。而且只碰自己懂的。但是結果卻也不免犯錯虧錢。\n這不是能力的問題，而在於估值本身的問題。估值肯定會出錯。\n成功的投資不在於你最對了什麼，而在於犯錯的概率比別人低。\n我知道我不犯錯是不可能的，只有希望學習估值可以幫助我減少犯錯。\n注：本站所有學習達摩德仁教授課程的心得文章均已獲達摩德仁教授授權。\n",
+  "wordCount" : "1777",
+  "inLanguage": "zh",
+  "datePublished": "2021-04-19T00:00:00Z",
+  "dateModified": "2021-04-19T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2021-04-19-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%AB%E5%AD%B8%E4%BC%B0%E5%80%BC2%E4%BC%B0%E5%80%BC%E4%B8%89%E5%A4%A7%E5%B1%80%E9%99%90%E5%92%8C%E6%8C%91%E6%88%B0%E5%81%8F%E8%A6%8B/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      和估值大師學估值2：估值三大局限和挑戰：偏見、不確定性、複雜性
+    </h1>
+    <div class="post-meta"><span title='2021-04-19 00:00:00 +0000 UTC'>2021-04-19</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#1%e4%bc%b0%e5%80%bc%e5%be%88%e9%9b%a3%e9%81%bf%e5%85%8d%e5%81%8f%e8%a6%8b" aria-label="1.估值很難避免偏見">1.估值很難避免偏見</a></li>
+                    <li>
+                        <a href="#2%e4%bc%b0%e5%80%bc%e9%9d%a2%e8%87%a8%e5%be%88%e5%a4%a7%e7%9a%84%e4%b8%8d%e7%a2%ba%e5%ae%9a%e6%80%a7" aria-label="2.估值面臨很大的不確定性">2.估值面臨很大的不確定性</a></li>
+                    <li>
+                        <a href="#3%e5%a4%aa%e8%a4%87%e9%9b%9c%e7%9a%84%e4%bc%b0%e5%80%bc%e6%96%b9%e6%b3%95%e5%8f%8d%e8%80%8c%e7%84%a1%e7%94%a8" aria-label="3.太複雜的估值方法反而無用">3.太複雜的估值方法反而無用</a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p>注：本文是學習估值大师Prof. Aswath Damodaran（達摩德仁教授）估值課程的學習筆記。附<a href="https://www.youtube.com/watch?v=oi6M5KBWydg&amp;list=PLUkh9m2BorqlJsEfix7R9jtSXClFZhGvC" target="_blank" rel="noopener" style="color:#42b983";>視頻鏈接</a>和<a href="http://pages.stern.nyu.edu/~adamodar/" target="_blank" rel="noopener" style="color:#42b983";>相關資料</a>（Session2）。</p>
+<p>估值最難的不是估計現金流量，也不是設計高深的估值模型，而是對抗我們心中固有的偏見、不確定性和複雜性。</p>
+<h2 id="1估值很難避免偏見">1.估值很難避免偏見<a hidden class="anchor" aria-hidden="true" href="#1估值很難避免偏見">#</a></h2>
+<p>所有的估值都是有偏見的。</p>
+<ol>
+<li>偏見來源於自己的潛意識**</li>
+</ol>
+<p>我們每個人的潛意識裡都有從眾心裡（Herd Behavior），我們的估值傾向於像市場價值靠攏。</p>
+<p>比如最近我又不小心買了台積電。不同於第一次在PE15時買入，這次我買入的價格大概是PE34,仔細想想我也受到了從眾心裡的影響，覺得大家都看好它就值這個價錢。</p>
+<p>比如最近我想估Coursera,為什麼呢？我喜歡這個公司因為它提供很多的線上課程。我想我肯定會高估它的價值。</p>
+<ol start="2">
+<li>偏見來源於利益相關**</li>
+</ol>
+<p>如果直接有利益相關的話，偏見無可避免。</p>
+<p>比如股票分析師對個股的分析，Buy是Sell的9倍，因為他們要與公司保持良好的關係從中獲益，所以不會輕易給出Sell的評級。</p>
+<p>对于自己已經持有的股票，自己的估值也會因為直接利益相關而有偏見。比如我幾乎都是買入持有，買入持有就是相信他們的股價肯定會上漲，那我的估值肯定會偏高。</p>
+<ol start="3">
+<li>偏見來源於別人的建議**</li>
+</ol>
+<p>如果有比自己厲害的人說股票很便宜被低估，我們也常常會跟著形成這樣的印象。</p>
+<p>我投資剛開始有一段時間很相信Seeking Alpha上的buyandhold2012，他說低估我就相信並且常常根據其建議買入。</p>
+<p><strong>啟發</strong>：</p>
+<ol>
+<li>看別人估值的時候，要考慮這個人的立場和利益相關。**</li>
+</ol>
+<p>考慮他會不會存在偏見。</p>
+<p>最常見的例子就是銀行理專。身边常常有朋友说听理專的建议购买然后亏损，然后想换理專。其实想想，理專最在意的应该就是交易手续费吧，所以在估值的时候肯定有偏见。</p>
+<ol start="2">
+<li>自己估值的時候，先看公司的財務報表等客觀的材料。**</li>
+</ol>
+<p>不要先看別人的分析，以免有先入為主的偏見。</p>
+<p>收集資訊的順序要正確。先看客觀的材料，比如年報季報等等，最後再看券商出版的股票研究報告。</p>
+<ol start="3">
+<li>寫下自己的偏見。**</li>
+</ol>
+<p>不要否认偏見的存在，而是寫下来提醒自己是帶有偏見的。比如在估蘋果的時候，寫下來自己的偏見就是太喜歡這個公司了。比如在估BMY的時候，寫下我的偏見：Seeking Alpha上的分析師推薦過這個公司，巴菲特也買過他家的股票。</p>
+<p>寫下來幫助自己正視自己的偏見。可以帮助提醒自己去思考是否高估或低估。</p>
+<h2 id="2估值面臨很大的不確定性">2.估值面臨很大的不確定性<a hidden class="anchor" aria-hidden="true" href="#2估值面臨很大的不確定性">#</a></h2>
+<p>不確定性來自於三個方面</p>
+<p>1）估值過程存在不確定性</p>
+<p>估值過程需要用到很多數據，這些數據的來源和計算等等有可能有出錯。</p>
+<p>2）公司經營管理具有不確定性</p>
+<p>公司的實際表現可以比我們估計的好，也有可能比我們估計的差，這是我們無法控制的。</p>
+<p>3）宏觀經濟具有不確定性</p>
+<p>2020年初的時候，沒人知道疫情會帶來這麼大的災難。</p>
+<p>啟發：</p>
+<p>不確定性和收益的關係。</p>
+<p>比如MMM公司和Coursera，一個是老牌大公司，一個是還在虧錢的新創公司。估MMM很簡單，因為有很多的歷史數據可以用，但是估Coursera就很難，面臨很多的不確定性。按照巴菲特的觀點，不在能力範圍的不碰。估計大家都會避免這種還在虧錢的新公司吧。</p>
+<p>達摩德仁教授認為大家面臨的不確定性是一樣的。因為大部分的人討厭不確定性，會傾向避免。這反而給願意估值的人機會。如果可以對不確定性高的公司做出估值，儘管結果沒有那麼準確，卻往往可以獲得更高的收益，前提當然是等到自己估算的價格而非無腦買入。</p>
+<h2 id="3太複雜的估值方法反而無用">3.太複雜的估值方法反而無用<a hidden class="anchor" aria-hidden="true" href="#3太複雜的估值方法反而無用">#</a></h2>
+<p>現在數據取得容易，Excel建模型容易，於是估值就變得越來越複雜。</p>
+<p>比如很多的投資公司，在估值時需要先估計三大表。達摩德仁教授就認為完全沒有必要。因為只需要裡面的幾個數據而已，根本不用把全部的報表估計出來。</p>
+<p>達摩德仁教授認為，簡單的估值反而比複雜的好用。</p>
+<p>總結：</p>
+<p>估值肯定帶有偏見，未來也永遠具有不確定性。這都是我們無法控制的。我們唯一可以做的就是，避免估值太過於複雜化，學習用簡單一點的估值模型來做估值。</p>
+<p>巴菲特屢次強調投資最重要的有2點，第一點是不要虧錢，第二點是永遠記住第一點。而且只碰自己懂的。但是結果卻也不免犯錯虧錢。</p>
+<p>這不是能力的問題，而在於估值本身的問題。估值肯定會出錯。</p>
+<p>成功的投資不在於你最對了什麼，而在於犯錯的概率比別人低。</p>
+<p>我知道我不犯錯是不可能的，只有希望學習估值可以幫助我減少犯錯。</p>
+<p>注：本站所有學習達摩德仁教授課程的心得文章均已獲達摩德仁教授授權。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/%E6%8A%95%E8%B3%87%E5%AD%B8%E7%BF%92/">投資學習</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/history/2021-04-21-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%AB%E5%AD%B8%E4%BC%B0%E5%80%BC3%E4%BC%B0%E5%80%BC%E7%9A%84%E4%B8%89%E7%A8%AE%E6%96%B9%E6%B3%95%E5%8F%8A%E5%90%84%E8%87%AA%E7%9A%84%E5%84%AA%E7%BC%BA/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>和估值大師學估值3，估值的三種方法及各自的優缺點</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2021-04-18-%E5%A4%A7%E8%92%9C%E7%82%92%E9%9D%92%E8%8A%B1%E8%8F%9C%E5%8F%88%E7%94%9C%E5%8F%88%E8%84%86%E7%9A%84%E9%9D%92%E8%8A%B1%E8%8F%9C%E5%A4%A7%E4%BA%BA%E5%B0%8F%E5%AD%A9%E9%83%BD%E6%84%9B/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>大蒜炒青花菜，又甜又脆的青花菜大人小孩都愛</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2021-04-19 00:00:00 +0000 UTC'>2021-04-19</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/%E6%8A%95%E8%B3%87%E5%AD%B8%E7%BF%92/">投資學習</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

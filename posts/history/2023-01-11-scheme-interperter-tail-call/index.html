@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>CS61A 學習筆記和心得4-Tail Call | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="Fibonacci">
+<meta name="description" content="注：本文部分引用代碼來自CS61A(Structure and Interpretation of Computer Programs) Scheme作業，請小心劇透。個人學習筆記，請小心參考。 上一篇筆記提到了Read-Eval-Print-Loop，這篇筆記記錄其中的附加題-tail call optimization。 尾調用（tail call） 在计算机学裡，">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2023-01-11-scheme-interperter-tail-call/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="CS61A 學習筆記和心得4-Tail Call" />
+<meta property="og:description" content="注：本文部分引用代碼來自CS61A(Structure and Interpretation of Computer Programs) Scheme作業，請小心劇透。個人學習筆記，請小心參考。 上一篇筆記提到了Read-Eval-Print-Loop，這篇筆記記錄其中的附加題-tail call optimization。 尾調用（tail call） 在计算机学裡，" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2023-01-11-scheme-interperter-tail-call/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-01-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-01-11T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CS61A 學習筆記和心得4-Tail Call"/>
+<meta name="twitter:description" content="注：本文部分引用代碼來自CS61A(Structure and Interpretation of Computer Programs) Scheme作業，請小心劇透。個人學習筆記，請小心參考。 上一篇筆記提到了Read-Eval-Print-Loop，這篇筆記記錄其中的附加題-tail call optimization。 尾調用（tail call） 在计算机学裡，"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "CS61A 學習筆記和心得4-Tail Call",
+      "item": "https://everydaydiva.blog/posts/history/2023-01-11-scheme-interperter-tail-call/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "CS61A 學習筆記和心得4-Tail Call",
+  "name": "CS61A 學習筆記和心得4-Tail Call",
+  "description": "注：本文部分引用代碼來自CS61A(Structure and Interpretation of Computer Programs) Scheme作業，請小心劇透。個人學習筆記，請小心參考。 上一篇筆記提到了Read-Eval-Print-Loop，這篇筆記記錄其中的附加題-tail call optimization。 尾調用（tail call） 在计算机学裡，",
+  "keywords": [
+    "Fibonacci"
+  ],
+  "articleBody": "注：本文部分引用代碼來自CS61A(Structure and Interpretation of Computer Programs) Scheme作業，請小心劇透。個人學習筆記，請小心參考。\n上一篇筆記提到了Read-Eval-Print-Loop，這篇筆記記錄其中的附加題-tail call optimization。\n尾調用（tail call） 在计算机学裡，尾调用（tail call）是指一个函数里的最后一个动作是返回一个函数的调用结果的情形，即最后一步新调用的返回值直接被当前函数的返回结果。\n維基百科\n我的理解就是，和一般遞歸返回值有可能還需要一些運算不同，尾遞歸直接return原函數。\n函數式編程靠的是遞歸，而不是循環。因為imutable（變量不可變）的特性，不會使用for/while loop來改變變量數值。但是使用遞歸會導致開啟無數個frame，使得空間複雜度是O(n)。\n使用尾遞歸優化就是來解決因為函數式編程imutable的特性不能使用循環而只能使用遞歸導致的問題，把空間複雜度從O(n)降為O(1)。\n一開始很難理解tail call，因為下面的符合tail call的factorial還是開了很多的frame。\n最後用@trace讀了一下scheme怎麼一步一步運行factorial的，才最終明白。\n@trace def scheme_eval(expr, env, _=None): 原來tall call的優化是通過解釋器的層面來實現的。\n具體是直接關閉上一個frame，使用上一個frame的參數重新開啟一個frame，一直循環下去直到函數有返回值。這樣可以保證從始至終都只有一個frame，實現空間複雜度為O(1)。\nclass Unevaluated: \"\"\"An expression and an environment in which it is to be evaluated.\"\"\" def __init__(self, expr, env): \"\"\"Expression EXPR to be evaluated in Frame ENV.\"\"\" self.expr = expr self.env = env def optimize_tail_calls(unoptimized_scheme_eval): \"\"\"Return a properly tail recursive version of an eval function.\"\"\" def optimized_eval(expr, env, tail=False): \"\"\"Evaluate Scheme expression EXPR in Frame ENV. If TAIL, return an Unevaluated containing an expression for further evaluation. \"\"\" if tail and not scheme_symbolp(expr) and not self_evaluating(expr): return Unevaluated(expr, env) result = Unevaluated(expr, env) # BEGIN PROBLEM EC \"*** YOUR CODE HERE ***\" while (isinstance(result,Unevaluated)): result = unoptimized_scheme_eval(result.expr, result.env) return result # END PROBLEM EC return optimized_eval 上面的代碼比較抽象，可以用一個具體的例子幫忙理解：\n同樣是tail call的如下程式：\ndef factorial(n, a): if n == 0: return a else: return factorial(n - 1, n * a) factorial(3,1) 對於沒有支持尾遞歸優化的python來說，**factorial(3,1)**的運算步驟是：\n但是仔細看一下發現，其實從factorial(3,1)=factorial(2,3)=factorial(1,6)，也就是從factorial(3,1)到factorial(2,3)，參數已經傳入了，根本不需要保留原本factorial(3,1)的frame了。\n所以對於同樣邏輯的Scheme程式：\n(define (factorial n k) (if (= n 0) k (factorial (- n 1) (* k n)))) 因為Scheme支持尾遞歸優化，運算方式是這樣的：\nfactorial(3,1)不能得到直接的結果，但factorial(3,1)=factorial(2,3)，factorial(3,1)的frame已經無用，所以關閉frame，返回factorial(2,3)，即開啟一個factorial(2,3)的frame，開始循環（while loop）\nfactorial(2,3)也不能得到直接結果，factorial(2,3)=factorial(1,6)，關閉factorial(2,3)的frame，返回factorial(1,6)，即開啟factorial(1,6)的frame\nfactorial(1,6)也無法返回直接結果，factorial(1,6)=factorial(0,6)，所以關閉factorial(1,6)的frame返回factorial(0,6)，開啟factorial(0,6)的frame\nfactorial(0,6)可以直接返回結果，循環結束\n以上，通過關閉上一層的frame然後再開下一層的frame，從始至終都只有一個frame。才可以把原本的tail call的空間複雜度為O(n)變為O(1).\n對於Scheme程式而言，如下尾位置（tail context）地方的call才有可能是tail call：\nfrom CS61A\n而普通的遞歸，因為返回的不僅僅是函數本身，還需要有進一步的相乘，所以無法使用Scheme解釋器自帶的優化功能。仔細讀了@trace返回的運算流程發現，還是有調用尾遞歸優化，但是因為需要返回乘積，所以無法完全關閉frame。\n(define (factorial n) (if (= n 0) 1 (* n (factorial (- n 1))))) 當我有點懂了尾遞歸優化後，又發現了下面這些不錯的資源：\n尾递归为啥能优化？\nTail Recursion (video)\n附註：\n用有尾遞歸優化版本的解釋器來運行tail call 版本的(factorial 3 1)：\nscm\u003e(define (factorial n k) (if (= n 0) k (factorial (- n 1) (* k n)))) scm\u003e(factorial 3 1) scheme_eval(Pair('factorial', Pair(3, Pair(1, nil))), ): scheme_eval(Pair('factorial', Pair(3, Pair(1, nil))), ) -\u003e scheme_eval(Pair('if', Pair(Pair('=', Pair('n', Pair(0, nil))), Pair('k', Pair(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), nil)))), \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval(Pair('if', Pair(Pair('=', Pair('n', Pair(0, nil))), Pair('k', Pair(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), nil)))), \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e scheme_eval(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e scheme_eval(Pair('if', Pair(Pair('=', Pair('n', Pair(0, nil))), Pair('k', Pair(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), nil)))), \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval(Pair('if', Pair(Pair('=', Pair('n', Pair(0, nil))), Pair('k', Pair(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), nil)))), \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e scheme_eval(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e scheme_eval(Pair('if', Pair(Pair('=', Pair('n', Pair(0, nil))), Pair('k', Pair(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), nil)))), \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval(Pair('if', Pair(Pair('=', Pair('n', Pair(0, nil))), Pair('k', Pair(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), nil)))), \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e scheme_eval(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e scheme_eval(Pair('if', Pair(Pair('=', Pair('n', Pair(0, nil))), Pair('k', Pair(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), nil)))), \u003c{k: 6, n: 0} -\u003e \u003e): scheme_eval(Pair('if', Pair(Pair('=', Pair('n', Pair(0, nil))), Pair('k', Pair(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), nil)))), \u003c{k: 6, n: 0} -\u003e \u003e) -\u003e 6 6 用有尾遞歸優化版本的解釋器來運行一般遞歸非tail call 版本的(factorial 3 1)：\n可以發現有些地方還是返回了。這表示解釋器還是儘量在做優化，但是因為不是尾遞歸，可以優化的有限。\nscm\u003e(define (factorial n) (if (= n 0) 1 (* n (factorial (- n 1))))) scm\u003e (factorial 3 1) scheme_eval(Pair('factorial', Pair(3, Pair(1, nil))), ): scheme_eval('factorial', ): scheme_eval('factorial', ) -\u003e (lambda (n k) (if (= n 0) k (factorial (- n 1) (* k n)))) scheme_eval(3, ): scheme_eval(3, ) -\u003e 3 scheme_eval(1, ): scheme_eval(1, ) -\u003e 1 scheme_eval(Pair('factorial', Pair(3, Pair(1, nil))), ) -\u003e scheme_eval(Pair('if', Pair(Pair('=', Pair('n', Pair(0, nil))), Pair('k', Pair(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), nil)))), \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval(Pair('=', Pair('n', Pair(0, nil))), \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval('=', \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval('=', \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e #[=] scheme_eval('n', \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval('n', \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e 3 scheme_eval(0, \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval(0, \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e 0 scheme_eval(Pair('=', Pair('n', Pair(0, nil))), \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e False scheme_eval(Pair('if', Pair(Pair('=', Pair('n', Pair(0, nil))), Pair('k', Pair(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), nil)))), \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e scheme_eval(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval('factorial', \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval('factorial', \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e (lambda (n k) (if (= n 0) k (factorial (- n 1) (* k n)))) scheme_eval(Pair('-', Pair('n', Pair(1, nil))), \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval('-', \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval('-', \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e #[-] scheme_eval('n', \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval('n', \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e 3 scheme_eval(1, \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval(1, \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e 1 scheme_eval(Pair('-', Pair('n', Pair(1, nil))), \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e 2 scheme_eval(Pair('*', Pair('k', Pair('n', nil))), \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval('*', \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval('*', \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e #[*] scheme_eval('k', \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval('k', \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e 1 scheme_eval('n', \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval('n', \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e 3 scheme_eval(Pair('*', Pair('k', Pair('n', nil))), \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e 3 scheme_eval(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e scheme_eval(Pair('if', Pair(Pair('=', Pair('n', Pair(0, nil))), Pair('k', Pair(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), nil)))), \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval(Pair('=', Pair('n', Pair(0, nil))), \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval('=', \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval('=', \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e #[=] scheme_eval('n', \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval('n', \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e 2 scheme_eval(0, \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval(0, \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e 0 scheme_eval(Pair('=', Pair('n', Pair(0, nil))), \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e False scheme_eval(Pair('if', Pair(Pair('=', Pair('n', Pair(0, nil))), Pair('k', Pair(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), nil)))), \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e scheme_eval(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval('factorial', \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval('factorial', \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e (lambda (n k) (if (= n 0) k (factorial (- n 1) (* k n)))) scheme_eval(Pair('-', Pair('n', Pair(1, nil))), \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval('-', \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval('-', \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e #[-] scheme_eval('n', \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval('n', \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e 2 scheme_eval(1, \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval(1, \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e 1 scheme_eval(Pair('-', Pair('n', Pair(1, nil))), \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e 1 scheme_eval(Pair('*', Pair('k', Pair('n', nil))), \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval('*', \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval('*', \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e #[*] scheme_eval('k', \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval('k', \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e 3 scheme_eval('n', \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval('n', \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e 2 scheme_eval(Pair('*', Pair('k', Pair('n', nil))), \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e 6 scheme_eval(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e scheme_eval(Pair('if', Pair(Pair('=', Pair('n', Pair(0, nil))), Pair('k', Pair(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), nil)))), \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval(Pair('=', Pair('n', Pair(0, nil))), \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval('=', \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval('=', \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e #[=] scheme_eval('n', \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval('n', \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e 1 scheme_eval(0, \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval(0, \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e 0 scheme_eval(Pair('=', Pair('n', Pair(0, nil))), \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e False scheme_eval(Pair('if', Pair(Pair('=', Pair('n', Pair(0, nil))), Pair('k', Pair(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), nil)))), \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e scheme_eval(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval('factorial', \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval('factorial', \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e (lambda (n k) (if (= n 0) k (factorial (- n 1) (* k n)))) scheme_eval(Pair('-', Pair('n', Pair(1, nil))), \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval('-', \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval('-', \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e #[-] scheme_eval('n', \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval('n', \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e 1 scheme_eval(1, \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval(1, \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e 1 scheme_eval(Pair('-', Pair('n', Pair(1, nil))), \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e 0 scheme_eval(Pair('*', Pair('k', Pair('n', nil))), \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval('*', \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval('*', \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e #[*] scheme_eval('k', \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval('k', \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e 6 scheme_eval('n', \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval('n', \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e 1 scheme_eval(Pair('*', Pair('k', Pair('n', nil))), \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e 6 scheme_eval(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e scheme_eval(Pair('if', Pair(Pair('=', Pair('n', Pair(0, nil))), Pair('k', Pair(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), nil)))), \u003c{k: 6, n: 0} -\u003e \u003e): scheme_eval(Pair('=', Pair('n', Pair(0, nil))), \u003c{k: 6, n: 0} -\u003e \u003e): scheme_eval('=', \u003c{k: 6, n: 0} -\u003e \u003e): scheme_eval('=', \u003c{k: 6, n: 0} -\u003e \u003e) -\u003e #[=] scheme_eval('n', \u003c{k: 6, n: 0} -\u003e \u003e): scheme_eval('n', \u003c{k: 6, n: 0} -\u003e \u003e) -\u003e 0 scheme_eval(0, \u003c{k: 6, n: 0} -\u003e \u003e): scheme_eval(0, \u003c{k: 6, n: 0} -\u003e \u003e) -\u003e 0 scheme_eval(Pair('=', Pair('n', Pair(0, nil))), \u003c{k: 6, n: 0} -\u003e \u003e) -\u003e True scheme_eval('k', \u003c{k: 6, n: 0} -\u003e \u003e): scheme_eval('k', \u003c{k: 6, n: 0} -\u003e \u003e) -\u003e 6 scheme_eval(Pair('if', Pair(Pair('=', Pair('n', Pair(0, nil))), Pair('k', Pair(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), nil)))), \u003c{k: 6, n: 0} -\u003e \u003e) -\u003e 6 6 如下為解釋器沒有提供尾遞歸優化版本：\n如同Python一樣，即使程式本身是tail call，但是解釋器沒有支持，還是會開啟無數個frame，導致空間複雜度為O(n)。\nscm\u003e(define (factorial n k) (if (= n 0) k (factorial (- n 1) (* k n)))) scm\u003e (factorial 3 1) scheme_eval(Pair('factorial', Pair(3, Pair(1, nil))), ): scheme_eval('factorial', ): scheme_eval('factorial', ) -\u003e (lambda (n k) (if (= n 0) k (factorial (- n 1) (* k n)))) scheme_eval(3, ): scheme_eval(3, ) -\u003e 3 scheme_eval(1, ): scheme_eval(1, ) -\u003e 1 scheme_eval(Pair('if', Pair(Pair('=', Pair('n', Pair(0, nil))), Pair('k', Pair(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), nil)))), \u003c{k: 1, n: 3} -\u003e \u003e, True): scheme_eval(Pair('=', Pair('n', Pair(0, nil))), \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval('=', \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval('=', \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e #[=] scheme_eval('n', \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval('n', \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e 3 scheme_eval(0, \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval(0, \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e 0 scheme_eval(Pair('=', Pair('n', Pair(0, nil))), \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e False scheme_eval(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), \u003c{k: 1, n: 3} -\u003e \u003e, True): scheme_eval('factorial', \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval('factorial', \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e (lambda (n k) (if (= n 0) k (factorial (- n 1) (* k n)))) scheme_eval(Pair('-', Pair('n', Pair(1, nil))), \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval('-', \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval('-', \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e #[-] scheme_eval('n', \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval('n', \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e 3 scheme_eval(1, \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval(1, \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e 1 scheme_eval(Pair('-', Pair('n', Pair(1, nil))), \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e 2 scheme_eval(Pair('*', Pair('k', Pair('n', nil))), \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval('*', \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval('*', \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e #[*] scheme_eval('k', \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval('k', \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e 1 scheme_eval('n', \u003c{k: 1, n: 3} -\u003e \u003e): scheme_eval('n', \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e 3 scheme_eval(Pair('*', Pair('k', Pair('n', nil))), \u003c{k: 1, n: 3} -\u003e \u003e) -\u003e 3 scheme_eval(Pair('if', Pair(Pair('=', Pair('n', Pair(0, nil))), Pair('k', Pair(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), nil)))), \u003c{k: 3, n: 2} -\u003e \u003e, True): scheme_eval(Pair('=', Pair('n', Pair(0, nil))), \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval('=', \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval('=', \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e #[=] scheme_eval('n', \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval('n', \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e 2 scheme_eval(0, \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval(0, \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e 0 scheme_eval(Pair('=', Pair('n', Pair(0, nil))), \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e False scheme_eval(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), \u003c{k: 3, n: 2} -\u003e \u003e, True): scheme_eval('factorial', \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval('factorial', \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e (lambda (n k) (if (= n 0) k (factorial (- n 1) (* k n)))) scheme_eval(Pair('-', Pair('n', Pair(1, nil))), \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval('-', \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval('-', \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e #[-] scheme_eval('n', \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval('n', \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e 2 scheme_eval(1, \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval(1, \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e 1 scheme_eval(Pair('-', Pair('n', Pair(1, nil))), \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e 1 scheme_eval(Pair('*', Pair('k', Pair('n', nil))), \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval('*', \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval('*', \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e #[*] scheme_eval('k', \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval('k', \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e 3 scheme_eval('n', \u003c{k: 3, n: 2} -\u003e \u003e): scheme_eval('n', \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e 2 scheme_eval(Pair('*', Pair('k', Pair('n', nil))), \u003c{k: 3, n: 2} -\u003e \u003e) -\u003e 6 scheme_eval(Pair('if', Pair(Pair('=', Pair('n', Pair(0, nil))), Pair('k', Pair(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), nil)))), \u003c{k: 6, n: 1} -\u003e \u003e, True): scheme_eval(Pair('=', Pair('n', Pair(0, nil))), \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval('=', \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval('=', \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e #[=] scheme_eval('n', \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval('n', \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e 1 scheme_eval(0, \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval(0, \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e 0 scheme_eval(Pair('=', Pair('n', Pair(0, nil))), \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e False scheme_eval(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), \u003c{k: 6, n: 1} -\u003e \u003e, True): scheme_eval('factorial', \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval('factorial', \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e (lambda (n k) (if (= n 0) k (factorial (- n 1) (* k n)))) scheme_eval(Pair('-', Pair('n', Pair(1, nil))), \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval('-', \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval('-', \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e #[-] scheme_eval('n', \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval('n', \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e 1 scheme_eval(1, \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval(1, \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e 1 scheme_eval(Pair('-', Pair('n', Pair(1, nil))), \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e 0 scheme_eval(Pair('*', Pair('k', Pair('n', nil))), \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval('*', \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval('*', \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e #[*] scheme_eval('k', \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval('k', \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e 6 scheme_eval('n', \u003c{k: 6, n: 1} -\u003e \u003e): scheme_eval('n', \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e 1 scheme_eval(Pair('*', Pair('k', Pair('n', nil))), \u003c{k: 6, n: 1} -\u003e \u003e) -\u003e 6 scheme_eval(Pair('if', Pair(Pair('=', Pair('n', Pair(0, nil))), Pair('k', Pair(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), nil)))), \u003c{k: 6, n: 0} -\u003e \u003e, True): scheme_eval(Pair('=', Pair('n', Pair(0, nil))), \u003c{k: 6, n: 0} -\u003e \u003e): scheme_eval('=', \u003c{k: 6, n: 0} -\u003e \u003e): scheme_eval('=', \u003c{k: 6, n: 0} -\u003e \u003e) -\u003e #[=] scheme_eval('n', \u003c{k: 6, n: 0} -\u003e \u003e): scheme_eval('n', \u003c{k: 6, n: 0} -\u003e \u003e) -\u003e 0 scheme_eval(0, \u003c{k: 6, n: 0} -\u003e \u003e): scheme_eval(0, \u003c{k: 6, n: 0} -\u003e \u003e) -\u003e 0 scheme_eval(Pair('=', Pair('n', Pair(0, nil))), \u003c{k: 6, n: 0} -\u003e \u003e) -\u003e True scheme_eval('k', \u003c{k: 6, n: 0} -\u003e \u003e, True): scheme_eval('k', \u003c{k: 6, n: 0} -\u003e \u003e, True) -\u003e 6 scheme_eval(Pair('if', Pair(Pair('=', Pair('n', Pair(0, nil))), Pair('k', Pair(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), nil)))), \u003c{k: 6, n: 0} -\u003e \u003e, True) -\u003e 6 scheme_eval(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), \u003c{k: 6, n: 1} -\u003e \u003e, True) -\u003e 6 scheme_eval(Pair('if', Pair(Pair('=', Pair('n', Pair(0, nil))), Pair('k', Pair(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), nil)))), \u003c{k: 6, n: 1} -\u003e \u003e, True) -\u003e 6 scheme_eval(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), \u003c{k: 3, n: 2} -\u003e \u003e, True) -\u003e 6 scheme_eval(Pair('if', Pair(Pair('=', Pair('n', Pair(0, nil))), Pair('k', Pair(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), nil)))), \u003c{k: 3, n: 2} -\u003e \u003e, True) -\u003e 6 scheme_eval(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), \u003c{k: 1, n: 3} -\u003e \u003e, True) -\u003e 6 scheme_eval(Pair('if', Pair(Pair('=', Pair('n', Pair(0, nil))), Pair('k', Pair(Pair('factorial', Pair(Pair('-', Pair('n', Pair(1, nil))), Pair(Pair('*', Pair('k', Pair('n', nil))), nil))), nil)))), \u003c{k: 1, n: 3} -\u003e \u003e, True) -\u003e 6 scheme_eval(Pair('factorial', Pair(3, Pair(1, nil))), ) -\u003e 6 6 ",
+  "wordCount" : "4955",
+  "inLanguage": "zh",
+  "datePublished": "2023-01-11T00:00:00Z",
+  "dateModified": "2023-01-11T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2023-01-11-scheme-interperter-tail-call/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      CS61A 學習筆記和心得4-Tail Call
+    </h1>
+    <div class="post-meta"><span title='2023-01-11 00:00:00 +0000 UTC'>2023-01-11</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e5%b0%be%e8%aa%bf%e7%94%a8tail-call" aria-label="尾調用（tail call）">尾調用（tail call）</a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p>注：本文部分引用代碼來自CS61A(Structure and Interpretation of Computer Programs) Scheme作業，請小心劇透。個人學習筆記，請小心參考。</p>
+<p>上一篇筆記提到了<strong>Read-Eval-Print-Loop</strong>，這篇筆記記錄其中的附加題-tail call optimization。</p>
+<h2 id="尾調用tail-call">尾調用（tail call）<a hidden class="anchor" aria-hidden="true" href="#尾調用tail-call">#</a></h2>
+<blockquote>
+<p>在<a href="https://zh.wikipedia.org/wiki/%E8%A8%88%E7%AE%97%E6%A9%9F%E5%AD%B8" target="_blank" rel="noopener" style="color:#42b983";>计算机学</a>裡，<strong>尾调用</strong>（tail call）是指一个函数里的最后一个动作是返回一个<a href="https://zh.wikipedia.org/wiki/%E5%AD%90%E7%A8%8B%E5%BA%8F" target="_blank" rel="noopener" style="color:#42b983";>函数</a>的调用结果的情形，即最后一步新调用的返回值直接被当前函数的返回结果。</p>
+<p>維基百科</p>
+</blockquote>
+<p>我的理解就是，和一般遞歸返回值有可能還需要一些運算不同，尾遞歸直接return原函數。</p>
+<p>函數式編程靠的是遞歸，而不是循環。因為imutable（變量不可變）的特性，不會使用for/while loop來改變變量數值。但是使用遞歸會導致開啟無數個frame，使得空間複雜度是O(n)。</p>
+<p>使用尾遞歸優化就是來解決因為函數式編程imutable的特性不能使用循環而只能使用遞歸導致的問題，把空間複雜度從O(n)降為O(1)。</p>
+<p>一開始很難理解tail call，因為下面的符合tail call的factorial還是開了很多的frame。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2023-01-09-at-8.06.14-PM-1024x644.png" alt=""  />
+</p>
+<p>最後用@trace讀了一下scheme怎麼一步一步運行factorial的，才最終明白。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>@trace
+</span></span><span style="display:flex;"><span>def scheme_eval(expr, env, _=None):
+</span></span></code></pre></div><p>原來tall call的優化是通過解釋器的層面來實現的。</p>
+<p>具體是直接關閉上一個frame，使用上一個frame的參數重新開啟一個frame，一直循環下去直到函數有返回值。這樣可以保證從始至終都只有一個frame，實現空間複雜度為O(1)。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>class Unevaluated:
+</span></span><span style="display:flex;"><span>    &#34;&#34;&#34;An expression and an environment in which it is to be evaluated.&#34;&#34;&#34;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    def __init__(self, expr, env):
+</span></span><span style="display:flex;"><span>        &#34;&#34;&#34;Expression EXPR to be evaluated in Frame ENV.&#34;&#34;&#34;
+</span></span><span style="display:flex;"><span>        self.expr = expr
+</span></span><span style="display:flex;"><span>        self.env = env
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>def optimize_tail_calls(unoptimized_scheme_eval):
+</span></span><span style="display:flex;"><span>    &#34;&#34;&#34;Return a properly tail recursive version of an eval function.&#34;&#34;&#34;
+</span></span><span style="display:flex;"><span>    def optimized_eval(expr, env, tail=False):
+</span></span><span style="display:flex;"><span>        &#34;&#34;&#34;Evaluate Scheme expression EXPR in Frame ENV. If TAIL,
+</span></span><span style="display:flex;"><span>        return an Unevaluated containing an expression for further evaluation.
+</span></span><span style="display:flex;"><span>        &#34;&#34;&#34;
+</span></span><span style="display:flex;"><span>        if tail and not scheme_symbolp(expr) and not self_evaluating(expr):
+</span></span><span style="display:flex;"><span>            return Unevaluated(expr, env)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        result = Unevaluated(expr, env)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        # BEGIN PROBLEM EC
+</span></span><span style="display:flex;"><span>        &#34;*** YOUR CODE HERE ***&#34;
+</span></span><span style="display:flex;"><span>        while (isinstance(result,Unevaluated)):
+</span></span><span style="display:flex;"><span>            result = unoptimized_scheme_eval(result.expr, result.env)
+</span></span><span style="display:flex;"><span>        return result
+</span></span><span style="display:flex;"><span>        # END PROBLEM EC
+</span></span><span style="display:flex;"><span>    return optimized_eval
+</span></span></code></pre></div><p>上面的代碼比較抽象，可以用一個具體的例子幫忙理解：</p>
+<p>同樣是tail call的如下程式：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def factorial(n, a):
+</span></span><span style="display:flex;"><span>    if n == 0:
+</span></span><span style="display:flex;"><span>        return a
+</span></span><span style="display:flex;"><span>    else:
+</span></span><span style="display:flex;"><span>        return factorial(n - 1, n * a)
+</span></span><span style="display:flex;"><span>factorial(3,1)
+</span></span></code></pre></div><p>對於沒有支持尾遞歸優化的python來說，**factorial(3,1)**的運算步驟是：</p>
+<p><img loading="lazy" src="images/Screen-Shot-2023-01-09-at-9.30.47-PM.png" alt=""  />
+</p>
+<p>但是仔細看一下發現，其實從factorial(3,1)=factorial(2,3)=factorial(1,6)，也就是從factorial(3,1)到factorial(2,3)，參數已經傳入了，根本不需要保留原本factorial(3,1)的frame了。</p>
+<p>所以對於同樣邏輯的Scheme程式：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>(define (factorial n k)
+</span></span><span style="display:flex;"><span>  (if (= n 0) k
+</span></span><span style="display:flex;"><span>    (factorial (- n 1)
+</span></span><span style="display:flex;"><span>               (* k n))))
+</span></span></code></pre></div><p>因為Scheme支持尾遞歸優化，運算方式是這樣的：</p>
+<ul>
+<li>
+<p>factorial(3,1)不能得到直接的結果，但factorial(3,1)=factorial(2,3)，factorial(3,1)的frame已經無用，所以關閉frame，返回factorial(2,3)，即開啟一個factorial(2,3)的frame，開始循環（while loop）</p>
+</li>
+<li>
+<p>factorial(2,3)也不能得到直接結果，factorial(2,3)=factorial(1,6)，關閉factorial(2,3)的frame，返回factorial(1,6)，即開啟factorial(1,6)的frame</p>
+</li>
+<li>
+<p>factorial(1,6)也無法返回直接結果，factorial(1,6)=factorial(0,6)，所以關閉factorial(1,6)的frame返回factorial(0,6)，開啟factorial(0,6)的frame</p>
+</li>
+<li>
+<p>factorial(0,6)可以直接返回結果，循環結束</p>
+</li>
+</ul>
+<p>以上，通過關閉上一層的frame然後再開下一層的frame，從始至終都只有一個frame。才可以把原本的tail call的空間複雜度為O(n)變為O(1).</p>
+<p>對於Scheme程式而言，如下尾位置（tail context）地方的call才有可能是tail call：</p>
+<p><img loading="lazy" src="images/Screen-Shot-2023-01-03-at-4.12.56-PM-1024x356.png" alt=""  />
+</p>
+<p>from CS61A</p>
+<p>而普通的遞歸，因為返回的不僅僅是函數本身，還需要有進一步的相乘，所以無法使用Scheme解釋器自帶的優化功能。仔細讀了@trace返回的運算流程發現，還是有調用尾遞歸優化，但是因為需要返回乘積，所以無法完全關閉frame。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>(define (factorial n)
+</span></span><span style="display:flex;"><span>  (if (= n 0) 1
+</span></span><span style="display:flex;"><span>    (* n (factorial (- n 1)))))
+</span></span></code></pre></div><p>當我有點懂了尾遞歸優化後，又發現了下面這些不錯的資源：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/36587160" target="_blank" rel="noopener" style="color:#42b983";>尾递归为啥能优化？</a></p>
+<p><a href="https://www.coursera.org/lecture/programming-languages/tail-recursion-YZic1" target="_blank" rel="noopener" style="color:#42b983";>Tail Recursion (video)</a></p>
+<p>附註：</p>
+<p>用有尾遞歸優化版本的解釋器來運行tail call 版本的(factorial 3 1)：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>scm&gt;(define (factorial n k)
+</span></span><span style="display:flex;"><span>  (if (= n 0) k
+</span></span><span style="display:flex;"><span>    (factorial (- n 1)
+</span></span><span style="display:flex;"><span>               (* k n))))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>scm&gt;(factorial 3 1)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;factorial&#39;, Pair(3, Pair(1, nil))), &lt;Global Frame&gt;):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;factorial&#39;, Pair(3, Pair(1, nil))), &lt;Global Frame&gt;) -&gt; &lt;scheme_eval_apply.Unevaluated object at 0x101547f40&gt;
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;if&#39;, Pair(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), Pair(&#39;k&#39;, Pair(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), nil)))), &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;if&#39;, Pair(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), Pair(&#39;k&#39;, Pair(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), nil)))), &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; &lt;scheme_eval_apply.Unevaluated object at 0x101547010&gt;
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; &lt;scheme_eval_apply.Unevaluated object at 0x101547df0&gt;
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;if&#39;, Pair(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), Pair(&#39;k&#39;, Pair(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), nil)))), &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;if&#39;, Pair(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), Pair(&#39;k&#39;, Pair(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), nil)))), &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; &lt;scheme_eval_apply.Unevaluated object at 0x1015470d0&gt;
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; &lt;scheme_eval_apply.Unevaluated object at 0x101547f10&gt;
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;if&#39;, Pair(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), Pair(&#39;k&#39;, Pair(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), nil)))), &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;if&#39;, Pair(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), Pair(&#39;k&#39;, Pair(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), nil)))), &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; &lt;scheme_eval_apply.Unevaluated object at 0x101547f40&gt;
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; &lt;scheme_eval_apply.Unevaluated object at 0x101547010&gt;
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;if&#39;, Pair(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), Pair(&#39;k&#39;, Pair(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), nil)))), &lt;{k: 6, n: 0} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;if&#39;, Pair(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), Pair(&#39;k&#39;, Pair(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), nil)))), &lt;{k: 6, n: 0} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 6
+</span></span><span style="display:flex;"><span>6
+</span></span></code></pre></div><p>用有尾遞歸優化版本的解釋器來運行一般遞歸<strong>非tail call</strong> 版本的(factorial 3 1)：</p>
+<p>可以發現有些地方還是返回了&lt;scheme_eval_apply.Unevaluated object at 0x100a79090&gt;。這表示解釋器還是儘量在做優化，但是因為不是尾遞歸，可以優化的有限。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>scm&gt;(define (factorial n)
+</span></span><span style="display:flex;"><span>  (if (= n 0) 1
+</span></span><span style="display:flex;"><span>    (* n (factorial (- n 1)))))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>scm&gt; (factorial 3 1)
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;factorial&#39;, Pair(3, Pair(1, nil))), &lt;Global Frame&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(&#39;factorial&#39;, &lt;Global Frame&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(&#39;factorial&#39;, &lt;Global Frame&gt;) -&gt; (lambda (n k) (if (= n 0) k (factorial (- n 1) (* k n))))
+</span></span><span style="display:flex;"><span>    scheme_eval(3, &lt;Global Frame&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(3, &lt;Global Frame&gt;) -&gt; 3
+</span></span><span style="display:flex;"><span>    scheme_eval(1, &lt;Global Frame&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(1, &lt;Global Frame&gt;) -&gt; 1
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;factorial&#39;, Pair(3, Pair(1, nil))), &lt;Global Frame&gt;) -&gt; &lt;scheme_eval_apply.Unevaluated object at 0x100a79090&gt;
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;if&#39;, Pair(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), Pair(&#39;k&#39;, Pair(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), nil)))), &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;=&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;=&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; #[=]
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;n&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;n&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 3
+</span></span><span style="display:flex;"><span>        scheme_eval(0, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(0, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 0
+</span></span><span style="display:flex;"><span>    scheme_eval(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; False
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;if&#39;, Pair(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), Pair(&#39;k&#39;, Pair(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), nil)))), &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; &lt;scheme_eval_apply.Unevaluated object at 0x100a78a90&gt;
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(&#39;factorial&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(&#39;factorial&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; (lambda (n k) (if (= n 0) k (factorial (- n 1) (* k n))))
+</span></span><span style="display:flex;"><span>    scheme_eval(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;-&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;-&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; #[-]
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;n&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;n&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 3
+</span></span><span style="display:flex;"><span>        scheme_eval(1, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(1, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 1
+</span></span><span style="display:flex;"><span>    scheme_eval(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 2
+</span></span><span style="display:flex;"><span>    scheme_eval(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;*&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;*&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; #[*]
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;k&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;k&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 1
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;n&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;n&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 3
+</span></span><span style="display:flex;"><span>    scheme_eval(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 3
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; &lt;scheme_eval_apply.Unevaluated object at 0x100a78cd0&gt;
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;if&#39;, Pair(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), Pair(&#39;k&#39;, Pair(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), nil)))), &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;=&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;=&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; #[=]
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;n&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;n&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 2
+</span></span><span style="display:flex;"><span>        scheme_eval(0, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(0, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 0
+</span></span><span style="display:flex;"><span>    scheme_eval(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; False
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;if&#39;, Pair(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), Pair(&#39;k&#39;, Pair(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), nil)))), &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; &lt;scheme_eval_apply.Unevaluated object at 0x100a78b20&gt;
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(&#39;factorial&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(&#39;factorial&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; (lambda (n k) (if (= n 0) k (factorial (- n 1) (* k n))))
+</span></span><span style="display:flex;"><span>    scheme_eval(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;-&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;-&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; #[-]
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;n&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;n&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 2
+</span></span><span style="display:flex;"><span>        scheme_eval(1, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(1, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 1
+</span></span><span style="display:flex;"><span>    scheme_eval(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 1
+</span></span><span style="display:flex;"><span>    scheme_eval(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;*&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;*&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; #[*]
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;k&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;k&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 3
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;n&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;n&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 2
+</span></span><span style="display:flex;"><span>    scheme_eval(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 6
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; &lt;scheme_eval_apply.Unevaluated object at 0x100a78fa0&gt;
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;if&#39;, Pair(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), Pair(&#39;k&#39;, Pair(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), nil)))), &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;=&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;=&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; #[=]
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;n&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;n&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 1
+</span></span><span style="display:flex;"><span>        scheme_eval(0, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(0, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 0
+</span></span><span style="display:flex;"><span>    scheme_eval(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; False
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;if&#39;, Pair(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), Pair(&#39;k&#39;, Pair(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), nil)))), &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; &lt;scheme_eval_apply.Unevaluated object at 0x100a7b280&gt;
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(&#39;factorial&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(&#39;factorial&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; (lambda (n k) (if (= n 0) k (factorial (- n 1) (* k n))))
+</span></span><span style="display:flex;"><span>    scheme_eval(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;-&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;-&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; #[-]
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;n&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;n&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 1
+</span></span><span style="display:flex;"><span>        scheme_eval(1, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(1, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 1
+</span></span><span style="display:flex;"><span>    scheme_eval(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 0
+</span></span><span style="display:flex;"><span>    scheme_eval(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;*&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;*&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; #[*]
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;k&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;k&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 6
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;n&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;n&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 1
+</span></span><span style="display:flex;"><span>    scheme_eval(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 6
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; &lt;scheme_eval_apply.Unevaluated object at 0x100a78d90&gt;
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;if&#39;, Pair(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), Pair(&#39;k&#39;, Pair(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), nil)))), &lt;{k: 6, n: 0} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), &lt;{k: 6, n: 0} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;=&#39;, &lt;{k: 6, n: 0} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;=&#39;, &lt;{k: 6, n: 0} -&gt; &lt;Global Frame&gt;&gt;) -&gt; #[=]
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;n&#39;, &lt;{k: 6, n: 0} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(&#39;n&#39;, &lt;{k: 6, n: 0} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 0
+</span></span><span style="display:flex;"><span>        scheme_eval(0, &lt;{k: 6, n: 0} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>        scheme_eval(0, &lt;{k: 6, n: 0} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 0
+</span></span><span style="display:flex;"><span>    scheme_eval(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), &lt;{k: 6, n: 0} -&gt; &lt;Global Frame&gt;&gt;) -&gt; True
+</span></span><span style="display:flex;"><span>    scheme_eval(&#39;k&#39;, &lt;{k: 6, n: 0} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(&#39;k&#39;, &lt;{k: 6, n: 0} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 6
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;if&#39;, Pair(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), Pair(&#39;k&#39;, Pair(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), nil)))), &lt;{k: 6, n: 0} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 6
+</span></span><span style="display:flex;"><span>6
+</span></span></code></pre></div><p>如下為解釋器沒有提供尾遞歸優化版本：</p>
+<p>如同Python一樣，即使程式本身是tail call，但是解釋器沒有支持，還是會開啟無數個frame，導致空間複雜度為O(n)。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>scm&gt;(define (factorial n k)
+</span></span><span style="display:flex;"><span>  (if (= n 0) k
+</span></span><span style="display:flex;"><span>    (factorial (- n 1)
+</span></span><span style="display:flex;"><span>               (* k n))))
+</span></span><span style="display:flex;"><span>scm&gt; (factorial 3 1)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;factorial&#39;, Pair(3, Pair(1, nil))), &lt;Global Frame&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(&#39;factorial&#39;, &lt;Global Frame&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(&#39;factorial&#39;, &lt;Global Frame&gt;) -&gt; (lambda (n k) (if (= n 0) k (factorial (- n 1) (* k n))))
+</span></span><span style="display:flex;"><span>    scheme_eval(3, &lt;Global Frame&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(3, &lt;Global Frame&gt;) -&gt; 3
+</span></span><span style="display:flex;"><span>    scheme_eval(1, &lt;Global Frame&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(1, &lt;Global Frame&gt;) -&gt; 1
+</span></span><span style="display:flex;"><span>    scheme_eval(Pair(&#39;if&#39;, Pair(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), Pair(&#39;k&#39;, Pair(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), nil)))), &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;, True):
+</span></span><span style="display:flex;"><span>        scheme_eval(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>            scheme_eval(&#39;=&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>            scheme_eval(&#39;=&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; #[=]
+</span></span><span style="display:flex;"><span>            scheme_eval(&#39;n&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>            scheme_eval(&#39;n&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 3
+</span></span><span style="display:flex;"><span>            scheme_eval(0, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>            scheme_eval(0, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 0
+</span></span><span style="display:flex;"><span>        scheme_eval(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; False
+</span></span><span style="display:flex;"><span>        scheme_eval(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;, True):
+</span></span><span style="display:flex;"><span>            scheme_eval(&#39;factorial&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>            scheme_eval(&#39;factorial&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; (lambda (n k) (if (= n 0) k (factorial (- n 1) (* k n))))
+</span></span><span style="display:flex;"><span>            scheme_eval(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                scheme_eval(&#39;-&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                scheme_eval(&#39;-&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; #[-]
+</span></span><span style="display:flex;"><span>                scheme_eval(&#39;n&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                scheme_eval(&#39;n&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 3
+</span></span><span style="display:flex;"><span>                scheme_eval(1, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                scheme_eval(1, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 1
+</span></span><span style="display:flex;"><span>            scheme_eval(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 2
+</span></span><span style="display:flex;"><span>            scheme_eval(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                scheme_eval(&#39;*&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                scheme_eval(&#39;*&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; #[*]
+</span></span><span style="display:flex;"><span>                scheme_eval(&#39;k&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                scheme_eval(&#39;k&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 1
+</span></span><span style="display:flex;"><span>                scheme_eval(&#39;n&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                scheme_eval(&#39;n&#39;, &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 3
+</span></span><span style="display:flex;"><span>            scheme_eval(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 3
+</span></span><span style="display:flex;"><span>            scheme_eval(Pair(&#39;if&#39;, Pair(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), Pair(&#39;k&#39;, Pair(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), nil)))), &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;, True):
+</span></span><span style="display:flex;"><span>                scheme_eval(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                    scheme_eval(&#39;=&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                    scheme_eval(&#39;=&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; #[=]
+</span></span><span style="display:flex;"><span>                    scheme_eval(&#39;n&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                    scheme_eval(&#39;n&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 2
+</span></span><span style="display:flex;"><span>                    scheme_eval(0, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                    scheme_eval(0, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 0
+</span></span><span style="display:flex;"><span>                scheme_eval(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; False
+</span></span><span style="display:flex;"><span>                scheme_eval(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;, True):
+</span></span><span style="display:flex;"><span>                    scheme_eval(&#39;factorial&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                    scheme_eval(&#39;factorial&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; (lambda (n k) (if (= n 0) k (factorial (- n 1) (* k n))))
+</span></span><span style="display:flex;"><span>                    scheme_eval(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                        scheme_eval(&#39;-&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                        scheme_eval(&#39;-&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; #[-]
+</span></span><span style="display:flex;"><span>                        scheme_eval(&#39;n&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                        scheme_eval(&#39;n&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 2
+</span></span><span style="display:flex;"><span>                        scheme_eval(1, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                        scheme_eval(1, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 1
+</span></span><span style="display:flex;"><span>                    scheme_eval(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 1
+</span></span><span style="display:flex;"><span>                    scheme_eval(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                        scheme_eval(&#39;*&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                        scheme_eval(&#39;*&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; #[*]
+</span></span><span style="display:flex;"><span>                        scheme_eval(&#39;k&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                        scheme_eval(&#39;k&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 3
+</span></span><span style="display:flex;"><span>                        scheme_eval(&#39;n&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                        scheme_eval(&#39;n&#39;, &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 2
+</span></span><span style="display:flex;"><span>                    scheme_eval(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 6
+</span></span><span style="display:flex;"><span>                    scheme_eval(Pair(&#39;if&#39;, Pair(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), Pair(&#39;k&#39;, Pair(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), nil)))), &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;, True):
+</span></span><span style="display:flex;"><span>                        scheme_eval(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                            scheme_eval(&#39;=&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                            scheme_eval(&#39;=&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; #[=]
+</span></span><span style="display:flex;"><span>                            scheme_eval(&#39;n&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                            scheme_eval(&#39;n&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 1
+</span></span><span style="display:flex;"><span>                            scheme_eval(0, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                            scheme_eval(0, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 0
+</span></span><span style="display:flex;"><span>                        scheme_eval(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; False
+</span></span><span style="display:flex;"><span>                        scheme_eval(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;, True):
+</span></span><span style="display:flex;"><span>                            scheme_eval(&#39;factorial&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                            scheme_eval(&#39;factorial&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; (lambda (n k) (if (= n 0) k (factorial (- n 1) (* k n))))
+</span></span><span style="display:flex;"><span>                            scheme_eval(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                                scheme_eval(&#39;-&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                                scheme_eval(&#39;-&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; #[-]
+</span></span><span style="display:flex;"><span>                                scheme_eval(&#39;n&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                                scheme_eval(&#39;n&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 1
+</span></span><span style="display:flex;"><span>                                scheme_eval(1, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                                scheme_eval(1, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 1
+</span></span><span style="display:flex;"><span>                            scheme_eval(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 0
+</span></span><span style="display:flex;"><span>                            scheme_eval(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                                scheme_eval(&#39;*&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                                scheme_eval(&#39;*&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; #[*]
+</span></span><span style="display:flex;"><span>                                scheme_eval(&#39;k&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                                scheme_eval(&#39;k&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 6
+</span></span><span style="display:flex;"><span>                                scheme_eval(&#39;n&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                                scheme_eval(&#39;n&#39;, &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 1
+</span></span><span style="display:flex;"><span>                            scheme_eval(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 6
+</span></span><span style="display:flex;"><span>                            scheme_eval(Pair(&#39;if&#39;, Pair(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), Pair(&#39;k&#39;, Pair(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), nil)))), &lt;{k: 6, n: 0} -&gt; &lt;Global Frame&gt;&gt;, True):
+</span></span><span style="display:flex;"><span>                                scheme_eval(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), &lt;{k: 6, n: 0} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                                    scheme_eval(&#39;=&#39;, &lt;{k: 6, n: 0} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                                    scheme_eval(&#39;=&#39;, &lt;{k: 6, n: 0} -&gt; &lt;Global Frame&gt;&gt;) -&gt; #[=]
+</span></span><span style="display:flex;"><span>                                    scheme_eval(&#39;n&#39;, &lt;{k: 6, n: 0} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                                    scheme_eval(&#39;n&#39;, &lt;{k: 6, n: 0} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 0
+</span></span><span style="display:flex;"><span>                                    scheme_eval(0, &lt;{k: 6, n: 0} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                                    scheme_eval(0, &lt;{k: 6, n: 0} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 0
+</span></span><span style="display:flex;"><span>                                scheme_eval(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), &lt;{k: 6, n: 0} -&gt; &lt;Global Frame&gt;&gt;) -&gt; True
+</span></span><span style="display:flex;"><span>                                scheme_eval(&#39;k&#39;, &lt;{k: 6, n: 0} -&gt; &lt;Global Frame&gt;&gt;, True):
+</span></span><span style="display:flex;"><span>                                scheme_eval(&#39;k&#39;, &lt;{k: 6, n: 0} -&gt; &lt;Global Frame&gt;&gt;, True) -&gt; 6
+</span></span><span style="display:flex;"><span>                            scheme_eval(Pair(&#39;if&#39;, Pair(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), Pair(&#39;k&#39;, Pair(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), nil)))), &lt;{k: 6, n: 0} -&gt; &lt;Global Frame&gt;&gt;, True) -&gt; 6
+</span></span><span style="display:flex;"><span>                        scheme_eval(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;, True) -&gt; 6
+</span></span><span style="display:flex;"><span>                    scheme_eval(Pair(&#39;if&#39;, Pair(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), Pair(&#39;k&#39;, Pair(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), nil)))), &lt;{k: 6, n: 1} -&gt; &lt;Global Frame&gt;&gt;, True) -&gt; 6
+</span></span><span style="display:flex;"><span>                scheme_eval(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;, True) -&gt; 6
+</span></span><span style="display:flex;"><span>            scheme_eval(Pair(&#39;if&#39;, Pair(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), Pair(&#39;k&#39;, Pair(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), nil)))), &lt;{k: 3, n: 2} -&gt; &lt;Global Frame&gt;&gt;, True) -&gt; 6
+</span></span><span style="display:flex;"><span>        scheme_eval(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;, True) -&gt; 6
+</span></span><span style="display:flex;"><span>    scheme_eval(Pair(&#39;if&#39;, Pair(Pair(&#39;=&#39;, Pair(&#39;n&#39;, Pair(0, nil))), Pair(&#39;k&#39;, Pair(Pair(&#39;factorial&#39;, Pair(Pair(&#39;-&#39;, Pair(&#39;n&#39;, Pair(1, nil))), Pair(Pair(&#39;*&#39;, Pair(&#39;k&#39;, Pair(&#39;n&#39;, nil))), nil))), nil)))), &lt;{k: 1, n: 3} -&gt; &lt;Global Frame&gt;&gt;, True) -&gt; 6
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;factorial&#39;, Pair(3, Pair(1, nil))), &lt;Global Frame&gt;) -&gt; 6
+</span></span><span style="display:flex;"><span>6
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/cs61a/">CS61A</a></li>
+      <li><a href="https://everydaydiva.blog/tags/python/">Python</a></li>
+      <li><a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">CS自學</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/history/2023-01-18-first-grade-reading-list/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>小一上英文閱讀書單和心得</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2023-01-05-scheme-interpreter-use-python/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>CS61A 學習筆記和心得3-通過學習用Python寫個Scheme Interpreter來學習編程語言</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2023-01-11 00:00:00 +0000 UTC'>2023-01-11</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/cs61a/">CS61A</a>
+    <a href="https://everydaydiva.blog/tags/python/">、Python</a>
+    <a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">、CS自學</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

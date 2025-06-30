@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>用Hugo將Wordpress部落格搬家到Github Pages | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="Hugo, Blog">
+<meta name="description" content="決定從Wordpress搬家的原因 最近在寫關於Java學習文章的時候使用了markdown的插件，但是不好用，於是想不如折騰下自己的網站好了。學寫程式也有一陣子了，邊折騰邊學習也不錯。 用Wordpress部落格有幾年了，比較不喜歡： 常常會擔心租的域名或託管服務有沒有到期，有心裡負">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/wordpressmove/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="用Hugo將Wordpress部落格搬家到Github Pages" />
+<meta property="og:description" content="決定從Wordpress搬家的原因 最近在寫關於Java學習文章的時候使用了markdown的插件，但是不好用，於是想不如折騰下自己的網站好了。學寫程式也有一陣子了，邊折騰邊學習也不錯。 用Wordpress部落格有幾年了，比較不喜歡： 常常會擔心租的域名或託管服務有沒有到期，有心裡負" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/wordpressmove/" />
+<meta property="og:image" content="https://image.lvbibir.cn/blog/hugo-logo-wide.svg" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-02-17T14:36:03+08:00" />
+<meta property="article:modified_time" content="2024-02-17T14:36:03+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://image.lvbibir.cn/blog/hugo-logo-wide.svg" />
+<meta name="twitter:title" content="用Hugo將Wordpress部落格搬家到Github Pages"/>
+<meta name="twitter:description" content="決定從Wordpress搬家的原因 最近在寫關於Java學習文章的時候使用了markdown的插件，但是不好用，於是想不如折騰下自己的網站好了。學寫程式也有一陣子了，邊折騰邊學習也不錯。 用Wordpress部落格有幾年了，比較不喜歡： 常常會擔心租的域名或託管服務有沒有到期，有心裡負"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "用Hugo將Wordpress部落格搬家到Github Pages",
+      "item": "https://everydaydiva.blog/posts/wordpressmove/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "用Hugo將Wordpress部落格搬家到Github Pages",
+  "name": "用Hugo將Wordpress部落格搬家到Github Pages",
+  "description": "決定從Wordpress搬家的原因 最近在寫關於Java學習文章的時候使用了markdown的插件，但是不好用，於是想不如折騰下自己的網站好了。學寫程式也有一陣子了，邊折騰邊學習也不錯。 用Wordpress部落格有幾年了，比較不喜歡： 常常會擔心租的域名或託管服務有沒有到期，有心裡負",
+  "keywords": [
+    "Hugo", "Blog"
+  ],
+  "articleBody": "決定從Wordpress搬家的原因 最近在寫關於Java學習文章的時候使用了markdown的插件，但是不好用，於是想不如折騰下自己的網站好了。學寫程式也有一陣子了，邊折騰邊學習也不錯。\n用Wordpress部落格有幾年了，比較不喜歡：\n常常會擔心租的域名或託管服務有沒有到期，有心裡負擔 太多我用不到的功能，不符合極簡主義 我不喜歡我自己之前的域名 所以決定從Wordpress搬家，使用靜態網頁，託管在Github Page上。\n在搬家的過程中，順便紀錄一下過程。\n搬家所有步驟 搬家總共有如下幾個步驟：\n從Wordpress 導出舊文章 選擇靜態網頁生成器 建立新的靜態網頁 創建username.github.io網站並部署與Github Pages上 用Hugo設置Github Pages 導入舊文章 1. 從wordpress導出 導出xml Wordpress的Tools選單裡有Export，點Export，選擇All content,然後就可以下載成xml文件。\nxml to Markdown 靜態網頁要發文，要把文章以Markdown語法寫成「原始碼」，之後讓靜態網頁生成器「編譯」成一頁頁的HTML頁面。 所以要把舊博客里的文章變成.md結尾的文章\n下載 wordpress-export-to-markdown 軟體包 mkdir oldpost cd oldpost git clone https://github.com/lonekorean/wordpress-export-to-markdown cd wordpress-export-to-markdown 轉檔 將之前下載的xml文件放入wordpress-export-to-markdown文件夾中.\n運行： npm install \u0026\u0026 node index.js\n按提示選擇yes或no,就可以成功轉檔。 此處有git選項，記得要選yes。\n手動整理Markdown數據 初步整理Markdown文檔包括兩部分：\n把vs code提示紅字的部分，按照Markdown的語法規則改掉 把內部鏈接刪除，因為之前的網站等到期後就會關閉。 此步驟我花了大概75分鐘調整約200篇文章.\n2.選擇靜態網站生成器 靜態網站生成器負責把Markdown文件轉為html頁面，有很多生成器可以選擇。 我有試過Vuepress/Vitepress/Docusaurus等，除此之外還有Jekyll/Gatsby，最後選擇了Hugo，因為使用其他的有遇到很多不會解的bug。 當然Hugo有很多優點，比如最大的優點就是容易上手、速度快。\n3. 生成Hugo網站 按照這篇文章的步驟設置Hugo網站，直到出現 http://localhost:1313。\n可以先不要安裝自己喜歡的theme，免得把問題複雜化。\n增加文章測試是否成功。\n4. 創建username.github.io網站 這一步比較簡單，按照官網提供的步驟一步一步設置即可。 不過，我是clone到剛剛hugo網站的那個文件夾裡面。\n最後，會顯示網站已完成。\n5. 用Hugo設置Github Pages 設置baseURL 在hugo.toml文件中更改baseURL baseURL = ‘https://wxy20850606.github.io/'\n將Hugo blog push到github hugo server -D git add . \u0026\u0026 git commit -m 'new hugo blog' -a \u0026\u0026 git push 設置Github Pages，啟用Hugo blog 主要就是按照指示，新建文件.github/workflows/hugo.yaml,然後修改文件。\n6.導入舊文章 導入舊文章超級簡單，把md的文件複製到content/post文件夾，把image複製到statci/images文件夾，再git commit/push後就完成了。\n總結 現在完全不用擔心網站備份的問題，現在每個commit都可以備份當下時間點的完整部落格，可以放心的折騰，大不了再reset到之前的commit就好了。真是太棒了。\n",
+  "wordCount" : "1382",
+  "inLanguage": "zh",
+  "image":"https://image.lvbibir.cn/blog/hugo-logo-wide.svg","datePublished": "2024-02-17T14:36:03+08:00",
+  "dateModified": "2024-02-17T14:36:03+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/wordpressmove/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      用Hugo將Wordpress部落格搬家到Github Pages
+    </h1>
+    <div class="post-meta"><span title='2024-02-17 14:36:03 +0800 CST'>2024-02-17</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> 
+<figure class="entry-cover"><img loading="eager" src="https://image.lvbibir.cn/blog/hugo-logo-wide.svg" alt="">
+        
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e6%b1%ba%e5%ae%9a%e5%be%9ewordpress%e6%90%ac%e5%ae%b6%e7%9a%84%e5%8e%9f%e5%9b%a0" aria-label="決定從Wordpress搬家的原因">決定從Wordpress搬家的原因</a></li>
+                    <li>
+                        <a href="#%e6%90%ac%e5%ae%b6%e6%89%80%e6%9c%89%e6%ad%a5%e9%a9%9f" aria-label="搬家所有步驟">搬家所有步驟</a><ul>
+                            
+                    <li>
+                        <a href="#1-%e5%be%9ewordpress%e5%b0%8e%e5%87%ba" aria-label="1. 從wordpress導出">1. 從wordpress導出</a><ul>
+                            
+                    <li>
+                        <a href="#%e5%b0%8e%e5%87%baxml" aria-label="導出xml">導出xml</a></li>
+                    <li>
+                        <a href="#xml-to-markdown" aria-label="xml to Markdown">xml to Markdown</a><ul>
+                            
+                    <li>
+                        <a href="#%e4%b8%8b%e8%bc%89-wordpress-export-to-markdown-%e8%bb%9f%e9%ab%94%e5%8c%85" aria-label="下載 wordpress-export-to-markdown 軟體包">下載 wordpress-export-to-markdown 軟體包</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e8%bd%89%e6%aa%94" aria-label="轉檔">轉檔</a></li>
+                    <li>
+                        <a href="#%e6%89%8b%e5%8b%95%e6%95%b4%e7%90%86markdown%e6%95%b8%e6%93%9a" aria-label="手動整理Markdown數據">手動整理Markdown數據</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#2%e9%81%b8%e6%93%87%e9%9d%9c%e6%85%8b%e7%b6%b2%e7%ab%99%e7%94%9f%e6%88%90%e5%99%a8" aria-label="2.選擇靜態網站生成器">2.選擇靜態網站生成器</a></li>
+                    <li>
+                        <a href="#3-%e7%94%9f%e6%88%90hugo%e7%b6%b2%e7%ab%99" aria-label="3. 生成Hugo網站">3. 生成Hugo網站</a></li>
+                    <li>
+                        <a href="#4-%e5%89%b5%e5%bb%bausernamegithubio%e7%b6%b2%e7%ab%99" aria-label="4. 創建username.github.io網站">4. 創建username.github.io網站</a></li>
+                    <li>
+                        <a href="#5-%e7%94%a8hugo%e8%a8%ad%e7%bd%aegithub-pages" aria-label="5. 用Hugo設置Github Pages">5. 用Hugo設置Github Pages</a><ul>
+                            
+                    <li>
+                        <a href="#%e8%a8%ad%e7%bd%aebaseurl" aria-label="設置baseURL">設置baseURL</a></li>
+                    <li>
+                        <a href="#%e5%b0%87hugo-blog-push%e5%88%b0github" aria-label="將Hugo blog push到github">將Hugo blog push到github</a></li>
+                    <li>
+                        <a href="#%e8%a8%ad%e7%bd%aegithub-pages%e5%95%9f%e7%94%a8hugo-blog" aria-label="設置Github Pages，啟用Hugo blog">設置Github Pages，啟用Hugo blog</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#6%e5%b0%8e%e5%85%a5%e8%88%8a%e6%96%87%e7%ab%a0" aria-label="6.導入舊文章">6.導入舊文章</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e7%b8%bd%e7%b5%90" aria-label="總結">總結</a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><h1 id="決定從wordpress搬家的原因">決定從Wordpress搬家的原因<a hidden class="anchor" aria-hidden="true" href="#決定從wordpress搬家的原因">#</a></h1>
+<p>最近在寫關於Java學習文章的時候使用了markdown的插件，但是不好用，於是想不如折騰下自己的網站好了。學寫程式也有一陣子了，邊折騰邊學習也不錯。</p>
+<p>用Wordpress部落格有幾年了，比較不喜歡：</p>
+<ol>
+<li>常常會擔心租的域名或託管服務有沒有到期，有心裡負擔</li>
+<li>太多我用不到的功能，不符合極簡主義</li>
+<li>我不喜歡我自己之前的域名</li>
+</ol>
+<p>所以決定從Wordpress搬家，使用靜態網頁，託管在Github Page上。</p>
+<p>在搬家的過程中，順便紀錄一下過程。</p>
+<h1 id="搬家所有步驟">搬家所有步驟<a hidden class="anchor" aria-hidden="true" href="#搬家所有步驟">#</a></h1>
+<p>搬家總共有如下幾個步驟：</p>
+<ul>
+<li>從Wordpress 導出舊文章</li>
+<li>選擇靜態網頁生成器</li>
+<li>建立新的靜態網頁</li>
+<li>創建username.github.io網站並部署與Github Pages上</li>
+<li>用Hugo設置Github Pages</li>
+<li>導入舊文章</li>
+</ul>
+<h2 id="1-從wordpress導出">1. 從wordpress導出<a hidden class="anchor" aria-hidden="true" href="#1-從wordpress導出">#</a></h2>
+<h3 id="導出xml">導出xml<a hidden class="anchor" aria-hidden="true" href="#導出xml">#</a></h3>
+<p>Wordpress的Tools選單裡有Export，點Export，選擇All content,然後就可以下載成xml文件。</p>
+<h3 id="xml-to-markdown">xml to Markdown<a hidden class="anchor" aria-hidden="true" href="#xml-to-markdown">#</a></h3>
+<p>靜態網頁要發文，要把文章以Markdown語法寫成「原始碼」，之後讓靜態網頁生成器「編譯」成一頁頁的HTML頁面。
+所以要把舊博客里的文章變成.md結尾的文章</p>
+<h4 id="下載-wordpress-export-to-markdown-軟體包">下載 wordpress-export-to-markdown 軟體包<a hidden class="anchor" aria-hidden="true" href="#下載-wordpress-export-to-markdown-軟體包">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir oldpost
+</span></span><span style="display:flex;"><span>cd oldpost
+</span></span><span style="display:flex;"><span>git clone https://github.com/lonekorean/wordpress-export-to-markdown
+</span></span><span style="display:flex;"><span>cd wordpress-export-to-markdown
+</span></span></code></pre></div><h3 id="轉檔">轉檔<a hidden class="anchor" aria-hidden="true" href="#轉檔">#</a></h3>
+<p>將之前下載的xml文件放入wordpress-export-to-markdown文件夾中.</p>
+<p>運行：
+npm install &amp;&amp; node index.js</p>
+<p>按提示選擇yes或no,就可以成功轉檔。
+此處有git選項，記得要選yes。</p>
+<h3 id="手動整理markdown數據">手動整理Markdown數據<a hidden class="anchor" aria-hidden="true" href="#手動整理markdown數據">#</a></h3>
+<p>初步整理Markdown文檔包括兩部分：</p>
+<ul>
+<li>把vs code提示紅字的部分，按照Markdown的語法規則改掉</li>
+<li>把內部鏈接刪除，因為之前的網站等到期後就會關閉。</li>
+</ul>
+<p>此步驟我花了大概75分鐘調整約200篇文章.</p>
+<h2 id="2選擇靜態網站生成器">2.選擇靜態網站生成器<a hidden class="anchor" aria-hidden="true" href="#2選擇靜態網站生成器">#</a></h2>
+<p>靜態網站生成器負責把Markdown文件轉為html頁面，有很多生成器可以選擇。
+我有試過Vuepress/Vitepress/Docusaurus等，除此之外還有Jekyll/Gatsby，最後選擇了Hugo，因為使用其他的有遇到很多不會解的bug。
+當然Hugo有很多優點，比如最大的優點就是容易上手、速度快。</p>
+<h2 id="3-生成hugo網站">3. 生成Hugo網站<a hidden class="anchor" aria-hidden="true" href="#3-生成hugo網站">#</a></h2>
+<p>按照<a href="https://ivonblog.com/posts/build-a-website-with-hugo/" target="_blank" rel="noopener" style="color:#42b983";>這篇文章</a>的步驟設置Hugo網站，直到出現
+http://localhost:1313。</p>
+<p><img loading="lazy" src="/images/hugonewsite.png" alt=""  />
+</p>
+<p>可以先不要安裝自己喜歡的theme，免得把問題複雜化。</p>
+<p>增加文章測試是否成功。</p>
+<h2 id="4-創建usernamegithubio網站">4. 創建username.github.io網站<a hidden class="anchor" aria-hidden="true" href="#4-創建usernamegithubio網站">#</a></h2>
+<p>這一步比較簡單，按照官網提供的<a href="https://pages.github.com" target="_blank" rel="noopener" style="color:#42b983";>步驟</a>一步一步設置即可。
+不過，我是clone到剛剛hugo網站的那個文件夾裡面。</p>
+<p>最後，會顯示網站已完成。</p>
+<h2 id="5-用hugo設置github-pages">5. 用Hugo設置Github Pages<a hidden class="anchor" aria-hidden="true" href="#5-用hugo設置github-pages">#</a></h2>
+<h3 id="設置baseurl">設置baseURL<a hidden class="anchor" aria-hidden="true" href="#設置baseurl">#</a></h3>
+<p>在hugo.toml文件中更改baseURL
+baseURL = &lsquo;<a href="https://wxy20850606.github.io/%27" target="_blank" rel="noopener" style="color:#42b983";>https://wxy20850606.github.io/'</a></p>
+<h3 id="將hugo-blog-push到github">將Hugo blog push到github<a hidden class="anchor" aria-hidden="true" href="#將hugo-blog-push到github">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hugo server -D
+</span></span><span style="display:flex;"><span>git add . <span style="color:#5bc4bf">&amp;&amp;</span> git commit -m <span style="color:#48b685">&#39;new hugo blog&#39;</span> -a <span style="color:#5bc4bf">&amp;&amp;</span> git push
+</span></span></code></pre></div><h3 id="設置github-pages啟用hugo-blog">設置Github Pages，啟用Hugo blog<a hidden class="anchor" aria-hidden="true" href="#設置github-pages啟用hugo-blog">#</a></h3>
+<p>主要就是按照<a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/" target="_blank" rel="noopener" style="color:#42b983";>指示</a>，新建文件<code>.github/workflows/hugo.yaml</code>,然後修改文件。</p>
+<h2 id="6導入舊文章">6.導入舊文章<a hidden class="anchor" aria-hidden="true" href="#6導入舊文章">#</a></h2>
+<p>導入舊文章超級簡單，把md的文件複製到content/post文件夾，把image複製到statci/images文件夾，再git commit/push後就完成了。</p>
+<h1 id="總結">總結<a hidden class="anchor" aria-hidden="true" href="#總結">#</a></h1>
+<p>現在完全不用擔心網站備份的問題，現在每個commit都可以備份當下時間點的完整部落格，可以放心的折騰，大不了再reset到之前的commit就好了。真是太棒了。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/hugo/">hugo</a></li>
+      <li><a href="https://everydaydiva.blog/tags/blog/">blog</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/grow-with-your-child/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>和孩子一起成長——家有小學生</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/2023-12-29-simple-life-and-investing/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>全面實踐簡單生活/投資</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2024-02-17 14:36:03 +0800 CST'>2024-02-17</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/hugo/">hugo</a>
+    <a href="https://everydaydiva.blog/tags/blog/">、blog</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

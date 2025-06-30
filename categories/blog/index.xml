@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>blog on Everydaydiva&#39;s Blog</title>
+    <link>https://everydaydiva.blog/categories/blog/</link>
+    <description>Recent content in blog on Everydaydiva&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 15 Mar 2024 09:26:28 +0800</lastBuildDate>
+    <atom:link href="https://everydaydiva.blog/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo網站Papermod主題下增加Abmonition</title>
+      <link>https://everydaydiva.blog/posts/blog/abmonition/</link>
+      <pubDate>Fri, 15 Mar 2024 09:26:28 +0800</pubDate>
+      <guid>https://everydaydiva.blog/posts/blog/abmonition/</guid>
+      <description>Admonitions for hugo papermod website</description>
+    </item>
+    <item>
+      <title>小二上中英文閱讀書單</title>
+      <link>https://everydaydiva.blog/posts/grade2-reading-list/</link>
+      <pubDate>Tue, 12 Mar 2024 10:16:03 +0800</pubDate>
+      <guid>https://everydaydiva.blog/posts/grade2-reading-list/</guid>
+      <description>分享國小低年級中英文書單</description>
+    </item>
+    <item>
+      <title>和孩子一起成長——家有小學生</title>
+      <link>https://everydaydiva.blog/posts/grow-with-your-child/</link>
+      <pubDate>Thu, 22 Feb 2024 10:16:03 +0800</pubDate>
+      <guid>https://everydaydiva.blog/posts/grow-with-your-child/</guid>
+      <description>我覺得學習是一輩子的事，有點像龜兔賽跑，不在乎誰跑得快，在乎的是誰跑得久。 幸福快樂的童年，會是生命一輩子的養分。 我希望孩子可以好好享受幼稚的童年，在應該好好玩的年紀每天可以擁有自由玩耍的時間。 我希望孩子可以看很多好看的中英文書籍，享受閱讀的樂趣，而不是天天重複的做題。 我希望孩子可以懂得感恩，對物品擁有愛惜的心，對他人抱有感恩的心。 我希望孩子學習自己管理自己，能獨立做好自己的事，也能幫忙分擔家務。 我希望孩子在擁有了閱讀能力後，慢慢進入自主學習的階段。 我希望孩子從小學如何花錢、省錢和賺錢，建立長期投資的觀念。</description>
+    </item>
+  </channel>
+</rss>

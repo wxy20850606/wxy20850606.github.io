@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>字符串匹配，Leetcode 28，KMP算法 | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="算法, 字符串匹配, KMP">
+<meta name="description" content="最近在做Leetcode，遇到有關字符串匹配的如下題目： 28. Find the Index of the First Occurrence in a String 要求從haystack 字符串裡找是否包含needle字符串，並找出首次出現位置。比如sadbutsad裡是否包含sad字符串。 發現除了暴力循環解法外，還有神奇的KMG算法可以把複雜度從O(m*n)簡化為">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2023-09-05-leetcode-28-kmp/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="字符串匹配，Leetcode 28，KMP算法" />
+<meta property="og:description" content="最近在做Leetcode，遇到有關字符串匹配的如下題目： 28. Find the Index of the First Occurrence in a String 要求從haystack 字符串裡找是否包含needle字符串，並找出首次出現位置。比如sadbutsad裡是否包含sad字符串。 發現除了暴力循環解法外，還有神奇的KMG算法可以把複雜度從O(m*n)簡化為" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2023-09-05-leetcode-28-kmp/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-09-05T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="字符串匹配，Leetcode 28，KMP算法"/>
+<meta name="twitter:description" content="最近在做Leetcode，遇到有關字符串匹配的如下題目： 28. Find the Index of the First Occurrence in a String 要求從haystack 字符串裡找是否包含needle字符串，並找出首次出現位置。比如sadbutsad裡是否包含sad字符串。 發現除了暴力循環解法外，還有神奇的KMG算法可以把複雜度從O(m*n)簡化為"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "字符串匹配，Leetcode 28，KMP算法",
+      "item": "https://everydaydiva.blog/posts/history/2023-09-05-leetcode-28-kmp/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "字符串匹配，Leetcode 28，KMP算法",
+  "name": "字符串匹配，Leetcode 28，KMP算法",
+  "description": "最近在做Leetcode，遇到有關字符串匹配的如下題目： 28. Find the Index of the First Occurrence in a String 要求從haystack 字符串裡找是否包含needle字符串，並找出首次出現位置。比如sadbutsad裡是否包含sad字符串。 發現除了暴力循環解法外，還有神奇的KMG算法可以把複雜度從O(m*n)簡化為",
+  "keywords": [
+    "算法", "字符串匹配", "KMP"
+  ],
+  "articleBody": "最近在做Leetcode，遇到有關字符串匹配的如下題目：\n28. Find the Index of the First Occurrence in a String\n要求從haystack 字符串裡找是否包含needle字符串，並找出首次出現位置。比如sadbutsad裡是否包含sad字符串。\n發現除了暴力循環解法外，還有神奇的KMG算法可以把複雜度從O(m*n)簡化為O(m+n)。雖說大家都說用處不大，但是還是覺得很有意思，於是花了點時間學習，順便寫這篇文章記錄一下。\nKMP算法本質： 有些詞包含部分重複，比如ABCDABD，其中的部分字段ABCDAB，其首尾都是AB，在搜索遇到不匹配時，若不匹配的前幾個字母和後幾個字母一樣，可以跳過一樣的部分繼續匹配。\n比如下面例子，發現第一個不匹配的字幕C。\n按照暴力解法，需要從haystack的第二個字母開始從頭搜索，直到再次找到第一個字母A。\nKMP算法利用了ABCDAB首尾相同的特點，即首尾都是AB，在搜索時跳過了相同的部分，直接從不相同的部分開始匹配，減少了很多重複的工作。\n那怎麼知道首尾有幾個字母相同呢，這就要靠特別計算表格。\n比如ABCDA，最前面字母和最後面字母都是A，所以相同字符數為1。\n比如AAAAA，最前面有4個A，最後面有4個A，所以相同字符數為4。注意數相同字符數時不包含首尾字母本身。\n計算needle表格的最大首尾相同字母數： 最大首尾相同字母數的英文叫法是LPS。\nPrefix，前綴，比如BABA前綴為：B,BA,BAB。\nSuffix，後綴，比如BABA前綴為：ABA,BA,A。\npseudocode code如下：\n將needle string變為char array\n初始化數組lps，java自動賦值0\n設置prev指針，初始化為首字母，方便後來數首尾幾個字母相同\n設置遍歷指針i，初始化為第二個字母，因為第一個字母已被設置為0\n如果和首字母相同，lps[i]為lps[prev] + 1，兩指針同時後移接著比較\n如果和prev指針不同，此時如果prev指針為0，直接設置lps[i]為0，因為前面已經沒有字母可以比較了。此時如果prev指針大於0，表示前面還有字母，此時將prev指針往前移動，看看前面是否有相同的字母，直到prev指針指向首字母為止。\n舉例：\n遍歷到B，發現不同，此時prev指向第5個字母。\n一直讓prev往前移動，即往前找有沒有相同的首尾字母，直到prev為0。所以每次有不同的字母出現時，總會重新調整prev指針的位置。\n本來prev指針調整是用prev = prev -1，後來發現邏輯有誤。\n如下面的例子，如果prev = prev - 1，此時prev指向B，和i指向的B相同，此時空白處的最長首字母更新為2，顯然事實不符。\n為什麼會出現這個錯誤呢？因為忘記了lps數組求的是最大首尾相同字母數，需要從首字母開始比較。\n所以正確的作法是將prev=0，即發現不同直接退回第一個搜索，然後首尾比較，如果相同的話，需要將第二個和倒數第二個進行比較。這樣才能算出來首尾有多少個相同。但是這個方法同時移動prev和i指針，容易使代碼更複雜。\n最後看了如下視頻，才真的了解為什麼遇到不同時prev退回到lps[prev-1] 。\nhttps://www.youtube.com/watch?v=4jY57Ehc14Y\n原來邏輯和主程序一樣，也就是和上面舉的ABCDAB一樣，跳過重複的AB部分，直接從不同的C來比較一樣。此處lps[prev-1] 為3，表示首三位和尾三位相同，所以直接跳過前三個一樣的字母，從第四個開始比較。\n將prev跳過重複的部分，直接指向第一個不同的位置。\n比較後發現還是不同，繼續按同樣邏輯跳過首尾相同的部分。直到prev跳到首字母位置。\nJava代碼：\npublic static int[] countLps(String s){ char[] str = s.toCharArray(); int[] las = new int[s.length()]; int prev = 0; int i = 1; while(i \u003c s.length()){ if(str[i] == str[prev]){ lps[i] = lps[prev] + 1; prev++; i++; }else if(str[i] != str[prev]){ if(prev == 0){ lps[i] = 0; i++; }else{ prev=lps[prev-1]; } } } return ops; } 遍歷haystack表格，跳過首尾相同的字母部分： 代碼如下，邏輯開頭已經解釋過了，就不贅述了。\npublic int strStr(String haystack, String needle) { int[] lps = new int[needle.length()]; lps = countLps(needle); int hayIndex = 0; int neeIndex = 0; while(hayIndex \u003c haystack.length() \u0026\u0026 neeIndex \u003c needle.length()){ if(haystack.charAt(hayIndex) == needle.charAt(neeIndex)){ hayIndex++; neeIndex++; }else{ if(neeIndex != 0){ neeIndex = lps[neeIndex - 1]; } else{ hayIndex++; } } } if(neeIndex == needle.length()){ return hayIndex - needle.length(); } return -1; } 總結： 如果needle字符串首尾沒有任何相同的部分，比如ABCD，其效能和一般的暴力解法一樣。我查了下英文字典，發現符合條件的英文字母很少。如果有時間的話，可以下載所有的英文單詞表，寫個程式計算符合條件的字母占多少比例，我猜比例應該低於10%。\n這個算法在字符串匹配上的實際用處沒有想像的大，比如Java的String.indexof()方法，也並沒有使用KMP算法。\nhttps://stackoverflow.com/questions/19543547/why-does-string-indexof-not-use-kmp\n好像在DNA搜索上面用的倒是比較多。\n不過KMP背後的思路還是很巧妙的，尤其是使用雙指針移動的部分。\n",
+  "wordCount" : "1842",
+  "inLanguage": "zh",
+  "datePublished": "2023-09-05T00:00:00Z",
+  "dateModified": "2023-09-05T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2023-09-05-leetcode-28-kmp/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      字符串匹配，Leetcode 28，KMP算法
+    </h1>
+    <div class="post-meta"><span title='2023-09-05 00:00:00 +0000 UTC'>2023-09-05</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#kmp%e7%ae%97%e6%b3%95%e6%9c%ac%e8%b3%aa" aria-label="KMP算法本質：">KMP算法本質：</a></li>
+                    <li>
+                        <a href="#%e8%a8%88%e7%ae%97needle%e8%a1%a8%e6%a0%bc%e7%9a%84%e6%9c%80%e5%a4%a7%e9%a6%96%e5%b0%be%e7%9b%b8%e5%90%8c%e5%ad%97%e6%af%8d%e6%95%b8" aria-label="計算needle表格的最大首尾相同字母數：">計算needle表格的最大首尾相同字母數：</a></li>
+                    <li>
+                        <a href="#%e9%81%8d%e6%ad%b7haystack%e8%a1%a8%e6%a0%bc%e8%b7%b3%e9%81%8e%e9%a6%96%e5%b0%be%e7%9b%b8%e5%90%8c%e7%9a%84%e5%ad%97%e6%af%8d%e9%83%a8%e5%88%86" aria-label="遍歷haystack表格，跳過首尾相同的字母部分：">遍歷haystack表格，跳過首尾相同的字母部分：</a></li>
+                    <li>
+                        <a href="#%e7%b8%bd%e7%b5%90" aria-label="總結：">總結：</a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p>最近在做Leetcode，遇到有關字符串匹配的如下題目：</p>
+<p><a href="https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/" target="_blank" rel="noopener" style="color:#42b983";>28. Find the Index of the First Occurrence in a String</a></p>
+<p>要求從haystack 字符串裡找是否包含needle字符串，並找出首次出現位置。比如sadbutsad裡是否包含sad字符串。</p>
+<p>發現除了暴力循環解法外，還有神奇的KMG算法可以把複雜度從O(m*n)簡化為O(m+n)。雖說大家都說用處不大，但是還是覺得很有意思，於是花了點時間學習，順便寫這篇文章記錄一下。</p>
+<h2 id="kmp算法本質">KMP算法本質：<a hidden class="anchor" aria-hidden="true" href="#kmp算法本質">#</a></h2>
+<p>有些詞包含部分重複，比如ABCDABD，其中的部分字段ABCDAB，其首尾都是AB，在搜索遇到不匹配時，若不匹配的前幾個字母和後幾個字母一樣，可以跳過一樣的部分繼續匹配。</p>
+<p>比如下面例子，發現第一個不匹配的字幕C。</p>
+<p><img loading="lazy" src="images/Screenshot-2023-09-04-at-8.56.19-AM.png" alt=""  />
+</p>
+<p>按照暴力解法，需要從haystack的第二個字母開始從頭搜索，直到再次找到第一個字母A。</p>
+<p><img loading="lazy" src="images/Screenshot-2023-09-04-at-9.00.16-AM.png" alt=""  />
+</p>
+<p>KMP算法利用了ABCDAB首尾相同的特點，即首尾都是AB，在搜索時跳過了相同的部分，直接從不相同的部分開始匹配，減少了很多重複的工作。</p>
+<p><img loading="lazy" src="images/Screenshot-2023-09-04-at-9.07.32-AM.png" alt=""  />
+</p>
+<p>那怎麼知道首尾有幾個字母相同呢，這就要靠特別計算表格。</p>
+<p>比如ABCDA，最前面字母和最後面字母都是A，所以相同字符數為1。</p>
+<p><img loading="lazy" src="images/Screenshot-2023-09-04-at-9.15.46-AM.png" alt=""  />
+</p>
+<p>比如AAAAA，最前面有4個A，最後面有4個A，所以相同字符數為4。注意數相同字符數時不包含首尾字母本身。</p>
+<p><img loading="lazy" src="images/Screenshot-2023-09-04-at-9.20.37-AM.png" alt=""  />
+</p>
+<h2 id="計算needle表格的最大首尾相同字母數">計算needle表格的最大首尾相同字母數：<a hidden class="anchor" aria-hidden="true" href="#計算needle表格的最大首尾相同字母數">#</a></h2>
+<p>最大首尾相同字母數的英文叫法是LPS。</p>
+<p>Prefix，前綴，比如BABA前綴為：B,BA,BAB。</p>
+<p>Suffix，後綴，比如BABA前綴為：ABA,BA,A。</p>
+<p><img loading="lazy" src="images/Screenshot-2023-09-04-at-10.29.03-PM.png" alt=""  />
+</p>
+<p>pseudocode code如下：</p>
+<ul>
+<li>
+<p>將needle string變為char array</p>
+</li>
+<li>
+<p>初始化數組lps，java自動賦值0</p>
+</li>
+<li>
+<p>設置prev指針，初始化為首字母，方便後來數首尾幾個字母相同</p>
+</li>
+<li>
+<p>設置遍歷指針i，初始化為第二個字母，因為第一個字母已被設置為0</p>
+</li>
+<li>
+<p>如果和首字母相同，lps[i]為lps[prev] + 1，兩指針同時後移接著比較</p>
+</li>
+<li>
+<p>如果和prev指針不同，此時如果prev指針為0，直接設置lps[i]為0，因為前面已經沒有字母可以比較了。此時如果prev指針大於0，表示前面還有字母，此時將prev指針往前移動，看看前面是否有相同的字母，直到prev指針指向首字母為止。</p>
+</li>
+</ul>
+<p>舉例：</p>
+<p><img loading="lazy" src="images/Screenshot-2023-09-04-at-9.20.37-AM.png" alt=""  />
+</p>
+<p>遍歷到B，發現不同，此時prev指向第5個字母。</p>
+<p><img loading="lazy" src="images/Screenshot-2023-09-04-at-9.54.38-AM.png" alt=""  />
+</p>
+<p>一直讓prev往前移動，即往前找有沒有相同的首尾字母，直到prev為0。所以每次有不同的字母出現時，總會重新調整prev指針的位置。</p>
+<p><img loading="lazy" src="images/Screenshot-2023-09-04-at-9.57.18-AM.png" alt=""  />
+</p>
+<p>本來prev指針調整是用prev = prev -1，後來發現邏輯有誤。</p>
+<p>如下面的例子，如果prev = prev - 1，此時prev指向B，和i指向的B相同，此時空白處的最長首字母更新為2，顯然事實不符。</p>
+<p><img loading="lazy" src="images/Screenshot-2023-09-04-at-9.54.13-PM.png" alt=""  />
+</p>
+<p>為什麼會出現這個錯誤呢？因為忘記了lps數組求的是最大首尾相同字母數，需要從首字母開始比較。</p>
+<p>所以正確的作法是將prev=0，即發現不同直接退回第一個搜索，然後首尾比較，如果相同的話，需要將第二個和倒數第二個進行比較。這樣才能算出來首尾有多少個相同。但是這個方法同時移動prev和i指針，容易使代碼更複雜。</p>
+<p><img loading="lazy" src="images/Screenshot-2023-09-05-at-8.15.41-AM.png" alt=""  />
+</p>
+<p>最後看了如下視頻，才真的了解為什麼遇到不同時prev退回到lps[prev-1] 。</p>
+<p><a href="https://www.youtube.com/watch?v=4jY57Ehc14Y" target="_blank" rel="noopener" style="color:#42b983";>https://www.youtube.com/watch?v=4jY57Ehc14Y</a></p>
+<p>原來邏輯和主程序一樣，也就是和上面舉的ABCDAB一樣，跳過重複的AB部分，直接從不同的C來比較一樣。此處lps[prev-1] 為3，表示首三位和尾三位相同，所以直接跳過前三個一樣的字母，從第四個開始比較。</p>
+<p><img loading="lazy" src="images/Screenshot-2023-09-05-at-8.21.03-AM.png" alt=""  />
+</p>
+<p>將prev跳過重複的部分，直接指向第一個不同的位置。</p>
+<p><img loading="lazy" src="images/Screenshot-2023-09-05-at-8.29.33-AM.png" alt=""  />
+</p>
+<p>比較後發現還是不同，繼續按同樣邏輯跳過首尾相同的部分。直到prev跳到首字母位置。</p>
+<p><img loading="lazy" src="images/Screenshot-2023-09-05-at-8.32.15-AM.png" alt=""  />
+</p>
+<p>Java代碼：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>public static int[] countLps(String s){
+</span></span><span style="display:flex;"><span>        char[] str = s.toCharArray();
+</span></span><span style="display:flex;"><span>        int[] las = new int[s.length()];
+</span></span><span style="display:flex;"><span>        int prev = 0;
+</span></span><span style="display:flex;"><span>        int i = 1;
+</span></span><span style="display:flex;"><span>        while(i &lt; s.length()){
+</span></span><span style="display:flex;"><span>            if(str[i] == str[prev]){
+</span></span><span style="display:flex;"><span>                lps[i] = lps[prev] + 1;
+</span></span><span style="display:flex;"><span>                prev++;
+</span></span><span style="display:flex;"><span>                i++;
+</span></span><span style="display:flex;"><span>            }else if(str[i] != str[prev]){
+</span></span><span style="display:flex;"><span>                if(prev == 0){
+</span></span><span style="display:flex;"><span>                    lps[i] = 0;
+</span></span><span style="display:flex;"><span>                    i++;
+</span></span><span style="display:flex;"><span>                }else{
+</span></span><span style="display:flex;"><span>                    prev=lps[prev-1];
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        return ops;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><h2 id="遍歷haystack表格跳過首尾相同的字母部分">遍歷haystack表格，跳過首尾相同的字母部分：<a hidden class="anchor" aria-hidden="true" href="#遍歷haystack表格跳過首尾相同的字母部分">#</a></h2>
+<p>代碼如下，邏輯開頭已經解釋過了，就不贅述了。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    public int strStr(String haystack, String needle) {
+</span></span><span style="display:flex;"><span>        int[] lps = new int[needle.length()];
+</span></span><span style="display:flex;"><span>        lps = countLps(needle);
+</span></span><span style="display:flex;"><span>        int hayIndex = 0;
+</span></span><span style="display:flex;"><span>        int neeIndex = 0;
+</span></span><span style="display:flex;"><span>        while(hayIndex &lt; haystack.length() &amp;&amp; neeIndex &lt; needle.length()){
+</span></span><span style="display:flex;"><span>            if(haystack.charAt(hayIndex) == needle.charAt(neeIndex)){
+</span></span><span style="display:flex;"><span>                hayIndex++;
+</span></span><span style="display:flex;"><span>                neeIndex++; 
+</span></span><span style="display:flex;"><span>            }else{
+</span></span><span style="display:flex;"><span>                if(neeIndex != 0){
+</span></span><span style="display:flex;"><span>                    neeIndex = lps[neeIndex - 1];   
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>                else{
+</span></span><span style="display:flex;"><span>                    hayIndex++;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }  
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        if(neeIndex == needle.length()){
+</span></span><span style="display:flex;"><span>                return hayIndex - needle.length();
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        return -1;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><h2 id="總結">總結：<a hidden class="anchor" aria-hidden="true" href="#總結">#</a></h2>
+<p>如果needle字符串首尾沒有任何相同的部分，比如ABCD，其效能和一般的暴力解法一樣。我查了下英文字典，發現符合條件的英文字母很少。如果有時間的話，可以下載所有的英文單詞表，寫個程式計算符合條件的字母占多少比例，我猜比例應該低於10%。</p>
+<p>這個算法在字符串匹配上的實際用處沒有想像的大，比如Java的String.indexof()方法，也並沒有使用KMP算法。</p>
+<p><a href="https://stackoverflow.com/questions/19543547/why-does-string-indexof-not-use-kmp" target="_blank" rel="noopener" style="color:#42b983";>https://stackoverflow.com/questions/19543547/why-does-string-indexof-not-use-kmp</a></p>
+<p>好像在DNA搜索上面用的倒是比較多。</p>
+<p>不過KMP背後的思路還是很巧妙的，尤其是使用雙指針移動的部分。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/%E7%AE%97%E6%B3%95/">算法</a></li>
+      <li><a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">CS自學</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/2023-12-29-simple-life-and-investing/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>全面實踐簡單生活/投資</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2023-07-19-reading-list/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>小一下閱讀記錄&#43;中英文閱讀書單</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2023-09-05 00:00:00 +0000 UTC'>2023-09-05</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
+    <a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">、CS自學</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

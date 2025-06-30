@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Gitlet design document | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="Gitlet">
+<meta name="description" content="This is the design document for Gitlet project. Classes and Data Structures Main This is the entry point to Gitlet program. It takes in arguments from the command line and based on the command (the first element of the args array) calls the corresponding command in GitletRepository which will actually execute the logic of the command. It also validates the arguments based on the command to ensure that enough arguments were passed in. Fields This class has no fields and hence no associated state: it simply validates arguments and defers the execution to the `Gitlet`Repository class. Blob GItlet, like Git, is a content-addressable filesystem. Even one byte change in content will lead to a totally different blob object. To accomplish this, Blob class implements Serializable to save each different file content as blob object for future retrieve. Fields All the">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2023-06-15-gitlet-design-document/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="Gitlet design document" />
+<meta property="og:description" content="This is the design document for Gitlet project. Classes and Data Structures Main This is the entry point to Gitlet program. It takes in arguments from the command line and based on the command (the first element of the args array) calls the corresponding command in GitletRepository which will actually execute the logic of the command. It also validates the arguments based on the command to ensure that enough arguments were passed in. Fields This class has no fields and hence no associated state: it simply validates arguments and defers the execution to the `Gitlet`Repository class. Blob GItlet, like Git, is a content-addressable filesystem. Even one byte change in content will lead to a totally different blob object. To accomplish this, Blob class implements Serializable to save each different file content as blob object for future retrieve. Fields All the" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2023-06-15-gitlet-design-document/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-06-15T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Gitlet design document"/>
+<meta name="twitter:description" content="This is the design document for Gitlet project. Classes and Data Structures Main This is the entry point to Gitlet program. It takes in arguments from the command line and based on the command (the first element of the args array) calls the corresponding command in GitletRepository which will actually execute the logic of the command. It also validates the arguments based on the command to ensure that enough arguments were passed in. Fields This class has no fields and hence no associated state: it simply validates arguments and defers the execution to the `Gitlet`Repository class. Blob GItlet, like Git, is a content-addressable filesystem. Even one byte change in content will lead to a totally different blob object. To accomplish this, Blob class implements Serializable to save each different file content as blob object for future retrieve. Fields All the"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Gitlet design document",
+      "item": "https://everydaydiva.blog/posts/history/2023-06-15-gitlet-design-document/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Gitlet design document",
+  "name": "Gitlet design document",
+  "description": "This is the design document for Gitlet project. Classes and Data Structures Main This is the entry point to Gitlet program. It takes in arguments from the command line and based on the command (the first element of the args array) calls the corresponding command in GitletRepository which will actually execute the logic of the command. It also validates the arguments based on the command to ensure that enough arguments were passed in. Fields This class has no fields and hence no associated state: it simply validates arguments and defers the execution to the `Gitlet`Repository class. Blob GItlet, like Git, is a content-addressable filesystem. Even one byte change in content will lead to a totally different blob object. To accomplish this, Blob class implements Serializable to save each different file content as blob object for future retrieve. Fields All the",
+  "keywords": [
+    "Gitlet"
+  ],
+  "articleBody": "This is the design document for Gitlet project.\nClasses and Data Structures Main This is the entry point to Gitlet program. It takes in arguments from the command line and based on the command (the first element of the args array) calls the corresponding command in GitletRepository which will actually execute the logic of the command.\nIt also validates the arguments based on the command to ensure that enough arguments were passed in.\nFields This class has no fields and hence no associated state: it simply validates arguments and defers the execution to the `Gitlet`Repository class.\nBlob GItlet, like Git, is a content-addressable filesystem. Even one byte change in content will lead to a totally different blob object.\nTo accomplish this, Blob class implements Serializable to save each different file content as blob object for future retrieve.\nFields All the following instance variable will be serialized.\nprivate String sha1; –\u003e 40byte sha1 ID\nprivate File originalFile; –\u003e original file path\nprivate File blobFile; –\u003e new path to save each blob object in .gitlet/objects folder\nprivate String filename; –\u003e filename for future use\nprivate String content; –\u003e file content for future read or write into working directory\nCommit A commit is a snapshot in time. To recover a corresponding working directory in the history, it use serialized commit object which contains a map to maintain all the filenames and their blob id.\nThe normal commit has one parent commits corresponding to the previous snapshots. A init commit has no parents and a commit with two parents is a merge commit.\nFields private String timestamp; –\u003e the date/time of the commit\nprivate String parent1; –\u003e normal commit ’s parent commit\nprivate String parent2; –\u003e merge’s commit ’s second parent commit\nprivate String message; –\u003e the message the commit\nprivate String commitID; –\u003e the commitID of the commit\nprivate Map fileToIDMap; –\u003ea map with filename as key and commitID as value\nIndex Between two different working directories, there is a middle stage which records all the changes happened in between. Index class is for this purpose.\nDifferent from Commit/Blob class, Index class only has one object saved in the .gitlet directory to maintain the changes in the staging area.\nFields The Index class records the added filenames and blobID map and the removed filename Set in staging area. It starts with empty map and treeset, record the added/removal information in the process and will be cleared after each commit.\nprivate final Map added;\nprivate final TreeSet removal;\nBranch Branch class maintain all branch names and files information. It will use the branch name to create a file in .gitlet directory to maintain the head point of each branch.\nFields Branch class only have 1 instance varible “name\".\nprivate String name Utils This class contains helpful utility methods to read/write objects or String contents from/to files, as well as reporting errors when they occur.\nThis is a staff-provided and PNH written class.\nFields Only some private fields to aid in the magic.\nGitletRepository This is where the main logic of our program will live. This file will handle all of the actual gitlet commands by reading/writing from/to the correct file, setting up persistence, and additional error checking.\nIt will also be responsible for setting up all persistence within gitlet. This includes creating the .gitlet folder as well as the folder and file where we store all commit/blob objects.\nFields Repo has following files and folders. More information in the following Persistence part.\npublic static final File CWD = new File(System.getProperty(“user.dir”));\npublic static final File GITLET_FOLDER = join(CWD, “.gitlet”);\npublic static final File HEAD_FILE = join(GITLET_FOLDER, “HEAD”);\npublic static final File INDEX_FILE = join(GITLET_FOLDER, “index”);\npublic static final File LOG_FOLDER = join(GITLET_FOLDER, “logs”);\npublic static final File LOG_HEAD_FILE = join(LOG_FOLDER, “HEAD”);\npublic static final File OBJECT_FOLDER = join(GITLET_FOLDER, “objects”);\npublic static final File REFS_FOLDER = join(GITLET_FOLDER, “refs”);\npublic static final File REFS_HEADS_FOLDER = join(REFS_FOLDER, “heads”);\npublic static final File REFS_HEAD_MASTER_FILE = join(REFS_HEADS_FOLDER, “master”);\nAlgorithms Main Main class contains the most important entrance method for whole project. Main method use “switch” to handle different cases.\npublic class Main {} It also has four private methods to help validate the arguments.\nprivate static void validateNumArgs(String[] args, int n);\nprivate static void validateMessage(String[] args, int n)\nprivate static void validateIfInitialized()\nprivate static void validateNotInited()\nBlob Blob class have three public methods for other class to use and one private method .\npublic String getContent() –\u003e Get content from blob object.\npublic String getSHA1() –\u003e Get 40 bytes BlobID from blob object.\npublic void save() –\u003e Save blob object to make it permanent.\nprivate File getBlobFile() –\u003e This is a helper method to aid save() method.\nCommit All the public methods :\npublic String getMessage() –\u003e get commit message\npublic String getTimestamp(). –\u003e get commit timestamp\npublic Commit getParent1() –\u003e get commit ’s parent commit\npublic List getParent() –\u003e get commit ’s parent commit list\npublic Commit getParent2() –\u003e get commit ’s parent2 commit\npublic Boolean havaParent1() –\u003e check if have parent1\npublic Boolean havaParent2() –\u003e check if have parent2\npublic String getParent2ID() –\u003e get commit parent2 ID\npublic String getParent1ID() –\u003e get commit parent1 ID\npublic Map getMap() –\u003e get commit map\npublic void makeCommit(). –\u003ecreate the commit\npublic void save() –\u003e save the commit object\nAll the following public static methods are for other class to use.\npublic static Map getLastCommitMap()\npublic static Commit getLastCommit()\npublic static File getHeadPointerFile()\npublic static String getHeadPointer()\nAll the private static method are used to support above methods.\nprivate static void writeToGlobalLog(Commit x)\nprivate static String formatDate()\nprivate static void updateHeadPointerFile(String commitID)\nBranch Branch class only have one method to create a branch.\npublic void create()\nIndex public void add(String filename, String sha1)\npublic void removeFromRemoval(String filename)\npublic void remove(String filename)\npublic void stageRemoval(String filename)\npublic void save()\npublic Map getMap()\npublic TreeSet getRemoval()\npublic void clear()\npublic boolean stagingAreaFlag()\npublic static Index readStagingArea()\npublic static Map readStageMap()\npublic static TreeSet getStageRemoval()\nGitletRepository GitletRepository is where the main logic lives.\nThe following are the steps and inner steps of each method.\n1.init\npublic static void init()\nsteps：\nmake directory –\u003e use method: private static void mkDir()\nInitialize all the needed objects –\u003e use helper method: private static void initializeNeededObject()\nHelper method initializeNeededObject() will do the following:\nmake initial commit\ninitialize index object and serialize it.\nwrite .gitlet/HEAD file\nwrite .gitlet/refs/heads/master file\nwrite .gitlet/logs/HEAD file\nedge cases:\nalready handled in the main class.\n2.add\npublic static void add(String filename)\nsteps:\ncheck if filename is existed or not –\u003e use method: private static boolean checkFileExistence(String filename)\nprocess if filename exist\nexist if not exist\nThere is a helper method handleIfFileExist check all the conditions and handle them accordingly.\nprivate static void handleIfFileExist(String filename)\ncheck if file is identical to the version in the current commit\ncheck if file is in removalSet in Index object\nsave the correct blob and add it to staging added map\n3.commit\nsteps:\nIf no files have been staged, abort.\ncalculate the corresponding commit map\ncreate commit object and save it\nclear the staging area\nThere is a helper method to calculating the new commit map according to following steps:\ncombine last commit map add stagingArea map\n_minus rm file_s\n4.rm\npublic static void rm(String filename)\nsteps:\ncheck if the given file is staged for added or not and make changes if needed\ncheck if the given file is staged for removal or not and make changes if needed\ncheck if the given file is tracked by the head commit and make changes if needed\nsave the index file to update the staging area\n5.log\npublic static void log()\nsteps:\nloop through the commit map until reach the init commit to print out all log information.\nuse private static void printCommitLog(Commit x)\n6.global-log\npublic static void globalLog()\nsteps:\nNo need to process ,just print out the global log file.\n7.find\npublic static void find(String message)\nsteps:\nget all the files list in .gitlet/objects folder –\u003e use private static List getFileNameList(File dir)\nBecause both blob object and commit object are saved in .gitlet/objects folder, use “try, finally” to filter out the commit object and then process.\n8.status\npublic static void status()\nsteps:\nuse statusBuilder to keep all the status contents\nread from index object and working directory to get needed information\nUse Collections.sort to alphabet the list\nprint the status\n8.checkout\ncheckout – [file name] public static void checkoutFilename(String filename)\nUse helper method writeFileByCommit(getLastCommit().getCommitID(), filename);\nHelper method steps:\noverwrite the file if it exists in the working directory\ncreate the file if it is not in the working directory\nexit if filename not exist in current commit\ncheckout [branch name] public static void checkoutBranch(String branchName)\nsteps:\nexit if have untracked files\nhandle other checkout failure cases\nremove and delete files accordingly\nupdate the HEAD file\nThere is a helper method :private static void recoverAndDeleteFiles(String branchName).\nrecover all the files\ndelete if exist in current branch but not in the given branch\ncheckout [commit id] – [file name] public static void checkoutCommit(String commitID, String filename)\nupdate the uid if user input short uid\nexist if not exist\nif exist, write file, use helper method : writeFileByCommit\nbranch public static void branch(String branchName)\ncheck if branch exist\ncreate branch\nrm-branch public static void rmBranch(String branchName)\nIf a branch with the given name does not exist, aborts\nIf you try to remove the branch you’re currently on, aborts.\nDelete the branch with the given name.\nreset public static void reset(String commitID)\nIf a working file is untracked in the current branch\nhandel short uid\nclear cwd\nrecover cwd\nclear staging area\nmerge public static void merge(String branchName)\nsteps:\nCheck all failure cases. Use helper method: handleFailureCases(branchName).\nFind the split commit, use helper method: getSplitPointID(currentHead, targetHead)** Create a helper function: getCommitDepthMap\nCalculate each commit’s depth, add commit ID as key and depth as value into CommitDepthMap.\nCompare two depth maps to find the split commit\nCheck If the split point is the target branch head** Use helper method：\nprivate static void ifSplitIsGivenBranch(Commit split, Commit target)\nCheck if the split point is the current branch head** Use helper method：\nprivate static void ifSplitIsCurrentBranch(String branchName, Commit split, Commit current)\nCombine three maps to get all filename list.** Use helper method：\nprivate static Set getfileNameSet(Commit a, Commit b, Commit c)\nCalculate the new filename/blobID map according to 8 rules.** private static Map getNewMergeMap(Commit cur, Commit tar, Commit spl)\nSteps:\n1. identify conflict cases private static boolean haveConflict(String fileName, Commit cur, Commit tar, Commit spl)\nThere is a conflict in the following four conditions:\nin split commit but modified in target commit and remove in current commit\nin split commit but modified in current commit and remove in target commit\nnot in split, the contents of both are modified and different from the other\nin all three commit, the contents are different from each other\nhandelMergeConflict cases calculate the conflict contents by combine two blobs\nwrite the content to the filename in the working directory\ncreate new Blob object\nsave the Blob object in the .gitlet/objects folder\nprivate static String handelMergeConflict(String filename, Commit cur, Commit tar)\n3. handle other cases which contain changes in all, modified in current, not modified in target\nin all, modified in target, not modified in current\nnot in split, not in current, but in target branch\nnot in split, not in target, but in current branch\noverlook the rest if it is no need to put in new map compare the new map with current branch head commit map to handle the difference** stage for remove ,delete file\nstage for add ,write file to working directory\noverlook the rest cases because there is no need to take action.\nmake merge commit**\nclear staging area**\nPersistence The directory structure looks like this:\nCWD \u003c==== Whatever the current working directory is. └── .gitlet \u003c==== All persistant data is stored within here ├── HEAD \u003c==== \"refs/heads/branch name\",to get current branch 's head commitID in future └── index \u003c==== All staging area's information are stored in this directory └── logs ├── HEAD \u003c====A file to store all the commit history └── objects \u003c==== A single Blob/Commit instance stored to a file ├── First 2 numbers of BlobID 1 or CommitID 1 as folder name ├── Last 38 numbers as file name ├── First 2 numbers of BlobID 2 or CommitID 2 as folder name ├── Last 38 numbers as file name ├── First 2 numbers of BlobID 3 or CommitID 3 as folder name ├── Last 38 numbers as file name └── ... ├──... └── refs └── heads └── master \u003c====A file to store the last commitID of master branch └── other branch 1 \u003c====A file to store the last commitID of other branch └── other branch 2 \u003c====A file to store the last commitID of other branch └── ... ",
+  "wordCount" : "2222",
+  "inLanguage": "zh",
+  "datePublished": "2023-06-15T00:00:00Z",
+  "dateModified": "2023-06-15T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2023-06-15-gitlet-design-document/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Gitlet design document
+    </h1>
+    <div class="post-meta"><span title='2023-06-15 00:00:00 +0000 UTC'>2023-06-15</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#classes-and-data-structures" aria-label="Classes and Data Structures"><strong>Classes and Data Structures</strong></a><ul>
+                            
+                    <li>
+                        <a href="#main" aria-label="Main"><strong>Main</strong></a><ul>
+                            
+                    <li>
+                        <a href="#fields" aria-label="Fields"><strong>Fields</strong></a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#blob" aria-label="Blob"><strong>Blob</strong></a><ul>
+                            
+                    <li>
+                        <a href="#fields-1" aria-label="Fields"><strong>Fields</strong></a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#commit" aria-label="Commit"><strong>Commit</strong></a><ul>
+                            
+                    <li>
+                        <a href="#fields-2" aria-label="Fields"><strong>Fields</strong></a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#index" aria-label="Index"><strong>Index</strong></a><ul>
+                            
+                    <li>
+                        <a href="#fields-3" aria-label="Fields"><strong>Fields</strong></a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#branch" aria-label="Branch"><strong>Branch</strong></a><ul>
+                            
+                    <li>
+                        <a href="#fields-4" aria-label="Fields"><strong>Fields</strong></a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#utils" aria-label="Utils"><strong>Utils</strong></a><ul>
+                            
+                    <li>
+                        <a href="#fields-5" aria-label="Fields"><strong>Fields</strong></a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#gitletrepository" aria-label="GitletRepository"><strong>GitletRepository</strong></a><ul>
+                            
+                    <li>
+                        <a href="#fields-6" aria-label="Fields"><strong>Fields</strong></a></li></ul>
+                    </li></ul>
+                    </li>
+                    <li>
+                        <a href="#algorithms" aria-label="Algorithms"><strong>Algorithms</strong></a><ul>
+                            <ul>
+                            
+                    <li>
+                        <a href="#main-1" aria-label="Main"><strong>Main</strong></a></li>
+                    <li>
+                        <a href="#blob-1" aria-label="Blob"><strong>Blob</strong></a></li>
+                    <li>
+                        <a href="#commit-1" aria-label="Commit"><strong>Commit</strong></a></li>
+                    <li>
+                        <a href="#branch-1" aria-label="Branch"><strong>Branch</strong></a></li></ul>
+                        
+                    <li>
+                        <a href="#index-1" aria-label="Index"><strong>Index</strong></a><ul>
+                            
+                    <li>
+                        <a href="#gitletrepository-1" aria-label="GitletRepository"><strong>GitletRepository</strong></a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#persistence" aria-label="Persistence"><strong>Persistence</strong></a>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p>This is the design document for <a href="https://sp21.datastructur.es/materials/proj/proj2/proj2" target="_blank" rel="noopener" style="color:#42b983";>Gitlet</a> project.</p>
+<h1 id="classes-and-data-structures"><strong>Classes and Data Structures</strong><a hidden class="anchor" aria-hidden="true" href="#classes-and-data-structures">#</a></h1>
+<h2 id="main"><strong>Main</strong><a hidden class="anchor" aria-hidden="true" href="#main">#</a></h2>
+<p>This is the entry point to Gitlet program. It takes in arguments from the command line and based on the command (the first element of the <code>args</code> array) calls the corresponding command in <code>GitletRepository</code> which will actually execute the logic of the command.</p>
+<p>It also validates the arguments based on the command to ensure that enough arguments were passed in.</p>
+<h3 id="fields"><strong>Fields</strong><a hidden class="anchor" aria-hidden="true" href="#fields">#</a></h3>
+<p>This class has no fields and hence no associated state: it simply validates arguments and defers the execution to the <code> `Gitlet`Repository</code> class.</p>
+<h2 id="blob"><strong>Blob</strong><a hidden class="anchor" aria-hidden="true" href="#blob">#</a></h2>
+<p>GItlet, like Git, is a content-addressable filesystem. Even one byte change in content will lead to a totally different blob object.</p>
+<p>To accomplish this, Blob class implements Serializable to save each different file content as blob object for future retrieve.</p>
+<h3 id="fields-1"><strong>Fields</strong><a hidden class="anchor" aria-hidden="true" href="#fields-1">#</a></h3>
+<p>All the following instance variable will be serialized.</p>
+<ul>
+<li>
+<p>private String sha1; &ndash;&gt; 40byte sha1 ID</p>
+</li>
+<li>
+<p>private File originalFile; &ndash;&gt; original file path</p>
+</li>
+<li>
+<p>private File blobFile; &ndash;&gt; new path to save each blob object in .gitlet/objects folder</p>
+</li>
+<li>
+<p>private String filename; &ndash;&gt; filename for future use</p>
+</li>
+<li>
+<p>private String content; &ndash;&gt; file content for future read or write into working directory</p>
+</li>
+</ul>
+<h2 id="commit"><strong>Commit</strong><a hidden class="anchor" aria-hidden="true" href="#commit">#</a></h2>
+<p><strong>A commit is a snapshot in time</strong>. To recover a corresponding working directory in the history, it use serialized commit object which contains a map to maintain all the filenames and their blob id.</p>
+<p>The normal commit has one parent commits corresponding to the previous snapshots. A init commit has no parents and a commit with two parents is a merge commit.</p>
+<h3 id="fields-2"><strong>Fields</strong><a hidden class="anchor" aria-hidden="true" href="#fields-2">#</a></h3>
+<ul>
+<li>
+<p>private String timestamp; &ndash;&gt; the date/time of the commit</p>
+</li>
+<li>
+<p>private String parent1; &ndash;&gt; normal commit &rsquo;s parent commit</p>
+</li>
+<li>
+<p>private String parent2; &ndash;&gt; merge&rsquo;s commit &rsquo;s second parent commit</p>
+</li>
+<li>
+<p>private String message; &ndash;&gt; the message the commit</p>
+</li>
+<li>
+<p>private String commitID; &ndash;&gt; the commitID of the commit</p>
+</li>
+<li>
+<p>private Map&lt;String, String&gt; fileToIDMap; &ndash;&gt;a map with filename as key and commitID as value</p>
+</li>
+</ul>
+<h2 id="index"><strong>Index</strong><a hidden class="anchor" aria-hidden="true" href="#index">#</a></h2>
+<p>Between two different working directories, there is a middle stage which records all the changes happened in between. Index class is for this purpose.</p>
+<p>Different from Commit/Blob class, Index class only has one object saved in the .gitlet directory to maintain the changes in the staging area.</p>
+<h3 id="fields-3"><strong>Fields</strong><a hidden class="anchor" aria-hidden="true" href="#fields-3">#</a></h3>
+<p>The Index class records the added filenames and blobID map and the removed filename Set in staging area. It starts with empty map and treeset, record the added/removal information in the process and will be cleared after each commit.</p>
+<ul>
+<li>
+<p>private final Map&lt;String, String&gt; added;</p>
+</li>
+<li>
+<p>private final TreeSet<String> removal;</p>
+</li>
+</ul>
+<h2 id="branch"><strong>Branch</strong><a hidden class="anchor" aria-hidden="true" href="#branch">#</a></h2>
+<p>Branch class maintain all branch names and files information. It will use the branch name to create a file in .gitlet directory to maintain the head point of each branch.</p>
+<h3 id="fields-4"><strong>Fields</strong><a hidden class="anchor" aria-hidden="true" href="#fields-4">#</a></h3>
+<p>Branch class only have 1 instance varible “name&quot;.</p>
+<ul>
+<li>private String name</li>
+</ul>
+<h2 id="utils"><strong>Utils</strong><a hidden class="anchor" aria-hidden="true" href="#utils">#</a></h2>
+<p>This class contains helpful utility methods to read/write objects or <code>String</code> contents from/to files, as well as reporting errors when they occur.</p>
+<p>This is a staff-provided and PNH written class.</p>
+<h3 id="fields-5"><strong>Fields</strong><a hidden class="anchor" aria-hidden="true" href="#fields-5">#</a></h3>
+<p>Only some private fields to aid in the magic.</p>
+<h2 id="gitletrepository"><strong>GitletRepository</strong><a hidden class="anchor" aria-hidden="true" href="#gitletrepository">#</a></h2>
+<p>This is where the main logic of our program will live. This file will handle all of the actual gitlet commands by reading/writing from/to the correct file, setting up persistence, and additional error checking.</p>
+<p>It will also be responsible for setting up all persistence within gitlet. This includes creating the <code>.</code>gitlet folder as well as the folder and file where we store all commit/blob objects.</p>
+<h3 id="fields-6"><strong>Fields</strong><a hidden class="anchor" aria-hidden="true" href="#fields-6">#</a></h3>
+<p>Repo has following files and folders. More information in the following <strong>Persistence</strong> part.</p>
+<p>public static final File <em>CWD</em> = new File(System.<em>getProperty</em>(&ldquo;user.dir&rdquo;));<br>
+public static final File <em>GITLET_FOLDER</em> = <em>join</em>(<em>CWD</em>, &ldquo;.gitlet&rdquo;);<br>
+public static final File <em>HEAD_FILE</em> = <em>join</em>(<em>GITLET_FOLDER</em>, &ldquo;HEAD&rdquo;);<br>
+public static final File <em>INDEX_FILE</em> = <em>join</em>(<em>GITLET_FOLDER</em>, &ldquo;index&rdquo;);<br>
+public static final File <em>LOG_FOLDER</em> = <em>join</em>(<em>GITLET_FOLDER</em>, &ldquo;logs&rdquo;);<br>
+public static final File <em>LOG_HEAD_FILE</em> = <em>join</em>(<em>LOG_FOLDER</em>, &ldquo;HEAD&rdquo;);<br>
+public static final File <em>OBJECT_FOLDER</em> = <em>join</em>(<em>GITLET_FOLDER</em>, &ldquo;objects&rdquo;);<br>
+public static final File <em>REFS_FOLDER</em> = <em>join</em>(<em>GITLET_FOLDER</em>, &ldquo;refs&rdquo;);<br>
+public static final File <em>REFS_HEADS_FOLDER</em> = <em>join</em>(<em>REFS_FOLDER</em>, &ldquo;heads&rdquo;);<br>
+public static final File <em>REFS_HEAD_MASTER_FILE</em> = <em>join</em>(<em>REFS_HEADS_FOLDER</em>, &ldquo;master&rdquo;);</p>
+<h1 id="algorithms"><strong>Algorithms</strong><a hidden class="anchor" aria-hidden="true" href="#algorithms">#</a></h1>
+<h3 id="main-1"><strong>Main</strong><a hidden class="anchor" aria-hidden="true" href="#main-1">#</a></h3>
+<p>Main class contains the most important entrance method for whole project. Main method use &ldquo;switch&rdquo; to handle different cases.</p>
+<ul>
+<li>public class Main {}</li>
+</ul>
+<p>It also has four private methods to help validate the arguments.</p>
+<ul>
+<li>
+<p>private static void validateNumArgs(String[] args, int n);</p>
+</li>
+<li>
+<p>private static void validateMessage(String[] args, int n)</p>
+</li>
+<li>
+<p>private static void validateIfInitialized()</p>
+</li>
+<li>
+<p>private static void validateNotInited()</p>
+</li>
+</ul>
+<h3 id="blob-1"><strong>Blob</strong><a hidden class="anchor" aria-hidden="true" href="#blob-1">#</a></h3>
+<p>Blob class have three public methods for other class to use and one private method .</p>
+<ul>
+<li>
+<p>public String getContent() &ndash;&gt; Get content from blob object.</p>
+</li>
+<li>
+<p>public String getSHA1() &ndash;&gt; Get 40 bytes BlobID from blob object.</p>
+</li>
+<li>
+<p>public void save() &ndash;&gt; Save blob object to make it permanent.</p>
+</li>
+<li>
+<p>private File getBlobFile() &ndash;&gt; This is a helper method to aid save() method.</p>
+</li>
+</ul>
+<h3 id="commit-1"><strong>Commit</strong><a hidden class="anchor" aria-hidden="true" href="#commit-1">#</a></h3>
+<p>All the public methods :</p>
+<ul>
+<li>
+<p>public String getMessage() &ndash;&gt; get commit message</p>
+</li>
+<li>
+<p>public String getTimestamp(). &ndash;&gt; get commit timestamp</p>
+</li>
+<li>
+<p>public Commit getParent1() &ndash;&gt; get commit &rsquo;s parent commit</p>
+</li>
+<li>
+<p>public List<Commit> getParent() &ndash;&gt; get commit &rsquo;s parent commit list</p>
+</li>
+<li>
+<p>public Commit getParent2() &ndash;&gt; get commit &rsquo;s parent2 commit</p>
+</li>
+<li>
+<p>public Boolean havaParent1() &ndash;&gt; check if have parent1</p>
+</li>
+<li>
+<p>public Boolean havaParent2() &ndash;&gt; check if have parent2</p>
+</li>
+<li>
+<p>public String getParent2ID() &ndash;&gt; get commit parent2 ID</p>
+</li>
+<li>
+<p>public String getParent1ID() &ndash;&gt; get commit parent1 ID</p>
+</li>
+<li>
+<p>public Map&lt;String, String&gt; getMap() &ndash;&gt; get commit map</p>
+</li>
+<li>
+<p>public void makeCommit(). &ndash;&gt;create the commit</p>
+</li>
+<li>
+<p>public void save() &ndash;&gt; save the commit object</p>
+</li>
+</ul>
+<p>All the following public static methods are for other class to use.</p>
+<ul>
+<li>
+<p>public static Map&lt;String, String&gt; getLastCommitMap()</p>
+</li>
+<li>
+<p>public static Commit getLastCommit()</p>
+</li>
+<li>
+<p>public static File getHeadPointerFile()</p>
+</li>
+<li>
+<p>public static String getHeadPointer()</p>
+</li>
+</ul>
+<p>All the private static method are used to support above methods.</p>
+<ul>
+<li>
+<p>private static void writeToGlobalLog(Commit x)</p>
+</li>
+<li>
+<p>private static String formatDate()</p>
+</li>
+<li>
+<p>private static void updateHeadPointerFile(String commitID)</p>
+</li>
+</ul>
+<h3 id="branch-1"><strong>Branch</strong><a hidden class="anchor" aria-hidden="true" href="#branch-1">#</a></h3>
+<p>Branch class only have one method to create a branch.</p>
+<p>public void create()</p>
+<h2 id="index-1"><strong>Index</strong><a hidden class="anchor" aria-hidden="true" href="#index-1">#</a></h2>
+<ul>
+<li>
+<p>public void add(String filename, String sha1)</p>
+</li>
+<li>
+<p>public void removeFromRemoval(String filename)</p>
+</li>
+<li>
+<p>public void remove(String filename)</p>
+</li>
+<li>
+<p>public void stageRemoval(String filename)</p>
+</li>
+<li>
+<p>public void save()</p>
+</li>
+<li>
+<p>public Map&lt;String, String&gt; getMap()</p>
+</li>
+<li>
+<p>public TreeSet<String> getRemoval()</p>
+</li>
+<li>
+<p>public void clear()</p>
+</li>
+<li>
+<p>public boolean stagingAreaFlag()</p>
+</li>
+<li>
+<p>public static Index readStagingArea()</p>
+</li>
+<li>
+<p>public static Map&lt;String, String&gt; readStageMap()</p>
+</li>
+<li>
+<p>public static TreeSet<String> getStageRemoval()</p>
+</li>
+</ul>
+<h3 id="gitletrepository-1"><strong>GitletRepository</strong><a hidden class="anchor" aria-hidden="true" href="#gitletrepository-1">#</a></h3>
+<p><strong>GitletRepository</strong> is where the main logic lives.</p>
+<p>The following are the steps and inner steps of each method.</p>
+<p>1.init</p>
+<p>public static void init()</p>
+<p>steps：</p>
+<ul>
+<li>
+<p>make directory &ndash;&gt; use method: <em>private static void mkDir()</em></p>
+</li>
+<li>
+<p>Initialize all the needed objects &ndash;&gt; use helper method: private static void initializeNeededObject()</p>
+</li>
+</ul>
+<p>Helper method initializeNeededObject() will do the following:</p>
+<ul>
+<li>
+<p><em>make initial commit</em></p>
+</li>
+<li>
+<p><em>initialize index object and serialize it.</em></p>
+</li>
+<li>
+<p><em>write .gitlet/HEAD file</em></p>
+</li>
+<li>
+<p><em>write .gitlet/refs/heads/master file</em></p>
+</li>
+<li>
+<p><em>write .gitlet/logs/HEAD file</em></p>
+</li>
+</ul>
+<p>edge cases:</p>
+<p>already handled in the main class.</p>
+<p>2.add</p>
+<p>public static void add(String filename)</p>
+<p>steps:</p>
+<ul>
+<li>
+<p>check if filename is existed or not &ndash;&gt; use method: private static boolean checkFileExistence(String filename)</p>
+</li>
+<li>
+<p>process if filename exist</p>
+</li>
+<li>
+<p>exist if not exist</p>
+</li>
+</ul>
+<p>There is a helper method handleIfFileExist check all the conditions and handle them accordingly.</p>
+<p>private static void handleIfFileExist(String filename)</p>
+<ul>
+<li>
+<p>check if file is <em>identical to the version in the current commit</em></p>
+</li>
+<li>
+<p><em>check if file is in removalSet</em> in Index object</p>
+</li>
+<li>
+<p><em>save the correct blob and add it to staging added map</em></p>
+</li>
+</ul>
+<p>3.commit</p>
+<p>steps:</p>
+<ul>
+<li>
+<p><em>If no files have been staged, abort.</em></p>
+</li>
+<li>
+<p>calculate the corresponding commit map</p>
+</li>
+<li>
+<p>create commit object and save it</p>
+</li>
+<li>
+<p>clear the staging area</p>
+</li>
+</ul>
+<p>There is a helper method to calculating the new commit map according to following steps:</p>
+<ul>
+<li>
+<p>combine <em>last commit map add stagingArea map</em></p>
+</li>
+<li>
+<p>_minus rm file_s</p>
+</li>
+</ul>
+<p>4.rm</p>
+<p>public static void rm(String filename)</p>
+<p>steps:</p>
+<ul>
+<li>
+<p>check if the given file is staged for added or not and make changes if needed</p>
+</li>
+<li>
+<p>check if the given file is staged for removal or not and make changes if needed</p>
+</li>
+<li>
+<p>check if the given file is <em>tracked by the head commit</em> and make changes if needed</p>
+</li>
+<li>
+<p>save the index file to update the staging area</p>
+</li>
+</ul>
+<p>5.log</p>
+<p>public static void log()</p>
+<p>steps:</p>
+<ul>
+<li>
+<p>loop through the commit map until reach the init commit to print out all log information.</p>
+</li>
+<li>
+<p>use private static void printCommitLog(Commit x)</p>
+</li>
+</ul>
+<p>6.global-log</p>
+<p>public static void globalLog()</p>
+<p>steps:</p>
+<p>No need to process ,just print out the global log file.</p>
+<p>7.find</p>
+<p>public static void find(String message)</p>
+<p>steps:</p>
+<ul>
+<li>
+<p>get all the files list in .gitlet/objects folder &ndash;&gt; use private static List<String> getFileNameList(File dir)</p>
+</li>
+<li>
+<p>Because both blob object and commit object are saved in .gitlet/objects folder, use &ldquo;try, finally&rdquo; to filter out the commit object and then process.</p>
+</li>
+</ul>
+<p>8.status</p>
+<p>public static void status()</p>
+<p>steps:</p>
+<ul>
+<li>
+<p>use statusBuilder to keep all the status contents</p>
+</li>
+<li>
+<p>read from index object and working directory to get needed information</p>
+</li>
+<li>
+<p>Use Collections.<em>sort</em> to alphabet the list</p>
+</li>
+<li>
+<p>print the status</p>
+</li>
+</ul>
+<p>8.checkout</p>
+<ol>
+<li>checkout &ndash; [file name]</li>
+</ol>
+<p>public static void checkoutFilename(String filename)</p>
+<p>Use helper method <em>writeFileByCommit</em>(<em>getLastCommit</em>().getCommitID(), filename);</p>
+<p>Helper method steps:</p>
+<ul>
+<li>
+<p><em>overwrite the file if it exists in the working directory</em></p>
+</li>
+<li>
+<p><em>create the file if it is not in the working directory</em></p>
+</li>
+<li>
+<p>exit if <em>filename not exist in current commit</em></p>
+<ol start="2">
+<li>checkout [branch name]</li>
+</ol>
+</li>
+</ul>
+<p>public static void checkoutBranch(String branchName)</p>
+<p>steps:</p>
+<ul>
+<li>
+<p><em>exit if have untracked</em> files</p>
+</li>
+<li>
+<p><em>handle other checkout failure cases</em></p>
+</li>
+<li>
+<p>remove and delete files accordingly</p>
+</li>
+<li>
+<p><em>update the HEAD file</em></p>
+</li>
+</ul>
+<p>There is a helper method :private static void recoverAndDeleteFiles(String branchName).</p>
+<ul>
+<li>
+<p><em>recover all the files</em></p>
+</li>
+<li>
+<p>delete if exist in current branch but not in the given branch</p>
+<ol start="3">
+<li>checkout [commit id] &ndash; [file name]</li>
+</ol>
+</li>
+</ul>
+<p>public static void checkoutCommit(String commitID, String filename)</p>
+<ul>
+<li>
+<p><em>update the uid if user input short uid</em></p>
+</li>
+<li>
+<p><em>exist if not exist</em></p>
+</li>
+<li>
+<p><em>if exist, write file</em>, use helper method : <em>writeFileByCommit</em></p>
+</li>
+</ul>
+<ol start="9">
+<li>branch</li>
+</ol>
+<p>public static void branch(String branchName)</p>
+<ul>
+<li>
+<p>check if branch exist</p>
+</li>
+<li>
+<p>create branch</p>
+</li>
+</ul>
+<ol start="10">
+<li>rm-branch</li>
+</ol>
+<p>public static void rmBranch(String branchName)</p>
+<ul>
+<li>
+<p><em>If a branch with the given name does not exist, aborts</em></p>
+</li>
+<li>
+<p><em>If you try to remove the branch you’re currently on, aborts.</em></p>
+</li>
+<li>
+<p><em>Delete the branch with the given name.</em></p>
+</li>
+</ul>
+<ol start="11">
+<li>reset</li>
+</ol>
+<p>public static void reset(String commitID)</p>
+<ul>
+<li>
+<p><em>If a working file is untracked in the current branch</em></p>
+</li>
+<li>
+<p><em>handel short uid</em></p>
+</li>
+<li>
+<p><em>clear cwd</em></p>
+</li>
+<li>
+<p><em>recover cwd</em></p>
+</li>
+<li>
+<p><em>clear staging area</em></p>
+</li>
+</ul>
+<ol start="12">
+<li>merge</li>
+</ol>
+<p>public static void merge(String branchName)</p>
+<p>steps:</p>
+<ol>
+<li>Check all failure cases.</li>
+</ol>
+<p>Use helper method: <em>handleFailureCases</em>(branchName).</p>
+<ol start="2">
+<li>Find the split commit, use helper method: <em>getSplitPointID</em>(currentHead, targetHead)**</li>
+</ol>
+<ul>
+<li>
+<p>Create a helper function: <em>getCommitDepthMap</em></p>
+</li>
+<li>
+<p>Calculate each commit&rsquo;s depth, add commit ID as key and depth as value into <em>CommitDepthMap</em>.</p>
+</li>
+<li>
+<p>Compare two depth maps to find the split commit</p>
+<ol start="3">
+<li>Check If the split point is the target branch head**</li>
+</ol>
+</li>
+</ul>
+<p>Use helper method：</p>
+<p>private static void ifSplitIsGivenBranch(Commit split, Commit target)</p>
+<ol start="4">
+<li>Check if <em>the split point is the current branch head</em>**</li>
+</ol>
+<p>Use helper method：</p>
+<p>private static void ifSplitIsCurrentBranch(String branchName, Commit split, Commit current)</p>
+<ol start="5">
+<li>Combine three maps to get all filename list.**</li>
+</ol>
+<p>Use helper method：</p>
+<p>private static Set<String> getfileNameSet(Commit a, Commit b, Commit c)</p>
+<ol start="6">
+<li>Calculate the new filename/blobID map according to 8 rules.**</li>
+</ol>
+<p>private static Map&lt;String, String&gt; getNewMergeMap(Commit cur, Commit tar, Commit spl)</p>
+<p>Steps:</p>
+<pre><code> 1. identify conflict cases
+</code></pre>
+<p>private static boolean haveConflict(String fileName, Commit cur, Commit tar, Commit spl)</p>
+<p>There is a conflict in the following four conditions:</p>
+<ul>
+<li>
+<p>in split commit but modified in target commit and remove in current commit</p>
+</li>
+<li>
+<p><em>in split commit but modified in current commit and remove in target commit</em></p>
+</li>
+<li>
+<p><em>not in split, the contents of both are modified and different from the other</em></p>
+</li>
+<li>
+<p><em>in all three commit, the contents are different from each other</em></p>
+<ol start="2">
+<li>handelMergeConflict cases</li>
+</ol>
+</li>
+<li>
+<p>calculate the conflict contents by combine two blobs</p>
+</li>
+<li>
+<p>write the content to the filename in the working directory</p>
+</li>
+<li>
+<p>create new Blob object</p>
+</li>
+<li>
+<p>save the Blob object in the .gitlet/objects folder</p>
+</li>
+</ul>
+<p>private static String handelMergeConflict(String filename, Commit cur, Commit tar)</p>
+<pre><code>3. handle other cases which contain changes
+</code></pre>
+<ul>
+<li>
+<p><em>in all, modified in current, not modified in target</em></p>
+</li>
+<li>
+<p><em>in all, modified in target, not modified in current</em></p>
+</li>
+<li>
+<p><em>not in split, not in current, but in target branch</em></p>
+</li>
+<li>
+<p><em>not in split, not in target, but in current branch</em></p>
+<ol start="4">
+<li>overlook the rest if it is no need to put in new map</li>
+</ol>
+</li>
+</ul>
+<ol start="7">
+<li>compare the new map with current branch head commit map to handle the difference**</li>
+</ol>
+<ul>
+<li>
+<p>stage for remove ,delete file</p>
+</li>
+<li>
+<p>stage for add ,write file to working directory</p>
+</li>
+<li>
+<p>overlook the rest cases because there is no need to take action.</p>
+</li>
+</ul>
+<ol start="8">
+<li>
+<p><em>make merge commit</em>**</p>
+</li>
+<li>
+<p><em>clear staging area</em>**</p>
+</li>
+</ol>
+<h2 id="persistence"><strong>Persistence</strong><a hidden class="anchor" aria-hidden="true" href="#persistence">#</a></h2>
+<p>The directory structure looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>CWD                             &lt;==== Whatever the current working directory is.
+</span></span><span style="display:flex;"><span>└── .gitlet                     &lt;==== All persistant data is stored within here
+</span></span><span style="display:flex;"><span>    ├── HEAD                    &lt;==== &#34;refs/heads/branch name&#34;,to get current branch &#39;s head commitID in future
+</span></span><span style="display:flex;"><span>    └── index                   &lt;==== All staging area&#39;s information are stored in this directory
+</span></span><span style="display:flex;"><span>    └── logs 
+</span></span><span style="display:flex;"><span>        ├── HEAD                &lt;====A file to store all the commit history  
+</span></span><span style="display:flex;"><span>    └── objects                 &lt;==== A single Blob/Commit instance stored to a file
+</span></span><span style="display:flex;"><span>        ├── First 2 numbers of BlobID 1 or CommitID 1 as folder name 
+</span></span><span style="display:flex;"><span>            ├── Last 38 numbers as file name
+</span></span><span style="display:flex;"><span>        ├── First 2 numbers of BlobID 2 or CommitID 2 as folder name 
+</span></span><span style="display:flex;"><span>            ├── Last 38 numbers as file name
+</span></span><span style="display:flex;"><span>        ├── First 2 numbers of BlobID 3 or CommitID 3 as folder name 
+</span></span><span style="display:flex;"><span>            ├── Last 38 numbers as file name
+</span></span><span style="display:flex;"><span>        └── ...
+</span></span><span style="display:flex;"><span>            ├──...
+</span></span><span style="display:flex;"><span>    └── refs
+</span></span><span style="display:flex;"><span>        └── heads
+</span></span><span style="display:flex;"><span>           └── master           &lt;====A file to store the last commitID of master branch
+</span></span><span style="display:flex;"><span>           └── other branch 1   &lt;====A file to store the last commitID of other branch
+</span></span><span style="display:flex;"><span>           └── other branch 2   &lt;====A file to store the last commitID of other branch
+</span></span><span style="display:flex;"><span>           └── ...
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/git/">Git</a></li>
+      <li><a href="https://everydaydiva.blog/tags/%E5%B7%A5%E5%85%B7/">工具</a></li>
+      <li><a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">CS自學</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/history/2023-07-19-reading-list/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>小一下閱讀記錄&#43;中英文閱讀書單</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2023-06-13-%E7%94%A8java%E5%AF%AB%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84gitcs61b-gitlet%E9%A0%85%E7%9B%AE%E7%AD%86%E8%A8%98/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>用Java寫個簡單的Git：CS61B Gitlet項目筆記</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2023-06-15 00:00:00 +0000 UTC'>2023-06-15</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/git/">Git</a>
+    <a href="https://everydaydiva.blog/tags/%E5%B7%A5%E5%85%B7/">、工具</a>
+    <a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">、CS自學</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

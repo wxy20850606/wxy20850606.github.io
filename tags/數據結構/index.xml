@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>數據結構 on Everydaydiva&#39;s Blog</title>
+    <link>https://everydaydiva.blog/tags/%E6%95%B8%E6%93%9A%E7%B5%90%E6%A7%8B/</link>
+    <description>Recent content in 數據結構 on Everydaydiva&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Wed, 13 Mar 2024 10:59:11 +0800</lastBuildDate>
+    <atom:link href="https://everydaydiva.blog/tags/%E6%95%B8%E6%93%9A%E7%B5%90%E6%A7%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java基本數據結構——Array/List/Set/Queue/Map</title>
+      <link>https://everydaydiva.blog/posts/java/java-data-structure/</link>
+      <pubDate>Wed, 13 Mar 2024 10:59:11 +0800</pubDate>
+      <guid>https://everydaydiva.blog/posts/java/java-data-structure/</guid>
+      <description>Data Structure 是計算機存儲和組織數據的機制。wiki里有註明常見的數據結構如下： 數據結構也是一種data，先來看看Java里的data type。 Java data type 在Java裡，data type分為兩種：primitive types和reference types。 primitive types primitive types 儲存的是一個實體的值。包括byt</description>
+    </item>
+  </channel>
+</rss>

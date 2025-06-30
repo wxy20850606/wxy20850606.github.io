@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Java 和 Python 的區別 | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="電腦語言, python, java, 區別">
+<meta name="description" content="最近開始學Java，感覺和Python蠻不一樣，於是在網上找找資料，看看二者的不同之處。 先分享一篇好玩又很有啟發的文章： 两年，我学会了所有的编程语言！ 下面進入正題。 Java是編譯式的語言， Python是直譯式的語言？ 想要清楚這個問題，要稍微了解下二者的程序是如何運行的。 Pytho">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2023-04-07-java-python-difference/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="Java 和 Python 的區別" />
+<meta property="og:description" content="最近開始學Java，感覺和Python蠻不一樣，於是在網上找找資料，看看二者的不同之處。 先分享一篇好玩又很有啟發的文章： 两年，我学会了所有的编程语言！ 下面進入正題。 Java是編譯式的語言， Python是直譯式的語言？ 想要清楚這個問題，要稍微了解下二者的程序是如何運行的。 Pytho" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2023-04-07-java-python-difference/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-04-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-04-07T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java 和 Python 的區別"/>
+<meta name="twitter:description" content="最近開始學Java，感覺和Python蠻不一樣，於是在網上找找資料，看看二者的不同之處。 先分享一篇好玩又很有啟發的文章： 两年，我学会了所有的编程语言！ 下面進入正題。 Java是編譯式的語言， Python是直譯式的語言？ 想要清楚這個問題，要稍微了解下二者的程序是如何運行的。 Pytho"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Java 和 Python 的區別",
+      "item": "https://everydaydiva.blog/posts/history/2023-04-07-java-python-difference/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Java 和 Python 的區別",
+  "name": "Java 和 Python 的區別",
+  "description": "最近開始學Java，感覺和Python蠻不一樣，於是在網上找找資料，看看二者的不同之處。 先分享一篇好玩又很有啟發的文章： 两年，我学会了所有的编程语言！ 下面進入正題。 Java是編譯式的語言， Python是直譯式的語言？ 想要清楚這個問題，要稍微了解下二者的程序是如何運行的。 Pytho",
+  "keywords": [
+    "電腦語言", "python", "java", "區別"
+  ],
+  "articleBody": "最近開始學Java，感覺和Python蠻不一樣，於是在網上找找資料，看看二者的不同之處。\n先分享一篇好玩又很有啟發的文章：\n两年，我学会了所有的编程语言！\n下面進入正題。\nJava是編譯式的語言， Python是直譯式的語言？ 想要清楚這個問題，要稍微了解下二者的程序是如何運行的。\nPython是怎麼運行的？ 來源：is-python-a-compiled-language-or-an-interpreted-language\n比如helloworld.py文件。如下是比較常見的運行方式：\n使用interpreter（比如CPython），解釋器第一步將原代碼編譯（compile）為“byte code”。byte code和machine code區別在於前者是跨平台性的。\n解釋器然後用自帶的虛擬機（virtual machine）來運行byte code。可以把虛擬機想像成虛擬的電腦。\n解釋器運行編譯過的byte code（.pyc文件）。\n和編譯語言一樣，在原代碼和機器代碼之間，有byte code這個中間的載體。\n和編譯語言不一樣，byte code 不是直接在電腦上運行，而是需要解釋器來運行。\n所以只要機器上裝有解釋器，就可以運行Python的文件。\n因為Python是直譯式語言，所以可以先在終端運行解釋器，然後一句一句執行。\n% python3 \u003e\u003e\u003e print(\"hello world\") hello world Java是怎麼運行的？ Java運行步驟：\n不同設備上提前安裝平台專屬的虛擬機_Java Virtual Machine_（JVM）\n先用javac編譯器將java文件轉為.class的byte code文件\njavac命令執行後，在操作系統中啟動一個JVM進程，JVM將原文件通過類裝載器（Class Loader）加載到JVM的內存區域，生成bytecode\nJVM通過內建的Execution Engine來翻譯bytecode，Execution Engine裡有interpreter/JIT compiler將bytecode翻譯為機器語言\nJVM和操作系統相配合執行機器語言\nJava程序運行核心是通過虛擬機。\n虛擬機是什麼？ 虛擬機組成圖：\nsource：JVM Tutorial - Java Virtual Machine Architecture Explained for Beginners\n可以把JVM想像成是一台模擬出來的電腦，此電腦具有完善的操作系統和處理器，也可以運行軟件。\nthe virtual machine, providing an abstraction of the entire computer, including the operating system, the processor, and the programs. -CSAPP\n使用這樣的模擬電腦來運行class程序，無論是什麼操作系統，只要安裝了JVM，就能運行Java程序。正是由於JVM，Java這種偏編譯型的語言才可以實現一次開發，到處運行。\nJava為什麼採用虛擬機？ 主要是為了快速安全多線程的跨平台執行，下面這篇文章有介紹虛擬機的前世今生。\n每個程序員都該瞭解的JVM - JAVA虛擬機介紹\n總結：\nJava和Python都是同時採用編譯器與直譯器來運行的語言。\n不過Python是偏直譯式的語言，而Java是偏編譯式的語言。二者都可以 “compile once, run anywhere.” 下面是本段筆記的參考文章🔗：\nJVM ( java virtual machine) architecture - tutorial\nJVM Tutorial - Java Virtual Machine Architecture Explained for Beginners\nJava保留了primitive types，而Python裡全部都是對象（object）。 Java是雙類型系統，除了reference type（object），Java還保留了8種primitive types，boolean , byte , char , short , int , long , float , double。\n比如下面的int，變量i 的數值直接以二進制的方式儲存在JVM stack上面的某個地址（32bits）。\nint i = 3; 而下面的Integer類裡的i則是一個object，每個object都分配有64個bits，不過這些bits存儲的不是object的內容，而是一個reference，這個reference指向存儲在JVM heap上面的object內容的地址。\nInteger i = new Integer(3); 至於Java為什麼保留基本的數據類型，基本上就是為了提升運算速度和效能，可以參考如下Thinking in Java裡的解釋。\nOne group of types, which you’ll use quite often in your programming, gets special treatment. You can think of these as “primitive” types. The reason for the special treatment is that to create an object with new—especially a small, simple variable—isn’t very efficient, because new places objects on the heap. For these types Java falls back on the approach taken by C and C++. That is, instead of creating the variable by using new, an “automatic” variable is created that is not a reference. The variable holds the value directly, and it’s placed on the stack, so it’s much more efficient.\n-Thinking In Java\n也可以參考這篇文章：Java 为什么需要保留基本数据类型\nPython只有一種數據類型，那就是object。萬物皆object，Python裡原始的數據類型比如int/float都是用object構成的。\n下圖為Python裡的int物件自帶的method。\nJava是static typing和dynamic typing，Python是dynamic typing**。** 先來學習下python 中沒有的static 關鍵字。\nstatic，辭典意思為“staying in one place without moving, or not changing for a long time”，翻譯為靜態，靜態的變量和方法不用依賴任何object可以直接訪問，是没有this的。比如Math.abs就可以不用object直接訪問。\n有兩條原則：\n一是不能從static 方法中呼叫non-static 方法。\nWith the this keyword in mind, you can more fully understand what it means to make a method static. It means that there is no this for that particular method. You cannot call non-static methods from inside static methods (although the reverse is possible), and you can call a static method for the class itself, without any object. In fact, that’s primarily what a static method is for. -Thinking in Java 二是在加載class時有static關鍵字的是最先加載的而且只加載一次。詳細可參考如下這篇文章：\nJava中的static關鍵字\n那static typing和上面的static關鍵字好像沒有直接的聯繫。static typing和dynamic typing說的是Type system。\n電腦語言只有0和1，Type system的意義就在於給這個0和1賦予意義。比如安排有些0和1表示整數。\n“The fundamental problem addressed by a type theory [aka type system] is to ensure that programs have meaning.“\nMark Mannasse\nJava的Static Type vs. Dynamic Type Java的“static type”也是“compile-time type”，指的是變量一旦設置type就一直保持不變，並且在complie的時候檢查type，如果有不一致的情況，會無法編譯也就不能運行。\n比如下面的變量x一開始設置為int就不能在改變了。\npublic class Hello{ public static void main(String[] args) { int x = 0; x = \"hello\"; System.out.println(x); } } 否則會報錯：\nJava的變量還有一個type就是“dynamic type”即“run-time type”。\n用new這個關鍵詞產生一個instance的時候產生\ntype就是新產生的object（Equal to the type of the object being pointed at.）\n下面這個例子中a的compile type是Object，run-time type是Corgi，但因為Object沒有bark這個方法，所以無法compile。\npublic class Dog { private String name; public Dog(String str) { name = str; } public void bark() { System.out.println(\"Whoof!\"); } } class Corgi extends Dog { public Corgi(String str) { super(str); } public void bark(){ System.out.println(\"Bark!\"); } public static void main(String[] args) { Object a = new Corgi(\"Amy\"); a.bark(); } } 但是把Object改為Dog，此時compile type 是Dog，run-time type是Corgi。因為兩者都有bark這個方法，產生overide，此時根據runtime type選擇方法，此處選擇Corgi的方法。\npublic static void main(String[] args) { Dog a = new Corgi(\"Amy\"); a.bark(); } Python不用compile只有採用dynamic typing。不需提前聲明變量類型，只在runtime的時候通過程式自帶的Type inference檢查類型，變量自然可以一直改變類型。\n\u003e\u003e\u003e number = 10 \u003e\u003e\u003e numer = (number+20)/2 好處是簡化代碼，壞處是少了compile這個過程，導致有些錯誤沒法一開始就被檢查出來。比如上面的code第二行的number寫錯成numer了，但是由於是動態語言，不會檢查，所以還是可以運行，這就有可能埋入bug。\n可參考CS61B課本https://joshhug.gitbooks.io/hug61b/content/chap1/chap11.html和課程視頻\nJava對函數式編程支持有限，Python支持函數式編程。 Python既支持面向對象的編程，也支持面向過程的函數式編程。\n比如在Python中，函數也是object，所以可以當作參數傳遞。CS61A課程中前半部分也是在說Python如何支持函數式編程的很多特性。\n而Java中沒有函數這個type，想要實現函數式編程的一些思想比如HOF只能通過特別的interface。\n下面這個例子（proj1c作業)可以看出想要使用某個函數（比如compare），必須把整個Comparator當參數傳入，然後再通過c.compare使用這個函數。比Python難用很多。詳細請參考課程：Higher Order Functions in Java\npublic T max(Comparator c) { if (this.isEmpty()) { return null; } int maxIndex = 0; for (int i = 1; i \u003c size(); i += 1) { if (c.compare(get(i),get(maxIndex)) \u003e 0) { maxIndex = i; } } return get(maxIndex); } Java對函數式編程只是間接的支持，支持度比較有限。\n下面再來總結下Java和Python在OOP上的不同。\nJava和Python在面向對象上的不同 Java強迫使用Class，Python不強迫。 Java裡所有的程式都必須存在於一個class裡面，程序入口main也必須存在於一個class裡面。OOP的核心object也是必須通過class來產生的，所以從這個意義上來說，Java強迫使用OOP。\npublic class HelloWorld { public static void main(String[] args){ System.out.println(\"Hello World\"); } } 而Python則沒有，因為有解釋器的關係，沒有main這個主程序入口，可以一行一行執行，不強迫OOP。\n剛開始學Python的時候，甚至拿來當計算器用。\nJava裡有封裝，Python沒有封裝。 Java裡面的變量和方法有private/protected/public/default四種設定。尤其是通過使用private可以禁止外部訪問，隱藏細節，實現封裝。\n在Java中，可以放心的使用helper function，把重複的code獨立成一個helper function，再設置成private，代碼變得簡潔邏輯也更清楚，一堆細節也會被封裝隱藏起來。\n這個硬體上的只需要知道接口，不需要知道細節是一致的。\nPython裡全部默認為public，沒有區分沒有封裝隱藏。哪怕是用雙下劃線__來假裝隱藏，也還是可以通過_從外部來獲取。\nJava不支持多重繼承，Python支持多重繼承。 Java的class只可以繼承一個super class（使用extends關鍵詞），而Python的class可以繼承很多個super class。\nJava為什麼不支持多重繼承呢？ Java之父認為多重繼承帶來的好處大於其帶來的麻煩，所以在設計時就決定排除多重繼承。\nJAVA omits many rarely used, poorly understood, confusing features of C++ that in our experience bring more grief than benefit. This primarily consists of operator overloading (although it does have method overloading), multiple inheritance, and extensive automatic coercions.\nJava: an Overview/James Gosling\n但是Java的class允許實作多個interface，算是稍微彌補不能多重繼承的問題。\nJava8開始允許interface可以有default method，有可能還是會產生多重繼承的問題。但是Java在編譯的時候會要求在class裡override有歧異的method，避免多重繼承的可能產生的衝突。\nPython支持多重繼承。 比如下面這個菱形繼承，方法尋找的路徑是從下往上從左到右。\nsource:COMPOSING PROGRAMS\nPython還有其他支持多重繼承的語言使用MRO algorithm解決菱形繼承的問題，下面這篇文章有解釋：\nMultiple Inheritance described by Python’s primary author\nJava提供interface，多型直接明顯；Python中使用duck typing來多型**。** Java中的interface是顯性的，比如下面這個Comparator的接口，裡面有compare這個方法。\npublic interface Comparator { int compare(T o1, T o2); } class通過implements上面的interface可以實現多型。\n比如這個subtype是比較int。\nprivate class intComparator implements Comparator{ @Override public int compare(Integer o1, Integer o2) { return o1 - o2; } } 這個subtype是比較string。\nprivate class StringComparator implements Comparator{ @Override public int compare(String o1, String o2) { int minLength = Math.min(o1.length(),o2.length()); for(int i = 0; i \u003c minLength;i += 1){ int i1 = o1.charAt(i) - o2.charAt(i); if(i1 != 0){ return -i1; } } return o2.length() - o1.length(); } } 因為Java不允許**多重繼承，**但是可以允許有很多個接口，所以Java 引入Interface目的之一是來達到類似多重繼承。\nPython允許多重繼承，所以不需要interface，另外也可以使用duck typing技術來部分達到interface的目的。所以很多Python的書籍裡都沒有特別提到多型。\nPython通過duck typing實現多型 比如下面wiki中提供的例子，不用interface先註明有哪些方法，直接呼叫，是鴨子的話就有swim和fly的方法，不是的話系統會報錯。\nclass Duck: def swim(self): print(\"Duck swimming\") def fly(self): print(\"Duck flying\") class Whale: def swim(self): print(\"Whale swimming\") for animal in [Duck(), Whale()]: animal.swim() animal.fly() 總結： 之前在學習CS61A的時候，寫第二部分OOP的筆記的時候卡住了，現在知道原因了。因為Python幾乎沒有封裝，多型的使用也沒有Java這麽明顯，用Python解釋多型有些多餘。所以當時我才不知道怎麼寫筆記解釋OOP。現在稍微想通一點點了。\n呼應開頭的漫畫，學語言的關注點如果放在基本概念的話，會有越來越深入的理解，也可以通過不同的語言不同的實作來慢慢加深對核心概念的理解。\n其他：\n這篇文章詳細的紀錄了很多細節上的不同：\nPython and Java - Comparisons and Contrasts\n",
+  "wordCount" : "5307",
+  "inLanguage": "zh",
+  "datePublished": "2023-04-07T00:00:00Z",
+  "dateModified": "2023-04-07T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2023-04-07-java-python-difference/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Java 和 Python 的區別
+    </h1>
+    <div class="post-meta"><span title='2023-04-07 00:00:00 +0000 UTC'>2023-04-07</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#java%e6%98%af%e7%b7%a8%e8%ad%af%e5%bc%8f%e7%9a%84%e8%aa%9e%e8%a8%80-python%e6%98%af%e7%9b%b4%e8%ad%af%e5%bc%8f%e7%9a%84%e8%aa%9e%e8%a8%80" aria-label="Java是編譯式的語言， Python是直譯式的語言？"><strong>Java是編譯式的語言， Python是直譯式的語言？</strong></a><ul>
+                            
+                    <li>
+                        <a href="#python%e6%98%af%e6%80%8e%e9%ba%bc%e9%81%8b%e8%a1%8c%e7%9a%84" aria-label="Python是怎麼運行的？"><strong>Python是怎麼運行的？</strong></a></li>
+                    <li>
+                        <a href="#java%e6%98%af%e6%80%8e%e9%ba%bc%e9%81%8b%e8%a1%8c%e7%9a%84" aria-label="Java是怎麼運行的？"><strong>Java是怎麼運行的？</strong></a><ul>
+                            
+                    <li>
+                        <a href="#%e8%99%9b%e6%93%ac%e6%a9%9f%e6%98%af%e4%bb%80%e9%ba%bc" aria-label="虛擬機是什麼？"><strong>虛擬機是什麼？</strong></a></li>
+                    <li>
+                        <a href="#java%e7%82%ba%e4%bb%80%e9%ba%bc%e6%8e%a1%e7%94%a8%e8%99%9b%e6%93%ac%e6%a9%9f" aria-label="Java為什麼採用虛擬機？"><strong>Java為什麼採用虛擬機？</strong></a></li></ul>
+                    </li></ul>
+                    </li>
+                    <li>
+                        <a href="#java%e4%bf%9d%e7%95%99%e4%ba%86primitive-types%e8%80%8cpython%e8%a3%a1%e5%85%a8%e9%83%a8%e9%83%bd%e6%98%af%e5%b0%8d%e8%b1%a1object" aria-label="Java保留了primitive types，而Python裡全部都是對象（object）。"><strong>Java保留了primitive types，而Python裡全部都是對象（object）。</strong></a></li>
+                    <li>
+                        <a href="#java%e6%98%afstatic-typing%e5%92%8cdynamic-typingpython%e6%98%afdynamic-typing" aria-label="Java是static typing和dynamic typing，Python是dynamic typing**。**"><strong>Java是</strong>static typing<strong>和<strong><strong>dynamic typing</strong></strong>，Python是</strong>dynamic typing**。**</a><ul>
+                            
+                    <li>
+                        <a href="#java%e7%9a%84static-type-vs-dynamic-type" aria-label="Java的Static Type vs. Dynamic Type">Java的Static Type vs. Dynamic Type</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#java%e5%b0%8d%e5%87%bd%e6%95%b8%e5%bc%8f%e7%b7%a8%e7%a8%8b%e6%94%af%e6%8c%81%e6%9c%89%e9%99%90python%e6%94%af%e6%8c%81%e5%87%bd%e6%95%b8%e5%bc%8f%e7%b7%a8%e7%a8%8b" aria-label="Java對函數式編程支持有限，Python支持函數式編程。"><strong>Java對函數式編程支持有限，Python支持函數式編程。</strong></a></li>
+                    <li>
+                        <a href="#java%e5%92%8cpython%e5%9c%a8%e9%9d%a2%e5%90%91%e5%b0%8d%e8%b1%a1%e4%b8%8a%e7%9a%84%e4%b8%8d%e5%90%8c" aria-label="Java和Python在面向對象上的不同"><strong>Java和Python在面向對象上的不同</strong></a><ul>
+                            
+                    <li>
+                        <a href="#java%e5%bc%b7%e8%bf%ab%e4%bd%bf%e7%94%a8classpython%e4%b8%8d%e5%bc%b7%e8%bf%ab" aria-label="Java強迫使用Class，Python不強迫。"><strong>Java強迫使用Class，Python不強迫。</strong></a></li>
+                    <li>
+                        <a href="#java%e8%a3%a1%e6%9c%89%e5%b0%81%e8%a3%9dpython%e6%b2%92%e6%9c%89%e5%b0%81%e8%a3%9d" aria-label="Java裡有封裝，Python沒有封裝。"><strong>Java裡有封裝，Python沒有封裝。</strong></a></li>
+                    <li>
+                        <a href="#java%e4%b8%8d%e6%94%af%e6%8c%81%e5%a4%9a%e9%87%8d%e7%b9%bc%e6%89%bfpython%e6%94%af%e6%8c%81%e5%a4%9a%e9%87%8d%e7%b9%bc%e6%89%bf" aria-label="Java不支持多重繼承，Python支持多重繼承。"><strong>Java不支持多重繼承，Python支持多重繼承。</strong></a><ul>
+                            
+                    <li>
+                        <a href="#java%e7%82%ba%e4%bb%80%e9%ba%bc%e4%b8%8d%e6%94%af%e6%8c%81%e5%a4%9a%e9%87%8d%e7%b9%bc%e6%89%bf%e5%91%a2" aria-label="Java為什麼不支持多重繼承呢？"><strong>Java為什麼不支持多重繼承呢？</strong></a></li>
+                    <li>
+                        <a href="#python%e6%94%af%e6%8c%81%e5%a4%9a%e9%87%8d%e7%b9%bc%e6%89%bf" aria-label="Python支持多重繼承。"><strong>Python支持多重繼承。</strong></a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#java%e6%8f%90%e4%be%9binterface%e5%a4%9a%e5%9e%8b%e7%9b%b4%e6%8e%a5%e6%98%8e%e9%a1%afpython%e4%b8%ad%e4%bd%bf%e7%94%a8duck-typinghttpsdocspythonorg3glossaryhtmlterm-duck-typing%e4%be%86%e5%a4%9a%e5%9e%8b" aria-label="Java提供interface，多型直接明顯；Python中使用duck typing來多型**。**"><strong>Java提供interface，多型直接明顯；Python中使用</strong><a href="https://docs.python.org/3/glossary.html#term-duck-typing" target="_blank" rel="noopener" style="color:#42b983";>duck typing</a>來多型**。**</a><ul>
+                            
+                    <li>
+                        <a href="#python%e9%80%9a%e9%81%8educk-typinghttpsdocspythonorg3glossaryhtmlterm-duck-typing%e5%af%a6%e7%8f%be%e5%a4%9a%e5%9e%8b" aria-label="Python通過duck typing實現多型">Python通過<a href="https://docs.python.org/3/glossary.html#term-duck-typing" target="_blank" rel="noopener" style="color:#42b983";>duck typing</a>實現多型</a></li></ul>
+                    </li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e7%b8%bd%e7%b5%90" aria-label="總結：">總結：</a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p>最近開始學Java，感覺和Python蠻不一樣，於是在網上找找資料，看看二者的不同之處。</p>
+<p>先分享一篇好玩又很有啟發的文章：</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAxOTc0NzExNg==&amp;mid=2665517522&amp;idx=1&amp;sn=758759e90d395311bfd33a68e2eeb116&amp;chksm=80d66991b7a1e0874b452a9d3627fe995231eb5d80d88b5234b6b54e631b5c04827b16800e8d&amp;scene=178&amp;cur_album_id=1300063186770640897#rd" target="_blank" rel="noopener" style="color:#42b983";>两年，我学会了所有的编程语言！</a></p>
+<p>下面進入正題。</p>
+<h2 id="java是編譯式的語言-python是直譯式的語言"><strong>Java是編譯式的語言， Python是直譯式的語言？</strong><a hidden class="anchor" aria-hidden="true" href="#java是編譯式的語言-python是直譯式的語言">#</a></h2>
+<p>想要清楚這個問題，要稍微了解下二者的程序是如何運行的。</p>
+<h3 id="python是怎麼運行的"><strong>Python是怎麼運行的？</strong><a hidden class="anchor" aria-hidden="true" href="#python是怎麼運行的">#</a></h3>
+<p><strong><a href="https://discuss.python.org/t/is-python-a-compiled-language-or-an-interpreted-language/6556" target="_blank" rel="noopener" style="color:#42b983";>來源：is-python-a-compiled-language-or-an-interpreted-language</a></strong></p>
+<p>比如helloworld.py文件。如下是比較常見的運行方式：</p>
+<ul>
+<li>
+<p>使用interpreter（比如<strong>CPython</strong>），解釋器第一步將原代碼編譯（compile）為“byte code”。byte code和machine code區別在於前者是跨平台性的。</p>
+</li>
+<li>
+<p>解釋器然後用自帶的虛擬機（virtual machine）來運行byte code。可以把虛擬機想像成虛擬的電腦。</p>
+</li>
+<li>
+<p>解釋器運行編譯過的byte code（.pyc文件）。</p>
+</li>
+<li>
+<p>和編譯語言一樣，在原代碼和機器代碼之間，有byte code這個中間的載體。</p>
+</li>
+<li>
+<p>和編譯語言不一樣，byte code 不是直接在電腦上運行，而是需要解釋器來運行。</p>
+</li>
+<li>
+<p>所以只要機器上裝有解釋器，就可以運行Python的文件。</p>
+</li>
+<li>
+<p>因為Python是直譯式語言，所以可以先在終端運行解釋器，然後一句一句執行。</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>% python3
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; print(&#34;hello world&#34;)
+</span></span><span style="display:flex;"><span>hello world
+</span></span></code></pre></div><h3 id="java是怎麼運行的"><strong>Java是怎麼運行的？</strong><a hidden class="anchor" aria-hidden="true" href="#java是怎麼運行的">#</a></h3>
+<p>Java運行步驟：</p>
+<ul>
+<li>
+<p>不同設備上提前安裝平台專屬的<a href="https://www.jyt0532.com/toc/jvm/" target="_blank" rel="noopener" style="color:#42b983";>虛擬機_Java Virtual Machine_（JVM</a>）</p>
+</li>
+<li>
+<p>先用javac編譯器將java文件轉為.class的byte code文件</p>
+</li>
+<li>
+<p>javac命令執行後，在操作系統中啟動一個JVM進程，JVM將原文件通過類裝載器（Class Loader）加載到JVM的內存區域，生成bytecode</p>
+</li>
+<li>
+<p>JVM通過內建的Execution Engine來翻譯bytecode，Execution Engine裡有interpreter/JIT compiler將bytecode翻譯為機器語言</p>
+</li>
+<li>
+<p>JVM和操作系統相配合執行機器語言</p>
+</li>
+</ul>
+<p>Java程序運行核心是通過<strong>虛擬機</strong>。</p>
+<h4 id="虛擬機是什麼"><strong>虛擬機是什麼？</strong><a hidden class="anchor" aria-hidden="true" href="#虛擬機是什麼">#</a></h4>
+<p><strong>虛擬機</strong>組成圖：</p>
+<p><img loading="lazy" src="images/Screenshot-2023-04-07-at-9.28.03-AM-1024x587.png" alt=""  />
+</p>
+<p>source：<a href="https://www.freecodecamp.org/news/jvm-tutorial-java-virtual-machine-architecture-explained-for-beginners/" target="_blank" rel="noopener" style="color:#42b983";>JVM Tutorial - Java Virtual Machine Architecture Explained for Beginners</a></p>
+<p>可以把JVM想像成是一台模擬出來的電腦，此電腦具有完善的操作系統和處理器，也可以運行軟件。</p>
+<blockquote>
+<p>the <em>virtual machine</em>, providing an abstraction of the entire computer, including the operating system, the processor, and the programs. </p>
+<p>-CSAPP</p>
+</blockquote>
+<p>使用這樣的模擬電腦來運行class程序，無論是什麼操作系統，只要安裝了JVM，就能運行Java程序。正是由於JVM，Java這種偏編譯型的語言才可以實現一次開發，到處運行。</p>
+<h4 id="java為什麼採用虛擬機"><strong>Java為什麼採用虛擬機？</strong><a hidden class="anchor" aria-hidden="true" href="#java為什麼採用虛擬機">#</a></h4>
+<p>主要是為了快速安全多線程的跨平台執行，下面這篇文章有介紹<strong>虛擬機</strong>的前世今生。</p>
+<p><a href="https://www.jyt0532.com/2020/02/14/jvm-introduction/" target="_blank" rel="noopener" style="color:#42b983";>每個程序員都該瞭解的JVM - JAVA虛擬機介紹</a></p>
+<p><strong>總結：</strong></p>
+<p><strong>Java和Python都是同時採用編譯器與直譯器來運行的語言。</strong></p>
+<p>不過Python是偏直譯式的語言，而Java是偏編譯式的語言。二者都可以 “compile once, run anywhere.” </p>
+<p>下面是本段筆記的參考文章🔗：</p>
+<p><a href="https://www.youtube.com/watch?v=ZBJ0u9MaKtM" target="_blank" rel="noopener" style="color:#42b983";>JVM ( java virtual machine) architecture - tutorial</a></p>
+<p><a href="https://www.freecodecamp.org/news/jvm-tutorial-java-virtual-machine-architecture-explained-for-beginners/" target="_blank" rel="noopener" style="color:#42b983";>JVM Tutorial - Java Virtual Machine Architecture Explained for Beginners</a></p>
+<h2 id="java保留了primitive-types而python裡全部都是對象object"><strong>Java保留了primitive types，而Python裡全部都是對象（object）。</strong><a hidden class="anchor" aria-hidden="true" href="#java保留了primitive-types而python裡全部都是對象object">#</a></h2>
+<p>Java是雙類型系統，除了reference type（object），Java還保留了8種primitive types，<strong>boolean , byte , char , short , int , long , float , double</strong>。</p>
+<p>比如下面的int，變量i 的數值直接以二進制的方式儲存在JVM stack上面的某個地址（32bits）。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>int i = 3;
+</span></span></code></pre></div><p>而下面的Integer類裡的i則是一個object，每個object都分配有64個bits，不過這些bits存儲的不是object的內容，而是一個reference，這個reference指向存儲在JVM heap上面的object內容的地址。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Integer i = new Integer(3);
+</span></span></code></pre></div><p>至於Java為什麼保留基本的數據類型，基本上就是為了提升運算速度和效能，可以參考如下Thinking in Java裡的解釋。</p>
+<blockquote>
+<p>One group of types, which you’ll use quite often in your programming, gets special treatment. You can think of these as “primitive” types. The reason for the special treatment is that to create an object with <strong>new</strong>—especially a small, simple variable—isn’t very efficient, because <strong>new</strong> places objects on the heap. For these types Java falls back on the approach taken by C and C++. That is, instead of creating the variable by using <strong>new</strong>, an “automatic” variable is created that is <em>not a reference</em>. The variable holds the value directly, and it’s placed on the stack, so it’s much more efficient.</p>
+<p>-Thinking In Java</p>
+</blockquote>
+<p>也可以參考這篇文章：<strong><a href="https://blog.51cto.com/u_15127686/2832946" target="_blank" rel="noopener" style="color:#42b983";>Java 为什么需要保留基本数据类型</a></strong></p>
+<p>Python只有一種數據類型，那就是object。萬物皆object，Python裡原始的數據類型比如int/float都是用object構成的。</p>
+<p>下圖為Python裡的int物件自帶的method。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2022-12-11-at-6.16.09-AM-1024x321.png" alt=""  />
+</p>
+<h2 id="java是static-typing和dynamic-typingpython是dynamic-typing"><strong>Java是</strong>static typing<strong>和<strong><strong>dynamic typing</strong></strong>，Python是</strong>dynamic typing**。**<a hidden class="anchor" aria-hidden="true" href="#java是static-typing和dynamic-typingpython是dynamic-typing">#</a></h2>
+<p>先來學習下python 中沒有的static 關鍵字。</p>
+<p>static，辭典意思為“<a href="https://dictionary.cambridge.org/zhs/%E8%AF%8D%E5%85%B8/%E8%8B%B1%E8%AF%AD-%E6%B1%89%E8%AF%AD-%E7%B9%81%E4%BD%93/stay" target="_blank" rel="noopener" style="color:#42b983";>staying in one place without moving, or not changing for a long time</a>”，翻譯為靜態，靜態的變量和方法不用依賴任何object可以直接訪問，是没有this的。比如Math.abs就可以不用object直接訪問。</p>
+<p>有兩條原則：</p>
+<p>一是不能從static 方法中呼叫non-static 方法。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>With the this keyword in mind, you can more fully understand what it means to make a method static. It means that there is no this for that particular method. You cannot call non-static methods from inside static methods (although the reverse is possible), and you can call a static method for the class itself, without any object. In fact, that’s primarily what a static method is for. 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>-Thinking in Java
+</span></span></code></pre></div><p>二是在加載class時有static關鍵字的是最先加載的而且只加載一次。詳細可參考如下這篇文章：</p>
+<p><a href="https://www.cnblogs.com/dolphin0520/p/3799052.html" target="_blank" rel="noopener" style="color:#42b983";>Java中的static關鍵字</a></p>
+<p>那<strong><strong>static typing</strong></strong>和上面的static關鍵字好像沒有直接的聯繫。<strong><strong>static typing</strong></strong>和<strong><strong>dynamic typing</strong></strong>說的是<a href="https://en.wikipedia.org/wiki/Type_system" target="_blank" rel="noopener" style="color:#42b983";>Type system</a>。</p>
+<p>電腦語言只有0和1，Type system的意義就在於給這個0和1賦予意義。比如安排有些0和1表示整數。</p>
+<blockquote>
+<p><em>“The fundamental problem addressed by a type theory</em> [aka type system] <em>is to ensure that programs have meaning.</em>“</p>
+<p>Mark Mannasse</p>
+</blockquote>
+<h3 id="java的static-type-vs-dynamic-type">Java的Static Type vs. Dynamic Type<a hidden class="anchor" aria-hidden="true" href="#java的static-type-vs-dynamic-type">#</a></h3>
+<p>Java的“static type”也是“compile-time type”，指的是變量一旦設置type就一直保持不變，並且在complie的時候檢查type，如果有不一致的情況，會無法編譯也就不能運行。</p>
+<p>比如下面的變量x一開始設置為int就不能在改變了。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>public class Hello{
+</span></span><span style="display:flex;"><span>    public static void main(String[] args) {
+</span></span><span style="display:flex;"><span>        int x = 0;
+</span></span><span style="display:flex;"><span>        x = &#34;hello&#34;;
+</span></span><span style="display:flex;"><span>        System.out.println(x);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>否則會報錯：</p>
+<p><img loading="lazy" src="images/Screenshot-2023-03-23-at-10.48.13-AM-1024x595.png" alt=""  />
+</p>
+<p>Java的變量還有一個type就是“dynamic type”即“run-time type”。</p>
+<ul>
+<li>
+<p>用new這個關鍵詞產生一個instance的時候產生</p>
+</li>
+<li>
+<p>type就是新產生的object（Equal to the type of the object being pointed at.）</p>
+</li>
+</ul>
+<p>下面這個例子中a的compile type是Object，run-time type是Corgi，但因為Object沒有bark這個方法，所以無法compile。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>public <span style="color:#815ba4">class</span> Dog {
+</span></span><span style="display:flex;"><span>    private <span style="color:#ef6155">String</span> name;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    public Dog(<span style="color:#ef6155">String</span> str) {
+</span></span><span style="display:flex;"><span>        name <span style="color:#5bc4bf">=</span> str;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    public void bark() {
+</span></span><span style="display:flex;"><span>        System<span style="color:#5bc4bf">.</span>out<span style="color:#5bc4bf">.</span>println(<span style="color:#48b685">&#34;Whoof!&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#815ba4">class</span> Corgi <span style="color:#815ba4">extends</span> Dog {
+</span></span><span style="display:flex;"><span>    public Corgi(<span style="color:#ef6155">String</span> str) {
+</span></span><span style="display:flex;"><span>        super(str);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    public void bark(){
+</span></span><span style="display:flex;"><span>        System<span style="color:#5bc4bf">.</span>out<span style="color:#5bc4bf">.</span>println(<span style="color:#48b685">&#34;Bark!&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    public <span style="color:#815ba4">static</span> void main(<span style="color:#ef6155">String</span>[] args) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ef6155">Object</span> a <span style="color:#5bc4bf">=</span> new Corgi(<span style="color:#48b685">&#34;Amy&#34;</span>);
+</span></span><span style="display:flex;"><span>        a<span style="color:#5bc4bf">.</span>bark();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>但是把Object改為Dog，此時compile type 是Dog，run-time type是Corgi。因為兩者都有bark這個方法，產生overide，此時根據runtime type選擇方法，此處選擇Corgi的方法。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    public static void main(String[] args) {
+</span></span><span style="display:flex;"><span>        Dog a = new Corgi(&#34;Amy&#34;);
+</span></span><span style="display:flex;"><span>        a.bark();
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>Python不用compile只有採用<strong><strong>dynamic typing</strong></strong>。不需提前聲明變量類型，只在runtime的時候通過程式自帶的<a href="https://en.wikipedia.org/wiki/Type_inference" target="_blank" rel="noopener" style="color:#42b983";>Type inference</a>檢查類型，變量自然可以一直改變類型。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&gt;&gt;&gt; number = 10
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; numer = (number+20)/2
+</span></span></code></pre></div><p>好處是簡化代碼，壞處是少了compile這個過程，導致有些錯誤沒法一開始就被檢查出來。比如上面的code第二行的number寫錯成numer了，但是由於是動態語言，不會檢查，所以還是可以運行，這就有可能埋入bug。</p>
+<p>可參考CS61B課本<a href="https://joshhug.gitbooks.io/hug61b/content/chap1/chap11.html" target="_blank" rel="noopener" style="color:#42b983";>https://joshhug.gitbooks.io/hug61b/content/chap1/chap11.html</a>和<a href="https://cs61b-2.gitbook.io/cs61b-textbook/11.-subtype-polymorphism-comparators-comparable/11.1-a-review-of-dynamic-method-selection" target="_blank" rel="noopener" style="color:#42b983";>課程視頻</a></p>
+<h2 id="java對函數式編程支持有限python支持函數式編程"><strong>Java對函數式編程支持有限，Python支持函數式編程。</strong><a hidden class="anchor" aria-hidden="true" href="#java對函數式編程支持有限python支持函數式編程">#</a></h2>
+<p>Python既支持面向對象的編程，也支持面向過程的函數式編程。</p>
+<p>比如在Python中，函數也是object，所以可以當作參數傳遞。CS61A課程中前半部分也是在說Python如何支持函數式編程的<a href="https://fulltimemammy.com/higher-order-functions/" target="_blank" rel="noopener" style="color:#42b983";>很多特性</a>。</p>
+<p>而Java中沒有函數這個type，想要實現函數式編程的一些思想比如HOF只能通過特別的interface。</p>
+<p>下面這個例子（proj1c作業)可以看出想要使用某個函數（比如compare），必須把整個Comparator當參數傳入，然後再通過c.compare使用這個函數。比Python難用很多。詳細請參考課程：<a href="https://www.youtube.com/watch?v=OcfTN1PZ7oA&amp;list=PL8FaHk7qbOD62-LKdfz_V_uMg7f5GaSnC&amp;index=10" target="_blank" rel="noopener" style="color:#42b983";>Higher Order Functions in Java</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>public T max(Comparator&lt;T&gt; c) {
+</span></span><span style="display:flex;"><span>        if (this.isEmpty()) {
+</span></span><span style="display:flex;"><span>            return null;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        int maxIndex = 0;
+</span></span><span style="display:flex;"><span>        for (int i = 1; i &lt; size(); i += 1) {
+</span></span><span style="display:flex;"><span>            if (c.compare(get(i),get(maxIndex)) &gt; 0) {
+</span></span><span style="display:flex;"><span>                maxIndex = i;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        return get(maxIndex);
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>Java對函數式編程只是間接的支持，支持度比較有限。</p>
+<p>下面再來總結下Java和Python在OOP上的不同。</p>
+<h2 id="java和python在面向對象上的不同"><strong>Java和Python在面向對象上的不同</strong><a hidden class="anchor" aria-hidden="true" href="#java和python在面向對象上的不同">#</a></h2>
+<h3 id="java強迫使用classpython不強迫"><strong>Java強迫使用Class，Python不強迫。</strong><a hidden class="anchor" aria-hidden="true" href="#java強迫使用classpython不強迫">#</a></h3>
+<p>Java裡所有的程式都必須存在於一個class裡面，程序入口main也必須存在於一個class裡面。OOP的核心object也是必須通過class來產生的，所以從這個意義上來說，Java強迫使用OOP。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>public class HelloWorld {
+</span></span><span style="display:flex;"><span>    public static void main(String[] args){
+</span></span><span style="display:flex;"><span>        System.out.println(&#34;Hello World&#34;);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>而Python則沒有，因為有解釋器的關係，沒有main這個主程序入口，可以一行一行執行，不強迫OOP。</p>
+<p>剛開始學Python的時候，甚至拿來當計算器用。</p>
+<h3 id="java裡有封裝python沒有封裝"><strong>Java裡有封裝，Python沒有封裝。</strong><a hidden class="anchor" aria-hidden="true" href="#java裡有封裝python沒有封裝">#</a></h3>
+<p><strong>Java</strong>裡面的變量和方法有private/protected/public/default四種設定。尤其是通過使用private可以禁止外部訪問，隱藏細節，實現封裝。</p>
+<p>在Java中，可以放心的使用helper function，把重複的code獨立成一個helper function，再設置成private，代碼變得簡潔邏輯也更清楚，一堆細節也會被封裝隱藏起來。</p>
+<p>這個硬體上的只需要知道接口，不需要知道細節是一致的。</p>
+<p>Python裡全部默認為public，沒有區分沒有封裝隱藏。哪怕是用雙下劃線__來假裝隱藏，也還是可以通過_從外部來獲取。</p>
+<h3 id="java不支持多重繼承python支持多重繼承"><strong>Java不支持多重繼承，Python支持多重繼承。</strong><a hidden class="anchor" aria-hidden="true" href="#java不支持多重繼承python支持多重繼承">#</a></h3>
+<p>Java的class只可以繼承一個super class（使用extends關鍵詞），而Python的class可以繼承很多個super class。</p>
+<h4 id="java為什麼不支持多重繼承呢"><strong>Java為什麼不支持多重繼承呢？</strong><a hidden class="anchor" aria-hidden="true" href="#java為什麼不支持多重繼承呢">#</a></h4>
+<p>Java之父認為多重繼承帶來的好處大於其帶來的麻煩，所以在設計時就決定排除多重繼承。</p>
+<blockquote>
+<p>JAVA omits many rarely used, poorly understood, confusing features of C++ that in our experience bring more grief than benefit. This primarily consists of operator overloading (although it does have method overloading), multiple inheritance, and extensive automatic coercions.</p>
+<p><em>Java: an Overview</em>/James Gosling</p>
+</blockquote>
+<p>但是Java的class允許實作多個interface，算是稍微彌補不能多重繼承的問題。</p>
+<p>Java8開始允許interface可以有default method，有可能還是會產生多重繼承的問題。但是Java在編譯的時候會要求在class裡override有歧異的method，避免多重繼承的可能產生的衝突。</p>
+<h4 id="python支持多重繼承"><strong>Python支持多重繼承。</strong><a hidden class="anchor" aria-hidden="true" href="#python支持多重繼承">#</a></h4>
+<p>比如下面這個菱形繼承，方法尋找的路徑是從下往上從左到右。</p>
+<p><img loading="lazy" src="images/Screenshot-2023-03-24-at-2.08.02-PM.png" alt=""  />
+</p>
+<p>source:<a href="http://composingprograms.com/pages/25-object-oriented-programming.html" target="_blank" rel="noopener" style="color:#42b983";>COMPOSING PROGRAMS</a></p>
+<p>Python還有其他支持多重繼承的語言使用MRO algorithm解決菱形繼承的問題，下面這篇文章有解釋：</p>
+<p><a href="http://python-history.blogspot.com/2010/06/method-resolution-order.html" target="_blank" rel="noopener" style="color:#42b983";>Multiple Inheritance described by Python&rsquo;s primary author</a></p>
+<h3 id="java提供interface多型直接明顯python中使用duck-typinghttpsdocspythonorg3glossaryhtmlterm-duck-typing來多型"><strong>Java提供interface，多型直接明顯；Python中使用</strong><a href="https://docs.python.org/3/glossary.html#term-duck-typing" target="_blank" rel="noopener" style="color:#42b983";>duck typing</a>來多型**。**<a hidden class="anchor" aria-hidden="true" href="#java提供interface多型直接明顯python中使用duck-typinghttpsdocspythonorg3glossaryhtmlterm-duck-typing來多型">#</a></h3>
+<p>Java中的interface是顯性的，比如下面這個Comparator的接口，裡面有compare這個方法。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>public interface Comparator&lt;T&gt; {
+</span></span><span style="display:flex;"><span>    int compare(T o1, T o2);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>class通過implements上面的interface可以實現多型。</p>
+<p>比如這個subtype是比較int。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>private class intComparator implements Comparator&lt;Integer&gt;{
+</span></span><span style="display:flex;"><span>        @Override
+</span></span><span style="display:flex;"><span>        public int compare(Integer o1, Integer o2) {
+</span></span><span style="display:flex;"><span>            return o1 - o2;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>這個subtype是比較string。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    private class StringComparator implements Comparator&lt;String&gt;{
+</span></span><span style="display:flex;"><span>        @Override
+</span></span><span style="display:flex;"><span>        public int compare(String o1, String o2) {
+</span></span><span style="display:flex;"><span>            int minLength = Math.min(o1.length(),o2.length());
+</span></span><span style="display:flex;"><span>            for(int i = 0; i &lt; minLength;i += 1){
+</span></span><span style="display:flex;"><span>                int i1 = o1.charAt(i) - o2.charAt(i);
+</span></span><span style="display:flex;"><span>                if(i1 != 0){
+</span></span><span style="display:flex;"><span>                    return -i1;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            return o2.length() - o1.length();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>因為Java不允許**多重繼承，**但是可以允許有很多個接口，所以Java 引入Interface目的之一是來達到類似多重繼承。</p>
+<p>Python允許多重繼承，所以不需要interface，另外也可以使用<a href="https://docs.python.org/3/glossary.html#term-duck-typing" target="_blank" rel="noopener" style="color:#42b983";>duck typing</a>技術來部分達到interface的目的。所以很多Python的書籍裡都沒有特別提到多型。</p>
+<h4 id="python通過duck-typinghttpsdocspythonorg3glossaryhtmlterm-duck-typing實現多型">Python通過<a href="https://docs.python.org/3/glossary.html#term-duck-typing" target="_blank" rel="noopener" style="color:#42b983";>duck typing</a>實現多型<a hidden class="anchor" aria-hidden="true" href="#python通過duck-typinghttpsdocspythonorg3glossaryhtmlterm-duck-typing實現多型">#</a></h4>
+<p>比如下面<a href="https://en.wikipedia.org/wiki/Duck_typing" target="_blank" rel="noopener" style="color:#42b983";>wiki</a>中提供的例子，不用interface先註明有哪些方法，直接呼叫，是鴨子的話就有swim和fly的方法，不是的話系統會報錯。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>class Duck:
+</span></span><span style="display:flex;"><span>    def swim(self):
+</span></span><span style="display:flex;"><span>        print(&#34;Duck swimming&#34;)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    def fly(self):
+</span></span><span style="display:flex;"><span>        print(&#34;Duck flying&#34;)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>class Whale:
+</span></span><span style="display:flex;"><span>    def swim(self):
+</span></span><span style="display:flex;"><span>        print(&#34;Whale swimming&#34;)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>for animal in [Duck(), Whale()]:
+</span></span><span style="display:flex;"><span>    animal.swim()
+</span></span><span style="display:flex;"><span>    animal.fly()
+</span></span></code></pre></div><h2 id="總結">總結：<a hidden class="anchor" aria-hidden="true" href="#總結">#</a></h2>
+<p>之前在學習CS61A的時候，寫第二部分OOP的筆記的時候卡住了，現在知道原因了。因為Python幾乎沒有封裝，多型的使用也沒有Java這麽明顯，用Python解釋多型有些多餘。所以當時我才不知道怎麼寫筆記解釋OOP。現在稍微想通一點點了。</p>
+<p>呼應開頭的漫畫，學語言的關注點如果放在基本概念的話，會有越來越深入的理解，也可以通過不同的語言不同的實作來慢慢加深對核心概念的理解。</p>
+<p>其他：</p>
+<p>這篇文章詳細的紀錄了很多細節上的不同：</p>
+<p><a href="https://www.rose-hulman.edu/class/csse/csse220/201130/Resources/Python_vs_Java.html" target="_blank" rel="noopener" style="color:#42b983";>Python and Java - Comparisons and Contrasts</a></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/%E8%AA%9E%E8%A8%80/">語言</a></li>
+      <li><a href="https://everydaydiva.blog/tags/java/">Java</a></li>
+      <li><a href="https://everydaydiva.blog/tags/python/">Python</a></li>
+      <li><a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">CS自學</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/history/2023-06-13-%E7%94%A8java%E5%AF%AB%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84gitcs61b-gitlet%E9%A0%85%E7%9B%AE%E7%AD%86%E8%A8%98/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>用Java寫個簡單的Git：CS61B Gitlet項目筆記</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2023-02-18-git-internal/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Git 原理學習筆記</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2023-04-07 00:00:00 +0000 UTC'>2023-04-07</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/%E8%AA%9E%E8%A8%80/">語言</a>
+    <a href="https://everydaydiva.blog/tags/java/">、Java</a>
+    <a href="https://everydaydiva.blog/tags/python/">、Python</a>
+    <a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">、CS自學</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

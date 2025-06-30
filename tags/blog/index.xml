@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>blog on Everydaydiva&#39;s Blog</title>
+    <link>https://everydaydiva.blog/tags/blog/</link>
+    <description>Recent content in blog on Everydaydiva&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 15 Mar 2024 09:26:28 +0800</lastBuildDate>
+    <atom:link href="https://everydaydiva.blog/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo網站Papermod主題下增加Abmonition</title>
+      <link>https://everydaydiva.blog/posts/blog/abmonition/</link>
+      <pubDate>Fri, 15 Mar 2024 09:26:28 +0800</pubDate>
+      <guid>https://everydaydiva.blog/posts/blog/abmonition/</guid>
+      <description>Admonitions for hugo papermod website</description>
+    </item>
+    <item>
+      <title>用Hugo將Wordpress部落格搬家到Github Pages</title>
+      <link>https://everydaydiva.blog/posts/wordpressmove/</link>
+      <pubDate>Sat, 17 Feb 2024 14:36:03 +0800</pubDate>
+      <guid>https://everydaydiva.blog/posts/wordpressmove/</guid>
+      <description>決定從Wordpress搬家的原因 最近在寫關於Java學習文章的時候使用了markdown的插件，但是不好用，於是想不如折騰下自己的網站好了。學寫程式也有一陣子了，邊折騰邊學習也不錯。 用Wordpress部落格有幾年了，比較不喜歡： 常常會擔心租的域名或託管服務有沒有到期，有心裡負</description>
+    </item>
+    <item>
+      <title>Wordpress 部落格URL 設置</title>
+      <link>https://everydaydiva.blog/posts/history/2022-06-15-url-tips/</link>
+      <pubDate>Wed, 15 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-06-15-url-tips/</guid>
+      <description>最近在學CS50課程wk9，裡面有提到route。學著學著發現了自己長久以來犯的錯誤。 那就是我寫了150篇文章，竟然一直都在用系統自訂的URL，如下。 在瀏覽器裡看不出來很亂，好像也還可以接受，有可能是因為瀏覽器有轉碼的功能。 但是把網址copy下來貼到word會是如下這一長串編碼。</description>
+    </item>
+    <item>
+      <title>部落格寫作，如何寫的更快？</title>
+      <link>https://everydaydiva.blog/posts/history/2021-10-15-%E9%83%A8%E8%90%BD%E6%A0%BC%E5%AF%AB%E4%BD%9C%E5%A6%82%E4%BD%95%E5%AF%AB%E7%9A%84%E6%9B%B4%E5%BF%AB/</link>
+      <pubDate>Fri, 15 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2021-10-15-%E9%83%A8%E8%90%BD%E6%A0%BC%E5%AF%AB%E4%BD%9C%E5%A6%82%E4%BD%95%E5%AF%AB%E7%9A%84%E6%9B%B4%E5%BF%AB/</guid>
+      <description>之前常常寫了後一改再改，一個禮拜也寫不出來一篇文章，用心寫出來的文章也沒什麼人看。現在我的心態改變了，把部落格當玩耍，紀錄每個當下我的思考，這樣就可以稍微寫的快些了。 下面分享我覺得可以寫的更快的心得。 1.閱讀是第一步，精讀+泛讀 寫作只是把心裡的想法和思考紀錄下來。要想心裡有話說，</description>
+    </item>
+    <item>
+      <title>為什麼我的部落格沒有一個主題/利基/niche？</title>
+      <link>https://everydaydiva.blog/posts/history/2021-10-12-%E7%82%BA%E4%BB%80%E9%BA%BC%E6%88%91%E7%9A%84%E9%83%A8%E8%90%BD%E6%A0%BC%E6%B2%92%E6%9C%89%E4%B8%80%E5%80%8B%E4%B8%BB%E9%A1%8C-%E5%88%A9%E5%9F%BA-niche/</link>
+      <pubDate>Tue, 12 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2021-10-12-%E7%82%BA%E4%BB%80%E9%BA%BC%E6%88%91%E7%9A%84%E9%83%A8%E8%90%BD%E6%A0%BC%E6%B2%92%E6%9C%89%E4%B8%80%E5%80%8B%E4%B8%BB%E9%A1%8C-%E5%88%A9%E5%9F%BA-niche/</guid>
+      <description>最近我更新的比較快，主要是因為我現在在用一種玩耍的心態來寫部落格。 我發現沒有主題，想寫什麼就寫什麼比較輕鬆自在，也可以讓自己養成每天寫作的習慣。 1.不要為了賺錢而寫部落格 有利基的部落格更容易變現，因為聚集了讀者群。 也就是說如果為了賺錢寫部落格的話，最好要有特有的利基。 不單單是為賺</description>
+    </item>
+    <item>
+      <title>新手寫部落格50篇以來的心得總結</title>
+      <link>https://everydaydiva.blog/posts/history/2021-02-02-%E6%96%B0%E6%89%8B%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC50%E7%AF%87%E4%BB%A5%E4%BE%86%E7%9A%84%E5%BF%83%E5%BE%97%E7%B8%BD%E7%B5%90/</link>
+      <pubDate>Tue, 02 Feb 2021 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2021-02-02-%E6%96%B0%E6%89%8B%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC50%E7%AF%87%E4%BB%A5%E4%BE%86%E7%9A%84%E5%BF%83%E5%BE%97%E7%B8%BD%E7%B5%90/</guid>
+      <description>部落格總結： 第1-20篇，花了2年3個月。 從2018年7月我因為裝修廚房讓我想把經驗分享意外開始了我的部落格之旅。但是當時生小孩然後接著一個人帶兩個小孩（還有一只狗），很累沒有時間也沒有心思寫部落格，更是不知道寫什麼內容，總是覺得自己的內容已經有人寫了，我寫還有什麼價值？所以常常</description>
+    </item>
+    <item>
+      <title>我通過Google AdSense審核了--簡短心得分享</title>
+      <link>https://everydaydiva.blog/posts/history/2020-12-28-%E6%88%91%E9%80%9A%E9%81%8Egoogle-adsense%E5%AF%A9%E6%A0%B8%E4%BA%86-%E7%B0%A1%E7%9F%AD%E5%BF%83%E5%BE%97%E5%88%86%E4%BA%AB/</link>
+      <pubDate>Mon, 28 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2020-12-28-%E6%88%91%E9%80%9A%E9%81%8Egoogle-adsense%E5%AF%A9%E6%A0%B8%E4%BA%86-%E7%B0%A1%E7%9F%AD%E5%BF%83%E5%BE%97%E5%88%86%E4%BA%AB/</guid>
+      <description>剛剛郵箱裡收到信發現我通過Google AdSense審核了，意料之外。 我是7月份的時候設置了Google Analytics才知道我的網站的流量的。雖然開了網站，但是天天一打二，兩個都在家沒有上學，我真的沒什麼時間也沒什麼心思弄。 記得7月份的時候一開Analytics看到竟然有2k</description>
+    </item>
+    <item>
+      <title>初學者寫部落格心得分享：動手寫比什麼都重要</title>
+      <link>https://everydaydiva.blog/posts/history/2020-12-27-%E5%88%9D%E5%AD%B8%E8%80%85%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC%E5%BF%83%E5%BE%97%E5%88%86%E4%BA%AB%E5%8B%95%E6%89%8B%E5%AF%AB%E6%AF%94%E4%BB%80%E9%BA%BC%E9%83%BD%E9%87%8D%E8%A6%81/</link>
+      <pubDate>Sun, 27 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2020-12-27-%E5%88%9D%E5%AD%B8%E8%80%85%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC%E5%BF%83%E5%BE%97%E5%88%86%E4%BA%AB%E5%8B%95%E6%89%8B%E5%AF%AB%E6%AF%94%E4%BB%80%E9%BA%BC%E9%83%BD%E9%87%8D%E8%A6%81/</guid>
+      <description>距離我開這個部落格已經2年3個月了，但是除去最近5天寫的5篇文章，其他的我只寫了20篇文章，平均一個半月一篇。不過沒想到的是這麼打醬油的我，上個月竟然總共有2k用戶，6k PV。 為什麼之前一個月寫不了一篇，而現在一天可以寫一篇呢？ 我的心得就是： 1.有想法不要猶豫，就寫出來。 2.不用</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>hugo on Everydaydiva&#39;s Blog</title>
+    <link>https://everydaydiva.blog/categories/hugo/</link>
+    <description>Recent content in hugo on Everydaydiva&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 15 Mar 2024 09:26:28 +0800</lastBuildDate>
+    <atom:link href="https://everydaydiva.blog/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo網站Papermod主題下增加Abmonition</title>
+      <link>https://everydaydiva.blog/posts/blog/abmonition/</link>
+      <pubDate>Fri, 15 Mar 2024 09:26:28 +0800</pubDate>
+      <guid>https://everydaydiva.blog/posts/blog/abmonition/</guid>
+      <description>Admonitions for hugo papermod website</description>
+    </item>
+  </channel>
+</rss>

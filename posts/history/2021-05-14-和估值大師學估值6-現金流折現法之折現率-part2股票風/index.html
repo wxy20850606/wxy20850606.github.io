@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>和估值大師學估值6.現金流折現法之折現率-part2股票風險溢價 Equity Risk Premium | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="投資學習">
+<meta name="description" content="注：本文是學習估值大师Prof. Aswath Damodaran（達摩德仁教授）估值課程的學習筆記（個人學習筆記請謹慎參考），課程詳情請點閱視頻鏈接和相關資料（Session5-6） 上一篇學習心得寫了折現率的計算方式和折現率組成的第一部分-無風險利率。 先簡單回顧一下， 折現率計算公式： DCFE 股票自">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2021-05-14-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%AB%E5%AD%B8%E4%BC%B0%E5%80%BC6-%E7%8F%BE%E9%87%91%E6%B5%81%E6%8A%98%E7%8F%BE%E6%B3%95%E4%B9%8B%E6%8A%98%E7%8F%BE%E7%8E%87-part2%E8%82%A1%E7%A5%A8%E9%A2%A8/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="和估值大師學估值6.現金流折現法之折現率-part2股票風險溢價 Equity Risk Premium" />
+<meta property="og:description" content="注：本文是學習估值大师Prof. Aswath Damodaran（達摩德仁教授）估值課程的學習筆記（個人學習筆記請謹慎參考），課程詳情請點閱視頻鏈接和相關資料（Session5-6） 上一篇學習心得寫了折現率的計算方式和折現率組成的第一部分-無風險利率。 先簡單回顧一下， 折現率計算公式： DCFE 股票自" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2021-05-14-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%AB%E5%AD%B8%E4%BC%B0%E5%80%BC6-%E7%8F%BE%E9%87%91%E6%B5%81%E6%8A%98%E7%8F%BE%E6%B3%95%E4%B9%8B%E6%8A%98%E7%8F%BE%E7%8E%87-part2%E8%82%A1%E7%A5%A8%E9%A2%A8/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-05-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-05-14T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="和估值大師學估值6.現金流折現法之折現率-part2股票風險溢價 Equity Risk Premium"/>
+<meta name="twitter:description" content="注：本文是學習估值大师Prof. Aswath Damodaran（達摩德仁教授）估值課程的學習筆記（個人學習筆記請謹慎參考），課程詳情請點閱視頻鏈接和相關資料（Session5-6） 上一篇學習心得寫了折現率的計算方式和折現率組成的第一部分-無風險利率。 先簡單回顧一下， 折現率計算公式： DCFE 股票自"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "和估值大師學估值6.現金流折現法之折現率-part2股票風險溢價 Equity Risk Premium",
+      "item": "https://everydaydiva.blog/posts/history/2021-05-14-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%AB%E5%AD%B8%E4%BC%B0%E5%80%BC6-%E7%8F%BE%E9%87%91%E6%B5%81%E6%8A%98%E7%8F%BE%E6%B3%95%E4%B9%8B%E6%8A%98%E7%8F%BE%E7%8E%87-part2%E8%82%A1%E7%A5%A8%E9%A2%A8/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "和估值大師學估值6.現金流折現法之折現率-part2股票風險溢價 Equity Risk Premium",
+  "name": "和估值大師學估值6.現金流折現法之折現率-part2股票風險溢價 Equity Risk Premium",
+  "description": "注：本文是學習估值大师Prof. Aswath Damodaran（達摩德仁教授）估值課程的學習筆記（個人學習筆記請謹慎參考），課程詳情請點閱視頻鏈接和相關資料（Session5-6） 上一篇學習心得寫了折現率的計算方式和折現率組成的第一部分-無風險利率。 先簡單回顧一下， 折現率計算公式： DCFE 股票自",
+  "keywords": [
+    "投資學習"
+  ],
+  "articleBody": "注：本文是學習估值大师Prof. Aswath Damodaran（達摩德仁教授）估值課程的學習筆記（個人學習筆記請謹慎參考），課程詳情請點閱視頻鏈接和相關資料（Session5-6）\n上一篇學習心得寫了折現率的計算方式和折現率組成的第一部分-無風險利率。\n先簡單回顧一下，\n折現率計算公式：\nDCFE 股票自由現金流 折現率=權益資金成本=無風險利率+相對風險（比如Beta）*股票風險溢價；\nDCFF 公司自由現金 折現率=資金成本=權益資金成本*權益資金市價佔比+借貸資金成本*借貸資金市價佔比。\n無風險利率公式：\n無風險利率=目標貨幣10年公債利率-主權違約點差。\n本文主要是學習權益資金成本的第二個重要內容：股票風險溢價。\n1.股票風險溢價 Equity Risk Premium 是什麼？ 股票風險溢價是投資者投資股票，獲得的超過無風險利率的收益率，作為對承擔風險的補償。\n舉例：美金的無風險利率為1.5%，投資股票收益為10%，那10%-1.5%=8.5%，超過1.5%無風險利率的8.5%收益就是股票風險溢價。\n2.為什麼要計算股票風險溢價ERP？ 股票風險溢價是權益資金成本的一部分。權益資金成本即 Cost of equity，也可以理解為股票資金成本，公司獲得股東投資必須支付的資金成本。\n反過來說，股東必須獲得多少收益才願意將資金投資到某隻股票。股東想獲得的收益率即為權益資金成本。\n股東想獲得的收益分為兩部分：\n第一部分為假設投資不承擔風險的話可以收益多少，即為無風險利率。\n第二部分是有風險的部分可以多收益多少作為風險補償，即股票風險溢價。\n我們投資股票，收益無法保證，這就有風險了。那我們為什麼要承擔這些風險呢？目的是獲得超過無風險利率的報酬率。超過無風險報酬的利率就是股票風險溢價。\n當然不同的股票，相應的風險不同，又需要一個相對風險參數來調整。\n3.怎麼計算股票風險溢價ERP？ 方法一：歷史股票風險溢價法，Historical equity risk premium 達摩德仁教授說，現在市場上95%的分析師都是在用歷史股票風險溢價法。\n3.1什麼是歷史股票風險溢價法？怎麼計算？\n回測過去歷史數據，看歷史上投資股票收益多少，再減去無風險收益率，這樣就得到了歷史的股票風險溢價。\n3.2歷史股票風險溢價法影響因素：\n1）歷史有多久？\n是過去100年的歷史數據呢？還是過去10年？這個差異很大。\n2）無風險收益率計算依據？\n無風險收益率也有時間長短考量，是依據T-bond，T-notes，還是T-bill呢？\nT-bond一般超過10年，有10年、20年、3年；T-notes，一般是1-10年；T-bill一般是1年以內。\n不同的無風險收益率的基準，會導致最後的歷史股票風險溢價相差很大。\n3）怎麼計算平均數？\n是用幾何平均數呢？還是用算數平均數？\n幾何平均數是考慮複利，也就是考慮資金的時間價值的平均數。而算數平均數則是簡單的加總然後平均。\n3.3舉例說明：\n下表是美股近92年來的數據：\n1）如果回溯到1928年的話，近92年來和長期債券T-bond相比，歷史股票風險溢價為6.43%，如果考慮複利的話是4.84%。\n2）如果只回溯到2011，最近10年來和長期債券T-bond相比，歷史股票風險溢價為9.7%，如果考慮複利的話是9.35%\n所以不同的條件，會得到不同的歷史股票風險溢價比率。\n數據來源：http://pages.stern.nyu.edu/~adamodar/\n美股是近100年來唯一沒有因為戰爭中斷的股市，也是近100年來最成功的股市。\n即使用歷史數據得到美國的股票風險溢價，怎麼獲得其他國家的？畢竟很多國家沒有這麼長的歷史數據可以使用。\n3.4達摩德仁教授怎麼計算美國的股票風險溢價？\n原則：數據年限越長越好即92年，比較對象為長期國債（bond），平均方法為考慮複利的幾何平均數（Geometric Average）。\n3.5 怎麼計算其他國家的股票風險溢價？\n假設美股的股票風險溢價為4.72%，那怎麼估計其他國家的股票風險溢價呢？\n1）方法一：country default spread ，主權國家貨幣違約點差。\n各國股票風險溢價=美股股票風險溢價+主權國家貨幣違約點差。\n舉例：美股的股票風險溢價為4.72，巴西的主權國家違約點差為2.65%，所以巴西的股票風險溢價為4.72+2.65=7.37%\n達摩德仁教授個人網站有依據穆迪做的主權國家評級來更新的違約點差列表。\n2）方法二：標準差方法\n把其他國家的股市標準差和美股相比。波動性越大，標準差越大，風險越大。\n計算公式：A國家股票風險溢價=美國股票風險溢價*美股標準差/A國家股票標準差\n舉例：美股的股票風險溢價為4.72（此數據為2021/1/1日美股的隱含股票風險溢價），標準普爾指數標準差（美股）為18%，巴西股市Bovespa標準差為30%，所以巴西股市的波動性是美股的30%/18%=1.66倍，所以巴西股市的股票風險溢價為4.72*30%/18%=4.72*1.66=7.89%\n註:此方法為高盛發明，不適合股票流動性很差的國家。比如非洲很多國家股票流動性低，標準差就很低。\n3）方法三：主權國家貨幣違約點差修改版\n此方法為方法一的改良，因為方法一的主權國家貨幣違約點差是基於Bond的，而非股市的。基於股市風險比債券的風險高，所以要多考慮的這部分風險。\n計算公式：A國家股票風險溢價=美國股票風險溢價+主權國家貨幣違約點差*A國家股票標準差/A國家Bone標準差。\n舉例：美股的股票風險溢價為4.72，巴西的主權國家違約點差為2.65%，巴西股市Bovespa標準差為30%，巴西國家債券標準差為20%，以巴西股市的波動性是巴西政府債券的30%/20%=1.5倍，所以巴西股市的股票風險溢價為4.72+2.65%*30%/20%=4.72+3.98=8.7%\n達摩德仁教授使此方法。\n其實我們自己也不用計算，達摩德仁教授每年都會在其網站更新股票風險溢價數據（全世界所有國家和地區），免費開放給所有人下載使用。http://pages.stern.nyu.edu/~adamodar/\n4.怎麼計算股票風險溢價？方法二-Implied equity risk premium隱含股票風險溢價法 4.1 Implied equity risk premium隱含股票風險溢價法是什麼?\n隱含股票風險溢價是投資者投資時預計可以獲得的年化報酬率減去無風險利率。歷史股票風險溢價的計算時基於過去幾十年已獲得的收益率，而隱含股票風險溢價是向前看，是預估未來的收益率。未來的收益率計算依據是股利和股票回購。\n投資的時候付出的錢等於未來收到的錢除以每年的年化收益IRR.這個IRR減去無風險利率就是隱含股票風險溢價率。\n4.2 Implied equity risk premium隱含股票風險溢價法怎麼計算?\n舉例2008年股票風險溢價計算：\n2008/1/1日S\u0026P500指數價格為1468.36. 2001-2017年股息和股票回購平均為4.02%，1468.36*4.02%=59.03.\n分析師預測美股未來五年回購和股息以5%增長。5年後，預計股息和回購的終值為按無風險利率4.02%一直增長。\n得出如下等式，這裡的r就是年化收益率。\n圖片來源：http://pages.stern.nyu.edu/~adamodar/\n用Excel計算出這個r=8.39%,2008/1/1日無風險利率為4.02%，所以計算隱含股票風險溢價\n=8.39%-4.02%=4.37%\n達摩德仁教授每月月初都會在其網站更新美股隱含股票風險溢價數據，2021/5/1的美股(S\u0026P500)隱含股票風險溢價為3.99%。\n註：上面等式最右邊有個複雜的公式，這個公式是源自高登公式，表示的股息的終值折現到現在。\n​\n4.3怎麼計算其他國家隱含股票風險溢價？\n理論上來說，只要有各國代表指數的股價、目前的股息、股息增長率、終值的增長率和各國貨幣的無風險利率的數值，就可以計算各國的隱含股票風險溢價。但是這個工作量太大，根本是不可能完成的任務。所以教授也只是每月更新美股標準普爾指數的隱含股票風險溢價而已。\n所以可以考慮上面的方法三，也就是如下的計算方法估計。\n計算公式：A國家股票風險溢價=最新版美國標準普爾股票風險溢價+主權國家貨幣違約點差*A國家股票標準差/A國家Bone標準差。\n實際上教授網站上更新的2021年1月各國的ERP使用的基數就是2021/1/1日的美股隱含股票風險溢價4.72%，而非2021年1月計算的歷史股票風險溢價4.84%（數據年限90年，比較對象為長期國債，平均方法為考慮複利的幾何平均數）\n我覺得還有一種更偷懶的方法，比如2021/1/1美股隱含股票風險溢價為4.72%，2021/5/1的美股(S\u0026P500)隱含股票風險溢價為3.99%。差額為0.73%。那就把達摩德仁教授2021/1/1日更新的ERP除了美國外各個國家減去0.73%就好了。\n5.歷史股票風險溢價和隱含股票風險溢價方法比較 5.1 靜態VS動態\n歷史股票風險溢價一般一年計算一次，相對靜態。\n隱含股票風險溢價可以每天計算，因為等式每天都在變化，是個動態的過程。\n5.2 相關性\n如下表，可以看出隱含股票風險溢價和未來5年和未來10年的報酬率的相關係數達到0.5左右，而歷史股票風險溢價的相關係數為負。\n表示用隱含股票風險溢價估值效果最好。\n圖片來源：http://pages.stern.nyu.edu/~adamodar/\n註：達摩德仁教授沒說上面的Historical Premium是基於什麼標準，不過根據上下文推斷其指的是回溯到1928年、和T-bill比較、算數平均數，也就是約8.28%。\n6.從國家股票風險溢價到公司股票風險溢價計算 達摩德仁教授認為不能看公司總部在哪裡或者在哪裡上市就用哪個國家的股票風險溢價。而是要看營收來源或者是生產產地來分開來看。\n6.1按營收來源佔比分別計算各地區（國家）股票風險溢價再加總。\n舉例1：2004年巴西的Embraer公司97%的營收來自美國等發達國家市場，只有3%來自巴西。美國的股票風險溢價為5%，巴西的股票風險溢價為12.89%。\n所以Embraer公司股票風險溢價=97%*5%+3%*12.89%=5.24%\n舉例2：可口可樂2012年ERP.計算方法是每個區域的營收乘以各自的ERP再加總。\n圖片來源：http://pages.stern.nyu.edu/~adamodar/\n6.2按生產產地佔比分別計算各地區（國家）股票風險溢價再加總。\n舉例：Royal Dutch Shell石油公司。\n圖片來源：http://pages.stern.nyu.edu/~adamodar/\n7.作業：計算2021/5/18日台積電隱含股票風險溢價 总结： 股票風險溢價是投資股票獲得的超過無風險報酬的收益。\n可以根据歷史數據計算各國股票風險溢價，也可以預估各國的隱含股票風險溢價。\n有了國家的股票風險溢價，可以根據各公司的營收或生產的國家所佔比例來計算具體的公司的股票風險溢價。\n公司的股票風險溢價乘以一個相對風險值（下節課學習）再加上無風險利率，就可以計算出股權資金成本。\n延伸閱讀：達摩德仁教授的網站首頁上有關於股票風險溢價的完整論文，每年會更新，目前版本的是2020年3月更新的。\n注：本站所有學習達摩德仁教授課程的心得文章均已獲達摩德仁教授授權。\n",
+  "wordCount" : "4505",
+  "inLanguage": "zh",
+  "datePublished": "2021-05-14T00:00:00Z",
+  "dateModified": "2021-05-14T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2021-05-14-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%AB%E5%AD%B8%E4%BC%B0%E5%80%BC6-%E7%8F%BE%E9%87%91%E6%B5%81%E6%8A%98%E7%8F%BE%E6%B3%95%E4%B9%8B%E6%8A%98%E7%8F%BE%E7%8E%87-part2%E8%82%A1%E7%A5%A8%E9%A2%A8/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      和估值大師學估值6.現金流折現法之折現率-part2股票風險溢價 Equity Risk Premium
+    </h1>
+    <div class="post-meta"><span title='2021-05-14 00:00:00 +0000 UTC'>2021-05-14</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#1%e8%82%a1%e7%a5%a8%e9%a2%a8%e9%9a%aa%e6%ba%a2%e5%83%b9-equity-risk-premium-%e6%98%af%e4%bb%80%e9%ba%bc" aria-label="1.股票風險溢價 Equity Risk Premium 是什麼？"><strong>1.股票風險溢價 Equity Risk Premium 是什麼？</strong></a></li>
+                    <li>
+                        <a href="#2%e7%82%ba%e4%bb%80%e9%ba%bc%e8%a6%81%e8%a8%88%e7%ae%97%e8%82%a1%e7%a5%a8%e9%a2%a8%e9%9a%aa%e6%ba%a2%e5%83%b9erp" aria-label="2.為什麼要計算股票風險溢價ERP？"><strong>2.為什麼要計算股票風險溢價ERP？</strong></a></li>
+                    <li>
+                        <a href="#3%e6%80%8e%e9%ba%bc%e8%a8%88%e7%ae%97%e8%82%a1%e7%a5%a8%e9%a2%a8%e9%9a%aa%e6%ba%a2%e5%83%b9erp" aria-label="3.怎麼計算股票風險溢價ERP？"><strong>3.怎麼計算股票風險溢價ERP？</strong></a></li>
+                    <li>
+                        <a href="#%e6%96%b9%e6%b3%95%e4%b8%80%e6%ad%b7%e5%8f%b2%e8%82%a1%e7%a5%a8%e9%a2%a8%e9%9a%aa%e6%ba%a2%e5%83%b9%e6%b3%95historical-equity-risk-premium" aria-label="方法一：歷史股票風險溢價法，Historical equity risk premium"><strong>方法一：歷史股票風險溢價法，Historical equity risk premium</strong></a></li>
+                    <li>
+                        <a href="#4%e6%80%8e%e9%ba%bc%e8%a8%88%e7%ae%97%e8%82%a1%e7%a5%a8%e9%a2%a8%e9%9a%aa%e6%ba%a2%e5%83%b9%e6%96%b9%e6%b3%95%e4%ba%8c-implied-equity-risk-premium%e9%9a%b1%e5%90%ab%e8%82%a1%e7%a5%a8%e9%a2%a8%e9%9a%aa%e6%ba%a2%e5%83%b9%e6%b3%95" aria-label="4.怎麼計算股票風險溢價？方法二-Implied equity risk premium隱含股票風險溢價法"><strong>4.怎麼計算股票風險溢價？方法二-Implied equity risk premium隱含股票風險溢價法</strong></a></li>
+                    <li>
+                        <a href="#5%e6%ad%b7%e5%8f%b2%e8%82%a1%e7%a5%a8%e9%a2%a8%e9%9a%aa%e6%ba%a2%e5%83%b9%e5%92%8c%e9%9a%b1%e5%90%ab%e8%82%a1%e7%a5%a8%e9%a2%a8%e9%9a%aa%e6%ba%a2%e5%83%b9%e6%96%b9%e6%b3%95%e6%af%94%e8%bc%83" aria-label="5.歷史股票風險溢價和隱含股票風險溢價方法比較"><strong>5.歷史股票風險溢價和隱含股票風險溢價方法比較</strong></a></li>
+                    <li>
+                        <a href="#6%e5%be%9e%e5%9c%8b%e5%ae%b6%e8%82%a1%e7%a5%a8%e9%a2%a8%e9%9a%aa%e6%ba%a2%e5%83%b9%e5%88%b0%e5%85%ac%e5%8f%b8%e8%82%a1%e7%a5%a8%e9%a2%a8%e9%9a%aa%e6%ba%a2%e5%83%b9%e8%a8%88%e7%ae%97" aria-label="6.從國家股票風險溢價到公司股票風險溢價計算"><strong>6.從國家股票風險溢價到公司股票風險溢價計算</strong></a></li>
+                    <li>
+                        <a href="#7%e4%bd%9c%e6%a5%ad%e8%a8%88%e7%ae%972021518%e6%97%a5%e5%8f%b0%e7%a9%8d%e9%9b%bb%e9%9a%b1%e5%90%ab%e8%82%a1%e7%a5%a8%e9%a2%a8%e9%9a%aa%e6%ba%a2%e5%83%b9" aria-label="7.作業：計算2021/5/18日台積電隱含股票風險溢價">7.作業：計算2021/5/18日台積電隱含股票風險溢價</a></li>
+                    <li>
+                        <a href="#%e6%80%bb%e7%bb%93" aria-label="总结："><strong>总结：</strong></a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p>注：本文是學習估值大师Prof. Aswath Damodaran（達摩德仁教授）估值課程的學習筆記（個人學習筆記<strong>請謹慎參考</strong>），課程詳情請點閱<a href="https://www.youtube.com/watch?v=oi6M5KBWydg&amp;list=PLUkh9m2BorqlJsEfix7R9jtSXClFZhGvC" target="_blank" rel="noopener" style="color:#42b983";>視頻鏈接</a>和<a href="http://pages.stern.nyu.edu/~adamodar/" target="_blank" rel="noopener" style="color:#42b983";>相關資料</a>（Session5-6）</p>
+<p><a href="https://fulltimemammy.com/%e5%92%8c%e4%bc%b0%e5%80%bc%e5%a4%a7%e5%b8%ab%e5%ad%b8%e4%bc%b0%e5%80%bc5-%e7%8f%be%e9%87%91%e6%b5%81%e6%8a%98%e7%8f%be%e6%b3%95%e4%b9%8b%e6%8a%98%e7%8f%be%e7%8e%87-part1%e7%84%a1%e9%a2%a8%e9%9a%aa/" target="_blank" rel="noopener" style="color:#42b983";>上一篇學習心得</a>寫了折現率的計算方式和折現率組成的第一部分-無風險利率。</p>
+<p>先簡單回顧一下，</p>
+<p>折現率計算公式：</p>
+<p>DCFE 股票自由現金流 折現率=權益資金成本=無風險利率+相對風險（比如Beta）*股票風險溢價；</p>
+<p>DCFF 公司自由現金 折現率=資金成本=權益資金成本*權益資金市價佔比+借貸資金成本*借貸資金市價佔比。</p>
+<p>無風險利率公式：</p>
+<p>無風險利率=目標貨幣10年公債利率-主權違約點差。</p>
+<p>本文主要是學習權益資金成本的第二個重要內容：股票風險溢價。</p>
+<h2 id="1股票風險溢價-equity-risk-premium-是什麼"><strong>1.股票風險溢價 Equity Risk Premium 是什麼？</strong><a hidden class="anchor" aria-hidden="true" href="#1股票風險溢價-equity-risk-premium-是什麼">#</a></h2>
+<p>股票風險溢價是投資者投資股票，獲得的超過無風險利率的收益率，作為對承擔風險的補償。</p>
+<p>舉例：美金的無風險利率為1.5%，投資股票收益為10%，那10%-1.5%=8.5%，超過1.5%無風險利率的8.5%收益就是股票風險溢價。</p>
+<h2 id="2為什麼要計算股票風險溢價erp"><strong>2.為什麼要計算股票風險溢價ERP？</strong><a hidden class="anchor" aria-hidden="true" href="#2為什麼要計算股票風險溢價erp">#</a></h2>
+<p>股票風險溢價是權益資金成本的一部分。權益資金成本即 Cost of equity，也可以理解為股票資金成本，公司獲得股東投資必須支付的資金成本。</p>
+<p>反過來說，股東必須獲得多少收益才願意將資金投資到某隻股票。股東想獲得的收益率即為權益資金成本。</p>
+<p>股東想獲得的收益分為兩部分：</p>
+<p>第一部分為假設投資不承擔風險的話可以收益多少，即為無風險利率。</p>
+<p>第二部分是有風險的部分可以多收益多少作為風險補償，即股票風險溢價。</p>
+<p>我們投資股票，收益無法保證，這就有風險了。那我們為什麼要承擔這些風險呢？目的是獲得超過無風險利率的報酬率。超過無風險報酬的利率就是<strong>股票風險溢</strong>價。</p>
+<p>當然不同的股票，相應的風險不同，又需要一個相對風險參數來調整。</p>
+<h2 id="3怎麼計算股票風險溢價erp"><strong>3.怎麼計算股票風險溢價ERP？</strong><a hidden class="anchor" aria-hidden="true" href="#3怎麼計算股票風險溢價erp">#</a></h2>
+<h2 id="方法一歷史股票風險溢價法historical-equity-risk-premium"><strong>方法一：歷史股票風險溢價法，Historical equity risk premium</strong><a hidden class="anchor" aria-hidden="true" href="#方法一歷史股票風險溢價法historical-equity-risk-premium">#</a></h2>
+<p>達摩德仁教授說，現在市場上95%的分析師都是在用歷史股票風險溢價法。</p>
+<p><strong>3.1什麼是歷史股票風險溢價法？怎麼計算？</strong></p>
+<p>回測過去歷史數據，看歷史上投資股票收益多少，再減去無風險收益率，這樣就得到了歷史的股票風險溢價。</p>
+<p><strong>3.2歷史股票風險溢價法影響因素：</strong></p>
+<p>1）歷史有多久？</p>
+<p>是過去100年的歷史數據呢？還是過去10年？這個差異很大。</p>
+<p>2）無風險收益率計算依據？</p>
+<p>無風險收益率也有時間長短考量，是依據T-bond，T-notes，還是T-bill呢？</p>
+<p>T-bond一般超過10年，有10年、20年、3年；T-notes，一般是1-10年；T-bill一般是1年以內。</p>
+<p>不同的無風險收益率的基準，會導致最後的歷史股票風險溢價相差很大。</p>
+<p>3）怎麼計算平均數？</p>
+<p>是用幾何平均數呢？還是用算數平均數？</p>
+<p>幾何平均數是考慮複利，也就是考慮資金的時間價值的平均數。而算數平均數則是簡單的加總然後平均。</p>
+<p><strong>3.3舉例說明：</strong></p>
+<p>下表是美股近92年來的數據：</p>
+<p>1）如果回溯到1928年的話，近92年來和長期債券T-bond相比，歷史股票風險溢價為6.43%，如果考慮複利的話是4.84%。</p>
+<p>2）如果只回溯到2011，最近10年來和長期債券T-bond相比，歷史股票風險溢價為9.7%，如果考慮複利的話是9.35%</p>
+<p>所以不同的條件，會得到不同的歷史股票風險溢價比率。</p>
+<p><img loading="lazy" src="images/3.jpg" alt=""  />
+</p>
+<p>數據來源：http://pages.stern.nyu.edu/~adamodar/</p>
+<p>美股是近100年來唯一沒有因為戰爭中斷的股市，也是近100年來最成功的股市。</p>
+<p>即使用歷史數據得到美國的股票風險溢價，怎麼獲得其他國家的？畢竟很多國家沒有這麼長的歷史數據可以使用。</p>
+<p><strong>3.4達摩德仁教授怎麼計算美國的股票風險溢價？</strong></p>
+<p>原則：數據年限越長越好即92年，比較對象為長期國債（bond），平均方法為考慮複利的幾何平均數（Geometric Average）。</p>
+<p><strong>3.5 怎麼計算其他國家的股票風險溢價？</strong></p>
+<p>假設美股的股票風險溢價為4.72%，那怎麼估計其他國家的股票風險溢價呢？</p>
+<p>1）方法一：country default spread ，主權國家貨幣違約點差。</p>
+<p>各國股票風險溢價=美股股票風險溢價+主權國家貨幣違約點差。</p>
+<p>舉例：美股的股票風險溢價為4.72，巴西的主權國家違約點差為2.65%，所以巴西的股票風險溢價為4.72+2.65=7.37%</p>
+<p>達摩德仁教授個人網站有依據穆迪做的主權國家評級來更新的違約點差<a href="http://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/ctryprem.html" target="_blank" rel="noopener" style="color:#42b983";>列表</a>。</p>
+<p>2）方法二：標準差方法</p>
+<p>把其他國家的股市標準差和美股相比。波動性越大，標準差越大，風險越大。</p>
+<p>計算公式：A國家股票風險溢價=美國股票風險溢價*美股標準差/A國家股票標準差</p>
+<p>舉例：美股的股票風險溢價為4.72（此數據為2021/1/1日美股的隱含股票風險溢價），標準普爾指數標準差（美股）為18%，巴西股市Bovespa標準差為30%，所以巴西股市的波動性是美股的30%/18%=1.66倍，所以巴西股市的股票風險溢價為4.72*30%/18%=4.72*1.66=7.89%</p>
+<p>註:此方法為高盛發明，不適合股票流動性很差的國家。比如非洲很多國家股票流動性低，標準差就很低。</p>
+<p>3）方法三：主權國家貨幣違約點差修改版</p>
+<p>此方法為方法一的改良，因為方法一的主權國家貨幣違約點差是基於Bond的，而非股市的。基於股市風險比債券的風險高，所以要多考慮的這部分風險。</p>
+<p>計算公式：A國家股票風險溢價=美國股票風險溢價+主權國家貨幣違約點差*A國家股票標準差/A國家Bone標準差。</p>
+<p>舉例：美股的股票風險溢價為4.72，巴西的主權國家違約點差為2.65%，巴西股市Bovespa標準差為30%，巴西國家債券標準差為20%，以巴西股市的波動性是巴西政府債券的30%/20%=1.5倍，所以巴西股市的股票風險溢價為4.72+2.65%*30%/20%=4.72+3.98=8.7%</p>
+<p>達摩德仁教授使此方法。</p>
+<p>其實我們自己也不用計算，達摩德仁教授每年都會在其網站更新股票風險溢價數據（全世界所有國家和地區），免費開放給所有人下載使用。<a href="http://pages.stern.nyu.edu/~adamodar/" target="_blank" rel="noopener" style="color:#42b983";>http://pages.stern.nyu.edu/~adamodar/</a></p>
+<h2 id="4怎麼計算股票風險溢價方法二-implied-equity-risk-premium隱含股票風險溢價法"><strong>4.怎麼計算股票風險溢價？方法二-Implied equity risk premium隱含股票風險溢價法</strong><a hidden class="anchor" aria-hidden="true" href="#4怎麼計算股票風險溢價方法二-implied-equity-risk-premium隱含股票風險溢價法">#</a></h2>
+<p><strong>4.1 Implied equity risk premium隱含股票風險溢價法是什麼?</strong></p>
+<p>隱含股票風險溢價是投資者投資時預計可以獲得的年化報酬率減去無風險利率。歷史股票風險溢價的計算時基於過去幾十年已獲得的收益率，而隱含股票風險溢價是向前看，是預估未來的收益率。未來的收益率計算依據是股利和股票回購。</p>
+<p>投資的時候付出的錢等於未來收到的錢除以每年的年化收益IRR.這個IRR減去無風險利率就是隱含股票風險溢價率。</p>
+<p><strong>4.2 Implied equity risk premium隱含股票風險溢價法怎麼計算?</strong></p>
+<p>舉例2008年股票風險溢價計算：</p>
+<p>2008/1/1日S&amp;P500指數價格為1468.36. 2001-2017年股息和股票回購平均為4.02%，1468.36*4.02%=59.03.</p>
+<p>分析師預測美股未來五年回購和股息以5%增長。5年後，預計股息和回購的終值為按無風險利率4.02%一直增長。</p>
+<p><img loading="lazy" src="images/5-1024x252.jpg" alt=""  />
+</p>
+<p>得出如下等式，這裡的r就是年化收益率。</p>
+<p><img loading="lazy" src="images/6.jpg" alt=""  />
+</p>
+<p>圖片來源：http://pages.stern.nyu.edu/~adamodar/</p>
+<p>用Excel計算出這個r=8.39%,2008/1/1日無風險利率為4.02%，所以計算隱含股票風險溢價</p>
+<p>=8.39%-4.02%=4.37%</p>
+<p>達摩德仁教授每月月初都會在其網站更新美股隱含股票風險溢價數據，2021/5/1的美股(S&amp;P500)隱含股票風險溢價為3.99%。</p>
+<p>註：上面等式最右邊有個複雜的公式，這個公式是源自高登公式，表示的股息的終值折現到現在。</p>
+<p><img loading="lazy" src="images/11.jpg" alt=""  />
+</p>
+<p>​</p>
+<p><strong>4.3怎麼計算其他國家隱含股票風險溢價？</strong></p>
+<p>理論上來說，只要有各國代表指數的股價、目前的股息、股息增長率、終值的增長率和各國貨幣的無風險利率的數值，就可以計算各國的隱含股票風險溢價。但是這個工作量太大，根本是不可能完成的任務。所以教授也只是每月更新美股標準普爾指數的隱含股票風險溢價而已。</p>
+<p>所以可以考慮上面的方法三，也就是如下的計算方法估計。</p>
+<p>計算公式：A國家股票風險溢價=最新版美國標準普爾股票風險溢價+主權國家貨幣違約點差*A國家股票標準差/A國家Bone標準差。</p>
+<p>實際上教授網站上更新的2021年1月各國的ERP使用的基數就是2021/1/1日的美股隱含股票風險溢價4.72%，而非2021年1月計算的歷史股票風險溢價4.84%（數據年限90年，比較對象為長期國債，平均方法為考慮複利的幾何平均數）</p>
+<p>我覺得還有一種更偷懶的方法，比如2021/1/1美股隱含股票風險溢價為4.72%，2021/5/1的美股(S&amp;P500)隱含股票風險溢價為3.99%。差額為0.73%。那就把達摩德仁教授2021/1/1日更新的ERP除了美國外各個國家減去0.73%就好了。</p>
+<h2 id="5歷史股票風險溢價和隱含股票風險溢價方法比較"><strong>5.歷史股票風險溢價和隱含股票風險溢價方法比較</strong><a hidden class="anchor" aria-hidden="true" href="#5歷史股票風險溢價和隱含股票風險溢價方法比較">#</a></h2>
+<p><strong>5.1 靜態VS動態</strong></p>
+<p>歷史股票風險溢價一般一年計算一次，相對靜態。</p>
+<p>隱含股票風險溢價可以每天計算，因為等式每天都在變化，是個動態的過程。</p>
+<p><strong>5.2 相關性</strong></p>
+<p>如下表，可以看出隱含股票風險溢價和未來5年和未來10年的報酬率的相關係數達到0.5左右，而歷史股票風險溢價的相關係數為負。</p>
+<p>表示用隱含股票風險溢價估值效果最好。</p>
+<p><img loading="lazy" src="images/7-1024x272.jpg" alt=""  />
+</p>
+<p>圖片來源：http://pages.stern.nyu.edu/~adamodar/</p>
+<p>註：達摩德仁教授沒說上面的Historical Premium是基於什麼標準，不過根據上下文推斷其指的是回溯到1928年、和T-bill比較、算數平均數，也就是約8.28%。</p>
+<h2 id="6從國家股票風險溢價到公司股票風險溢價計算"><strong>6.從國家股票風險溢價到公司股票風險溢價計算</strong><a hidden class="anchor" aria-hidden="true" href="#6從國家股票風險溢價到公司股票風險溢價計算">#</a></h2>
+<p>達摩德仁教授認為不能看公司總部在哪裡或者在哪裡上市就用哪個國家的股票風險溢價。而是要看營收來源或者是生產產地來分開來看。</p>
+<p><strong>6.1按營收來源佔比分別計算各地區（國家）股票風險溢價再加總。</strong></p>
+<p>舉例1：2004年巴西的Embraer公司97%的營收來自美國等發達國家市場，只有3%來自巴西。美國的股票風險溢價為5%，巴西的股票風險溢價為12.89%。</p>
+<p>所以Embraer公司股票風險溢價=97%*5%+3%*12.89%=5.24%</p>
+<p><strong>舉例2：可口可樂2012年ERP.計算方法是每個區域的營收乘以各自的ERP再加總。</strong></p>
+<p><img loading="lazy" src="images/Cocl-1024x517.jpg" alt=""  />
+</p>
+<p>圖片來源：http://pages.stern.nyu.edu/~adamodar/</p>
+<p><strong>6.2按生產產地佔比分別計算各地區（國家）股票風險溢價再加總。</strong></p>
+<p>舉例：Royal Dutch Shell石油公司。</p>
+<p><img loading="lazy" src="images/4.jpg" alt=""  />
+</p>
+<p>圖片來源：http://pages.stern.nyu.edu/~adamodar/</p>
+<h2 id="7作業計算2021518日台積電隱含股票風險溢價">7.作業：計算2021/5/18日台積電隱含股票風險溢價<a hidden class="anchor" aria-hidden="true" href="#7作業計算2021518日台積電隱含股票風險溢價">#</a></h2>
+<p><img loading="lazy" src="images/image-6.png" alt=""  />
+</p>
+<h2 id="总结"><strong>总结：</strong><a hidden class="anchor" aria-hidden="true" href="#总结">#</a></h2>
+<p>股票風險溢價是投資股票獲得的超過無風險報酬的收益。</p>
+<p>可以根据歷史數據計算各國股票風險溢價，也可以預估各國的隱含股票風險溢價。</p>
+<p>有了國家的股票風險溢價，可以根據各公司的營收或生產的國家所佔比例來計算具體的公司的股票風險溢價。</p>
+<p>公司的股票風險溢價乘以一個相對風險值（下節課學習）再加上無風險利率，就可以計算出股權資金成本。</p>
+<p>延伸閱讀：達摩德仁教授的<a href="http://pages.stern.nyu.edu/~adamodar/" target="_blank" rel="noopener" style="color:#42b983";>網站首頁</a>上有關於股票風險溢價的完整論文，每年會更新，目前版本的是2020年3月更新的。</p>
+<p>注：本站所有學習達摩德仁教授課程的心得文章均已獲達摩德仁教授授權。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/%E6%8A%95%E8%B3%87%E5%AD%B8%E7%BF%92/">投資學習</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/history/2021-05-21-%E5%AD%B8%E4%BC%B0%E5%80%BC7-%E7%8F%BE%E9%87%91%E6%B5%81%E6%8A%98%E7%8F%BE%E6%B3%95%E4%B9%8B%E6%8A%98%E7%8F%BE%E7%8E%87-part3-%E4%B8%9F%E4%BA%86capm-beta%E6%94%B9%E7%94%A8bottom-up-beta/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>學估值7.現金流折現法之折現率-part3 丟了CAPM beta，改用bottom-up beta</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2021-05-07-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%AB%E5%AD%B8%E4%BC%B0%E5%80%BC5-%E7%8F%BE%E9%87%91%E6%B5%81%E6%8A%98%E7%8F%BE%E6%B3%95%E4%B9%8B%E6%8A%98%E7%8F%BE%E7%8E%87-part1%E7%84%A1%E9%A2%A8%E9%9A%AA/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>和估值大師學估值5.現金流折現法之折現率-part1無風險利率</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2021-05-14 00:00:00 +0000 UTC'>2021-05-14</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/%E6%8A%95%E8%B3%87%E5%AD%B8%E7%BF%92/">投資學習</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

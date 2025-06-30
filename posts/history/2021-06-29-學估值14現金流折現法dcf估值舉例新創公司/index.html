@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>學估值14，現金流折現法（DCF估值）舉例，新創公司、轉型公司、蕭條公司、新興市場公司等估值思路 | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="投資學習">
+<meta name="description" content="注：本文主要內容來自學習估值大师Prof. Aswath Damodaran（達摩德仁教授）的估值課程，課程詳情請點閱視頻鏈接和相關資料（Session14-18）。 課程的Session14-18是用例子來解釋怎麼處理估值時具體遇到的問題。所以來簡單寫下學習筆記，主要是提供思路為主。 1.穩定、">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2021-06-29-%E5%AD%B8%E4%BC%B0%E5%80%BC14%E7%8F%BE%E9%87%91%E6%B5%81%E6%8A%98%E7%8F%BE%E6%B3%95dcf%E4%BC%B0%E5%80%BC%E8%88%89%E4%BE%8B%E6%96%B0%E5%89%B5%E5%85%AC%E5%8F%B8/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="學估值14，現金流折現法（DCF估值）舉例，新創公司、轉型公司、蕭條公司、新興市場公司等估值思路" />
+<meta property="og:description" content="注：本文主要內容來自學習估值大师Prof. Aswath Damodaran（達摩德仁教授）的估值課程，課程詳情請點閱視頻鏈接和相關資料（Session14-18）。 課程的Session14-18是用例子來解釋怎麼處理估值時具體遇到的問題。所以來簡單寫下學習筆記，主要是提供思路為主。 1.穩定、" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2021-06-29-%E5%AD%B8%E4%BC%B0%E5%80%BC14%E7%8F%BE%E9%87%91%E6%B5%81%E6%8A%98%E7%8F%BE%E6%B3%95dcf%E4%BC%B0%E5%80%BC%E8%88%89%E4%BE%8B%E6%96%B0%E5%89%B5%E5%85%AC%E5%8F%B8/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-06-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-06-29T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="學估值14，現金流折現法（DCF估值）舉例，新創公司、轉型公司、蕭條公司、新興市場公司等估值思路"/>
+<meta name="twitter:description" content="注：本文主要內容來自學習估值大师Prof. Aswath Damodaran（達摩德仁教授）的估值課程，課程詳情請點閱視頻鏈接和相關資料（Session14-18）。 課程的Session14-18是用例子來解釋怎麼處理估值時具體遇到的問題。所以來簡單寫下學習筆記，主要是提供思路為主。 1.穩定、"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "學估值14，現金流折現法（DCF估值）舉例，新創公司、轉型公司、蕭條公司、新興市場公司等估值思路",
+      "item": "https://everydaydiva.blog/posts/history/2021-06-29-%E5%AD%B8%E4%BC%B0%E5%80%BC14%E7%8F%BE%E9%87%91%E6%B5%81%E6%8A%98%E7%8F%BE%E6%B3%95dcf%E4%BC%B0%E5%80%BC%E8%88%89%E4%BE%8B%E6%96%B0%E5%89%B5%E5%85%AC%E5%8F%B8/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "學估值14，現金流折現法（DCF估值）舉例，新創公司、轉型公司、蕭條公司、新興市場公司等估值思路",
+  "name": "學估值14，現金流折現法（DCF估值）舉例，新創公司、轉型公司、蕭條公司、新興市場公司等估值思路",
+  "description": "注：本文主要內容來自學習估值大师Prof. Aswath Damodaran（達摩德仁教授）的估值課程，課程詳情請點閱視頻鏈接和相關資料（Session14-18）。 課程的Session14-18是用例子來解釋怎麼處理估值時具體遇到的問題。所以來簡單寫下學習筆記，主要是提供思路為主。 1.穩定、",
+  "keywords": [
+    "投資學習"
+  ],
+  "articleBody": "注：本文主要內容來自學習估值大师Prof. Aswath Damodaran（達摩德仁教授）的估值課程，課程詳情請點閱視頻鏈接和相關資料（Session14-18）。\n課程的Session14-18是用例子來解釋怎麼處理估值時具體遇到的問題。所以來簡單寫下學習筆記，主要是提供思路為主。\n1.穩定、低增長、股利增長的公司估值-Gordon Growth model\n特點：1）股利穩定增長，2）成長穩定，但成長率低於或等於經濟成長率，3）cost of equity偏低，與穩定公司匹配。\n公式：Value per share=Expected dividend per share next year/(Cost of Equity-Growth rate)\n（符合此類條件的公司不多）\n2.市場大跌時的估值變化\n市場大跌時對DCF估值公式有兩個影響\n1）股市風險增加，Default spread和股票風險溢酬大漲，導致折現率增加。\n2）經濟前景變差，Return on capital降低，成長率和終值的永續成長率降低。\n3.Value the market給市場估值\n市場不是反映目前的經濟環境，而是預期未來的經濟，不過預期的不是很准就是了。\n市場後面的是集體的智慧。集體的智慧往往是最大的智慧。\n4.Value the young company\n教授以2000年估Amazon為例：\n1）最難估計的營收增長怎麼估計？\n2000教授給Amazon的10年的目標是零售業績排名第5，理由是不可能像Walmart一樣營收第一，也比營收第10的Gap好很多。這樣就得到了10年後的營收。\n2）成長率\n用目標10年後的營收倒推10年間的成長率。\n3）利潤率\n目標營業利潤率為零售行業的利潤裡15%。\n4）再投資多少\nsales to capital ratio：5.95. 因為零售行業不用自己生產，加上又是線上零售，預計不需要很多投資，顧給予比較高sales to capital ratio。\n5.Mature company in transition估有可能轉型的成熟公司\n有些老牌成熟公司100年如一日運營，但是經營效率低下，如果有遇到同產業其他公司正在大刀闊斧的轉型的時候，這些老牌公司也很有可能有樣學樣，一起轉型。\n5.1大體上來說有可能因為下面兩個原因轉型：\n1）市場變化，大家都在變，終於自己覺醒，決定轉型。\n2）被主動投資者控制，被動轉型。\n有一些很大的主動型投資者會找需要轉型的老牌公司，通過增加持股最終決定公司的營運方向，迫使公司更有效率的運營，然後股價上漲，主動型投資者再賣股退出。\n估值思路：\n1）估兩個，一是沒有轉型的價值多少，二是假設轉型成功價值多少。\n2）估轉型發生的可能性，可以從控股股東變化或者經營團隊變化看到線索。\n5.2教授舉例公司：2008年的老牌公司Hormel Foods荷美爾食品。\n在2008年的時候，荷美爾食品已經存在100年了，有極度保守的運營團隊，幾乎不用貸款，自己也投資極少。\n投資極少導致成長率低，不用貸款導致資本成本高。此時估值為31.9每股。\n但是當時的背景是其他的食品公司紛紛轉型，擴大投資，積極搶佔全球市場。\n如果公司轉型，增加貸款並擴大投資，成長率會增加，資本成本會降低。若轉型發生，估值為37.8每股。\n因為當時經營團隊未改變，而且也沒有主動投資人介入，所以估計轉型可能性為20%，所以最後估值為：31.9*80%+37.8*20%=33.08.\n5.3 三個注意事項：\n1）轉型說起來簡單做起來難\n舉例來說，公司宣佈要縮減成本，但是沒有具體計劃和細節，這到最後會不了了之。\n相反來看，如果公司有詳細的計劃和細節，就很有可能做到。所以對於公司宣稱的計劃，投資者要聽其言觀其行。\n2）成長是把雙刃劍，可以增加價值，也可以摧毀價值。\n當ROIC大於Cost of capital時，才可以創造價值。\n但是對於經營效率低下的老公司來說，增加投資帶來的成長也很有可能摧毀價值。\n下圖顯示，2017年，有33.96%的公司ROIC低於Cost of Capital2個百分點，有34.23%的公司的ROIC稍微高過Cost of Capital，只有31.8%的公司ROIC大於Cost of Capital2個百分點以上。\n所以只有約3成的公司的成長可以增加價值。\n來源：http://pages.stern.nyu.edu/~adamodar/\n3）什麼樣的股債比可以得到最低的資本成本？\n資本成本是股權成本和債務成本的加權平均成本。股權成本一般都大於債務成本，那是不是借越多的債務，資本成本就越低呢？\n答案是否定的，因為債務太多會影響到股權成本裡的bottom-up beta，也會降低影響評級的Interest coverage ratio，導致債務成本增加。\n所以根據不同的公司要找到各自最優的股債比。一般債務佔20%-40%會獲得最低的資本成本。\n（關於怎麼計算最優的股債比，教授的Corperate finance課程有花3個session講解）\n6. Company in decline估營收下降的年老公司\n思路：\n1）給予公司負增長到0增長到低增長，終值為正增長\n原因是把賠錢的業務都賣掉，保留優質業務，希望可以讓公司繼續存貨。\n2）負增長持續到終值負增長，終值也可以負增長。\n3）一直負增長，10年後破產得到清算價值。\n4）引人failure risk probablity\n比如破產概率50%，內含價值打五折。\n對於成熟的公司，可以通過Bond的等級來看失敗的風險。如果Bond是BBB，每年約10%失敗風險，存活機會為（1-10%）10,如果等級為B，每年約20%失敗風險,存活機會為（1-20%）10。\n對於新公司，只能自行估計。\n5）清算的話股權投資者可以分多少\n被迫破產清算股權投資者可以獲得多少？\n如果公司太大而不能倒閉的時候，政府或許會出手幫助公司，但是政府不會出手保護股票投資者，對於原有的投資者來說，等於股票變廢紙。\n7.Emerging market company新興市場公司\n1）把風險放入cost of equity和cost of debt。別的地方不要計算國家風險，以免重複計算。\n2）不同的貨幣估出來應該是一樣的。用什麼貨幣都可以，只要一致就可以了。\n3）注意ROIC和Cost of Capital之間的差額，因為新興市場公司的Cost of Capital一般都很高，需要更高的ROIC才能創造價值。\n4）Crossing holding，對於有大量Crossing holding的公司需要有更多的安全邊際，因為自己不可控的因素變多了。\n5）自然災害、恐怖襲擊、國有化風險\n比如Saudi _Aramco_沙特阿拉伯国家石油公司，佔了沙特阿拉伯80%GDP，又屬於皇室家族持有，如果政權改變，公司被國有化呢？\n如果這樣的話，估兩次，一次是政權沒有改變，價值多少，一次是政權改變，估值多少。然後按可能性計算整體價值。\n8.Value banks銀行估值\n計算銀行的FCFF非常難，很多人都會放棄。\n1）用股利模型來計算銀行的價值\n但是要注意：遇到危機，銀行會停止支付股利。\n2）對於銀行來說，可以用regulatory capital來衡量銀行的再投資。\nFCFE=Net income-Reinvestment in regulatory capital(book equity)\n3）對於Paypal這種公司來說，也要考慮到當他們足夠大時肯定會遇到regulatory capital的要求。\n9.無形資產對於估值的影響\n會計只是把對於工廠設備之類的投資作為CAPEX，但是這樣太局限了。\n對於軟件公司和醫藥公司來說，R\u0026D可以帶來未來的增長，所以R\u0026D不是費用而是CAPEX。\n對於咨詢公司來說，增長的來源有可能是人員招聘和培訓成本。\n對於只靠品牌價值獲利的公司來說，廣告的支出也可以帶來未來的增長。\n注意：\n當ROIC大於Cost of Capital時，R\u0026D資本化可能增加公司的價值。\n當ROIC小於Cost of Capital時，R\u0026D資本化可能減少公司的價值。\n總結：\n本文只是簡單分享思路，教授的課程有大量的舉例分析，請點閱課程視頻鏈接（Session14-18）。\n現金流折現法到此學完，接下來學習相對價值估值法（Pricing）。\n注：本站所有學習達摩德仁教授課程的心得文章均已獲達摩德仁教授授權。\n",
+  "wordCount" : "3127",
+  "inLanguage": "zh",
+  "datePublished": "2021-06-29T00:00:00Z",
+  "dateModified": "2021-06-29T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2021-06-29-%E5%AD%B8%E4%BC%B0%E5%80%BC14%E7%8F%BE%E9%87%91%E6%B5%81%E6%8A%98%E7%8F%BE%E6%B3%95dcf%E4%BC%B0%E5%80%BC%E8%88%89%E4%BE%8B%E6%96%B0%E5%89%B5%E5%85%AC%E5%8F%B8/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      學估值14，現金流折現法（DCF估值）舉例，新創公司、轉型公司、蕭條公司、新興市場公司等估值思路
+    </h1>
+    <div class="post-meta"><span title='2021-06-29 00:00:00 +0000 UTC'>2021-06-29</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> 
+
+  <div class="post-content"><p>注：本文主要內容來自學習估值大师Prof. Aswath Damodaran（達摩德仁教授）的估值課程，課程詳情請點閱<a href="https://www.youtube.com/watch?v=oi6M5KBWydg&amp;list=PLUkh9m2BorqlJsEfix7R9jtSXClFZhGvC" target="_blank" rel="noopener" style="color:#42b983";>視頻鏈接</a>和<a href="http://pages.stern.nyu.edu/~adamodar/" target="_blank" rel="noopener" style="color:#42b983";>相關資料</a>（Session14-18）。</p>
+<p>課程的Session14-18是用例子來解釋怎麼處理估值時具體遇到的問題。所以來簡單寫下學習筆記，主要是提供思路為主。</p>
+<p><strong>1.穩定、低增長、股利增長的公司估值-Gordon Growth model</strong></p>
+<p>特點：1）股利穩定增長，2）成長穩定，但成長率低於或等於經濟成長率，3）cost of equity偏低，與穩定公司匹配。</p>
+<p>公式：Value per share=Expected dividend per share next year/(Cost of Equity-Growth rate)</p>
+<p>（符合此類條件的公司不多）</p>
+<p><strong>2.市場大跌時的估值變化</strong></p>
+<p>市場大跌時對DCF估值公式有兩個影響</p>
+<p>1）股市風險增加，Default spread和股票風險溢酬大漲，導致折現率增加。</p>
+<p>2）經濟前景變差，Return on capital降低，成長率和終值的永續成長率降低。</p>
+<p><strong>3.Value the market給市場估值</strong></p>
+<p>市場不是反映目前的經濟環境，而是預期未來的經濟，不過預期的不是很准就是了。</p>
+<p>市場後面的是集體的智慧。集體的智慧往往是最大的智慧。</p>
+<p><strong>4.Value the young company</strong></p>
+<p>教授以2000年估Amazon為例：</p>
+<p>1）最難估計的營收增長怎麼估計？</p>
+<p>2000教授給Amazon的10年的目標是零售業績排名第5，理由是不可能像Walmart一樣營收第一，也比營收第10的Gap好很多。這樣就得到了10年後的營收。</p>
+<p>2）成長率</p>
+<p>用目標10年後的營收倒推10年間的成長率。</p>
+<p>3）利潤率</p>
+<p>目標營業利潤率為零售行業的利潤裡15%。</p>
+<p>4）再投資多少</p>
+<p>sales to capital ratio：5.95. 因為零售行業不用自己生產，加上又是線上零售，預計不需要很多投資，顧給予比較高sales to capital ratio。</p>
+<p><strong>5.Mature company in transition估有可能轉型的成熟公司</strong></p>
+<p>有些老牌成熟公司100年如一日運營，但是經營效率低下，如果有遇到同產業其他公司正在大刀闊斧的轉型的時候，這些老牌公司也很有可能有樣學樣，一起轉型。</p>
+<p><strong>5.1大體上來說有可能因為下面兩個原因轉型：</strong></p>
+<p>1）市場變化，大家都在變，終於自己覺醒，決定轉型。</p>
+<p>2）被主動投資者控制，被動轉型。</p>
+<p>有一些很大的主動型投資者會找需要轉型的老牌公司，通過增加持股最終決定公司的營運方向，迫使公司更有效率的運營，然後股價上漲，主動型投資者再賣股退出。</p>
+<p><strong>估值思路：</strong></p>
+<p>1）估兩個，一是沒有轉型的價值多少，二是假設轉型成功價值多少。</p>
+<p>2）估轉型發生的可能性，可以從控股股東變化或者經營團隊變化看到線索。</p>
+<p><strong>5.2教授舉例公司：2008年的老牌公司Hormel Foods荷美爾食品。</strong></p>
+<p>在2008年的時候，荷美爾食品已經存在100年了，有極度保守的運營團隊，幾乎不用貸款，自己也投資極少。</p>
+<p>投資極少導致成長率低，不用貸款導致資本成本高。此時估值為31.9每股。</p>
+<p>但是當時的背景是其他的食品公司紛紛轉型，擴大投資，積極搶佔全球市場。</p>
+<p>如果公司轉型，增加貸款並擴大投資，成長率會增加，資本成本會降低。若轉型發生，估值為37.8每股。</p>
+<p>因為當時經營團隊未改變，而且也沒有主動投資人介入，所以估計轉型可能性為20%，所以最後估值為：31.9*80%+37.8*20%=33.08.</p>
+<p><strong>5.3 三個注意事項：</strong></p>
+<p><strong>1）轉型說起來簡單做起來難</strong></p>
+<p>舉例來說，公司宣佈要縮減成本，但是沒有具體計劃和細節，這到最後會不了了之。</p>
+<p>相反來看，如果公司有詳細的計劃和細節，就很有可能做到。所以對於公司宣稱的計劃，投資者要聽其言觀其行。</p>
+<p><strong>2）成長是把雙刃劍，可以增加價值，也可以摧毀價值。</strong></p>
+<p>當ROIC大於Cost of capital時，才可以創造價值。</p>
+<p>但是對於經營效率低下的老公司來說，增加投資帶來的成長也很有可能摧毀價值。</p>
+<p>下圖顯示，2017年，有33.96%的公司ROIC低於Cost of Capital2個百分點，有34.23%的公司的ROIC稍微高過Cost of Capital，只有31.8%的公司ROIC大於Cost of Capital2個百分點以上。</p>
+<p>所以只有約3成的公司的成長可以增加價值。</p>
+<p><img loading="lazy" src="images/image-90.png" alt=""  />
+</p>
+<p>來源：http://pages.stern.nyu.edu/~adamodar/</p>
+<p><strong>3）什麼樣的股債比可以得到最低的資本成本？</strong></p>
+<p>資本成本是股權成本和債務成本的加權平均成本。股權成本一般都大於債務成本，那是不是借越多的債務，資本成本就越低呢？</p>
+<p>答案是否定的，因為債務太多會影響到股權成本裡的bottom-up beta，也會降低影響評級的Interest coverage ratio，導致債務成本增加。</p>
+<p>所以根據不同的公司要找到各自最優的股債比。一般債務佔20%-40%會獲得最低的資本成本。</p>
+<p>（關於怎麼計算最優的股債比，教授的Corperate finance課程有花3個session講解）</p>
+<p><strong>6. Company in decline估營收下降的年老公司</strong></p>
+<p>思路：</p>
+<p>1）給予公司負增長到0增長到低增長，終值為正增長</p>
+<p>原因是把賠錢的業務都賣掉，保留優質業務，希望可以讓公司繼續存貨。</p>
+<p>2）負增長持續到終值負增長，終值也可以負增長。</p>
+<p>3）一直負增長，10年後破產得到清算價值。</p>
+<p>4）引人failure risk probablity</p>
+<p>比如破產概率50%，內含價值打五折。</p>
+<p>對於成熟的公司，可以通過Bond的等級來看失敗的風險。如果Bond是BBB，每年約10%失敗風險，存活機會為（1-10%）10,如果等級為B，每年約20%失敗風險,存活機會為（1-20%）10。</p>
+<p>對於新公司，只能自行估計。</p>
+<p>5）清算的話股權投資者可以分多少</p>
+<p>被迫破產清算股權投資者可以獲得多少？</p>
+<p>如果公司太大而不能倒閉的時候，政府或許會出手幫助公司，但是政府不會出手保護股票投資者，對於原有的投資者來說，等於股票變廢紙。</p>
+<p><strong>7.Emerging market company新興市場公司</strong></p>
+<p>1）把風險放入cost of equity和cost of debt。別的地方不要計算國家風險，以免重複計算。</p>
+<p>2）不同的貨幣估出來應該是一樣的。用什麼貨幣都可以，只要一致就可以了。</p>
+<p>3）注意ROIC和Cost of Capital之間的差額，因為新興市場公司的Cost of Capital一般都很高，需要更高的ROIC才能創造價值。</p>
+<p>4）Crossing holding，對於有大量Crossing holding的公司需要有更多的安全邊際，因為自己不可控的因素變多了。</p>
+<p>5）自然災害、恐怖襲擊、國有化風險</p>
+<p>比如Saudi _Aramco_沙特阿拉伯国家石油公司，佔了沙特阿拉伯80%GDP，又屬於皇室家族持有，如果政權改變，公司被國有化呢？</p>
+<p>如果這樣的話，估兩次，一次是政權沒有改變，價值多少，一次是政權改變，估值多少。然後按可能性計算整體價值。</p>
+<p><strong>8.Value banks銀行估值</strong></p>
+<p>計算銀行的FCFF非常難，很多人都會放棄。</p>
+<p>1）用股利模型來計算銀行的價值</p>
+<p>但是要注意：遇到危機，銀行會停止支付股利。</p>
+<p>2）對於銀行來說，可以用<strong>regulatory capital</strong>來衡量銀行的再投資。</p>
+<p><strong>FCFE=Net income-Reinvestment in regulatory capital(book equity)</strong></p>
+<p>3）對於Paypal這種公司來說，也要考慮到當他們足夠大時肯定會遇到<strong>regulatory capital</strong>的要求。</p>
+<p><strong>9.無形資產對於估值的影響</strong></p>
+<p>會計只是把對於工廠設備之類的投資作為CAPEX，但是這樣太局限了。</p>
+<p>對於軟件公司和醫藥公司來說，R&amp;D可以帶來未來的增長，所以R&amp;D不是費用而是CAPEX。</p>
+<p>對於咨詢公司來說，增長的來源有可能是人員招聘和培訓成本。</p>
+<p>對於只靠品牌價值獲利的公司來說，廣告的支出也可以帶來未來的增長。</p>
+<p>注意：</p>
+<p>當ROIC大於Cost of Capital時，R&amp;D資本化可能增加公司的價值。</p>
+<p>當ROIC小於Cost of Capital時，R&amp;D資本化可能減少公司的價值。</p>
+<p>總結：</p>
+<p>本文只是簡單分享思路，教授的課程有大量的舉例分析，請點閱課程<a href="https://www.youtube.com/watch?v=oi6M5KBWydg&amp;list=PLUkh9m2BorqlJsEfix7R9jtSXClFZhGvC" target="_blank" rel="noopener" style="color:#42b983";>視頻鏈接</a>（Session14-18）。</p>
+<p>現金流折現法到此學完，接下來學習相對價值估值法（Pricing）。</p>
+<p>注：本站所有學習達摩德仁教授課程的心得文章均已獲達摩德仁教授授權。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/%E6%8A%95%E8%B3%87%E5%AD%B8%E7%BF%92/">投資學習</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/history/2021-07-06-%E5%AD%B8%E4%BC%B0%E5%80%BC15-%E7%9B%B8%E5%B0%8D%E4%BC%B0%E5%80%BC%E6%B3%95pricing%E6%9C%89%E5%93%AA%E4%BA%9B%E6%B7%B1%E5%85%A5%E5%AD%B8%E7%BF%92pepegpbev-ebitdaev-sales/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>學估值15 相對估值法（Pricing）有哪些？深入學習PE,PEG,PB,EV/EBITDA,EV/Sales各指標背後的驅動因素</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2021-06-28-%E8%B2%B7%E4%B8%8D%E5%88%B0%E8%BC%9D%E7%91%9Ebnt%E7%96%AB%E8%8B%97%E5%8F%AF%E4%BB%A5%E5%85%88%E4%BE%86%E9%BB%9E%E8%BC%9D%E7%91%9E%E8%82%A1%E7%A5%A8%E5%97%8Epfizer%E8%BC%9D%E7%91%9Edc/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>買不到輝瑞BNT疫苗，可以先來點輝瑞股票嗎？Pfizer輝瑞DCF現金流折現法估值</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2021-06-29 00:00:00 +0000 UTC'>2021-06-29</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/%E6%8A%95%E8%B3%87%E5%AD%B8%E7%BF%92/">投資學習</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

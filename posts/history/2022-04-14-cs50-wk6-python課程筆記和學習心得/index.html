@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>CS50 wk6 Python課程筆記和學習心得 | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="CS50">
+<meta name="description" content="心得： 本週從C語言轉到Python，一開課教授就說：過去的六週通過學習C語言學了很多語言的基礎，之後學任何語言靠google和stackoverflow學一下句法就可以了。經過這一個多月的學習，好像對Python稍微有點感覺了。 一週學習Python一門語言的基本語法，這節課課程本">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2022-04-14-cs50-wk6-python%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E5%92%8C%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="CS50 wk6 Python課程筆記和學習心得" />
+<meta property="og:description" content="心得： 本週從C語言轉到Python，一開課教授就說：過去的六週通過學習C語言學了很多語言的基礎，之後學任何語言靠google和stackoverflow學一下句法就可以了。經過這一個多月的學習，好像對Python稍微有點感覺了。 一週學習Python一門語言的基本語法，這節課課程本" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2022-04-14-cs50-wk6-python%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E5%92%8C%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-04-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-04-14T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CS50 wk6 Python課程筆記和學習心得"/>
+<meta name="twitter:description" content="心得： 本週從C語言轉到Python，一開課教授就說：過去的六週通過學習C語言學了很多語言的基礎，之後學任何語言靠google和stackoverflow學一下句法就可以了。經過這一個多月的學習，好像對Python稍微有點感覺了。 一週學習Python一門語言的基本語法，這節課課程本"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "CS50 wk6 Python課程筆記和學習心得",
+      "item": "https://everydaydiva.blog/posts/history/2022-04-14-cs50-wk6-python%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E5%92%8C%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "CS50 wk6 Python課程筆記和學習心得",
+  "name": "CS50 wk6 Python課程筆記和學習心得",
+  "description": "心得： 本週從C語言轉到Python，一開課教授就說：過去的六週通過學習C語言學了很多語言的基礎，之後學任何語言靠google和stackoverflow學一下句法就可以了。經過這一個多月的學習，好像對Python稍微有點感覺了。 一週學習Python一門語言的基本語法，這節課課程本",
+  "keywords": [
+    "CS50"
+  ],
+  "articleBody": "心得：\n本週從C語言轉到Python，一開課教授就說：過去的六週通過學習C語言學了很多語言的基礎，之後學任何語言靠google和stackoverflow學一下句法就可以了。經過這一個多月的學習，好像對Python稍微有點感覺了。\n一週學習Python一門語言的基本語法，這節課課程本身簡單了很多，不像之前的課程，得分好幾次看，這週課程可以一口氣看完。但是這週的作業，尤其是DNA還是有一定難度。\n筆記：\n本週的內容主要是通過用python來改寫之前用C寫過的程式來學習python，課程不難，但是進度超快，一節課的時間涉及全部基礎python coding內容，很多知識點老師只是點一下，需要自己課外學習。\n1.Python和C語言的不同之處\n1）句法的不同\nindentation和{ }\n2）Python為翻譯型語言，C為編譯型語言\nPython本身有一個用C語言編寫的interpretor。\n3）開發時間和程式運行時間\n整體來說，Python的軟體開發時間短於C語言，因為可以大量使用library，相當於撿現成的hash table/function來用。\n但是Python的程式運行時間要大於同樣的C的程式運行時間。\n如果是處理非常大的數據，而且需要一直不斷的處理，比如google公司要處理海量的數據，有海量的人不斷的使用，那麼前期費多些時間用C語言開發，成功後即可大幅提高程式反應時間。\n或者是在有容量限制（智能家電）或者電量限制（手錶）的設備上，使用底層的C語言讓程式越快運行越好。\n不過Python也可以通過優化interpreter（interpreter都是用C撰寫），或者使用CACHE來降低第二次以後的軟體運行時間，相當於翻譯一次就夠了。\n所以，C和Python各有優點，都屬於大量使用的語言。\n2.list/tuple/set/dictionary\nlist：用[ ]表示，值可變，可以通過索引進行查找。\ntuple：用（）表示，值不可變。\nset：用set()表示，值可變無序且不重複。\ndictionary:用{}表示，每個item用逗號做區隔，冒號前面表示key，冒號後面表示value。可變，通過key查找值,也可以用key來loop。\nempty_list = [] empty_list = list() students = ['Amy',18,['basketball','badminton']] nums = [x for x in range(100)] students = [(Amy,20),(Bob,19),(Ben,21)] empty_tuple = () empty_tuple = tuple() student = [(),(),()] empty_set = set() empty_dict = {} students = {'name':Amy,'gender':female,'age':18,'hobby':['basketball ','badminton']} student['name'] = Amy pizzas = {'cheese':9,'pepperoni':10,'vegetable':11,'buffalo chicken':12} for pie, price in pizzas.items(): print(\"A whole {}pizza costs {}\".format(pie, price)) 3.發現Python 官方的Tutorial簡單明瞭易讀。\nhttps://docs.python.org/3/tutorial/introduction.html\n作業心得：\n1.Mario，變簡單了，2個總共花費不到半小時\n2.Credit 花費2個半小時\n大部分時間花在學習re和string slicing。\n3.Readability 花費50分鐘\n4.DNA，總共花了7個小時，邊解題邊google學習相關內容。\n最後很囉嗦的寫完了程式碼。\ndef main(): # TODO: Check for command-line usage n = len(sys.argv) if n \u003c 3: print('Usage: python dna.py data.csv sequence.txt') sys.exit() # TODO: Read database file into a variable with open(sys.argv[1],'r') as file: database = DictReader(file) # convert to dict with string format data_dict = list(database) # TODO: Read DNA sequence file into a variable with open(sys.argv[2],'r') as dna: dna_sequence = dna.read() # TODO: Find longest match of each STR in DNA sequence dict = {} for subsequence in ['AGATC','TTTTTTCT','AATG','TCTAG','GATA','TATC','GAAA','TCTG']: dict[subsequence] = longest_match(dna_sequence, subsequence) # TODO: Check database for matching profiles found = 0 for i in range(0, len(data_dict)): count = 0 #check for large database if len(data_dict) == 23: for fieldname in ['AGATC','TTTTTTCT','AATG','TCTAG','GATA','TATC','GAAA','TCTG']: if dict[fieldname] == int(data_dict[i][fieldname]): count = count + 1 if count == 8: found = found + 1 name = data_dict[i]['name'] #check for small database elif len(data_dict) == 3: for fieldname in ['AGATC','AATG','TATC']: if dict[fieldname] == int(data_dict[i][fieldname]): count = count + 1 if count == 3: found = found+1 name = data_dict[i]['name'] if found == 1: print(name) else: print('No match') return ",
+  "wordCount" : "1262",
+  "inLanguage": "zh",
+  "datePublished": "2022-04-14T00:00:00Z",
+  "dateModified": "2022-04-14T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2022-04-14-cs50-wk6-python%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E5%92%8C%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      CS50 wk6 Python課程筆記和學習心得
+    </h1>
+    <div class="post-meta"><span title='2022-04-14 00:00:00 +0000 UTC'>2022-04-14</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> 
+
+  <div class="post-content"><p><strong>心得：</strong></p>
+<p>本週從C語言轉到Python，一開課教授就說：過去的六週通過學習C語言學了很多語言的基礎，之後學任何語言靠google和stackoverflow學一下句法就可以了。經過這一個多月的學習，好像對Python稍微有點感覺了。</p>
+<p>一週學習Python一門語言的基本語法，這節課課程本身簡單了很多，不像之前的課程，得分好幾次看，這週課程可以一口氣看完。但是這週的作業，尤其是DNA還是有一定難度。</p>
+<p><strong>筆記：</strong></p>
+<p>本週的內容主要是通過用python來改寫之前用C寫過的程式來學習python，課程不難，但是進度超快，一節課的時間涉及全部基礎python coding內容，很多知識點老師只是點一下，需要自己課外學習。</p>
+<p>1.Python和C語言的不同之處</p>
+<p>1）句法的不同</p>
+<p>indentation和{ }</p>
+<p>2）Python為翻譯型語言，C為編譯型語言</p>
+<p>Python本身有一個用C語言編寫的interpretor。</p>
+<p>3）開發時間和程式運行時間</p>
+<p>整體來說，Python的軟體開發時間短於C語言，因為可以大量使用library，相當於撿現成的hash table/function來用。</p>
+<p>但是Python的程式運行時間要大於同樣的C的程式運行時間。</p>
+<p>如果是處理非常大的數據，而且需要一直不斷的處理，比如google公司要處理海量的數據，有海量的人不斷的使用，那麼前期費多些時間用C語言開發，成功後即可大幅提高程式反應時間。</p>
+<p>或者是在有容量限制（智能家電）或者電量限制（手錶）的設備上，使用底層的C語言讓程式越快運行越好。</p>
+<p>不過Python也可以通過優化interpreter（interpreter都是用C撰寫），或者使用CACHE來降低第二次以後的軟體運行時間，相當於翻譯一次就夠了。</p>
+<p>所以，C和Python各有優點，都屬於大量使用的語言。</p>
+<p>2.list/tuple/set/dictionary</p>
+<p>list：用[ ]表示，值可變，可以通過索引進行查找。</p>
+<p>tuple：用（）表示，值不可變。</p>
+<p>set：用set()表示，值可變無序且不重複。</p>
+<p>dictionary:用{}表示，每個item用逗號做區隔，冒號前面表示key，冒號後面表示value。可變，通過key查找值,也可以用key來loop。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>empty_list = []
+</span></span><span style="display:flex;"><span>empty_list = list()
+</span></span><span style="display:flex;"><span>students = [&#39;Amy&#39;,18,[&#39;basketball&#39;,&#39;badminton&#39;]]
+</span></span><span style="display:flex;"><span>nums = [x for x in range(100)]
+</span></span><span style="display:flex;"><span>students = [(Amy,20),(Bob,19),(Ben,21)]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>empty_tuple = ()
+</span></span><span style="display:flex;"><span>empty_tuple = tuple()
+</span></span><span style="display:flex;"><span>student = [(),(),()]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>empty_set = set()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>empty_dict = {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>students = {&#39;name&#39;:Amy,&#39;gender&#39;:female,&#39;age&#39;:18,&#39;hobby&#39;:[&#39;basketball &#39;,&#39;badminton&#39;]}
+</span></span><span style="display:flex;"><span>student[&#39;name&#39;] = Amy
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>pizzas = {&#39;cheese&#39;:9,&#39;pepperoni&#39;:10,&#39;vegetable&#39;:11,&#39;buffalo chicken&#39;:12}
+</span></span><span style="display:flex;"><span>for pie, price in pizzas.items():
+</span></span><span style="display:flex;"><span>    print(&#34;A whole {}pizza costs {}&#34;.format(pie, price))
+</span></span></code></pre></div><p>3.發現Python 官方的Tutorial簡單明瞭易讀。</p>
+<p><a href="https://docs.python.org/3/tutorial/introduction.html" target="_blank" rel="noopener" style="color:#42b983";>https://docs.python.org/3/tutorial/introduction.html</a></p>
+<p><strong>作業心得：</strong></p>
+<p>1.Mario，變簡單了，2個總共花費不到半小時</p>
+<p>2.Credit 花費2個半小時</p>
+<p>大部分時間花在學習re和string slicing。</p>
+<p>3.Readability 花費50分鐘</p>
+<p>4.DNA，總共花了7個小時，邊解題邊google學習相關內容。</p>
+<p>最後很囉嗦的寫完了程式碼。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#815ba4">def</span> <span style="color:#06b6ef">main</span>():
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#776e71"># TODO: Check for command-line usage</span>
+</span></span><span style="display:flex;"><span>    n <span style="color:#5bc4bf">=</span> len(sys<span style="color:#5bc4bf">.</span>argv)
+</span></span><span style="display:flex;"><span>    <span style="color:#815ba4">if</span> n <span style="color:#5bc4bf">&lt;</span> <span style="color:#f99b15">3</span>:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#48b685">&#39;Usage: python dna.py data.csv sequence.txt&#39;</span>)
+</span></span><span style="display:flex;"><span>        sys<span style="color:#5bc4bf">.</span>exit()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#776e71"># TODO: Read database file into a variable</span>
+</span></span><span style="display:flex;"><span>    with open(sys<span style="color:#5bc4bf">.</span>argv[<span style="color:#f99b15">1</span>],<span style="color:#48b685">&#39;r&#39;</span>) as file:
+</span></span><span style="display:flex;"><span>        database <span style="color:#5bc4bf">=</span> DictReader(file) <span style="color:#776e71"># convert to dict with string format</span>
+</span></span><span style="display:flex;"><span>        data_dict <span style="color:#5bc4bf">=</span> list(database)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#776e71"># TODO: Read DNA sequence file into a variable</span>
+</span></span><span style="display:flex;"><span>        with open(sys<span style="color:#5bc4bf">.</span>argv[<span style="color:#f99b15">2</span>],<span style="color:#48b685">&#39;r&#39;</span>) as dna:
+</span></span><span style="display:flex;"><span>            dna_sequence <span style="color:#5bc4bf">=</span> dna<span style="color:#5bc4bf">.</span>read()
+</span></span><span style="display:flex;"><span>            <span style="color:#776e71"># TODO: Find longest match of each STR in DNA sequence</span>
+</span></span><span style="display:flex;"><span>            dict <span style="color:#5bc4bf">=</span> {}
+</span></span><span style="display:flex;"><span>            <span style="color:#815ba4">for</span> subsequence <span style="color:#5bc4bf">in</span> [<span style="color:#48b685">&#39;AGATC&#39;</span>,<span style="color:#48b685">&#39;TTTTTTCT&#39;</span>,<span style="color:#48b685">&#39;AATG&#39;</span>,<span style="color:#48b685">&#39;TCTAG&#39;</span>,<span style="color:#48b685">&#39;GATA&#39;</span>,<span style="color:#48b685">&#39;TATC&#39;</span>,<span style="color:#48b685">&#39;GAAA&#39;</span>,<span style="color:#48b685">&#39;TCTG&#39;</span>]:
+</span></span><span style="display:flex;"><span>                dict[subsequence] <span style="color:#5bc4bf">=</span> longest_match(dna_sequence, subsequence)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#776e71"># TODO: Check database for matching profiles</span>
+</span></span><span style="display:flex;"><span>        found <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">for</span> i <span style="color:#5bc4bf">in</span> range(<span style="color:#f99b15">0</span>, len(data_dict)):
+</span></span><span style="display:flex;"><span>            count <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#776e71">#check for large database</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#815ba4">if</span> len(data_dict) <span style="color:#5bc4bf">==</span> <span style="color:#f99b15">23</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#815ba4">for</span> fieldname <span style="color:#5bc4bf">in</span> [<span style="color:#48b685">&#39;AGATC&#39;</span>,<span style="color:#48b685">&#39;TTTTTTCT&#39;</span>,<span style="color:#48b685">&#39;AATG&#39;</span>,<span style="color:#48b685">&#39;TCTAG&#39;</span>,<span style="color:#48b685">&#39;GATA&#39;</span>,<span style="color:#48b685">&#39;TATC&#39;</span>,<span style="color:#48b685">&#39;GAAA&#39;</span>,<span style="color:#48b685">&#39;TCTG&#39;</span>]:
+</span></span><span style="display:flex;"><span>                    <span style="color:#815ba4">if</span> dict[fieldname] <span style="color:#5bc4bf">==</span> <span style="color:#ef6155">int</span>(data_dict[i][fieldname]):
+</span></span><span style="display:flex;"><span>                        count <span style="color:#5bc4bf">=</span> count <span style="color:#5bc4bf">+</span> <span style="color:#f99b15">1</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#815ba4">if</span> count <span style="color:#5bc4bf">==</span> <span style="color:#f99b15">8</span>:
+</span></span><span style="display:flex;"><span>                            found <span style="color:#5bc4bf">=</span> found <span style="color:#5bc4bf">+</span> <span style="color:#f99b15">1</span>
+</span></span><span style="display:flex;"><span>                            name <span style="color:#5bc4bf">=</span> data_dict[i][<span style="color:#48b685">&#39;name&#39;</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#776e71">#check for small database</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#815ba4">elif</span> len(data_dict) <span style="color:#5bc4bf">==</span> <span style="color:#f99b15">3</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#815ba4">for</span> fieldname <span style="color:#5bc4bf">in</span> [<span style="color:#48b685">&#39;AGATC&#39;</span>,<span style="color:#48b685">&#39;AATG&#39;</span>,<span style="color:#48b685">&#39;TATC&#39;</span>]:
+</span></span><span style="display:flex;"><span>                    <span style="color:#815ba4">if</span> dict[fieldname] <span style="color:#5bc4bf">==</span> <span style="color:#ef6155">int</span>(data_dict[i][fieldname]):
+</span></span><span style="display:flex;"><span>                        count <span style="color:#5bc4bf">=</span> count <span style="color:#5bc4bf">+</span> <span style="color:#f99b15">1</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#815ba4">if</span> count <span style="color:#5bc4bf">==</span> <span style="color:#f99b15">3</span>:
+</span></span><span style="display:flex;"><span>                            found <span style="color:#5bc4bf">=</span> found<span style="color:#5bc4bf">+</span><span style="color:#f99b15">1</span>
+</span></span><span style="display:flex;"><span>                            name <span style="color:#5bc4bf">=</span> data_dict[i][<span style="color:#48b685">&#39;name&#39;</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">if</span> found <span style="color:#5bc4bf">==</span> <span style="color:#f99b15">1</span>:
+</span></span><span style="display:flex;"><span>            print(name)
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">else</span>:
+</span></span><span style="display:flex;"><span>            print(<span style="color:#48b685">&#39;No match&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#815ba4">return</span>
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/cs50/">CS50</a></li>
+      <li><a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">CS自學</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/history/2022-04-23-cs50-wk7-sql%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>CS50 wk7 SQL學習心得</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2022-03-28-cs50-wk5-%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E5%92%8C%E4%BD%9C%E6%A5%AD%E5%BF%83%E5%BE%97/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>CS50 wk5 課程筆記和作業心得</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2022-04-14 00:00:00 +0000 UTC'>2022-04-14</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/cs50/">CS50</a>
+    <a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">、CS自學</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

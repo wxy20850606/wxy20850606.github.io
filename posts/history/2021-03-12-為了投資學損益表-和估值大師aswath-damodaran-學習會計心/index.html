@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>為了投資學損益表——和估值大師Aswath Damodaran 學習會計心得筆記二 | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="投資學習">
+<meta name="description" content="本文是和估值大師Aswath Damodaran 學習損益表的心得筆記之二，附學習視頻鏈接和講義習題鏈接。 註：Aswath Damodaran是估值權威，而非會計師，他開課目標是教授學生學習夠用的會計來幫助估值，非專業會計。Aswath Damodaran達摩德仁的youtube頻道和網站就像個知識寶庫">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2021-03-12-%E7%82%BA%E4%BA%86%E6%8A%95%E8%B3%87%E5%AD%B8%E6%90%8D%E7%9B%8A%E8%A1%A8-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%ABaswath-damodaran-%E5%AD%B8%E7%BF%92%E6%9C%83%E8%A8%88%E5%BF%83/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="為了投資學損益表——和估值大師Aswath Damodaran 學習會計心得筆記二" />
+<meta property="og:description" content="本文是和估值大師Aswath Damodaran 學習損益表的心得筆記之二，附學習視頻鏈接和講義習題鏈接。 註：Aswath Damodaran是估值權威，而非會計師，他開課目標是教授學生學習夠用的會計來幫助估值，非專業會計。Aswath Damodaran達摩德仁的youtube頻道和網站就像個知識寶庫" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2021-03-12-%E7%82%BA%E4%BA%86%E6%8A%95%E8%B3%87%E5%AD%B8%E6%90%8D%E7%9B%8A%E8%A1%A8-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%ABaswath-damodaran-%E5%AD%B8%E7%BF%92%E6%9C%83%E8%A8%88%E5%BF%83/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-03-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-03-12T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="為了投資學損益表——和估值大師Aswath Damodaran 學習會計心得筆記二"/>
+<meta name="twitter:description" content="本文是和估值大師Aswath Damodaran 學習損益表的心得筆記之二，附學習視頻鏈接和講義習題鏈接。 註：Aswath Damodaran是估值權威，而非會計師，他開課目標是教授學生學習夠用的會計來幫助估值，非專業會計。Aswath Damodaran達摩德仁的youtube頻道和網站就像個知識寶庫"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "為了投資學損益表——和估值大師Aswath Damodaran 學習會計心得筆記二",
+      "item": "https://everydaydiva.blog/posts/history/2021-03-12-%E7%82%BA%E4%BA%86%E6%8A%95%E8%B3%87%E5%AD%B8%E6%90%8D%E7%9B%8A%E8%A1%A8-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%ABaswath-damodaran-%E5%AD%B8%E7%BF%92%E6%9C%83%E8%A8%88%E5%BF%83/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "為了投資學損益表——和估值大師Aswath Damodaran 學習會計心得筆記二",
+  "name": "為了投資學損益表——和估值大師Aswath Damodaran 學習會計心得筆記二",
+  "description": "本文是和估值大師Aswath Damodaran 學習損益表的心得筆記之二，附學習視頻鏈接和講義習題鏈接。 註：Aswath Damodaran是估值權威，而非會計師，他開課目標是教授學生學習夠用的會計來幫助估值，非專業會計。Aswath Damodaran達摩德仁的youtube頻道和網站就像個知識寶庫",
+  "keywords": [
+    "投資學習"
+  ],
+  "articleBody": "本文是和估值大師Aswath Damodaran 學習損益表的心得筆記之二，附學習視頻鏈接和講義習題鏈接。\n註：Aswath Damodaran是估值權威，而非會計師，他開課目標是教授學生學習夠用的會計來幫助估值，非專業會計。Aswath Damodaran達摩德仁的youtube頻道和網站就像個知識寶庫，強烈推薦想要學習投資或者估值的人觀看。\n1.Income statement損益表是什麼？ 損益表是三大財務報表之一，目的是介紹在一個會計年度內公司賺了多少錢。各種收入多少，各種成本有多少，最後收入減去成本算出賺了多少錢。\n想一想如果把自己每年的收入和支出都列出來的話，收入減支出就是淨收益，就製作了自己的年度損益表。\n公司的損益表也是如此，列出各種收入和各種費用，得到淨利潤。為了更好的衡量企業獲利的情況，除了淨利潤之外，還有毛利潤、營業利潤和稅前利潤等指標。\n2.企業各種收入介紹 1）營業收入\n主營業務收入，比如蘋果公司，主營業務收入就是賣手機、平板、耳機等和提供服務賺取的收入。\n2）營業外收入\na. Cash and marketable securities 現金及短期有價證券。\n很多公司有大量的現金，這些現金都是投資在短期有價證券比如短期國庫券、商業票據等流動性高幾乎沒有風險的類現金資產。其帶來的收入就會顯示在其他收入裡。\nb. Cross holdings in other companies 其他公司持股。\n上市公司持有其他上市公司的股票。比如巴菲特的公司就大量持有其他上市公司的股票，波克夏持有蘋果總共5.4%的股票。\n數據來源：巴菲特2021致股東信。\n如果持股小於50%，要按比例在損益表上列出淨收益/淨損失。比如波克夏的年報就需要列出蘋果公司5.4%的淨收益。如果持股大於50%，就需要整合整個公司的收入支出等，再在資產負債表上列出不是屬於自己持有的部分。\n3.企業各種費用支出介紹。 1）Costs of Goods sold，銷貨成本，簡稱COGS\n與商品生產販售直接相關，與營業費用相對應。\n一般在損益表上直接列在營業收入Revenues的下面一行，好計算毛利潤。\n營業收入-銷貨成本=毛利潤。\n2）Operating Expenses，營業費用，簡稱OPEX\n營業費用，是企業需要維持運營需要支付的持續性的支出，比如行政費、房租費、廣告費等。和生產成本相對應，營業費用沒法和生產直接相關。\n在損益表上銷貨成本下一行。\n有些公司的報表上直接用Selling, General \u0026 Administrative Expense (SG\u0026A)來表示營業費用。\n營業收入-銷貨成本-營業費用=營業利潤。\n3）Financing Expense，財務費用\n主要指利息，在損益表上面營業費用下一行，有些公司就沒有這個費用。\n營業收入-銷貨成本-營業費用-財務費用=稅前利潤。\n4）Capital Expense,資本支出，簡稱CAPEX\n和營業費用想對應。營業費用是指本會計年的內的費用。而資本支出是指為了未來（超過1年）的收益而做的投資，包含新增廠房或者維護升級廠房所產生的固定資產，或者購買專利等無形資產。\n因為不是本年度的費用，而是給未來所用，所以按照權責發生制，不會全部直接以費用列入損益表中，而會以Amortization \u0026 Depreciation（攤銷和折舊）的形式出現在每年度的損益表上。\n也會在資產負債表中體現出來，比如固定資產增加的部分就很有可能是資本支出。\n4.Deferred Revenue 遞延收入 根據會計的權責發生制，交易發生的時候就編列入賬。那比如軟件公司，都流行用折扣價吸引客戶成交了超過1年的合約。比如3年的合約，這樣的收入要怎麼算呢？\n如果把這3年的收入都算在一年，有些不公平，因為要提供3年的服務。\n目前規定是把屬於今年的部分提取出來，當做今年的收入， 剩下的算作Deferred Revenue 遞延收入，也可以叫做Unearned revenue。\n請看下面Salesforce的現金流量表，Unearned revenue竟然有4684百萬美金。在做估值的時候顯然要好好考慮這個收入。\n5.不同的折舊思維 折舊通常出現在營業費用中，為了把資本支出分攤到一定的年限裡當做費用。主要有下列三種折舊思維。\n1）Economic depreciation經濟折舊思維\n根據資產的效用折舊，越老舊，折舊越多。\n2）Accounting depreciation會計折舊思維\n比如直線折舊法，比如一項固定資產以直線折舊法10年內折舊完畢，那就是一年折10%，到第十年末殘值為0.。\n會計有一套自己的方法來處理折舊，這些方法只是方便會計操作，比較機械化，有時並非完完全全與現實一致。\n3）Tax depreciation稅務折舊思維\n單純為了最大避稅考量來編列折舊多少。\n6.extraordinary income/expenses特別收入/支出 一次性的支出或者收入。比如一次性的出售某資產，或者一次性的法律費用支出。會偶爾出現，不會每年出現在損益表上。\n注：本站所有學習達摩德仁教授課程的心得文章均已獲達摩德仁教授授權。\n",
+  "wordCount" : "1935",
+  "inLanguage": "zh",
+  "datePublished": "2021-03-12T00:00:00Z",
+  "dateModified": "2021-03-12T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2021-03-12-%E7%82%BA%E4%BA%86%E6%8A%95%E8%B3%87%E5%AD%B8%E6%90%8D%E7%9B%8A%E8%A1%A8-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%ABaswath-damodaran-%E5%AD%B8%E7%BF%92%E6%9C%83%E8%A8%88%E5%BF%83/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      為了投資學損益表——和估值大師Aswath Damodaran 學習會計心得筆記二
+    </h1>
+    <div class="post-meta"><span title='2021-03-12 00:00:00 +0000 UTC'>2021-03-12</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#1income-statement%e6%90%8d%e7%9b%8a%e8%a1%a8%e6%98%af%e4%bb%80%e9%ba%bc" aria-label="1.Income statement損益表是什麼？">1.Income statement損益表是什麼？</a></li>
+                    <li>
+                        <a href="#2%e4%bc%81%e6%a5%ad%e5%90%84%e7%a8%ae%e6%94%b6%e5%85%a5%e4%bb%8b%e7%b4%b9" aria-label="2.企業各種收入介紹">2.企業各種收入介紹</a></li>
+                    <li>
+                        <a href="#3%e4%bc%81%e6%a5%ad%e5%90%84%e7%a8%ae%e8%b2%bb%e7%94%a8%e6%94%af%e5%87%ba%e4%bb%8b%e7%b4%b9" aria-label="3.企業各種費用支出介紹。">3.企業各種費用支出介紹。</a></li>
+                    <li>
+                        <a href="#4deferred-revenue-%e9%81%9e%e5%bb%b6%e6%94%b6%e5%85%a5" aria-label="4.Deferred Revenue 遞延收入">4.Deferred Revenue 遞延收入</a></li>
+                    <li>
+                        <a href="#5%e4%b8%8d%e5%90%8c%e7%9a%84%e6%8a%98%e8%88%8a%e6%80%9d%e7%b6%ad" aria-label="5.不同的折舊思維">5.不同的折舊思維</a></li>
+                    <li>
+                        <a href="#6extraordinary-incomeexpenses%e7%89%b9%e5%88%a5%e6%94%b6%e5%85%a5%e6%94%af%e5%87%ba" aria-label="6.extraordinary income/expenses特別收入/支出">6.extraordinary income/expenses特別收入/支出</a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p>本文是和估值大師Aswath Damodaran 學習損益表的心得筆記之二，附學習<a href="https://www.youtube.com/watch?v=Q8wKr1QDSwg&amp;list=PLUkh9m2BorqmKaLrNBjKtFDhpdFdi8f7C&amp;index=4" target="_blank" rel="noopener" style="color:#42b983";>視頻鏈接</a>和<a href="http://people.stern.nyu.edu/adamodar/New_Home_Page/webcastacctg.htm" target="_blank" rel="noopener" style="color:#42b983";>講義習題鏈接。</a></p>
+<p>註：Aswath Damodaran是估值權威，而非會計師，他開課目標是教授學生學習夠用的會計來幫助估值，非專業會計。<strong>Aswath Damodaran達摩德仁的youtube頻道和網站就像個知識寶庫，強烈推薦想要學習投資或者估值的人觀看。</strong></p>
+<h2 id="1income-statement損益表是什麼">1.Income statement損益表是什麼？<a hidden class="anchor" aria-hidden="true" href="#1income-statement損益表是什麼">#</a></h2>
+<p>損益表是三大財務報表之一，目的是介紹在一個會計年度內公司賺了多少錢。各種收入多少，各種成本有多少，最後收入減去成本算出賺了多少錢。</p>
+<p>想一想如果把自己每年的收入和支出都列出來的話，收入減支出就是淨收益，就製作了自己的年度損益表。</p>
+<p><img loading="lazy" src="images/%e4%b8%aa%e4%ba%ba%e6%8d%9f%e7%9b%8a%e8%a1%a8-1.jpg" alt=""  />
+</p>
+<p>公司的損益表也是如此，列出各種收入和各種費用，得到淨利潤。為了更好的衡量企業獲利的情況，除了淨利潤之外，還有毛利潤、營業利潤和稅前利潤等指標。</p>
+<p><img loading="lazy" src="images/%e6%8d%9f%e7%9b%8a%e8%a1%a8.jpg" alt=""  />
+</p>
+<h2 id="2企業各種收入介紹">2.企業各種收入介紹<a hidden class="anchor" aria-hidden="true" href="#2企業各種收入介紹">#</a></h2>
+<p>1）營業收入</p>
+<p>主營業務收入，比如蘋果公司，主營業務收入就是賣手機、平板、耳機等和提供服務賺取的收入。</p>
+<p>2）營業外收入</p>
+<p>a. Cash and marketable securities 現金及短期有價證券。</p>
+<p>很多公司有大量的現金，這些現金都是投資在短期有價證券比如短期國庫券、商業票據等流動性高幾乎沒有風險的類現金資產。其帶來的收入就會顯示在其他收入裡。</p>
+<p>b. Cross holdings in other companies 其他公司持股。</p>
+<p>上市公司持有其他上市公司的股票。比如巴菲特的公司就大量持有其他上市公司的股票，波克夏持有蘋果總共5.4%的股票。</p>
+<p><img loading="lazy" src="images/%e5%b7%b4%e8%8f%b2%e7%89%b9-300x158.jpg" alt=""  />
+</p>
+<p>數據來源：<a href="https://www.berkshirehathaway.com/letters/2020ltr.pdf" target="_blank" rel="noopener" style="color:#42b983";>巴菲特2021致股東信</a>。</p>
+<p>如果持股小於50%，要按比例在損益表上列出淨收益/淨損失。比如波克夏的年報就需要列出蘋果公司5.4%的淨收益。如果持股大於50%，就需要整合整個公司的收入支出等，再在資產負債表上列出不是屬於自己持有的部分。</p>
+<h2 id="3企業各種費用支出介紹">3.企業各種費用支出介紹。<a hidden class="anchor" aria-hidden="true" href="#3企業各種費用支出介紹">#</a></h2>
+<p>1）Costs of Goods sold，銷貨成本，簡稱COGS</p>
+<p>與商品生產販售直接相關，與營業費用相對應。</p>
+<p>一般在損益表上直接列在營業收入Revenues的下面一行，好計算毛利潤。</p>
+<p>營業收入-銷貨成本=毛利潤。</p>
+<p>2）Operating Expenses，營業費用，簡稱OPEX</p>
+<p>營業費用，是企業需要維持運營需要支付的持續性的支出，比如行政費、房租費、廣告費等。和生產成本相對應，營業費用沒法和生產直接相關。</p>
+<p>在損益表上銷貨成本下一行。</p>
+<p>有些公司的報表上直接用Selling, General &amp; Administrative Expense (SG&amp;A)來表示營業費用。</p>
+<p>營業收入-銷貨成本-營業費用=營業利潤。</p>
+<p>3）Financing Expense，財務費用</p>
+<p>主要指利息，在損益表上面營業費用下一行，有些公司就沒有這個費用。</p>
+<p>營業收入-銷貨成本-營業費用-財務費用=稅前利潤。</p>
+<p>4）Capital Expense,資本支出，簡稱CAPEX</p>
+<p>和營業費用想對應。營業費用是指本會計年的內的費用。而資本支出是指為了未來（超過1年）的收益而做的投資，包含新增廠房或者維護升級廠房所產生的固定資產，或者購買專利等無形資產。</p>
+<p>因為不是本年度的費用，而是給未來所用，所以按照權責發生制，不會全部直接以費用列入損益表中，而會以Amortization &amp; Depreciation（攤銷和折舊）的形式出現在每年度的損益表上。</p>
+<p>也會在資產負債表中體現出來，比如固定資產增加的部分就很有可能是資本支出。</p>
+<h2 id="4deferred-revenue-遞延收入">4.Deferred Revenue 遞延收入<a hidden class="anchor" aria-hidden="true" href="#4deferred-revenue-遞延收入">#</a></h2>
+<p>根據會計的權責發生制，交易發生的時候就編列入賬。那比如軟件公司，都流行用折扣價吸引客戶成交了超過1年的合約。比如3年的合約，這樣的收入要怎麼算呢？</p>
+<p>如果把這3年的收入都算在一年，有些不公平，因為要提供3年的服務。</p>
+<p>目前規定是把屬於今年的部分提取出來，當做今年的收入， 剩下的算作Deferred Revenue 遞延收入，也可以叫做Unearned revenue。</p>
+<p>請看下面Salesforce的現金流量表，Unearned revenue竟然有4684百萬美金。在做估值的時候顯然要好好考慮這個收入。</p>
+<p><img loading="lazy" src="images/salesforce-1024x568.jpg" alt=""  />
+</p>
+<h2 id="5不同的折舊思維">5.不同的折舊思維<a hidden class="anchor" aria-hidden="true" href="#5不同的折舊思維">#</a></h2>
+<p>折舊通常出現在營業費用中，為了把資本支出分攤到一定的年限裡當做費用。主要有下列三種折舊思維。</p>
+<p>1）Economic depreciation經濟折舊思維</p>
+<p>根據資產的效用折舊，越老舊，折舊越多。</p>
+<p>2）Accounting depreciation會計折舊思維</p>
+<p>比如直線折舊法，比如一項固定資產以直線折舊法10年內折舊完畢，那就是一年折10%，到第十年末殘值為0.。</p>
+<p>會計有一套自己的方法來處理折舊，這些方法只是方便會計操作，比較機械化，有時並非完完全全與現實一致。</p>
+<p>3）Tax depreciation稅務折舊思維</p>
+<p>單純為了最大避稅考量來編列折舊多少。</p>
+<h2 id="6extraordinary-incomeexpenses特別收入支出">6.extraordinary income/expenses特別收入/支出<a hidden class="anchor" aria-hidden="true" href="#6extraordinary-incomeexpenses特別收入支出">#</a></h2>
+<p>一次性的支出或者收入。比如一次性的出售某資產，或者一次性的法律費用支出。會偶爾出現，不會每年出現在損益表上。</p>
+<p>注：本站所有學習達摩德仁教授課程的心得文章均已獲達摩德仁教授授權。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/%E6%8A%95%E8%B3%87%E5%AD%B8%E7%BF%92/">投資學習</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/history/2021-03-15-%E4%B8%8D%E5%90%8C%E7%94%9F%E5%91%BD%E9%80%B1%E6%9C%9F%E5%85%AC%E5%8F%B8%E6%90%8D%E7%9B%8A%E8%A1%A8%E6%AF%94%E8%BC%83-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%ABaswath-damodaran/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>不同生命週期公司損益表比較——和估值大師Aswath Damodaran 學習會計心得筆記三</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2021-02-27-%E4%B8%BA%E4%BA%86%E6%8A%95%E8%B5%84%E5%AD%A6%E4%BC%9A%E8%AE%A1-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%ABaswath-damodaran%E5%AD%B8%E6%9C%83%E8%A8%88%E5%AD%B8%E7%BF%92%E7%AD%86/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>零基礎學財務報表——和估值大師Aswath Damodaran 學習會計心得筆記一</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2021-03-12 00:00:00 +0000 UTC'>2021-03-12</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/%E6%8A%95%E8%B3%87%E5%AD%B8%E7%BF%92/">投資學習</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

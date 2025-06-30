@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>CS50 wk0&#43;Scratch 學習心得和作業 | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="CS50">
+<meta name="description" content="為什麼是wk0？ 之前學了Coursera 的Python for Everybody的前兩門課，老師在結尾的時候說：現在你們已經達到Level 0了。 現在想想，只是學了functions/conditionals/variables/loops等等概念，但是卻不知道背後的邏輯是什麼。也不知道">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2022-02-05-cs50-wk0scratch-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="CS50 wk0&#43;Scratch 學習心得和作業" />
+<meta property="og:description" content="為什麼是wk0？ 之前學了Coursera 的Python for Everybody的前兩門課，老師在結尾的時候說：現在你們已經達到Level 0了。 現在想想，只是學了functions/conditionals/variables/loops等等概念，但是卻不知道背後的邏輯是什麼。也不知道" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2022-02-05-cs50-wk0scratch-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-02-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-02-05T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CS50 wk0&#43;Scratch 學習心得和作業"/>
+<meta name="twitter:description" content="為什麼是wk0？ 之前學了Coursera 的Python for Everybody的前兩門課，老師在結尾的時候說：現在你們已經達到Level 0了。 現在想想，只是學了functions/conditionals/variables/loops等等概念，但是卻不知道背後的邏輯是什麼。也不知道"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "CS50 wk0+Scratch 學習心得和作業",
+      "item": "https://everydaydiva.blog/posts/history/2022-02-05-cs50-wk0scratch-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "CS50 wk0+Scratch 學習心得和作業",
+  "name": "CS50 wk0\u002bScratch 學習心得和作業",
+  "description": "為什麼是wk0？ 之前學了Coursera 的Python for Everybody的前兩門課，老師在結尾的時候說：現在你們已經達到Level 0了。 現在想想，只是學了functions/conditionals/variables/loops等等概念，但是卻不知道背後的邏輯是什麼。也不知道",
+  "keywords": [
+    "CS50"
+  ],
+  "articleBody": "為什麼是wk0？ 之前學了Coursera 的Python for Everybody的前兩門課，老師在結尾的時候說：現在你們已經達到Level 0了。\n現在想想，只是學了functions/conditionals/variables/loops等等概念，但是卻不知道背後的邏輯是什麼。也不知道為什麼這麼做，根本不算Level 0。\n那CS50的第一節課，就花了很多時間解釋了為什麼這個基本問題。\nwk0學到了什麼： 1.電腦怎麼顯示數字、文字、顏色、圖像、視頻、聲音等等？\n電腦的世界只有0和1，教授現場演示的是燈泡沒電會滅和有電會亮。滅表示0，燈亮表示1。所以電腦語言的底層是0和1。\n電腦要用這些0和1顯示一切東西。所以我們先約定好給數字、文字、顏色、圖像、視頻、聲音編號。比如字母H的編號是72，在二進制中就是以001001000來表示。\n那怎麼告訴電腦：編號是代表數字、代表文字還是代表其他呢？比如72是代表數字72還是文字H呢？這就需要我們先設定好我們的編號是代表什麼。比如寫代碼的時候要告訴電腦我們的Variable是什麼種類，是文字還是數字還是list等等。所以不同的文檔有不同的後綴名，比如word文檔是文字，excel文檔是數字等等。\n因為0和1的語言可讀性太差，所以我們使用complier（編譯器）來把我們寫的語言，轉變成電腦可以讀懂的0和1的語言。編譯器等於是科學家寫的翻譯軟體，翻譯我們的語言給電腦聽。\n因為語言很多，我們也需要標明我們的檔案是什麼語言，才可以獲得正確的翻譯。比如hellp.py文檔是Python語言，hello.c文檔是C語言。\n寫程式就是用電腦聽得懂的語言來一步一步的解決問題。\n這個老師通過積木化的程式語言Scratch讓我們形象化的了解怎麼一步一步來解決問題，了解functions/conditionals/variables/loops等等怎麼運作。\nScratch 我覺得把Scratch放在wk0真的是CS50課程規劃的神來之筆。\n之前一想到電腦語言：\n就是各種奇怪的句法，各種標點符號，不適合我們視覺化的大腦運作； 容易犯錯誤卡住不動； 沒有成就感，學了半天也不知道學了什麼。 使用Scratch避免了上述所有的問題，我們拖一個積木代碼，馬上可以得到即時的回饋。組合不同的積木代碼，馬上可以看到不同的動畫反饋。使用Loop也可以很形象的看出來是在做什麼。\nScratch讓我可以避開討厭的句法，學習並理解編程語言的本質。\n教授接下來的課程也是通過和Scratch來類比，讓我們形象化的理解各個不同的語言。比如今天看了wk1的課程，通過和Scratch比較來學習，發現我最害怕的C語言好像變得親切友善多了。\n作業： 作業也是這麼課程設置的獨到之處。\n老師給個一點指導，然後讓學生自己找資料並在實踐中學習。這可以激發學生學習如何學習，提高自學能力。同時也增加主動性，讓學生養成主動學習的習慣。畢竟這兩個能力也是非常重要的。\nwk0的作業是用Scratch做一個小遊戲。目的是讓學生用Scratch接觸到編程的每個基本內涵（condition/ loop/variable/function等等）\n為了完成本週的作業和好好深刻了解Scratch，我還學習了單獨的Scratch課程。CS50’s Introduction to Programming with Scratch\n最終完成了我的第一個小遊戲。https://scratch.mit.edu/projects/637019489\n心得： 雖然我才上了前兩節課，但是已經感覺學到很多為什麼。\n之前學Python知道了一些是什麼和怎麼做。但是不知道為什麼？\n比如不知道為什麼字母是這麼排序的，不知道為什麼要分這麼多的type，不知道為什麼要定義value，不知道什麼事varible。現在了解了電腦的顯示機制和學了Scratch之後，終於知道為什麼要這麼做了。\n除此之外，這一週的學習以後也可以用來教我的小孩。\n參考資料：\n我準備配合Huli老師的CS50中文導讀來完成這麼課，加深理解。\nCS50 中文導讀：week 0\n",
+  "wordCount" : "1636",
+  "inLanguage": "zh",
+  "datePublished": "2022-02-05T00:00:00Z",
+  "dateModified": "2022-02-05T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2022-02-05-cs50-wk0scratch-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      CS50 wk0&#43;Scratch 學習心得和作業
+    </h1>
+    <div class="post-meta"><span title='2022-02-05 00:00:00 +0000 UTC'>2022-02-05</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e7%82%ba%e4%bb%80%e9%ba%bc%e6%98%afwk0" aria-label="為什麼是wk0？"><strong>為什麼是wk0？</strong></a></li>
+                    <li>
+                        <a href="#wk0%e5%ad%b8%e5%88%b0%e4%ba%86%e4%bb%80%e9%ba%bc" aria-label="wk0學到了什麼："><strong>wk0學到了什麼：</strong></a></li>
+                    <li>
+                        <a href="#scratch" aria-label="Scratch"><strong>Scratch</strong></a></li>
+                    <li>
+                        <a href="#%e4%bd%9c%e6%a5%ad" aria-label="作業："><strong>作業：</strong></a></li>
+                    <li>
+                        <a href="#%e5%bf%83%e5%be%97" aria-label="心得："><strong>心得：</strong></a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><h2 id="為什麼是wk0"><strong>為什麼是wk0？</strong><a hidden class="anchor" aria-hidden="true" href="#為什麼是wk0">#</a></h2>
+<p>之前學了Coursera 的Python for Everybody的前兩門課，老師在結尾的時候說：現在你們已經達到Level 0了。</p>
+<p>現在想想，只是學了functions/conditionals/variables/loops等等概念，但是卻不知道背後的邏輯是什麼。也不知道為什麼這麼做，根本不算Level 0。</p>
+<p>那CS50的第一節課，就花了很多時間解釋了為什麼這個基本問題。</p>
+<h2 id="wk0學到了什麼"><strong>wk0學到了什麼：</strong><a hidden class="anchor" aria-hidden="true" href="#wk0學到了什麼">#</a></h2>
+<p>1.電腦怎麼顯示數字、文字、顏色、圖像、視頻、聲音等等？</p>
+<p>電腦的世界只有0和1，教授現場演示的是燈泡沒電會滅和有電會亮。滅表示0，燈亮表示1。所以電腦語言的底層是0和1。</p>
+<p>電腦要用這些0和1顯示一切東西。所以我們先約定好給數字、文字、顏色、圖像、視頻、聲音編號。比如字母H的編號是72，在二進制中就是以001001000來表示。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2022-02-06-at-5.33.54-AM-1024x282.png" alt=""  />
+</p>
+<p>那怎麼告訴電腦：編號是代表數字、代表文字還是代表其他呢？比如72是代表數字72還是文字H呢？這就需要我們先設定好我們的編號是代表什麼。比如寫代碼的時候要告訴電腦我們的Variable是什麼種類，是文字還是數字還是list等等。所以不同的文檔有不同的後綴名，比如word文檔是文字，excel文檔是數字等等。</p>
+<p>因為0和1的語言可讀性太差，所以我們使用complier（編譯器）來把我們寫的語言，轉變成電腦可以讀懂的0和1的語言。編譯器等於是科學家寫的翻譯軟體，翻譯我們的語言給電腦聽。</p>
+<p>因為語言很多，我們也需要標明我們的檔案是什麼語言，才可以獲得正確的翻譯。比如hellp.py文檔是Python語言，hello.c文檔是C語言。</p>
+<p>寫程式就是用電腦聽得懂的語言來一步一步的解決問題。</p>
+<p>這個老師通過積木化的程式語言Scratch讓我們形象化的了解怎麼一步一步來解決問題，了解functions/conditionals/variables/loops等等怎麼運作。</p>
+<h2 id="scratch"><strong>Scratch</strong><a hidden class="anchor" aria-hidden="true" href="#scratch">#</a></h2>
+<p>我覺得把Scratch放在wk0真的是CS50課程規劃的神來之筆。</p>
+<p>之前一想到電腦語言：</p>
+<ul>
+<li>就是各種奇怪的句法，各種標點符號，不適合我們視覺化的大腦運作；</li>
+<li>容易犯錯誤卡住不動；</li>
+<li>沒有成就感，學了半天也不知道學了什麼。</li>
+</ul>
+<p>使用Scratch避免了上述所有的問題，我們拖一個積木代碼，馬上可以得到即時的回饋。組合不同的積木代碼，馬上可以看到不同的動畫反饋。使用Loop也可以很形象的看出來是在做什麼。</p>
+<p>Scratch讓我可以避開討厭的句法，學習並理解編程語言的本質。</p>
+<p>教授接下來的課程也是通過和Scratch來類比，讓我們形象化的理解各個不同的語言。比如今天看了wk1的課程，通過和Scratch比較來學習，發現我最害怕的C語言好像變得親切友善多了。</p>
+<h2 id="作業"><strong>作業：</strong><a hidden class="anchor" aria-hidden="true" href="#作業">#</a></h2>
+<p>作業也是這麼課程設置的獨到之處。</p>
+<p>老師給個一點指導，然後讓學生自己找資料並在實踐中學習。這可以激發學生學習如何學習，提高自學能力。同時也增加主動性，讓學生養成主動學習的習慣。畢竟這兩個能力也是非常重要的。</p>
+<p>wk0的作業是用Scratch做一個小遊戲。目的是讓學生用Scratch接觸到編程的每個基本內涵（condition/ loop/variable/function等等）</p>
+<p>為了完成本週的作業和好好深刻了解Scratch，我還學習了單獨的Scratch課程。<strong><a href="https://learning.edx.org/course/course-v1:HarvardX&#43;CS50S&#43;Scratch/home" target="_blank" rel="noopener" style="color:#42b983";>CS50&rsquo;s Introduction to Programming with Scratch</a></strong></p>
+<p>最終完成了我的第一個小遊戲。<a href="https://scratch.mit.edu/projects/637019489" target="_blank" rel="noopener" style="color:#42b983";>https://scratch.mit.edu/projects/637019489</a></p>
+<h2 id="心得"><strong>心得：</strong><a hidden class="anchor" aria-hidden="true" href="#心得">#</a></h2>
+<p>雖然我才上了前兩節課，但是已經感覺學到很多為什麼。</p>
+<p>之前學Python知道了一些是什麼和怎麼做。但是不知道為什麼？</p>
+<p>比如不知道為什麼字母是這麼排序的，不知道為什麼要分這麼多的type，不知道為什麼要定義value，不知道什麼事varible。現在了解了電腦的顯示機制和學了Scratch之後，終於知道為什麼要這麼做了。</p>
+<p>除此之外，這一週的學習以後也可以用來教我的小孩。</p>
+<p>參考資料：</p>
+<p>我準備配合Huli老師的CS50中文導讀來完成這麼課，加深理解。</p>
+<p><a href="https://www.youtube.com/watch?v=3LNrNc8-x_c&amp;list=PLeWlPscCzV-emSo2phZqStPZ0UDKzKu8s&amp;index=1" target="_blank" rel="noopener" style="color:#42b983";>CS50 中文導讀：week 0</a></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/cs50/">CS50</a></li>
+      <li><a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">CS自學</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/history/2022-02-12-cs50-wk1-c-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97%E5%92%8C%E4%BD%9C%E6%A5%AD/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>CS50 wk1 &#43; C 學習心得和作業</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2022-01-29-python%E7%AC%AC%E4%B8%80%E5%80%8B%E6%9C%88%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97-python%E4%B8%80%E9%BB%9E%E9%83%BD%E4%B8%8D%E7%B0%A1%E5%96%AE/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Python第一個月學習心得——Python一點都不簡單</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2022-02-05 00:00:00 +0000 UTC'>2022-02-05</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/cs50/">CS50</a>
+    <a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">、CS自學</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

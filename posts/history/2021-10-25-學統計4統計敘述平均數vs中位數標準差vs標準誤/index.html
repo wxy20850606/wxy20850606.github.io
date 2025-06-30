@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>學統計4:統計敘述，平均數vs中位數，標準差vs標準誤差，偏度和峰度 | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="投資學習">
+<meta name="description" content="複習下統計學主要內容： 收集數據。因為數據太多，需要使用Sampling（抽樣）。 敘述數據。歸納數據的特徵，比如中位數、平均數和標準差等等。 圖形化數據。使用圖表和分佈圖來使統計結果變成圖形，使得數據可視化。 數據相關性。比如可以使用Regression（回顧分析）檢驗兩個數據的相關係">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2021-10-25-%E5%AD%B8%E7%B5%B1%E8%A8%884%E7%B5%B1%E8%A8%88%E6%95%98%E8%BF%B0%E5%B9%B3%E5%9D%87%E6%95%B8vs%E4%B8%AD%E4%BD%8D%E6%95%B8%E6%A8%99%E6%BA%96%E5%B7%AEvs%E6%A8%99%E6%BA%96%E8%AA%A4/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="學統計4:統計敘述，平均數vs中位數，標準差vs標準誤差，偏度和峰度" />
+<meta property="og:description" content="複習下統計學主要內容： 收集數據。因為數據太多，需要使用Sampling（抽樣）。 敘述數據。歸納數據的特徵，比如中位數、平均數和標準差等等。 圖形化數據。使用圖表和分佈圖來使統計結果變成圖形，使得數據可視化。 數據相關性。比如可以使用Regression（回顧分析）檢驗兩個數據的相關係" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2021-10-25-%E5%AD%B8%E7%B5%B1%E8%A8%884%E7%B5%B1%E8%A8%88%E6%95%98%E8%BF%B0%E5%B9%B3%E5%9D%87%E6%95%B8vs%E4%B8%AD%E4%BD%8D%E6%95%B8%E6%A8%99%E6%BA%96%E5%B7%AEvs%E6%A8%99%E6%BA%96%E8%AA%A4/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-10-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-10-25T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="學統計4:統計敘述，平均數vs中位數，標準差vs標準誤差，偏度和峰度"/>
+<meta name="twitter:description" content="複習下統計學主要內容： 收集數據。因為數據太多，需要使用Sampling（抽樣）。 敘述數據。歸納數據的特徵，比如中位數、平均數和標準差等等。 圖形化數據。使用圖表和分佈圖來使統計結果變成圖形，使得數據可視化。 數據相關性。比如可以使用Regression（回顧分析）檢驗兩個數據的相關係"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "學統計4:統計敘述，平均數vs中位數，標準差vs標準誤差，偏度和峰度",
+      "item": "https://everydaydiva.blog/posts/history/2021-10-25-%E5%AD%B8%E7%B5%B1%E8%A8%884%E7%B5%B1%E8%A8%88%E6%95%98%E8%BF%B0%E5%B9%B3%E5%9D%87%E6%95%B8vs%E4%B8%AD%E4%BD%8D%E6%95%B8%E6%A8%99%E6%BA%96%E5%B7%AEvs%E6%A8%99%E6%BA%96%E8%AA%A4/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "學統計4:統計敘述，平均數vs中位數，標準差vs標準誤差，偏度和峰度",
+  "name": "學統計4:統計敘述，平均數vs中位數，標準差vs標準誤差，偏度和峰度",
+  "description": "複習下統計學主要內容： 收集數據。因為數據太多，需要使用Sampling（抽樣）。 敘述數據。歸納數據的特徵，比如中位數、平均數和標準差等等。 圖形化數據。使用圖表和分佈圖來使統計結果變成圖形，使得數據可視化。 數據相關性。比如可以使用Regression（回顧分析）檢驗兩個數據的相關係",
+  "keywords": [
+    "投資學習"
+  ],
+  "articleBody": "複習下統計學主要內容：\n收集數據。因為數據太多，需要使用Sampling（抽樣）。 敘述數據。歸納數據的特徵，比如中位數、平均數和標準差等等。 圖形化數據。使用圖表和分佈圖來使統計結果變成圖形，使得數據可視化。 數據相關性。比如可以使用Regression（回顧分析）檢驗兩個數據的相關係數。 預測未來發生的概率。如果真的有相關性，可以利用相關性預測未來。 預測工具。比如決策樹和蒙特卡羅模擬。 上一篇學習了數據的收集：Sampling，本文學習統計敘述。\n數據很多，不可能一個一個敘述，敘述數據就是研究怎麼用少一點的數據來描述整組數據。比如用平均年薪這一個平均數來敘述所有人的年薪。\n具體有：\nMeasures of centrality,數據的中值，最主要是平均數（mean）/中位數（medium）/眾數（mode）。 Measures of dispersion，數據距離中值的偏離程度，主要有標準差/方差/變異係數/四分位距。 Measures of symmetry, 數據的對稱性，數據的分佈是偏平均值的左邊還是右邊，偏度可以為正、負或為0，常態分佈的偏度為0。 Measures of extremes,數據的厚尾情況，描述數據是否有極大值或極小值。 Measures of centrality 數據的集中程度 平均數（mean）,通常是算術平均，即所有數值加總再除以個數。 中位數（median），所有數值從低到高排列，最中間的即是中位數。 眾數（mode），所有數值中出現次數最多的數值。 平均數很重要，但是如果分佈不是對稱分佈的話，中位數往往比平均數更有參考意義。\n舉例：108年平均工資為64.4萬，中位數為：49.8萬，眾數為36萬左右。\nsource：https://earnings.dgbas.gov.tw/template.html?selectid=1\n輸入平均工資64.4進入薪資分佈圖比較，發現排在約66.6%的位置，也就是說2/3的人的薪水不到平均工資。\n所以使用平均工資來宣傳有點像欺騙，實質上只有1/3的人可以超過平均工資，因為平均薪水被極小比例的高薪水的人拉高了。\nMeasures of dispersion 數據的離散程度 range/decile standard deviation/variance coefficient of variation standard error 1**.數據的分佈範圍**\nrange，全距，數據的最大值減去最小值。\ndecile 十分位數，第1、第2…第9十分位數係指將所有的數據由小到大排列，取位於第10%、第20%…第90%的數字。\n比如薪水的D1,第10%約為28萬；D9,第90%約為117萬。\nsource：https://earnings.dgbas.gov.tw/experience_sub_01.aspx\n2.Standard deviation,SD\nvarience，變異數，離均差平方和的平均值。（如果是母體的話，除以n；如果是樣本的話，除以n-1） standard deviation，標準差，變異數的平方根。標準差越大，代表數據與其平均值的差異越大，即數據的離散程度越大。 如何計算：Measures of spread: range, variance \u0026 standard deviation\n3.coefficient of variation變異係數\nCoefficient of variation=varience/mean，即變異數除以平均值。\n變異數和標準差有單位的影響，比如身高和體重的單位不同，變異數和標準差也單位不同，不能互相比較。\n也有基數的影響，比如蘋果今年股價為120-150，而GE股價為7-15，變異數和標準差之間也不能互相比較。所以引入變異係數來解決這個問題。\n4.standard error of the mean，SEM,平均值標準誤差\n衡量的是樣本的均值和母體的均值的差異程度。\nstandard error of the mean=樣本標準差/樣本個數的平方根。樣本個數越多，平均值標準誤差越小。此處的樣本個數是指從樣本中取多少來做平均值，如果從數量為1000個的樣本中取16個數值來平均，SEM即為標準差除以16的平方根。\n5.標準差和平均值標準誤差的比較（SD和SEM比較）\n標準差適用於樣本，衡量樣本中數據的分散程度。而平均值標準誤差作用在於用樣本的平均值來估計母體的平均值範圍。\n比如我們研究股票的年收益，股票存在的歷史超過100年，未來也會存在很長一段時間。但是我們目前只有100年的數。\n此處母體為股票的年收益（過去和未來），如果股票一直存在，這個母體裡的個體可以是無限的。\n我們想知道母體的年收益的平均數，只能靠目前擁有的100年的樣本來推算。\n假設我們把過去100年的年收益做個簡單的平均，這時n=100，平均值標準誤差為=標準差/100的平方根。\n根據中央極限定理：母體中抽取樣本的平均值會呈現常態分佈。\n所以可以根據常態分佈的特徵來歸納母體的平均值和樣本的平均值之間的範圍。\n假設平均年收益為10%，平均值標準誤差為：2%，那：\n68%的平均值在1個標準差範圍內，即12%-8%。\n95%的平均值在2個標準差範圍內，即14%-6%。\n99.99966%的平均值在6個標準差範圍內（管理學上的6 sigma）。\n教學：\nStandard error of the mean\nStandard Deviation and Standard Error of the Mean\nMeasures of symmetry 數據的對稱性 Skewness，偏度，衡量對稱性。\n偏度為負表示絕大多數的值分佈於平均值的右側，偏度為正表示大多數的值位於平均值的左側。\n了解偏度有利於幫我們判斷平均值是否具有參考價值。\n正偏度，Mode",
+  "wordCount" : "2676",
+  "inLanguage": "zh",
+  "datePublished": "2021-10-25T00:00:00Z",
+  "dateModified": "2021-10-25T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2021-10-25-%E5%AD%B8%E7%B5%B1%E8%A8%884%E7%B5%B1%E8%A8%88%E6%95%98%E8%BF%B0%E5%B9%B3%E5%9D%87%E6%95%B8vs%E4%B8%AD%E4%BD%8D%E6%95%B8%E6%A8%99%E6%BA%96%E5%B7%AEvs%E6%A8%99%E6%BA%96%E8%AA%A4/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      學統計4:統計敘述，平均數vs中位數，標準差vs標準誤差，偏度和峰度
+    </h1>
+    <div class="post-meta"><span title='2021-10-25 00:00:00 +0000 UTC'>2021-10-25</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#measures-of-centrality-%e6%95%b8%e6%93%9a%e7%9a%84%e9%9b%86%e4%b8%ad%e7%a8%8b%e5%ba%a6" aria-label="Measures of centrality 數據的集中程度"><strong>Measures of centrality 數據的集中程度</strong></a></li>
+                    <li>
+                        <a href="#measures-of-dispersion-%e6%95%b8%e6%93%9a%e7%9a%84%e9%9b%a2%e6%95%a3%e7%a8%8b%e5%ba%a6" aria-label="Measures of dispersion 數據的離散程度"><strong>Measures of dispersion 數據的離散程度</strong></a></li>
+                    <li>
+                        <a href="#measures-of-_symmetry_-%e6%95%b8%e6%93%9a%e7%9a%84%e5%b0%8d%e7%a8%b1%e6%80%a7" aria-label="Measures of symmetry 數據的對稱性">Measures of <em>symmetry</em> 數據的對稱性</a></li>
+                    <li>
+                        <a href="#measures-of-extremes" aria-label="Measures of extremes"><strong>Measures of extremes</strong></a></li>
+                    <li>
+                        <a href="#excel%e8%a8%88%e7%ae%97" aria-label="Excel計算：">Excel計算：</a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p>複習下統計學主要內容：</p>
+<ul>
+<li><strong>收集數據</strong>。因為數據太多，需要使用Sampling（抽樣）。</li>
+<li><strong>敘述數據</strong>。歸納數據的特徵，比如中位數、平均數和標準差等等。</li>
+<li><strong>圖形化數據</strong>。使用圖表和分佈圖來使統計結果變成圖形，使得數據可視化。</li>
+<li><strong>數據相關性</strong>。比如可以使用Regression（回顧分析）檢驗兩個數據的相關係數。</li>
+<li><strong>預測未來發生的概率</strong>。如果真的有相關性，可以利用相關性預測未來。</li>
+<li><strong>預測工具</strong>。比如決策樹和蒙特卡羅模擬。</li>
+</ul>
+<p>上一篇學習了數據的收集：<a href="https://fulltimemammy.com/%e5%ad%b8%e7%b5%b1%e8%a8%883%ef%bc%8c%e7%82%ba%e4%bb%80%e9%ba%bc%e5%81%8f%e8%a6%8b%e5%92%8c%e9%9b%9c%e8%a8%8a%e9%9b%a3%e4%bb%a5%e9%81%bf%e5%85%8d%ef%bc%9f%e5%be%9e%e6%94%b6%e9%9b%86%e6%95%b8%e6%93%9a/" target="_blank" rel="noopener" style="color:#42b983";>Sampling</a>，本文學習統計敘述。</p>
+<p>數據很多，不可能一個一個敘述，敘述數據就是研究怎麼用少一點的數據來描述整組數據。比如用平均年薪這一個平均數來敘述所有人的年薪。</p>
+<p>具體有：</p>
+<ul>
+<li><strong>Measures of centrality</strong>,數據的中值，最主要是平均數（mean）/中位數（medium）/眾數（mode）。</li>
+<li><strong>Measures of dispersion</strong>，數據距離中值的偏離程度，主要有標準差/方差/變異係數/四分位距。</li>
+<li><strong>Measures of symmetry,</strong> 數據的對稱性，數據的分佈是偏平均值的左邊還是右邊，偏度可以為正、負或為0，常態分佈的偏度為0。</li>
+<li><strong>Measures of extremes</strong>,數據的厚尾情況，描述數據是否有極大值或極小值。</li>
+</ul>
+<h2 id="measures-of-centrality-數據的集中程度"><strong>Measures of centrality 數據的集中程度</strong><a hidden class="anchor" aria-hidden="true" href="#measures-of-centrality-數據的集中程度">#</a></h2>
+<ul>
+<li>平均數（mean）,通常是算術平均，即所有數值加總再除以個數。</li>
+<li>中位數（median），所有數值從低到高排列，最中間的即是中位數。</li>
+<li>眾數（mode），所有數值中出現次數最多的數值。</li>
+</ul>
+<p>平均數很重要，但是如果分佈不是對稱分佈的話，中位數往往比平均數更有參考意義。</p>
+<p>舉例：108年平均工資為64.4萬，中位數為：49.8萬，眾數為36萬左右。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2021-10-22-at-10.36.39-AM-1024x426.png" alt=""  />
+</p>
+<p>source：<a href="https://earnings.dgbas.gov.tw/template.html?selectid=1" target="_blank" rel="noopener" style="color:#42b983";>https://earnings.dgbas.gov.tw/template.html?selectid=1</a></p>
+<p>輸入平均工資64.4進入薪資分佈圖比較，發現排在約66.6%的位置，也就是說2/3的人的薪水不到平均工資。</p>
+<p>所以使用平均工資來宣傳有點像欺騙，實質上只有1/3的人可以超過平均工資，因為平均薪水被極小比例的高薪水的人拉高了。</p>
+<h2 id="measures-of-dispersion-數據的離散程度"><strong>Measures of dispersion 數據的離散程度</strong><a hidden class="anchor" aria-hidden="true" href="#measures-of-dispersion-數據的離散程度">#</a></h2>
+<ul>
+<li>range/decile</li>
+<li>standard deviation/variance</li>
+<li>coefficient of variation</li>
+<li>standard error</li>
+</ul>
+<p>1**.數據的分佈範圍**</p>
+<p><strong>range，全距</strong>，數據的最大值減去最小值。</p>
+<p><strong>decile 十分位數</strong>，第1、第2&hellip;第9十分位數係指將所有的數據由小到大排列，取位於第10%、第20%&hellip;第90%的數字。</p>
+<p>比如薪水的D1,第10%約為28萬；D9,第90%約為117萬。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2021-10-22-at-10.56.02-AM-1024x572.png" alt=""  />
+</p>
+<p>source：<a href="https://earnings.dgbas.gov.tw/experience_sub_01.aspx" target="_blank" rel="noopener" style="color:#42b983";>https://earnings.dgbas.gov.tw/experience_sub_01.aspx</a></p>
+<p>2.Standard deviation,SD</p>
+<ul>
+<li><strong>varience，變異數</strong>，離均差平方和的平均值。（如果是母體的話，除以n；如果是樣本的話，除以n-1）</li>
+<li><strong>standard deviation，標準差</strong>，變異數的平方根。標準差越大，代表數據與其平均值的差異越大，即數據的離散程度越大。</li>
+</ul>
+<p>如何計算：<a href="https://www.khanacademy.org/math/statistics-probability/summarizing-quantitative-data/variance-standard-deviation-population/v/variance-of-a-population" target="_blank" rel="noopener" style="color:#42b983";>Measures of spread: range, variance &amp; standard deviation</a></p>
+<p><strong>3.coefficient of variation變異係數</strong></p>
+<p>Coefficient of variation=<strong>varience</strong>/mean，即變異數除以平均值。</p>
+<p>變異數和標準差有單位的影響，比如身高和體重的單位不同，變異數和標準差也單位不同，不能互相比較。</p>
+<p>也有基數的影響，比如蘋果今年股價為120-150，而GE股價為7-15，變異數和標準差之間也不能互相比較。所以引入變異係數來解決這個問題。</p>
+<p><strong>4.standard error of the mean，SEM,平均值標準誤差</strong></p>
+<p>衡量的是樣本的均值和母體的均值的差異程度。</p>
+<p>standard error of the mean=樣本標準差/樣本個數的平方根。樣本個數越多，平均值標準誤差越小。此處的樣本個數是指從樣本中取多少來做平均值，如果從數量為1000個的樣本中取16個數值來平均，SEM即為標準差除以16的平方根。</p>
+<p><strong>5.標準差和平均值標準誤差的比較（SD和SEM比較）</strong></p>
+<p>標準差適用於樣本，衡量樣本中數據的分散程度。而平均值標準誤差作用在於用樣本的平均值來估計母體的平均值範圍。</p>
+<p>比如我們研究股票的年收益，股票存在的歷史超過100年，未來也會存在很長一段時間。但是我們目前只有100年的數。</p>
+<p>此處母體為股票的年收益（過去和未來），如果股票一直存在，這個母體裡的個體可以是無限的。</p>
+<p>我們想知道母體的年收益的平均數，只能靠目前擁有的100年的樣本來推算。</p>
+<p>假設我們把過去100年的年收益做個簡單的平均，這時n=100，平均值標準誤差為=標準差/100的平方根。</p>
+<p>根據中央極限定理：母體中抽取樣本的平均值會呈現常態分佈。</p>
+<p>所以可以根據常態分佈的特徵來歸納母體的平均值和樣本的平均值之間的範圍。</p>
+<p>假設平均年收益為10%，平均值標準誤差為：2%，那：</p>
+<p>68%的平均值在1個標準差範圍內，即12%-8%。</p>
+<p>95%的平均值在2個標準差範圍內，即14%-6%。</p>
+<p>99.99966%的平均值在6個標準差範圍內（管理學上的6 sigma）。</p>
+<p>教學：</p>
+<p><a href="https://www.khanacademy.org/math/ap-statistics/sampling-distribution-ap/sampling-distribution-mean/v/standard-error-of-the-mean" target="_blank" rel="noopener" style="color:#42b983";>Standard error of the mean</a></p>
+<p><a href="https://www.youtube.com/watch?v=3UPYpOLeRJg" target="_blank" rel="noopener" style="color:#42b983";>Standard Deviation and Standard Error of the Mean</a></p>
+<h2 id="measures-of-_symmetry_-數據的對稱性">Measures of <em>symmetry</em> 數據的對稱性<a hidden class="anchor" aria-hidden="true" href="#measures-of-_symmetry_-數據的對稱性">#</a></h2>
+<p><strong>Skewness，偏度</strong>，衡量對稱性。</p>
+<p>偏度為負表示絕大多數的值分佈於平均值的右側，偏度為正表示大多數的值位於平均值的左側。</p>
+<p>了解偏度有利於幫我們判斷平均值是否具有參考價值。</p>
+<p>正偏度，Mode&lt;median&lt;mean,右邊的尾巴長，就像平均年薪會被分佈很少的但是年薪很高的人拉高一樣。</p>
+<p>負偏度,Mode&gt;median&gt;mean，左邊的尾巴長，均值被很多小數值拉低。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2021-10-25-at-12.55.04-PM.png" alt=""  />
+</p>
+<p>source：<a href="https://en.wikipedia.org/wiki/Skewness" target="_blank" rel="noopener" style="color:#42b983";>https://en.wikipedia.org/wiki/Skewness</a></p>
+<p>舉例，計算SPY 1928-2020年的年收益率的Skewness為-0.47，偏度為負。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2021-10-25-at-4.36.33-PM-1024x629.png" alt=""  />
+</p>
+<h2 id="measures-of-extremes"><strong>Measures of extremes</strong><a hidden class="anchor" aria-hidden="true" href="#measures-of-extremes">#</a></h2>
+<p>Kurtosis，峰度，或者尾態，尾態是衡量分佈有沒有極端值。</p>
+<p>峰度高就意味著有很多大於或小於均值的極端差值，峰度越大，尾巴越厚。</p>
+<p>Kurtosis的計算是參考常態分佈的。常態分佈的峰度為0。</p>
+<p>Leptokurtic Distribution，厚尾分佈，峰度大於0，更有可能有極大值或極小值。</p>
+<p>Platykurtic Distribution的峰度小於0，比較少有極端值。</p>
+<p>舉例：計算SPY 1928-2020年的年收益率的Kurtosis為0.11，大於0，表示比較容易有極端值。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2021-10-25-at-3.38.50-PM-1024x419.png" alt=""  />
+</p>
+<p>source：<a href="https://www.youtube.com/watch?v=-pb86fuZqr8" target="_blank" rel="noopener" style="color:#42b983";>https://www.youtube.com/watch?v=-pb86fuZqr8</a></p>
+<h2 id="excel計算">Excel計算：<a hidden class="anchor" aria-hidden="true" href="#excel計算">#</a></h2>
+<p>可以使用Excel-Data-Descriptive Statistics 計算。</p>
+<p>教學連接：<a href="https://www.youtube.com/watch?v=v5P4iUj_eoM" target="_blank" rel="noopener" style="color:#42b983";>Mean, Skewness, Kurtosis, and Confidence Intervals in Excel | Quick and Effective</a></p>
+<p><img loading="lazy" src="images/Screen-Shot-2021-10-25-at-4.04.45-PM-1024x411.png" alt=""  />
+</p>
+<p>eg：使用SPY500從1928年到現在的年收益率（不包含股息），excel自動計算的數據敘述。數據表格下載：</p>
+<p><a href="https://fulltimemammy.com/wp-content/uploads/2021/10/data-discriptive.xlsx" target="_blank" rel="noopener" style="color:#42b983";>data-discriptive</a><a href="https://fulltimemammy.com/wp-content/uploads/2021/10/data-discriptive.xlsx" target="_blank" rel="noopener" style="color:#42b983";>Download</a></p>
+<p><img loading="lazy" src="images/Screen-Shot-2021-10-25-at-4.13.12-PM.png" alt=""  />
+</p>
+<p>總結：</p>
+<p>統計敘述就是用少數的幾個數字來概括所有的數據的特徵。對於一般人來說，知道什麼意思就可以了和怎麼用就可以了，計算可以靠Excel。</p>
+<p>其他參考資料：</p>
+<p>可汗學院的教學視頻：</p>
+<p><a href="https://www.khanacademy.org/math/statistics-probability/summarizing-quantitative-data/mean-median-basics/v/statistics-intro-mean-median-and-mode?modal=1" target="_blank" rel="noopener" style="color:#42b983";>https://www.khanacademy.org/math/statistics-probability/summarizing-quantitative-data/mean-median-basics/v/statistics-intro-mean-median-and-mode?modal=1</a></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/%E6%8A%95%E8%B3%87%E5%AD%B8%E7%BF%92/">投資學習</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/history/2021-10-26-%E4%B8%8D%E7%9F%A5%E9%81%93%E5%AD%B8%E4%BB%80%E9%BA%BC%E4%BE%86%E7%9C%8B%E7%9C%8Bmooc%E6%AD%B7%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%8F%97%E6%AD%A1%E8%BF%8E%E7%9A%84%E8%AA%B2%E7%A8%8Btop5%E5%90%A7/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>不知道學什麼？來看看MOOC歷史上最受歡迎的課程TOP5吧</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2021-10-22-mindshift%E7%B5%A6%E5%A4%A7%E4%BA%BA%E7%9A%84%E4%BA%BA%E7%94%9F%E7%BF%BB%E8%BD%89%E5%AD%B8%E8%AE%80%E6%9B%B8%E5%BF%83%E5%BE%97/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Mindshift，《給大人的人生翻轉學》讀書心得</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2021-10-25 00:00:00 +0000 UTC'>2021-10-25</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/%E6%8A%95%E8%B3%87%E5%AD%B8%E7%BF%92/">投資學習</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

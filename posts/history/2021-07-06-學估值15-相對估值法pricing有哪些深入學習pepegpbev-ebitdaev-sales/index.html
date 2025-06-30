@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>學估值15 相對估值法（Pricing）有哪些？深入學習PE,PEG,PB,EV/EBITDA,EV/Sales各指標背後的驅動因素 | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="投資學習">
+<meta name="description" content="注：本文主要內容來自學習估值大师Prof. Aswath Damodaran（達摩德仁教授）的估值課程，課程詳情請點閱視頻鏈接和相關資料（Session18-21）。 本文所有公式和圖表均來自與：http://pages.stern.nyu.edu/~adamodar/。 本來在想學了DCF估值就">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2021-07-06-%E5%AD%B8%E4%BC%B0%E5%80%BC15-%E7%9B%B8%E5%B0%8D%E4%BC%B0%E5%80%BC%E6%B3%95pricing%E6%9C%89%E5%93%AA%E4%BA%9B%E6%B7%B1%E5%85%A5%E5%AD%B8%E7%BF%92pepegpbev-ebitdaev-sales/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="學估值15 相對估值法（Pricing）有哪些？深入學習PE,PEG,PB,EV/EBITDA,EV/Sales各指標背後的驅動因素" />
+<meta property="og:description" content="注：本文主要內容來自學習估值大师Prof. Aswath Damodaran（達摩德仁教授）的估值課程，課程詳情請點閱視頻鏈接和相關資料（Session18-21）。 本文所有公式和圖表均來自與：http://pages.stern.nyu.edu/~adamodar/。 本來在想學了DCF估值就" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2021-07-06-%E5%AD%B8%E4%BC%B0%E5%80%BC15-%E7%9B%B8%E5%B0%8D%E4%BC%B0%E5%80%BC%E6%B3%95pricing%E6%9C%89%E5%93%AA%E4%BA%9B%E6%B7%B1%E5%85%A5%E5%AD%B8%E7%BF%92pepegpbev-ebitdaev-sales/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-07-06T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="學估值15 相對估值法（Pricing）有哪些？深入學習PE,PEG,PB,EV/EBITDA,EV/Sales各指標背後的驅動因素"/>
+<meta name="twitter:description" content="注：本文主要內容來自學習估值大师Prof. Aswath Damodaran（達摩德仁教授）的估值課程，課程詳情請點閱視頻鏈接和相關資料（Session18-21）。 本文所有公式和圖表均來自與：http://pages.stern.nyu.edu/~adamodar/。 本來在想學了DCF估值就"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "學估值15 相對估值法（Pricing）有哪些？深入學習PE,PEG,PB,EV/EBITDA,EV/Sales各指標背後的驅動因素",
+      "item": "https://everydaydiva.blog/posts/history/2021-07-06-%E5%AD%B8%E4%BC%B0%E5%80%BC15-%E7%9B%B8%E5%B0%8D%E4%BC%B0%E5%80%BC%E6%B3%95pricing%E6%9C%89%E5%93%AA%E4%BA%9B%E6%B7%B1%E5%85%A5%E5%AD%B8%E7%BF%92pepegpbev-ebitdaev-sales/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "學估值15 相對估值法（Pricing）有哪些？深入學習PE,PEG,PB,EV/EBITDA,EV/Sales各指標背後的驅動因素",
+  "name": "學估值15 相對估值法（Pricing）有哪些？深入學習PE,PEG,PB,EV\/EBITDA,EV\/Sales各指標背後的驅動因素",
+  "description": "注：本文主要內容來自學習估值大师Prof. Aswath Damodaran（達摩德仁教授）的估值課程，課程詳情請點閱視頻鏈接和相關資料（Session18-21）。 本文所有公式和圖表均來自與：http://pages.stern.nyu.edu/~adamodar/。 本來在想學了DCF估值就",
+  "keywords": [
+    "投資學習"
+  ],
+  "articleBody": "注：本文主要內容來自學習估值大师Prof. Aswath Damodaran（達摩德仁教授）的估值課程，課程詳情請點閱視頻鏈接和相關資料（Session18-21）。\n本文所有公式和圖表均來自與：http://pages.stern.nyu.edu/~adamodar/。\n本來在想學了DCF估值就不用學Pricing了，但是想想我之前接觸到的99%的股票分析都是Pricing。所以為了增加自己未來看投資報告的辨識能力，決定好好學習整理下相對估值法。\n1.相对估值法是什么？ 1.1定義\n相對估值法（Pricing）是通過比較市場給其他相似的資產的估值倍數，確定出一個適當的倍數來給目標資產估算價值。\n1）參考目前市場價值或者過去歷史價格。\n2）和相似資產比較獲得目標資產價值。\n1.2相對估值法理解\n相對估值法很多種，讓人頭暈目眩。其實它們都是使用絕對的倍數，本質上都是分式。\n分子是付出的價錢，分母是獲得的回報（現在的或者是未來的）。\n分子可以是每股股價、公司股權市值、公司市值、運營資產市值等等。\n分母可以是營收、EBIT、現金流或者賬面價值等等。\n比如P/E，分子是每股股價，分母是獲得多少Earnig，PE=78,表示每股股價=78*Earning\n比如EV/EBITDA,分子是公司總價，分母是獲得多少EBITADA(現金流），EV/EBITDA=15，表示Enterprise value=15*EBITDA\n比如EV/Sales,分子是公司總價，分母是獲得多少銷售額，如果EV/Sales=5，表示Enterprise value=5*sales。（因為新公司尚未獲得金錢回報，使用者是未來賺錢可能。\n來源：http://pages.stern.nyu.edu/~adamodar/\n1.2 相對估值的計算邏輯\n1）找出相似資產及其市場價。\n2）找到適合的絕對倍數。\n3）對比差異，通過對比差異，得出低估還是高估。\n1.3相對估值法和內含價值法（DCF現金流折現法）比較\n1）驅動因素不同\nDCF估值的驅動因子是自由現金流量、成長率和風險。估值變化相對較慢。\n相對估值法是建立在市場價格的基礎上，市場價格比較受到市場先生的每天的情緒影響，也會受到消息面的影響。估值有可能急速變化。\n2）顯性VS隱性\nDCF折現法迫使我們估計公司的營收、利潤率、成長率、再投資率，得出公司的自由現金流量，然後再根據風險折現到今天。\n而相對估值法表面上用倍數估值，但是沒有兩個一模一樣的公司，想要做出一定的調整，還得從基本面找答案，所以現金流量成長率和風險也會隱含在我們給的倍數裡面。\n3）結果不同\nDCF估值的結果是絕對價值，不受市場的情緒影響。\n相估值的結果是價格相對低估或高估，是建立在整個行業的估值是正確的基礎上。如果整個行業高估，就會水漲船高，不知道水會不會退潮，會退到哪裡。\n4）變通程度不同\nDCF估值只能通過計算未來自由現金流量，在折現到今天這一種方式。\n相對估值花樣很多，理論上可以有無限的倍數可以運用。\nEarning為負，沒辦法用P/E；但是sales為正，可以用EV/sales（比如TESLA）；如果連sales也沒有，可以發明新倍數，比如用EV/Users(比如Twitter）。\n5）DCF估值是故事和數字的結合，而相對估值完全是相信市場，利用市場數據在做數據分析。\nThe nature of pricing is you trust the crowd.\nBut the crowd should be respected but they can make very big mistakes.\n1.4 為什麼大家喜歡用相對估值法\n85%的專業分析師使用相對估值法，50%的併購採用相對估值法，業餘投資人幾乎都是相對估值法，甚至自稱價值投資者的也很少真的使用DCF來計算intransic value。原因如下：\n1）簡單省力\n不用費腦筋，用個Yahoo finance不要一分鐘就可以看出來公司目前各種倍數。\n2）減少被找茬\n試想分析師如果用DCF，把各種數據的細節比如成長率、利潤率、折現率拿出來，會被各種質疑。\n但是用倍數，會比較籠統，沒什麼細節，很難挑毛病。\n3）從眾行為\n分析師分析報告buy佔90%，sell佔10%。\n用相對估值，總能找到相對低估的股票。分析師每天有新的股票推薦購買。\n用DCF找到低估的股票很難，機會沒有那麼多，如果每天的報告都是Sell，就會變成最孤獨的存在。\n1.5 使用相對估值請注意\n1）歷史經驗不可靠\n2）分析背後的隱含驅動因素\n3）自己計算，不要依靠財經網站.\n因為你不知道他們運算使用的具體數據是什麼。\n2.達摩德仁教授的相對估值步驟 2.1定義倍數\n要清楚的了解倍數是怎麼計算的。分子具體是什麼，分母具體是什麼。\n1）倍數的分子和分母有沒有保持一致？\n公司的投資者分為股權投資者和債務投資者。\n如果分子的價格是股權價值的話，分母就應該是股權的收益或者是股權的賬面價值。\n如果分子的價格是整個公司（股權加債權）價值的話，分母就應該是整個公司的收益或者賬面價值。\n考慮一致性主要是為了保證分子和分母聯動，避免有任何因子只影響分子或者只影響分母導致倍數喪失參考價值。\n舉例：\nP/E, 分子為Price per share，是每股股權價值；分母為Earning per share，不是所有的Earning，而是Net income/shares, 而Net income是股權投資者收入（不包含投資收入）。所以一致。\nEV to EBITDA，分子為Market value of operating assets，父母為Earning of operating assets，一致。\nPrice to EBITDA ，分子為每股股權，分母為Earning of operating assets，是營運資本的收益，而非股權收益，就不一致。\nPrice to sales，分子為每股股權，分母為sales或Revenue，但是營收是屬於整個公司的收益，不僅僅是股權投資者。所以不一致。很多分析師使用Price to sales，尤其在科技公司，因為科技公司的負債很少，所以還勉強湊合使用，如果負債比很高的公司用Price to sales就會大錯特錯。\n2）各公司一致。\n各種相對估值倍數都是建立在會計數字是可靠的並且一致的基礎上，但是即使在不同的會計準則下，各個公司的會計做賬的方式也有差別。比如同為研發支出，公司可以選擇把它列入費用，也可以選擇列入資本支出。\n2.2描述倍數\n有很多分析師會按經驗來總結：10倍Earning很便宜，6倍EBITDA很便宜，1倍Book value很便宜。\n但是這樣會存在偏見。\n要用倍數的分佈（Distribution）來判斷低估還是高估，而不是經驗。比如你可以說第25分位的PE是比較便宜比較低估的。\n當聽到分析師說平均PE的時候也要小心，如下圖，美股2021年PE平均值為109.79（平均值被一個PE為36157的公司拉大了），而PE的中間值為18.15\n來源：http://pages.stern.nyu.edu/~adamodar/\n下圖是2021年全世界的PE分佈圖，其中美股第25個百分位是11.5，表示PE11.5是比較低的，中位數是40，，只有32.39%的公司PE大於0，即有正的earning。\n所以統計的樣本只有32%的公司，又犯了以偏概全的錯誤。\nfrom：http://pages.stern.nyu.edu/~adamodar/\n2.3分析倍數背後的驅動因素\n1）思考兩個問題\n倍數後面有哪些驅動因素？\n這些驅動因素怎麼影響我們的倍數？\n比如PE=10,表面上看很便宜，但是我們要分析是什麼原因導致PE這麼低，判斷是真的低估，還是真的只值這麼多錢。\n2)怎麼找到驅動因素\n思路：分子是付出的價錢，通常是股價或者公司價值，這可以利用DCF現金流折現法算出，再用等式兩邊都除以分母，得到各個倍數的內含相對價值公式。\n不過我們獲得公式的目標是找到影響的因子，而不是為了計算。\n以PE為例：\nStep1：用簡單的股息模型（Gordon growth model）計算股價公式如下, DPS1為下一年的股息，r為cost of equity，gn為growth rate\nStep2 公式兩邊都除以Earning，其中DPS/EPS=Payout Ratio即配息率。\n由上述公式可以看出，影響成熟穩定配息公司PE的三個因子是Payout ratio，cost of equity 和growth rate。\nStep3,如果有公司不發股息，可以將股息模型換成潛在股息（FCFE）。\nStep4，如果想分析高增長的公司\n影響成長公司PE的三個因子是Payout ratio，cost of equity 和growth rate。\n2.4 運用倍數並且根據差異調整\n我們的問題是，一有倍數就根據腦中的經驗直接使用，沒有清楚分析背後的驅動因素。\n1）怎么找到相似资产\n樣本多的話，優點是大數定理，樣本越多，越能準確找到背後的規律。缺點是非相似資產\n樣本少的話，優點是資產相似，缺點是樣本會比較少。\n2）怎么根据差异调整\n這一點教授給出的解決方案是用數據分析，特別是回歸分析，找個各個變量對倍數影響的具體數值，把差異具體量化。\n下面開始單獨學習各個常用的選股指標倍數。\n3.PE 3.1 定義：PE是什麼？\n1）P/E是Price per share除以EPS( earning per share)。\n其中：\nCurrent PE: EPS in recent financial year（最近財政年度的財報，比如台積電最近的是2019財年）\nTrailing PE: EPS in trailing 12 months(最近的12個月的Earning）\nForward PE: EPS for next 12 months（預估未來的12個月的Earning）\n2）EPS 為Net income除以股數。對於大量發股票薪酬（尤其是option）的科技公司來說，有如下三種EPS：\nPrimary EPS(outstanding shares）\nFully diluted EPS(shares+all options）\nPartially Diluted EPS(Shares+in-the-money options）\n因為Price是市場價格，市場已經知道公司有發這麼多的股票薪酬，所以已經把Options列入計算中了，所以為了分子分母一致，也為了避免計算Option的麻煩，最好用如下的公式計算PE,\nPE=Total market cap/Net income\n3.2 影響因子：\n通過以上公式，得出影響成長公司PE的三個因子是Payout ratio，cost of equity 和growth rate。\n1）Growth rate變動怎麼影響PE?\n很明顯，成長率越高，PE越高，兩者正相關。\n當上市公司有Earning report出來的時候，如果成長超預期，股價會大漲；成長沒有達到預期，股價會大跌。因為目前的無風險利率很低，未來的增長價值更高。所以股價對成長的反映更為敏感。\n2）Cost of equity中的beta值如何影響PE?\n可以看到beta值越高，風險越高，PE越低，這表示有時候不能一味的追求高成長率，也要把風險控制在一定的水平，這樣才能得到市場最佳的估值。\nfrom：http://pages.stern.nyu.edu/~adamodar/\n高增長的公司有高的PE，低增長的公司有低的PE。如果只選PE值很低的公司的話，會忽略幾乎大部分的高成長型的公司。\n所以彼得林奇提出要不僅要看PE，更要看成長率，於是把PEG指標發揚光大。\n4.PEG 4.1公式：\n4.2**含義：**獲得每1%的增長率付出多少倍的PE。數值越低，表示投資者為1%的成長率付出的代價越低。\n我們都喜歡高成長，但是怎麼控制我們付出的代價，發明PEG指標就是這個目的。\n比如PE=20， Growth rate=20%，PEG=1，表示我們為了1%的成長率付出的代價是1倍Earning.\n比如PE=30, Growth rate=10%，PEG=3，表示我們為了1%的成長率付出的代價是3倍的Earning.\n投資者的目標是付出更少的錢獲得更高的成長率，所以會選擇比較低的PEG。\n就我潛水Seeking alpha多年的經驗：好像很多分析師說合理的估值，成長率多少，PE多少，即很多人認為PEG=1是比較合理的（不一定正確）\n4.3驅動因素：\n利用兩階段DCF估值模型，計算P:\n分式兩邊除以增長率，得到如下複雜的公式。\n影響因子為：\n1）PEG和Beta值。\nBeta值描述的是一只股票和其所在的市場相比的波動程度。經濟學中把波動視為風險。\n相關閱讀：[學估值7.現金流折現法之折現率-part3 丟了CAPM beta，改用bottom-up beta](http://學估值7.現金流折現法之折現率-part3 丟了CAPM beta，改用bottom-up beta)\n可以看到Beta值越高，PEG值越低。\n忽略風險，高成長也高風險，風險更高的公司有比較低的PEG。\nfrom：http://pages.stern.nyu.edu/~adamodar/\n2）PEG 和Retention ratio，ROE\n下圖表示：假設成長率不變，Retention越高，PEG越低。\n同樣的成長率，Retention ratio越高，表示ROE越低。\nROE越低PEG越低。ROE越高，PEG越高。\n從這一點看挑選低PEG值的公司有可能低ROE的公司，即資金運用效率不高的公司。\nfrom：http://pages.stern.nyu.edu/~adamodar/\n比如說，A和B兩公司去年都賺了100萬，今年都會成長40%，即賺40萬。\nA公司分給股東50萬，自留50萬，利潤留存率：50%，所以40%=50%*ROE，所以ROE=8（Growth rate=Retention ratio*ROE）\nB公司一塊錢都不分給股東，自留100萬，利潤留存率：100%, 所以40%=100%*ROE. ROE=4\n但是計算PEG指標的時候，A公司的PEG會比較高，B公司的PEG會比較低。\n這導致我們選PEG低的公司會選到賺錢比較沒有效率的B公司。\n3）PEG和Growth rate\n成長率和PEG比率的關係是U型，表示成長率增加可以使得PEG增加，或者使得PEG減小。這會導致我們無法判斷。\nfrom：http://pages.stern.nyu.edu/~adamodar/\n使用PEG的時候，我們比較很多公司然後選擇比較低PEG的公司時，要確保我們的公司：\n風險沒有比較高。因為風險很高的公司PEG值很低，這會誤導我們。 ROE沒有比較低。因為ROE低的公司PEG值低，會誤導我們。 成長率，一開始成長率增加PEG會降低，但是成長到達一個點以後PEG又會上升。同一個行業裡有最低的PEG值的往往成長率保持在行業中間值。而有最高的成長率或者最低的成長率的公司往往PEG值比較高。 5.P/B，Price to book,市淨率 很多價值投資者很喜歡市場價值低於Book value的公司，以為把公司破產清算的話可以獲得清算價值和賬面價值的價差。但是現實中不見得如此。\n5.1定義：\n市淨率是每股股價除以每股淨資產。也可以用股票市值除以資產減去負債的差額\nP/B=Price per share/book value of equity\n或者P/B=Market value/(book value of assets-book value of liabilities)\n5.2影響因子分析：\n因為Growth=(1-payout ratio）*ROE，所以上述公司可以簡化為：\n所以影響因子為：ROE,成長率，股息配發率和cost of equity。\n其中，ROE是決定性的影響因子，ROE越高，PB越高。\n注意：\n當ROE約等於Cost of equity差不多的時候，P/B=1 當ROE大於Cost of equity時，P/B\u003e1 當ROE小於Cost of equity是，P/B\u003c1 當有人說某公司P/B=0.5很便宜的時候，第一個要研究的就是這個公司的ROE是不是很低，因為P/B值很低的公司往往都是ROE很低的公司。\n6.EV/EBITDA 目前有近40%的分析師使用EV/EBITDA代替P/E,Youtube上很多CFA也是很喜歡用EV/EBITDA,也有可能人人都知道PE，但是不見得人人都知道EV/EBITDA，分析師用EV/EBITDA顯得貌似更專業吧。\n6.1定義\n1）分子有減去Cash，是因為現金帶來的收入在損益表中是列在Operating income下面的Other income欄目裡；分母的EBITDA只包含operating income而沒有包含other income。為了一致，分子要減去Cash。\n2）對於有很多Cross Holding的公司，\nMinority holding（沒有對營運有影響或者持股小於50%）帶來的收入也是列在Operating income下面的Other income 裡面，分母不含此部分收入，為了保持一致，需要將分子減去Minority holding的市值。\nMajority Holding（有營運控制權或者持股大於60%），要把控股公司100%的收入列入Operating income，最後再從Net income中用Non-controling interest 把不屬於自己的部分減去。如果真要保持一致的話，分母中包含了100%的Majority Holding的收入，分子就就應該加上100%的Majority Holding的市值。（超級複雜，除非選擇視而不見）\n下圖的損益表供參考。\n6.2 影響因子分析\n影響因子：\n1)Tax rate,\n和PE不同，因為PE的分母是Earning，來自於Net income，是稅後的，但是EBITDA是稅前的。所以稅收會影響EV/EBITDA\n2)Cost of Capital\n3)成長率\n4）Reinvestment rate（Or ROC）\n稅率越高，EV/EBITDA越低。 成長率越高，EV/EBITDA越高。 資本成本越高，EV/EBITA越低。因為資本成本高表示企業風險大， 當然估值較低。 再投資率越高，EV/EBITDA越低。為了增長需要投入非常多的錢，表示資金的使用效率不高，所以估值較低。 ROC，資本報酬率越低，EV/EBITDA越低。 7.EV/SALES 7.1計算：\n7.2影響因子分析：\n影響因子：\n1）成長率\n2）資本成本\n3）再投資率\n各個倍數指標影響因子匯總：\nfrom：http://pages.stern.nyu.edu/~adamodar/\n8.怎麼用？ 因為很多人包括教授課堂裡的學生不會運行或者懶得自己運行回歸分析，所以教授按市場給我們做好了回歸分析，短期來說我們直接套公式計算就好了。長期來說，還是要學統計、數據分析等相關知識。我們沒有數據庫不見得可以運行全市場的回歸分析，但是好好學一下運行幾十家相似公司或者同行業公司的回歸分析應該是可能的（列入以後學習清單）。\n註：下面個表的R2表示的可以解釋的部分。\n比如對於美國來說，PE=4.1+1.71Beta+17.4payout+120.4expected growth，後面的R2=39.4，意思是這個公式可以解釋市場上40%的個股情況。\n1）PE\nfrom：http://pages.stern.nyu.edu/~adamodar/\n2)PEG\nfrom：http://pages.stern.nyu.edu/~adamodar/\n3)PB\nfrom：http://pages.stern.nyu.edu/~adamodar/\n4)EV/EBITDA\nfrom：http://pages.stern.nyu.edu/~adamodar/\nEV/SALES from：http://pages.stern.nyu.edu/~adamodar/\nEV/Invested Capital from：http://pages.stern.nyu.edu/~adamodar/\n9.這麼多指標，到底該選擇哪一個？ 1）Enterprise, Equity or Firm value？\n銀行行業使用股權類的倍數。債務槓桿很大使用市值類的倍數。\n2）Revenues, Earnings, Cash Flows or Book value?\n在確保樣本數夠多的情況下，每個都可以。但是如果行業裡大部分都還沒有賺錢，此時未來避免損失大量樣本，可以使用Revenue。\n3）Current, Trailing, Forward?\n都可以，確保一致就行了。盡量找到可以解釋目標公司和比較樣本之間差異最大的指標。\n4）樣本大小？\n找到相似資產和樣本數量之間的平衡。\n5）舉例分析：\n以輝瑞Pfizer為例，選擇EV/Invested capital，因為我暫時不會自己回歸分析樣本，量化相關因子的影響，所以我挑選教授提供的最大R2的指標。\n另外，分析輝瑞的時候我最不喜歡的就是其資本成本ROIC太低，我想選擇有此因子的倍數指標。\n得出：IC=139395, DFR=0.5785， g=11.5%（此為未來5年的復合成長率，今年55%，明年5%，後年之後2%）， ROIC=7.49%\nEV/IC=4.29-4.02*0.5785+2.1*11.5%+6*7.49%=2.65533\nEV=139395*2.65533=370139million$\n今天輝瑞 EV=Market cap+debt-Cash=222396+39699-16985=245110million$\n用此指標分析，輝瑞被低估。\n10.總結： 1）相對估值是相對的，難以避免全市場或者全產業被低估或者被高估的風險。\n比如一個60公斤的人和80公斤的人比顯得很瘦，但是站在40公斤的人面前，會顯得很胖.\n2）沒有絕對相同的資產，每個資產都是獨一無二的。所以放棄相對估值可以完美的念頭。\n3）相對估值法是給資產定價，不是真正的估值。\n注：本站所有學習達摩德仁教授課程的心得文章均已獲達摩德仁教授授權。\n",
+  "wordCount" : "8090",
+  "inLanguage": "zh",
+  "datePublished": "2021-07-06T00:00:00Z",
+  "dateModified": "2021-07-06T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2021-07-06-%E5%AD%B8%E4%BC%B0%E5%80%BC15-%E7%9B%B8%E5%B0%8D%E4%BC%B0%E5%80%BC%E6%B3%95pricing%E6%9C%89%E5%93%AA%E4%BA%9B%E6%B7%B1%E5%85%A5%E5%AD%B8%E7%BF%92pepegpbev-ebitdaev-sales/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      學估值15 相對估值法（Pricing）有哪些？深入學習PE,PEG,PB,EV/EBITDA,EV/Sales各指標背後的驅動因素
+    </h1>
+    <div class="post-meta"><span title='2021-07-06 00:00:00 +0000 UTC'>2021-07-06</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#1%e7%9b%b8%e5%af%b9%e4%bc%b0%e5%80%bc%e6%b3%95%e6%98%af%e4%bb%80%e4%b9%88" aria-label="1.相对估值法是什么？"><strong>1.相对估值法是什么？</strong></a></li>
+                    <li>
+                        <a href="#2%e9%81%94%e6%91%a9%e5%be%b7%e4%bb%81%e6%95%99%e6%8e%88%e7%9a%84%e7%9b%b8%e5%b0%8d%e4%bc%b0%e5%80%bc%e6%ad%a5%e9%a9%9f" aria-label="2.達摩德仁教授的相對估值步驟">2.達摩德仁教授的相對估值步驟</a></li>
+                    <li>
+                        <a href="#3pe" aria-label="3.PE">3.PE</a></li>
+                    <li>
+                        <a href="#4peg" aria-label="4.PEG">4.PEG</a></li>
+                    <li>
+                        <a href="#5pbprice-to-book%e5%b8%82%e6%b7%a8%e7%8e%87" aria-label="5.P/B，Price to book,市淨率">5.P/B，Price to book,市淨率</a></li>
+                    <li>
+                        <a href="#6evebitda" aria-label="6.EV/EBITDA">6.EV/EBITDA</a></li>
+                    <li>
+                        <a href="#7evsales" aria-label="7.EV/SALES">7.EV/SALES</a></li>
+                    <li>
+                        <a href="#8%e6%80%8e%e9%ba%bc%e7%94%a8" aria-label="8.怎麼用？">8.怎麼用？</a></li>
+                    <li>
+                        <a href="#9%e9%80%99%e9%ba%bc%e5%a4%9a%e6%8c%87%e6%a8%99%e5%88%b0%e5%ba%95%e8%a9%b2%e9%81%b8%e6%93%87%e5%93%aa%e4%b8%80%e5%80%8b" aria-label="9.這麼多指標，到底該選擇哪一個？">9.這麼多指標，到底該選擇哪一個？</a></li>
+                    <li>
+                        <a href="#10%e7%b8%bd%e7%b5%90" aria-label="10.總結：">10.總結：</a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p>注：本文主要內容來自學習估值大师Prof. Aswath Damodaran（達摩德仁教授）的估值課程，課程詳情請點閱<a href="https://www.youtube.com/watch?v=oi6M5KBWydg&amp;list=PLUkh9m2BorqlJsEfix7R9jtSXClFZhGvC" target="_blank" rel="noopener" style="color:#42b983";>視頻鏈接</a>和<a href="http://pages.stern.nyu.edu/~adamodar/" target="_blank" rel="noopener" style="color:#42b983";>相關資料</a>（Session18-21）。</p>
+<p>本文所有公式和圖表均來自與：<a href="http://pages.stern.nyu.edu/~adamodar/" target="_blank" rel="noopener" style="color:#42b983";>http://pages.stern.nyu.edu/~adamodar/</a>。</p>
+<p>本來在想學了DCF估值就不用學Pricing了，但是想想我之前接觸到的99%的股票分析都是Pricing。所以為了增加自己未來看投資報告的辨識能力，決定好好學習整理下相對估值法。</p>
+<h2 id="1相对估值法是什么"><strong>1.相对估值法是什么？</strong><a hidden class="anchor" aria-hidden="true" href="#1相对估值法是什么">#</a></h2>
+<p><strong>1.1定義</strong></p>
+<p>相對估值法（Pricing）是通過比較市場給其他相似的資產的估值倍數，確定出一個適當的倍數來給目標資產估算價值。</p>
+<p>1）參考目前市場價值或者過去歷史價格。</p>
+<p>2）和相似資產比較獲得目標資產價值。</p>
+<p><strong>1.2相對估值法理解</strong></p>
+<p>相對估值法很多種，讓人頭暈目眩。其實它們都是使用絕對的倍數，本質上都是分式。</p>
+<p>分子是付出的價錢，分母是獲得的回報（現在的或者是未來的）。</p>
+<p>分子可以是每股股價、公司股權市值、公司市值、運營資產市值等等。</p>
+<p>分母可以是營收、EBIT、現金流或者賬面價值等等。</p>
+<p>比如P/E，分子是每股股價，分母是獲得多少Earnig，PE=78,表示每股股價=78*Earning</p>
+<p>比如EV/EBITDA,分子是公司總價，分母是獲得多少EBITADA(現金流），EV/EBITDA=15，表示Enterprise value=15*EBITDA</p>
+<p>比如EV/Sales,分子是公司總價，分母是獲得多少銷售額，如果EV/Sales=5，表示Enterprise value=5*sales。（因為新公司尚未獲得金錢回報，使用者是未來賺錢可能。</p>
+<p><img loading="lazy" src="images/image-92-1024x487.png" alt=""  />
+</p>
+<p>來源：http://pages.stern.nyu.edu/~adamodar/</p>
+<p><strong>1.2 相對估值的計算邏輯</strong></p>
+<p>1）找出相似資產及其市場價。</p>
+<p>2）找到適合的絕對倍數。</p>
+<p>3）對比差異，通過對比差異，得出低估還是高估。</p>
+<p><strong>1.3相對估值法和內含價值法（DCF現金流折現法）比較</strong></p>
+<p>1）驅動因素不同</p>
+<p>DCF估值的驅動因子是自由現金流量、成長率和風險。估值變化相對較慢。</p>
+<p>相對估值法是建立在市場價格的基礎上，市場價格比較受到市場先生的每天的情緒影響，也會受到消息面的影響。估值有可能急速變化。</p>
+<p>2）顯性VS隱性</p>
+<p>DCF折現法迫使我們估計公司的營收、利潤率、成長率、再投資率，得出公司的自由現金流量，然後再根據風險折現到今天。</p>
+<p>而相對估值法表面上用倍數估值，但是沒有兩個一模一樣的公司，想要做出一定的調整，還得從基本面找答案，所以現金流量成長率和風險也會隱含在我們給的倍數裡面。</p>
+<p>3）結果不同</p>
+<p>DCF估值的結果是絕對價值，不受市場的情緒影響。</p>
+<p>相估值的結果是價格相對低估或高估，是建立在整個行業的估值是正確的基礎上。如果整個行業高估，就會水漲船高，不知道水會不會退潮，會退到哪裡。</p>
+<p>4）變通程度不同</p>
+<p>DCF估值只能通過計算未來自由現金流量，在折現到今天這一種方式。</p>
+<p>相對估值花樣很多，理論上可以有無限的倍數可以運用。</p>
+<p>Earning為負，沒辦法用P/E；但是sales為正，可以用EV/sales（比如TESLA）；如果連sales也沒有，可以發明新倍數，比如用EV/Users(比如Twitter）。</p>
+<p>5）DCF估值是故事和數字的結合，而相對估值完全是相信市場，利用市場數據在做數據分析。</p>
+<blockquote>
+<p>The nature of pricing is you trust the crowd.</p>
+<p>But the crowd should be respected but they can make very big mistakes.</p>
+</blockquote>
+<p><strong>1.4 為什麼大家喜歡用相對估值法</strong></p>
+<p>85%的專業分析師使用相對估值法，50%的併購採用相對估值法，業餘投資人幾乎都是相對估值法，甚至自稱價值投資者的也很少真的使用DCF來計算intransic value。原因如下：</p>
+<p>1）簡單省力</p>
+<p>不用費腦筋，用個Yahoo finance不要一分鐘就可以看出來公司目前各種倍數。</p>
+<p>2）減少被找茬</p>
+<p>試想分析師如果用DCF，把各種數據的細節比如成長率、利潤率、折現率拿出來，會被各種質疑。</p>
+<p>但是用倍數，會比較籠統，沒什麼細節，很難挑毛病。</p>
+<p>3）從眾行為</p>
+<p>分析師分析報告buy佔90%，sell佔10%。</p>
+<p>用相對估值，總能找到相對低估的股票。分析師每天有新的股票推薦購買。</p>
+<p>用DCF找到低估的股票很難，機會沒有那麼多，如果每天的報告都是Sell，就會變成最孤獨的存在。</p>
+<p><strong>1.5 使用相對估值請注意</strong></p>
+<p>1）歷史經驗不可靠</p>
+<p>2）分析背後的隱含驅動因素</p>
+<p>3）自己計算，不要依靠財經網站.</p>
+<p>因為你不知道他們運算使用的具體數據是什麼。</p>
+<h2 id="2達摩德仁教授的相對估值步驟">2.達摩德仁教授的相對估值步驟<a hidden class="anchor" aria-hidden="true" href="#2達摩德仁教授的相對估值步驟">#</a></h2>
+<p><strong>2.1定義倍數</strong></p>
+<p>要清楚的了解倍數是怎麼計算的。分子具體是什麼，分母具體是什麼。</p>
+<p><strong>1）倍數的分子和分母有沒有保持一致？</strong></p>
+<p>公司的投資者分為股權投資者和債務投資者。</p>
+<p>如果分子的價格是股權價值的話，分母就應該是股權的收益或者是股權的賬面價值。</p>
+<p>如果分子的價格是整個公司（股權加債權）價值的話，分母就應該是整個公司的收益或者賬面價值。</p>
+<p>考慮一致性主要是為了保證分子和分母聯動，避免有任何因子只影響分子或者只影響分母導致倍數喪失參考價值。</p>
+<p>舉例：</p>
+<p>P/E, 分子為Price per share，是每股股權價值；分母為Earning per share，不是所有的Earning，而是Net income/shares, 而Net income是股權投資者收入（不包含投資收入）。所以一致。</p>
+<p>EV to EBITDA，分子為Market value of operating assets，父母為Earning of operating assets，一致。</p>
+<p><img loading="lazy" src="images/image-5-1024x88.png" alt=""  />
+</p>
+<p>Price to EBITDA ，分子為每股股權，分母為Earning of operating assets，是營運資本的收益，而非股權收益，就不一致。</p>
+<p>Price to sales，分子為每股股權，分母為sales或Revenue，但是營收是屬於整個公司的收益，不僅僅是股權投資者。所以不一致。很多分析師使用Price to sales，尤其在科技公司，因為科技公司的負債很少，所以還勉強湊合使用，如果負債比很高的公司用Price to sales就會大錯特錯。</p>
+<p>2）各公司一致。</p>
+<p>各種相對估值倍數都是建立在會計數字是可靠的並且一致的基礎上，但是即使在不同的會計準則下，各個公司的會計做賬的方式也有差別。比如同為研發支出，公司可以選擇把它列入費用，也可以選擇列入資本支出。</p>
+<p><strong>2.2描述倍數</strong></p>
+<p>有很多分析師會按經驗來總結：10倍Earning很便宜，6倍EBITDA很便宜，1倍Book value很便宜。</p>
+<p>但是這樣會存在偏見。</p>
+<p>要用倍數的分佈（Distribution）來判斷低估還是高估，而不是經驗。比如你可以說第25分位的PE是比較便宜比較低估的。</p>
+<p>當聽到分析師說平均PE的時候也要小心，如下圖，美股2021年PE平均值為109.79（平均值被一個PE為36157的公司拉大了），而PE的中間值為18.15</p>
+<p><img loading="lazy" src="images/image-12.png" alt=""  />
+</p>
+<p>來源：http://pages.stern.nyu.edu/~adamodar/</p>
+<p>下圖是2021年全世界的PE分佈圖，其中美股第25個百分位是11.5，表示PE11.5是比較低的，中位數是40，，只有32.39%的公司PE大於0，即有正的earning。</p>
+<p>所以統計的樣本只有32%的公司，又犯了以偏概全的錯誤。</p>
+<p><img loading="lazy" src="images/image-3-1024x602.png" alt=""  />
+</p>
+<p>from：http://pages.stern.nyu.edu/~adamodar/</p>
+<p><strong>2.3分析倍數背後的驅動因素</strong></p>
+<p>1）思考兩個問題</p>
+<p><strong>倍數後面有哪些驅動因素？</strong></p>
+<p><strong>這些驅動因素怎麼影響我們的倍數？</strong></p>
+<p>比如PE=10,表面上看很便宜，但是我們要分析是什麼原因導致PE這麼低，判斷是真的低估，還是真的只值這麼多錢。</p>
+<p>2)怎麼找到驅動因素</p>
+<p>思路：分子是付出的價錢，通常是股價或者公司價值，這可以利用DCF現金流折現法算出，再用等式兩邊都除以分母，得到各個倍數的內含相對價值公式。</p>
+<p>不過我們獲得公式的目標是找到影響的因子，而不是為了計算。</p>
+<p>以PE為例：</p>
+<p>Step1：用簡單的股息模型（Gordon growth model）計算股價公式如下, DPS1為下一年的股息，r為cost of equity，gn為growth rate</p>
+<p><img loading="lazy" src="images/image-17.png" alt=""  />
+</p>
+<p>Step2 公式兩邊都除以Earning，其中DPS/EPS=Payout Ratio即配息率。</p>
+<p><img loading="lazy" src="images/image-16.png" alt=""  />
+</p>
+<p>由上述公式可以看出，<strong>影響成熟穩定配息公司PE的三個因子是Payout ratio，cost of equity 和growth rate。</strong></p>
+<p>Step3,如果有公司不發股息，可以將股息模型換成潛在股息（FCFE）。</p>
+<p><img loading="lazy" src="images/image-18.png" alt=""  />
+</p>
+<p>Step4，如果想分析高增長的公司</p>
+<p><img loading="lazy" src="images/image-19.png" alt=""  />
+</p>
+<p><img loading="lazy" src="images/image-20.png" alt=""  />
+</p>
+<p><strong>影響成長公司PE的三個因子是Payout ratio，cost of equity 和growth rate。</strong></p>
+<p>2.4 運用倍數並且根據差異調整</p>
+<p>我們的問題是，一有倍數就根據腦中的經驗直接使用，沒有清楚分析背後的驅動因素。</p>
+<p>1）怎么找到相似资产</p>
+<p>樣本多的話，優點是大數定理，樣本越多，越能準確找到背後的規律。缺點是非相似資產</p>
+<p>樣本少的話，優點是資產相似，缺點是樣本會比較少。</p>
+<p>2）怎么根据差异调整</p>
+<p>這一點教授給出的解決方案是用數據分析，特別是回歸分析，找個各個變量對倍數影響的具體數值，把差異具體量化。</p>
+<p>下面開始單獨學習各個常用的選股指標倍數。</p>
+<h2 id="3pe">3.PE<a hidden class="anchor" aria-hidden="true" href="#3pe">#</a></h2>
+<p>3.1 定義：PE是什麼？</p>
+<p>1）P/E是Price per share除以EPS( earning per share)。</p>
+<p>其中：</p>
+<p>Current PE: EPS in recent financial year（最近財政年度的財報，比如台積電最近的是2019財年）</p>
+<p>Trailing PE: EPS in trailing 12 months(最近的12個月的Earning）</p>
+<p>Forward PE: EPS for next 12 months（預估未來的12個月的Earning）</p>
+<p>2）EPS 為Net income除以股數。對於大量發股票薪酬（尤其是option）的科技公司來說，有如下三種EPS：</p>
+<p>Primary EPS(outstanding shares）</p>
+<p>Fully diluted EPS(shares+all options）</p>
+<p>Partially Diluted EPS(Shares+in-the-money options）</p>
+<p>因為Price是市場價格，市場已經知道公司有發這麼多的股票薪酬，所以已經把Options列入計算中了，所以為了分子分母一致，也為了避免計算Option的麻煩，最好用如下的公式計算PE,</p>
+<p><strong>PE=Total market cap/Net income</strong></p>
+<p>3.2 影響因子：</p>
+<p><img loading="lazy" src="images/image-20.png" alt="This image has an empty alt attribute; its file name is image-20.png"  />
+</p>
+<p>通過以上公式，得出<strong>影響成長公司PE的三個因子是Payout ratio，cost of equity 和growth rate。</strong></p>
+<p>1）Growth rate變動怎麼影響PE?</p>
+<p>很明顯，成長率越高，PE越高，兩者正相關。</p>
+<p>當上市公司有Earning report出來的時候，如果成長超預期，股價會大漲；成長沒有達到預期，股價會大跌。因為目前的無風險利率很低，未來的增長價值更高。所以股價對成長的反映更為敏感。</p>
+<p>2）Cost of equity中的beta值如何影響PE?</p>
+<p>可以看到beta值越高，風險越高，PE越低，這表示有時候不能一味的追求高成長率，也要把風險控制在一定的水平，這樣才能得到市場最佳的估值。</p>
+<p><img loading="lazy" src="images/image-21.png" alt="This image has an empty alt attribute; its file name is image-21.png"  />
+</p>
+<p>from：http://pages.stern.nyu.edu/~adamodar/</p>
+<p>高增長的公司有高的PE，低增長的公司有低的PE。如果只選PE值很低的公司的話，會忽略幾乎大部分的高成長型的公司。</p>
+<p>所以彼得林奇提出要不僅要看PE，更要看成長率，於是把PEG指標發揚光大。</p>
+<h2 id="4peg">4.PEG<a hidden class="anchor" aria-hidden="true" href="#4peg">#</a></h2>
+<p>4.1<strong>公式：</strong></p>
+<p><img loading="lazy" src="images/image-23.png" alt=""  />
+</p>
+<p>4.2**含義：**獲得每1%的增長率付出多少倍的PE。數值越低，表示投資者為1%的成長率付出的代價越低。</p>
+<p>我們都喜歡高成長，但是怎麼控制我們付出的代價，發明PEG指標就是這個目的。</p>
+<p>比如PE=20， Growth rate=20%，PEG=1，表示我們為了1%的成長率付出的代價是1倍Earning.</p>
+<p>比如PE=30, Growth rate=10%，PEG=3，表示我們為了1%的成長率付出的代價是3倍的Earning.</p>
+<p>投資者的目標是付出更少的錢獲得更高的成長率，所以會選擇比較低的PEG。</p>
+<p>就我潛水Seeking alpha多年的經驗：好像很多分析師說合理的估值，成長率多少，PE多少，即很多人認為PEG=1是比較合理的（不一定正確）</p>
+<p>4.3<strong>驅動因素</strong>：</p>
+<p>利用兩階段DCF估值模型，計算P:</p>
+<p><img loading="lazy" src="images/image-24.png" alt=""  />
+</p>
+<p>分式兩邊除以增長率，得到如下複雜的公式。</p>
+<p><img loading="lazy" src="images/image-25.png" alt=""  />
+</p>
+<p>影響因子為：</p>
+<p><strong>1）PEG和Beta值。</strong></p>
+<p>Beta值描述的是一只股票和其所在的市場相比的波動程度。經濟學中把波動視為風險。</p>
+<p>相關閱讀：[學估值7.現金流折現法之折現率-part3 丟了CAPM beta，改用bottom-up beta](http://學估值7.現金流折現法之折現率-part3 丟了CAPM beta，改用bottom-up beta)</p>
+<p>可以看到<a href="https://fulltimemammy.com/%e5%ad%b8%e4%bc%b0%e5%80%bc7-%e7%8f%be%e9%87%91%e6%b5%81%e6%8a%98%e7%8f%be%e6%b3%95%e4%b9%8b%e6%8a%98%e7%8f%be%e7%8e%87-part3-%e4%b8%9f%e4%ba%86capm-beta%ef%bc%8c%e6%94%b9%e7%94%a8bottom-up-beta/" target="_blank" rel="noopener" style="color:#42b983";>Beta</a>值越高，PEG值越低。</p>
+<p>忽略風險，高成長也高風險，風險更高的公司有比較低的PEG。</p>
+<p><img loading="lazy" src="images/image-29.png" alt=""  />
+</p>
+<p>from：http://pages.stern.nyu.edu/~adamodar/</p>
+<p><strong>2）PEG 和Retention ratio，ROE</strong></p>
+<p>下圖表示：假設成長率不變，Retention越高，PEG越低。</p>
+<p>同樣的成長率，Retention ratio越高，表示ROE越低。</p>
+<p><strong>ROE越低PEG越低。ROE越高，PEG越高。</strong></p>
+<p>從這一點看挑選低PEG值的公司有可能低ROE的公司，即資金運用效率不高的公司。</p>
+<p><img loading="lazy" src="images/image-26.png" alt=""  />
+</p>
+<p>from：http://pages.stern.nyu.edu/~adamodar/</p>
+<p>比如說，A和B兩公司去年都賺了100萬，今年都會成長40%，即賺40萬。</p>
+<p>A公司分給股東50萬，自留50萬，利潤留存率：50%，所以40%=50%*ROE，所以ROE=8（Growth rate=Retention ratio*<a href="https://fulltimemammy.com/roeroc-roicroacash-flow-roiccfroi/" target="_blank" rel="noopener" style="color:#42b983";>ROE</a>）</p>
+<p>B公司一塊錢都不分給股東，自留100萬，利潤留存率：100%, 所以40%=100%*ROE. ROE=4</p>
+<p>但是計算PEG指標的時候，A公司的PEG會比較高，B公司的PEG會比較低。</p>
+<p>這導致我們選PEG低的公司會選到賺錢比較沒有效率的B公司。</p>
+<p><strong>3）PEG和Growth rate</strong></p>
+<p>成長率和PEG比率的關係是U型，表示成長率增加可以使得PEG增加，或者使得PEG減小。這會導致我們無法判斷。</p>
+<p><img loading="lazy" src="images/image-27.png" alt=""  />
+</p>
+<p>from：http://pages.stern.nyu.edu/~adamodar/</p>
+<p>使用PEG的時候，我們比較很多公司然後選擇比較低PEG的公司時，要確保我們的公司：</p>
+<ul>
+<li>風險沒有比較高。因為風險很高的公司PEG值很低，這會誤導我們。</li>
+<li>ROE沒有比較低。因為ROE低的公司PEG值低，會誤導我們。</li>
+<li>成長率，一開始成長率增加PEG會降低，但是成長到達一個點以後PEG又會上升。同一個行業裡有最低的PEG值的往往成長率保持在行業中間值。而有最高的成長率或者最低的成長率的公司往往PEG值比較高。</li>
+</ul>
+<h2 id="5pbprice-to-book市淨率">5.P/B，Price to book,市淨率<a hidden class="anchor" aria-hidden="true" href="#5pbprice-to-book市淨率">#</a></h2>
+<p>很多價值投資者很喜歡市場價值低於Book value的公司，以為把公司破產清算的話可以獲得清算價值和賬面價值的價差。但是現實中不見得如此。</p>
+<p>5.1定義：</p>
+<p>市淨率是每股股價除以每股淨資產。也可以用股票市值除以資產減去負債的差額</p>
+<p>P/B=Price per share/book value of equity</p>
+<p>或者P/B=Market value/(book value of assets-book value of liabilities)</p>
+<p>5.2影響因子分析：</p>
+<p><img loading="lazy" src="images/image-30.png" alt=""  />
+</p>
+<p><img loading="lazy" src="images/image-31.png" alt=""  />
+</p>
+<p>因為Growth=(1-payout ratio）*ROE，所以上述公司可以簡化為：</p>
+<p><img loading="lazy" src="images/image-32.png" alt=""  />
+</p>
+<p>所以影響因子為：ROE,成長率，股息配發率和cost of equity。</p>
+<p><strong>其中，ROE是決定性的影響因子，ROE越高，PB越高。</strong></p>
+<p>注意：</p>
+<ul>
+<li>當ROE約等於Cost of equity差不多的時候，P/B=1</li>
+<li>當ROE大於Cost of equity時，P/B&gt;1</li>
+<li>當ROE小於Cost of equity是，P/B&lt;1</li>
+</ul>
+<p>當有人說某公司P/B=0.5很便宜的時候，第一個要研究的就是這個公司的ROE是不是很低，因為P/B值很低的公司往往都是ROE很低的公司。</p>
+<h2 id="6evebitda">6.EV/EBITDA<a hidden class="anchor" aria-hidden="true" href="#6evebitda">#</a></h2>
+<p>目前有近40%的分析師使用EV/EBITDA代替P/E,Youtube上很多CFA也是很喜歡用EV/EBITDA,也有可能人人都知道PE，但是不見得人人都知道EV/EBITDA，分析師用EV/EBITDA顯得貌似更專業吧。</p>
+<p>6.1定義</p>
+<p><img loading="lazy" src="images/image-8-1024x92.png" alt=""  />
+</p>
+<p>1）分子有減去Cash，是因為現金帶來的收入在損益表中是列在Operating income下面的Other income欄目裡；分母的EBITDA只包含operating income而沒有包含other income。為了一致，分子要減去Cash。</p>
+<p>2）對於有很多Cross Holding的公司，</p>
+<p>Minority holding（沒有對營運有影響或者持股小於50%）帶來的收入也是列在Operating income下面的Other income 裡面，分母不含此部分收入，為了保持一致，需要將分子減去Minority holding的市值。</p>
+<p>Majority Holding（有營運控制權或者持股大於60%），要把控股公司100%的收入列入Operating income，最後再從Net income中用Non-controling interest 把不屬於自己的部分減去。如果真要保持一致的話，分母中包含了100%的Majority Holding的收入，分子就就應該加上100%的Majority Holding的市值。（超級複雜，除非選擇視而不見）</p>
+<p>下圖的損益表供參考。</p>
+<p><img loading="lazy" src="images/image-9.png" alt=""  />
+</p>
+<p>6.2 影響因子分析</p>
+<p><img loading="lazy" src="images/image-38.png" alt=""  />
+</p>
+<p><img loading="lazy" src="images/image-39.png" alt=""  />
+</p>
+<p><img loading="lazy" src="images/image-40.png" alt=""  />
+</p>
+<p>影響因子：</p>
+<p>1)Tax rate,</p>
+<p>和PE不同，因為PE的分母是Earning，來自於Net income，是稅後的，但是EBITDA是稅前的。所以稅收會影響EV/EBITDA</p>
+<p>2)Cost of Capital</p>
+<p>3)成長率</p>
+<p>4）Reinvestment rate（Or ROC）</p>
+<ul>
+<li>稅率越高，EV/EBITDA越低。</li>
+<li>成長率越高，EV/EBITDA越高。</li>
+<li>資本成本越高，EV/EBITA越低。因為資本成本高表示企業風險大， 當然估值較低。</li>
+<li>再投資率越高，EV/EBITDA越低。為了增長需要投入非常多的錢，表示資金的使用效率不高，所以估值較低。</li>
+<li>ROC，資本報酬率越低，EV/EBITDA越低。</li>
+</ul>
+<h2 id="7evsales">7.EV/SALES<a hidden class="anchor" aria-hidden="true" href="#7evsales">#</a></h2>
+<p>7.1計算：</p>
+<p><img loading="lazy" src="images/image-53.png" alt=""  />
+</p>
+<p>7.2影響因子分析：</p>
+<p><img loading="lazy" src="images/image-37.png" alt=""  />
+</p>
+<p>影響因子：</p>
+<p>1）成長率</p>
+<p>2）資本成本</p>
+<p>3）再投資率</p>
+<p>各個倍數指標影響因子匯總：</p>
+<p><img loading="lazy" src="images/image-42.png" alt=""  />
+</p>
+<p>from：http://pages.stern.nyu.edu/~adamodar/</p>
+<h2 id="8怎麼用">8.怎麼用？<a hidden class="anchor" aria-hidden="true" href="#8怎麼用">#</a></h2>
+<p>因為很多人包括教授課堂裡的學生不會運行或者懶得自己運行回歸分析，所以教授按市場給我們做好了回歸分析，短期來說我們直接套公式計算就好了。長期來說，還是要學統計、數據分析等相關知識。我們沒有數據庫不見得可以運行全市場的回歸分析，但是好好學一下運行幾十家相似公司或者同行業公司的回歸分析應該是可能的（列入以後學習清單）。</p>
+<p>註：下面個表的R2表示的可以解釋的部分。</p>
+<p>比如對於美國來說，PE=4.1+1.71Beta+17.4payout+120.4expected growth，後面的R2=39.4，意思是這個公式可以解釋市場上40%的個股情況。</p>
+<p>1）PE</p>
+<p><img loading="lazy" src="images/image-43.png" alt=""  />
+</p>
+<p>from：http://pages.stern.nyu.edu/~adamodar/</p>
+<p>2)PEG</p>
+<p><img loading="lazy" src="images/image-44.png" alt=""  />
+</p>
+<p>from：http://pages.stern.nyu.edu/~adamodar/</p>
+<p>3)PB</p>
+<p><img loading="lazy" src="images/image-45.png" alt=""  />
+</p>
+<p>from：http://pages.stern.nyu.edu/~adamodar/</p>
+<p>4)EV/EBITDA</p>
+<p><img loading="lazy" src="images/image-46.png" alt=""  />
+</p>
+<p>from：http://pages.stern.nyu.edu/~adamodar/</p>
+<ol start="5">
+<li>EV/SALES</li>
+</ol>
+<p><img loading="lazy" src="images/image-47.png" alt=""  />
+</p>
+<p>from：http://pages.stern.nyu.edu/~adamodar/</p>
+<ol start="6">
+<li>EV/Invested Capital</li>
+</ol>
+<p><img loading="lazy" src="images/image-48.png" alt=""  />
+</p>
+<p>from：http://pages.stern.nyu.edu/~adamodar/</p>
+<h2 id="9這麼多指標到底該選擇哪一個">9.這麼多指標，到底該選擇哪一個？<a hidden class="anchor" aria-hidden="true" href="#9這麼多指標到底該選擇哪一個">#</a></h2>
+<p>1）Enterprise, Equity or Firm value？</p>
+<p>銀行行業使用股權類的倍數。債務槓桿很大使用市值類的倍數。</p>
+<p>2）Revenues, Earnings, Cash Flows or Book value?</p>
+<p>在確保樣本數夠多的情況下，每個都可以。但是如果行業裡大部分都還沒有賺錢，此時未來避免損失大量樣本，可以使用Revenue。</p>
+<p>3）Current, Trailing, Forward?</p>
+<p>都可以，確保一致就行了。盡量找到可以解釋目標公司和比較樣本之間差異最大的指標。</p>
+<p>4）樣本大小？</p>
+<p>找到相似資產和樣本數量之間的平衡。</p>
+<p>5）舉例分析：</p>
+<p>以輝瑞Pfizer為例，選擇EV/Invested capital，因為我暫時不會自己回歸分析樣本，量化相關因子的影響，所以我挑選教授提供的最大R2的指標。</p>
+<p>另外，分析輝瑞的時候我最不喜歡的就是其資本成本ROIC太低，我想選擇有此因子的倍數指標。</p>
+<p><img loading="lazy" src="images/image-54.png" alt=""  />
+</p>
+<p>得出：IC=139395, DFR=0.5785， g=11.5%（此為未來5年的復合成長率，今年55%，明年5%，後年之後2%）， ROIC=7.49%</p>
+<p>EV/IC=4.29-4.02*0.5785+2.1*11.5%+6*7.49%=2.65533</p>
+<p>EV=139395*2.65533=<strong>370139million$</strong></p>
+<p>今天輝瑞 EV=Market cap+debt-Cash=222396+39699-16985=<strong>245110million$</strong></p>
+<p>用此指標分析，輝瑞被低估。</p>
+<h2 id="10總結">10.總結：<a hidden class="anchor" aria-hidden="true" href="#10總結">#</a></h2>
+<p>1）相對估值是相對的，難以避免全市場或者全產業被低估或者被高估的風險。</p>
+<p>比如一個60公斤的人和80公斤的人比顯得很瘦，但是站在40公斤的人面前，會顯得很胖.</p>
+<p>2）沒有絕對相同的資產，每個資產都是獨一無二的。所以放棄相對估值可以完美的念頭。</p>
+<p>3）相對估值法是給資產定價，不是真正的估值。</p>
+<p>注：本站所有學習達摩德仁教授課程的心得文章均已獲達摩德仁教授授權。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/%E6%8A%95%E8%B3%87%E5%AD%B8%E7%BF%92/">投資學習</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/history/2021-07-10-%E8%AE%80%E6%9B%B8%E5%BF%83%E5%BE%97%E5%92%8C%E6%91%98%E8%A6%81%E7%AA%AE%E6%9F%A5%E7%90%86%E6%99%AE%E9%80%9A%E5%B8%B8%E8%AD%98%E6%80%8E%E9%BA%BC%E6%8A%95%E8%B3%87%E6%80%8E/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>讀書心得和摘要：窮查理普通常識，怎麼投資？怎麼跨領域學習形成多元思維模型？</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2021-06-29-%E5%AD%B8%E4%BC%B0%E5%80%BC14%E7%8F%BE%E9%87%91%E6%B5%81%E6%8A%98%E7%8F%BE%E6%B3%95dcf%E4%BC%B0%E5%80%BC%E8%88%89%E4%BE%8B%E6%96%B0%E5%89%B5%E5%85%AC%E5%8F%B8/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>學估值14，現金流折現法（DCF估值）舉例，新創公司、轉型公司、蕭條公司、新興市場公司等估值思路</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2021-07-06 00:00:00 +0000 UTC'>2021-07-06</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/%E6%8A%95%E8%B3%87%E5%AD%B8%E7%BF%92/">投資學習</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

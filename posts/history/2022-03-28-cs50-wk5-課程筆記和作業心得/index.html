@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>CS50 wk5 課程筆記和作業心得 | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="CS50">
+<meta name="description" content="註：本課程筆記參考CS50官方課程和官方notes。 本週的課程是數據結構（data structure）。 當解決複雜的問題，需要面對大量的數據的時候，就需要先想想怎麼組織這些數據。比如很多app用戶量上億，這麼大的數量，怎麼存儲用戶名和密碼，然後讓用戶花最少的時間登陸自己的帳號，這">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2022-03-28-cs50-wk5-%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E5%92%8C%E4%BD%9C%E6%A5%AD%E5%BF%83%E5%BE%97/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="CS50 wk5 課程筆記和作業心得" />
+<meta property="og:description" content="註：本課程筆記參考CS50官方課程和官方notes。 本週的課程是數據結構（data structure）。 當解決複雜的問題，需要面對大量的數據的時候，就需要先想想怎麼組織這些數據。比如很多app用戶量上億，這麼大的數量，怎麼存儲用戶名和密碼，然後讓用戶花最少的時間登陸自己的帳號，這" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2022-03-28-cs50-wk5-%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E5%92%8C%E4%BD%9C%E6%A5%AD%E5%BF%83%E5%BE%97/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-03-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-03-28T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CS50 wk5 課程筆記和作業心得"/>
+<meta name="twitter:description" content="註：本課程筆記參考CS50官方課程和官方notes。 本週的課程是數據結構（data structure）。 當解決複雜的問題，需要面對大量的數據的時候，就需要先想想怎麼組織這些數據。比如很多app用戶量上億，這麼大的數量，怎麼存儲用戶名和密碼，然後讓用戶花最少的時間登陸自己的帳號，這"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "CS50 wk5 課程筆記和作業心得",
+      "item": "https://everydaydiva.blog/posts/history/2022-03-28-cs50-wk5-%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E5%92%8C%E4%BD%9C%E6%A5%AD%E5%BF%83%E5%BE%97/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "CS50 wk5 課程筆記和作業心得",
+  "name": "CS50 wk5 課程筆記和作業心得",
+  "description": "註：本課程筆記參考CS50官方課程和官方notes。 本週的課程是數據結構（data structure）。 當解決複雜的問題，需要面對大量的數據的時候，就需要先想想怎麼組織這些數據。比如很多app用戶量上億，這麼大的數量，怎麼存儲用戶名和密碼，然後讓用戶花最少的時間登陸自己的帳號，這",
+  "keywords": [
+    "CS50"
+  ],
+  "articleBody": "註：本課程筆記參考CS50官方課程和官方notes。\n本週的課程是數據結構（data structure）。\n當解決複雜的問題，需要面對大量的數據的時候，就需要先想想怎麼組織這些數據。比如很多app用戶量上億，這麼大的數量，怎麼存儲用戶名和密碼，然後讓用戶花最少的時間登陸自己的帳號，這就涉及按什麼邏輯處理這些數據，可以讓用戶啊很快的log in。這個處理背後的邏輯就是數據結構。\n課程筆記：\n課程總共花費約9個小時（課程看三遍，某些short看三遍）。\n1.Array\n優點：back to back，無論在在stack或heap上數據存儲都是連續的。\n缺點：如果存在stack上存儲大小是固定的，無法增加。\n如果想要增加，必須使用malloc分配動態存儲空間存在heap上面。也可直接使用realloc，既分配存儲空間，同時直接複製原本陣列的數據。\nlist[0] = 1; list[1] = 2; list[2] = 3; int *tmp = realloc(list, 4 * sizeof(int)); free(list); list = tmp; // Add number to list list[3] = 4; 複雜度：\nsearch：O(log n) insert：O(n) 2.linked list\nlinked list是一串link在一起的node組成的數據結構。每個node包含兩部分：變量本身和下一個node的地址。\n重點在這個linked list不能斷鏈，這個教授在課程中具體有一步步code說明，還特別請同學上台很形象的展示了。新的node要插入的話，必須先讓n-\u003enext先指向，而不是讓已有的linked list來指向新的node，因為會產生斷鏈問題而導致失去後面鏈接的node。\n如何在linked list裡插入數值。除了課程講的，google出來的這個視頻List in C/C++ - Inserting a node at beginning也很有幫助。\ntypedef struct node { int number; struct node *next; } node; //第一步 創立空的list node *list = NULL; //第二步 創立暫時的變量n的地址 node *n = malloc(sizeof(node)); //第三步 臨時變量賦值 if（n ！= NULL) { n-\u003enumber = 1; n-\u003enext = NULL; } //第四步 臨時變量變成list list = n; 複雜度：\nsearch：O(n)。 insert：如果需要排序的話O(n)，如果不需要排序直接插入，O(1)。 3.hash table\nhash table本質上就是很多linked list組成的array。像是撲克牌，可以52張混在一起變成一個linked list，也可以把四種不同的花色分成四個桶子，每一個桶子13張牌組成一個linked list，這四個linked list組成的array就是hash table。\n當不介意數據是否是排序好的時候，可以用hash table。\n本週的作業實作了hash table，增加理解。\n複雜度：\nsearch：理論上是O(n)，但是實際上，可以大幅增加效率，比如把人名按26個字母分為26個linked list，這樣搜索的效率就是26倍。 作業心得(Speller)：\n總共花費8個小時。\n這週的作業難度又加大了，要求寫一個查文件裡錯誤詞彙的程式，如果沒有walkthrough簡直就是不可能完成的任務。CS50的作業設置的很難，學生很容易直接放棄；但是作業又提供有詳細講解的walkthrough，這真是一大陷阱，讓人覺得努力一下還是可以解題的。walkthrough又是點到為止，只是給個線索，還是要自己加深學習才能運用，就這樣在walkthrough的帶領下一步步試試看，不行改改再試試，就這樣一步步在不停的錯了再改中實踐正課的學習。最後一開始看似不可能完成的任務就這樣一步一步的完成了，好像玩一個很難的遊戲闖關成功一樣，收穫滿滿的成就感，接下來再闖下一關。如果CS50的作業沒有這麼精心的設計，我估計早就放棄了。\n花了好幾天看了幾遍課程和短片，看了很多遍walkthrough並跟著寫出了程式，結果可以compile但是不能運行。\n1.Segmentation fault (core dumped)\n運行help50：\n$ help50 valgrind ./speller texts/cat.txt 提示如下錯誤：\n問題應該出在對hash table和linked list理解，再複習下shorts，google了insert in linked list。改正了如下錯誤：\n1)hash table邏輯問題\n如果用首兩個字母的話，會漏掉只有一個字母的詞，比如a和i，也會漏掉i‘m等。\n2）hash table的數字問題\nhash table的數字要大於等於0，小於等於N-1，不能超過這個範圍。\n3）fopen沒有fclose\n解決了這三個問題，發現程式可以運行，且沒有了memory leak的問題。\n2.Could not unload dictionaries/large.\ngoogle了後發現問題出在unload function不小心return了false。\n改正了這個錯誤再次運行。\n3.case-insensitive的問題，根源應該出在check function。\n我把check function的for loop改為while loop，問題依然存在。最後翻看了txt的文件，發現裡面大小寫都有，而我的hash function 沒有把大小寫區別對待。再次修改hash function，最後成功解題。\n不過我的總運行時間是0.22s，遠遠超過CS50老師們的運行時間0.09s，顯示我的hash table還有很多提升空間。\n下面是幾個重要的function：\n//hash function unsigned int hash(const char *word) { int sum = 0; for(int i = 0; i\u003cstrlen(word);i++) { sum = sum+ tolower(word[i]); } return sum%500; } //load function FILE *file = NULL; bool load(const char *dictionary) { // open dictionary file: file=fopen(dictionary,\"r\"); if (!dictionary) { return 1; } // read one at a time: char word2[LENGTH + 1]; while(fscanf(file,\"%s\",word2)!=EOF) { node *n=malloc(sizeof(node)); if(n == NULL) { return 1; } strcpy(n-\u003eword,word2); int x = hash(word2); counter++; n-\u003enext = table[x]; table[x] = n; } fclose(file); return true; } //unload function bool unload(void) { // TODO for(int i = 0; i \u003c N; i++) { node *cursor = table[i]; while(cursor!=NULL) { node *tmp=cursor; cursor=cursor-\u003enext; free(tmp); } } return true; } 學習心得：\n本週課程對我很難，很難的東西，一次學一點，分開多次學，讓我們的大腦慢慢把這些知識組塊（chunk）。所以我花了很久學這節課，也看了很多遍。最後大腦吸收的越來越多，一開始很難的東西好像變得沒有那麼難了。\n推薦學習coursera課程：學習如何學習。\n",
+  "wordCount" : "2253",
+  "inLanguage": "zh",
+  "datePublished": "2022-03-28T00:00:00Z",
+  "dateModified": "2022-03-28T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2022-03-28-cs50-wk5-%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E5%92%8C%E4%BD%9C%E6%A5%AD%E5%BF%83%E5%BE%97/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      CS50 wk5 課程筆記和作業心得
+    </h1>
+    <div class="post-meta"><span title='2022-03-28 00:00:00 +0000 UTC'>2022-03-28</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> 
+
+  <div class="post-content"><p>註：本課程筆記參考CS50官方課程和官方<a href="https://cs50.harvard.edu/x/2022/notes/5/" target="_blank" rel="noopener" style="color:#42b983";>notes</a>。</p>
+<p>本週的課程是數據結構（data structure）。</p>
+<p>當解決複雜的問題，需要面對大量的數據的時候，就需要先想想怎麼組織這些數據。比如很多app用戶量上億，這麼大的數量，怎麼存儲用戶名和密碼，然後讓用戶花最少的時間登陸自己的帳號，這就涉及按什麼邏輯處理這些數據，可以讓用戶啊很快的log in。這個處理背後的邏輯就是數據結構。</p>
+<p><strong>課程筆記：</strong></p>
+<p>課程總共花費約9個小時（課程看三遍，某些short看三遍）。</p>
+<p><strong>1.Array</strong></p>
+<p>優點：back to back，無論在在stack或heap上數據存儲都是連續的。</p>
+<p>缺點：如果存在stack上存儲大小是固定的，無法增加。</p>
+<p>如果想要增加，必須使用malloc分配動態存儲空間存在heap上面。也可直接使用realloc，既分配存儲空間，同時直接複製原本陣列的數據。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>list[0] = 1;
+</span></span><span style="display:flex;"><span>list[1] = 2;
+</span></span><span style="display:flex;"><span>list[2] = 3;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>int *tmp = realloc(list, 4 * sizeof(int));
+</span></span><span style="display:flex;"><span>free(list);
+</span></span><span style="display:flex;"><span>list = tmp;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>// Add number to list
+</span></span><span style="display:flex;"><span>list[3] = 4;
+</span></span></code></pre></div><p>複雜度：</p>
+<ul>
+<li>search：O(log n)</li>
+<li>insert：O(n)</li>
+</ul>
+<p><strong>2.linked list</strong></p>
+<p>linked list是一串link在一起的node組成的數據結構。每個node包含兩部分：變量本身和下一個node的地址。</p>
+<p>重點在這個linked list不能斷鏈，這個教授在課程中具體有一步步code說明，還特別請同學上台很形象的展示了。新的node要插入的話，必須先讓n-&gt;next先指向，而不是讓已有的linked list來指向新的node，因為會產生斷鏈問題而導致失去後面鏈接的node。</p>
+<p>如何在linked list裡插入數值。除了課程講的，google出來的這個視頻<a href="https://www.youtube.com/watch?v=cAZ8CyDY56s" target="_blank" rel="noopener" style="color:#42b983";>List in C/C++ - Inserting a node at beginning</a>也很有幫助。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>typedef struct node
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    int number;
+</span></span><span style="display:flex;"><span>    struct node *next;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>node;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>//第一步 創立空的list
+</span></span><span style="display:flex;"><span>node *list = NULL;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>//第二步 創立暫時的變量n的地址
+</span></span><span style="display:flex;"><span>node *n = malloc(sizeof(node)); 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>//第三步 臨時變量賦值
+</span></span><span style="display:flex;"><span>if（n ！= NULL)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    n-&gt;number = 1;
+</span></span><span style="display:flex;"><span>    n-&gt;next = NULL;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>//第四步 臨時變量變成list
+</span></span><span style="display:flex;"><span>list = n;
+</span></span></code></pre></div><p>複雜度：</p>
+<ul>
+<li>search：O(n)。</li>
+<li>insert：如果需要排序的話O(n)，如果不需要排序直接插入，O(1)。</li>
+</ul>
+<p><strong>3.hash table</strong></p>
+<p>hash table本質上就是很多linked list組成的array。像是撲克牌，可以52張混在一起變成一個linked list，也可以把四種不同的花色分成四個桶子，每一個桶子13張牌組成一個linked list，這四個linked list組成的array就是hash table。</p>
+<p>當不介意數據是否是排序好的時候，可以用hash table。</p>
+<p>本週的作業實作了hash table，增加理解。</p>
+<p>複雜度：</p>
+<ul>
+<li>search：理論上是O(n)，但是實際上，可以大幅增加效率，比如把人名按26個字母分為26個linked list，這樣搜索的效率就是26倍。</li>
+</ul>
+<p><strong>作業心得(Speller)：</strong></p>
+<p>總共花費8個小時。</p>
+<p>這週的作業難度又加大了，要求寫一個查文件裡錯誤詞彙的程式，如果沒有walkthrough簡直就是不可能完成的任務。CS50的作業設置的很難，學生很容易直接放棄；但是作業又提供有詳細講解的walkthrough，這真是一大陷阱，讓人覺得努力一下還是可以解題的。walkthrough又是點到為止，只是給個線索，還是要自己加深學習才能運用，就這樣在walkthrough的帶領下一步步試試看，不行改改再試試，就這樣一步步在不停的錯了再改中實踐正課的學習。最後一開始看似不可能完成的任務就這樣一步一步的完成了，好像玩一個很難的遊戲闖關成功一樣，收穫滿滿的成就感，接下來再闖下一關。如果CS50的作業沒有這麼精心的設計，我估計早就放棄了。</p>
+<p>花了好幾天看了幾遍課程和短片，看了很多遍walkthrough並跟著寫出了程式，結果可以compile但是不能運行。</p>
+<p>1.Segmentation fault (core dumped)</p>
+<p>運行help50：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ help50 valgrind ./speller texts/cat.txt
+</span></span></code></pre></div><p>提示如下錯誤：</p>
+<p><img loading="lazy" src="images/Screen-Shot-2022-03-24-at-10.21.34-PM-1024x111.png" alt=""  />
+</p>
+<p>問題應該出在對hash table和linked list理解，再複習下shorts，google了insert in linked list。改正了如下錯誤：</p>
+<p>1)hash table邏輯問題</p>
+<p>如果用首兩個字母的話，會漏掉只有一個字母的詞，比如a和i，也會漏掉i‘m等。</p>
+<p>2）hash table的數字問題</p>
+<p>hash table的數字要大於等於0，小於等於N-1，不能超過這個範圍。</p>
+<p>3）fopen沒有fclose</p>
+<p>解決了這三個問題，發現程式可以運行，且沒有了memory leak的問題。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2022-03-25-at-11.08.53-PM.png" alt=""  />
+</p>
+<p>2.Could not unload dictionaries/large.</p>
+<p>google了後發現問題出在unload function不小心return了false。</p>
+<p>改正了這個錯誤再次運行。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2022-03-25-at-11.26.38-PM-1024x276.png" alt=""  />
+</p>
+<p>3.case-insensitive的問題，根源應該出在check function。</p>
+<p>我把check function的for loop改為while loop，問題依然存在。最後翻看了txt的文件，發現裡面大小寫都有，而我的hash function 沒有把大小寫區別對待。再次修改hash function，最後成功解題。</p>
+<p>不過我的總運行時間是0.22s，遠遠超過CS50老師們的運行時間0.09s，顯示我的hash table還有很多提升空間。</p>
+<p>下面是幾個重要的function：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#5bc4bf">//</span>hash function
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>unsigned <span style="color:#ef6155">int</span> hash(<span style="color:#815ba4">const</span> char <span style="color:#5bc4bf">*</span>word)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ef6155">int</span> sum <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">0</span>;
+</span></span><span style="display:flex;"><span>   <span style="color:#815ba4">for</span>(<span style="color:#ef6155">int</span> i <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">0</span>; i<span style="color:#5bc4bf">&lt;</span>strlen(word);i<span style="color:#5bc4bf">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        sum <span style="color:#5bc4bf">=</span> sum<span style="color:#5bc4bf">+</span> tolower(word[i]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">return</span> sum<span style="color:#5bc4bf">%</span><span style="color:#f99b15">500</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#5bc4bf">//</span>load function
+</span></span><span style="display:flex;"><span>FILE <span style="color:#5bc4bf">*</span>file <span style="color:#5bc4bf">=</span> NULL;
+</span></span><span style="display:flex;"><span><span style="color:#ef6155">bool</span> load(<span style="color:#815ba4">const</span> char <span style="color:#5bc4bf">*</span>dictionary)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#5bc4bf">//</span> open dictionary file:
+</span></span><span style="display:flex;"><span>    file<span style="color:#5bc4bf">=</span>fopen(dictionary,<span style="color:#48b685">&#34;r&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#815ba4">if</span> (<span style="color:#5bc4bf">!</span>dictionary)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">return</span> <span style="color:#f99b15">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#5bc4bf">//</span> read one at a time:
+</span></span><span style="display:flex;"><span>    char word2[LENGTH <span style="color:#5bc4bf">+</span> <span style="color:#f99b15">1</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#815ba4">while</span>(fscanf(file,<span style="color:#48b685">&#34;</span><span style="color:#f99b15">%s</span><span style="color:#48b685">&#34;</span>,word2)<span style="color:#5bc4bf">!=</span>EOF)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        node <span style="color:#5bc4bf">*</span>n<span style="color:#5bc4bf">=</span>malloc(sizeof(node));
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">if</span>(n <span style="color:#5bc4bf">==</span> NULL)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#815ba4">return</span> <span style="color:#f99b15">1</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        strcpy(n<span style="color:#5bc4bf">-&gt;</span>word,word2);
+</span></span><span style="display:flex;"><span>        <span style="color:#ef6155">int</span> x <span style="color:#5bc4bf">=</span> hash(word2);
+</span></span><span style="display:flex;"><span>        counter<span style="color:#5bc4bf">++</span>;
+</span></span><span style="display:flex;"><span>        n<span style="color:#5bc4bf">-&gt;</span>next <span style="color:#5bc4bf">=</span> table[x];
+</span></span><span style="display:flex;"><span>        table[x] <span style="color:#5bc4bf">=</span> n;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    fclose(file);
+</span></span><span style="display:flex;"><span>    <span style="color:#815ba4">return</span> true;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#5bc4bf">//</span>unload function 
+</span></span><span style="display:flex;"><span><span style="color:#ef6155">bool</span> unload(void)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#5bc4bf">//</span> TODO
+</span></span><span style="display:flex;"><span>    <span style="color:#815ba4">for</span>(<span style="color:#ef6155">int</span> i <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">0</span>; i <span style="color:#5bc4bf">&lt;</span> N; i<span style="color:#5bc4bf">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        node <span style="color:#5bc4bf">*</span>cursor <span style="color:#5bc4bf">=</span> table[i];
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">while</span>(cursor<span style="color:#5bc4bf">!=</span>NULL)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>        node <span style="color:#5bc4bf">*</span>tmp<span style="color:#5bc4bf">=</span>cursor;
+</span></span><span style="display:flex;"><span>        cursor<span style="color:#5bc4bf">=</span>cursor<span style="color:#5bc4bf">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>        free(tmp);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#815ba4">return</span> true;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>學習心得：</strong></p>
+<p>本週課程對我很難，很難的東西，一次學一點，分開多次學，讓我們的大腦慢慢把這些知識組塊（chunk）。所以我花了很久學這節課，也看了很多遍。最後大腦吸收的越來越多，一開始很難的東西好像變得沒有那麼難了。</p>
+<p>推薦學習coursera課程：學習如何學習。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/cs50/">CS50</a></li>
+      <li><a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">CS自學</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/history/2022-04-14-cs50-wk6-python%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E5%92%8C%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>CS50 wk6 Python課程筆記和學習心得</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2022-03-16-cs50-wk4-%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E5%92%8C%E4%BD%9C%E6%A5%AD%E5%BF%83%E5%BE%97/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>CS50 wk4 課程筆記和作業心得</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2022-03-28 00:00:00 +0000 UTC'>2022-03-28</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/cs50/">CS50</a>
+    <a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">、CS自學</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

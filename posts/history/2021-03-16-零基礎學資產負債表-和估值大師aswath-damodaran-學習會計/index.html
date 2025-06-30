@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>零基礎學資產負債表——和估值大師Aswath Damodaran 學習會計心得筆記四 | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="投資學習">
+<meta name="description" content="本文是和估值大師Aswath Damodaran 學習資產負債表的心得筆記之四，附學習視頻鏈接和講義習題鏈接。 註：Aswath Damodaran是估值權威，而非會計師，他開課目標是教授學生獲得估值夠用的會計就好，非專業會計。Aswath Damodaran達摩德仁的youtube頻道和網站就像個知識寶">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2021-03-16-%E9%9B%B6%E5%9F%BA%E7%A4%8E%E5%AD%B8%E8%B3%87%E7%94%A2%E8%B2%A0%E5%82%B5%E8%A1%A8-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%ABaswath-damodaran-%E5%AD%B8%E7%BF%92%E6%9C%83%E8%A8%88/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="零基礎學資產負債表——和估值大師Aswath Damodaran 學習會計心得筆記四" />
+<meta property="og:description" content="本文是和估值大師Aswath Damodaran 學習資產負債表的心得筆記之四，附學習視頻鏈接和講義習題鏈接。 註：Aswath Damodaran是估值權威，而非會計師，他開課目標是教授學生獲得估值夠用的會計就好，非專業會計。Aswath Damodaran達摩德仁的youtube頻道和網站就像個知識寶" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2021-03-16-%E9%9B%B6%E5%9F%BA%E7%A4%8E%E5%AD%B8%E8%B3%87%E7%94%A2%E8%B2%A0%E5%82%B5%E8%A1%A8-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%ABaswath-damodaran-%E5%AD%B8%E7%BF%92%E6%9C%83%E8%A8%88/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-03-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-03-16T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="零基礎學資產負債表——和估值大師Aswath Damodaran 學習會計心得筆記四"/>
+<meta name="twitter:description" content="本文是和估值大師Aswath Damodaran 學習資產負債表的心得筆記之四，附學習視頻鏈接和講義習題鏈接。 註：Aswath Damodaran是估值權威，而非會計師，他開課目標是教授學生獲得估值夠用的會計就好，非專業會計。Aswath Damodaran達摩德仁的youtube頻道和網站就像個知識寶"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "零基礎學資產負債表——和估值大師Aswath Damodaran 學習會計心得筆記四",
+      "item": "https://everydaydiva.blog/posts/history/2021-03-16-%E9%9B%B6%E5%9F%BA%E7%A4%8E%E5%AD%B8%E8%B3%87%E7%94%A2%E8%B2%A0%E5%82%B5%E8%A1%A8-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%ABaswath-damodaran-%E5%AD%B8%E7%BF%92%E6%9C%83%E8%A8%88/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "零基礎學資產負債表——和估值大師Aswath Damodaran 學習會計心得筆記四",
+  "name": "零基礎學資產負債表——和估值大師Aswath Damodaran 學習會計心得筆記四",
+  "description": "本文是和估值大師Aswath Damodaran 學習資產負債表的心得筆記之四，附學習視頻鏈接和講義習題鏈接。 註：Aswath Damodaran是估值權威，而非會計師，他開課目標是教授學生獲得估值夠用的會計就好，非專業會計。Aswath Damodaran達摩德仁的youtube頻道和網站就像個知識寶",
+  "keywords": [
+    "投資學習"
+  ],
+  "articleBody": "本文是和估值大師Aswath Damodaran 學習資產負債表的心得筆記之四，附學習視頻鏈接和講義習題鏈接。\n註：Aswath Damodaran是估值權威，而非會計師，他開課目標是教授學生獲得估值夠用的會計就好，非專業會計。Aswath Damodaran達摩德仁的youtube頻道和網站就像個知識寶庫，強烈推薦想要學習投資或者估值的人觀看。\n1.資產負債表是什麼？ **The balance sheet 資產負債表，**介紹在某個時間點，公司有多少錢（資產），欠了多少錢（負債）。\nThe balance sheet关键在balance。balance即是平衡的意思，資產=負債+股東權益，就像天平的两端，资产始终等于负债加股东权益。\n1）Fixed assets 固定資產，長期使用可以帶來收益的有形實體資產，比如廠房、設備。\n2）Current assets流動資產，一年以內，比如應收賬款、存貨、短期證券等。\n3）Financial Assets金融資產，公司做其他投資的資產，或者持有其他上市公司的股權資產等。\n4）Intangible Assets 無形資產，比如專利、商譽等。\n5）Current Liabilities流動負債 ，一年以內短期負債，比如應付賬款、短期負債等等\n6）Debt長期負債，大於一年的負債，比如銀行貸款和公司債。\n7）Other Liabilities其他長期負債，公司其他的需要付錢的義務，比如養老金。\n8）Equity股東權益是一個調劑變量，用來解釋資產和負債的差額。\n2.Fixed and current assets固定資產和流動資產 兩種計價模式：\n1）歷史成本計價，按照資產的成本價再減去折舊來計算資產的價值，比較舊式。此計價方法只有折舊，沒有升值。\n2）公允價值計價（fair value accounting），按照市場價來計算資產的價值，比較新式。\n目前還沒有統一的規定要用哪一種，所以比較有年紀的公司有可能就是一直沿用歷史成本計價，而比較年輕的公司有可能採用公允價值計價。在不同計價模式下，年紀越大的資產受影響差異比較大，固定資產（比如土地廠房）又比流動資產（比如存貨）差異大。\n3.Financial Assets金融資產 公司的金融資產可以是持有上市公司的股票或者是持有上市、私有公司的部分股權。\n1）持有上市公司的股票，按照市場價格計算。\n2）持有上市、私有公司的部分股權。\nminority stake 非控股持股，股權小於50%。這其中又按照持股的原因分為兩類。 一類是交易性持股。比如巴菲特持股了很多如下很多公司，持股比例都不到50%，這些持股是交易持股。\n所以波克夏的年報從2018年開始按照新的會計準則，需要列出這些持股的獲利或是損失。可以看到2018年市場下跌，波克夏的Investment gains是負22155M$，2019年市場上漲，波克夏的Investment gains是正的71123M$。\n另一類是持股不是為了交易，而是做為戰略投資，像是可口可樂對各個國家的瓶裝廠的投資應該就是戰略投資。這一類的投資會按照成本價入賬，然後按照Book value（賬面價值）加入到retained earning保留盈餘。\nmajority stake 控股持股，股權大於50%，需要合併報表。 比如持股60%，就需要假裝100%都是自己的，算入100%的資產，然後再把不是自己的40%算為負債，列為minority interest。\n4.Intangible Assets 無形資產 我們一般人一想到無形資產一般都會想到專利、品牌商標、著作權等等，但是會計記錄的在資產負債表上的無形資產和我們的想象很不一樣，一般資產負債表上有很大比重的無形資產是叫做Goodwill（商譽）。\n1）Goodwill，商誉 翻譯成商譽，一聽名字還以為是商家的信譽，比如鼎泰豐的信譽很好，是不是Goodwill商譽呢？不是，會計裡的Goodwill（商譽）非常具有迷惑性，Aswath認為Goodwill是最具危險性的一個會計科目。\n要有Goodwill，必須有收購，而且是超出Book value賬面價值（賬面價值為總資產減去折舊)的收購，超出的部分就是商譽。比如下面的ABBV的资产负债表，2020年比2019年大增了1倍的Goodwill，就是因为abbvie收购了艾尔建，而且是溢價收購。\n2）Goodwill impairment商誉减值 a）旧规则：Goodwill按照一定的年限（比如美股40年），每年减值1/40。\nb）新规则：90年代末开始，GAAP和IFRS要求会计师每年评估Goodwill的价值看其有没有減值。\n举例：波克夏公司每年都会评估其Goodwill的价值，巴菲特2021年给股东的信里有强调其2016年收购PCC出价太高导致波克夏损失100亿美金。\n可以看到波克夏2020的资产负债表里Goodwill一项，2020年比2019年大约減值100亿美金左右。\n我猜这就是Aswath認為Goodwill是财务报表里最危險的一个会计條目的原因。\n5.Current liabilities流動負債 1）Non-interest-bearing liabilities,無利息的債務，大部分都是運營過程產生的，比如應付賬款等。\n2）interest-bearing short-term borrowing,短期借貸和長期借貸中1年內要付的部分。\n3）Defered revenue/salary/taxes/others，遞延稅收等其他短期內的付錢項目。\nDefered revenue比如Netflix1年的合約，有半年是下個會計年度的，其中已收到錢的還沒有履約的部分就是Defered revenue。\n當計算Non-cash working capital的時候，不計入interest-bearing short-term borrowing，而是把interest-bearing short-term borrowing計入到負債Debt的部分。\n6.Debt due 公司借貸有以下三種形式：\n1）Corporate bond公司債券，在公開市場發行公司債。\n2）Bank loan銀行借款。\n3）Lease debt租賃負債。\n2019年開始lease debt經營性的租賃負債也被要求記錄在資產負債表上。\n7.Shareholder’s Equity，股东权益 Aswath認為會計師越來越想用Shareholder’s Equity和market cap 競爭，作為估值工具。\n1）par value\n在資產負債表上常常可以看到，是歷史遺留，Aswath建議直接忽視。\n2）公司年紀\n一個公司的股東權益是這個公司歷年創造的價值之累積。所以年輕的公司的股東權益小，百年企業股東權益就大。\n3）Capitalization effect\n只有資本化的費用才會變成資產的一部分。會計師怎麼區分營業費用和資本支出會影響股東權益的大小。\n比如下面netflix公司的損益表，它把科技研發算入Operating expense營業費用，但是Aswath認為這不是一個會計年度內的費用，應該算作資本支出。如果算作資本支出的話，資產就增加，相應的股東權益也會增加。\n4）buyback effect\n股票回購會大幅度的影響股東權益。\n股票回購用了多少錢，股東權益就減少多少錢。因為很多公司市值是賬面價值的5到10倍，所以小小的回購就會消耗股東權益，不僅會讓股東權益為零，甚至為負數。\n5）Equity股东权益為負值？\n八分之一的美國公司的股東權益為負數。股東權益為負值，有如下两个原因：\n有可能是因為公司還在創業階段，一直虧錢；\n公司做了很多的股票回購;\n除此之外，Aswath在課後習題裡提到還有另外2個導致股東權益為負的原因：\n公司所付股息大於公司的淨收入Net income；\n公司有重大的重組和特別支出（Restructuring and extraordinary charges）。\n总结： 关于怎么编写资产负债表，會計界有三种計價準則：\n1）Record of capital invested\n只是忠實的記錄而已。記錄所有在資產上的投資，比如土地、廠房、應收賬款等等所有在資產負債表上記錄的資產。\nDamodaran教授是這一派的支持者。\n2）Measure of current value\n也就是fair value accounting公允价值計價，按市價計價，要求資產負債符合現在的市場價格。\n這是目前的主流。\n3）liquidation value\n以清算的價格計價。\n所以，即使是會計師群體對資產負債表怎麼評估都各持己見談不攏，何況是我們這些普通的投資者。\n所以總體而言Damodaran教授認為資產負債表給我們的信息有些混亂。\n注：本站所有學習達摩德仁教授課程的心得文章均已獲達摩德仁教授授權。\n",
+  "wordCount" : "3334",
+  "inLanguage": "zh",
+  "datePublished": "2021-03-16T00:00:00Z",
+  "dateModified": "2021-03-16T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2021-03-16-%E9%9B%B6%E5%9F%BA%E7%A4%8E%E5%AD%B8%E8%B3%87%E7%94%A2%E8%B2%A0%E5%82%B5%E8%A1%A8-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%ABaswath-damodaran-%E5%AD%B8%E7%BF%92%E6%9C%83%E8%A8%88/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      零基礎學資產負債表——和估值大師Aswath Damodaran 學習會計心得筆記四
+    </h1>
+    <div class="post-meta"><span title='2021-03-16 00:00:00 +0000 UTC'>2021-03-16</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#1%e8%b3%87%e7%94%a2%e8%b2%a0%e5%82%b5%e8%a1%a8%e6%98%af%e4%bb%80%e9%ba%bc" aria-label="1.資產負債表是什麼？"><strong>1.資產負債表是什麼？</strong></a></li>
+                    <li>
+                        <a href="#2fixed-and-current-assets%e5%9b%ba%e5%ae%9a%e8%b3%87%e7%94%a2%e5%92%8c%e6%b5%81%e5%8b%95%e8%b3%87%e7%94%a2" aria-label="2.Fixed and current assets固定資產和流動資產"><strong>2.Fixed and current assets固定資產和流動資產</strong></a></li>
+                    <li>
+                        <a href="#3financial-assets%e9%87%91%e8%9e%8d%e8%b3%87%e7%94%a2" aria-label="3.Financial Assets金融資產"><strong>3.Financial Assets金融資產</strong></a></li>
+                    <li>
+                        <a href="#4intangible-assets-%e7%84%a1%e5%bd%a2%e8%b3%87%e7%94%a2" aria-label="4.Intangible Assets 無形資產"><strong>4.Intangible Assets 無形資產</strong></a><ul>
+                            
+                    <li>
+                        <a href="#1goodwill%e5%95%86%e8%aa%89" aria-label="1）Goodwill，商誉"><strong>1）Goodwill，商誉</strong></a></li>
+                    <li>
+                        <a href="#2goodwill-impairment%e5%95%86%e8%aa%89%e5%87%8f%e5%80%bc" aria-label="2）Goodwill impairment商誉减值"><strong>2）Goodwill impairment商誉减值</strong></a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#5current-liabilities%e6%b5%81%e5%8b%95%e8%b2%a0%e5%82%b5" aria-label="5.Current liabilities流動負債"><strong>5.Current liabilities流動負債</strong></a></li>
+                    <li>
+                        <a href="#6debt-due" aria-label="6.Debt due"><strong>6.Debt due</strong></a></li>
+                    <li>
+                        <a href="#7shareholders-equity%e8%82%a1%e4%b8%9c%e6%9d%83%e7%9b%8a" aria-label="7.Shareholder’s Equity，股东权益"><strong>7.Shareholder’s Equity</strong>，<strong>股东权益</strong></a></li>
+                    <li>
+                        <a href="#%e6%80%bb%e7%bb%93" aria-label="总结："><strong>总结：</strong></a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p>本文是和估值大師Aswath Damodaran 學習資產負債表的心得筆記之四，附學習<a href="https://www.youtube.com/watch?v=cSuc2HHQpxc&amp;list=PLUkh9m2BorqmKaLrNBjKtFDhpdFdi8f7C&amp;index=6" target="_blank" rel="noopener" style="color:#42b983";>視頻鏈接</a>和<a href="http://people.stern.nyu.edu/adamodar/New_Home_Page/webcastacctg.htm" target="_blank" rel="noopener" style="color:#42b983";>講義習題鏈接。</a></p>
+<p>註：Aswath Damodaran是估值權威，而非會計師，他開課目標是教授學生獲得估值夠用的會計就好，非專業會計。<strong>Aswath Damodaran達摩德仁的youtube頻道和網站就像個知識寶庫，強烈推薦想要學習投資或者估值的人觀看。</strong></p>
+<h2 id="1資產負債表是什麼"><strong>1.資產負債表是什麼？</strong><a hidden class="anchor" aria-hidden="true" href="#1資產負債表是什麼">#</a></h2>
+<p>**The balance sheet 資產負債表，**介紹在某個時間點，公司有多少錢（資產），欠了多少錢（負債）。</p>
+<p>The balance sheet关键在balance。balance即是平衡的意思，資產=負債+股東權益，就像天平的两端，资产始终等于负债加股东权益。</p>
+<p><img loading="lazy" src="images/balance.jpg" alt=""  />
+</p>
+<p>1）Fixed assets 固定資產，長期使用可以帶來收益的有形實體資產，比如廠房、設備。</p>
+<p>2）Current assets流動資產，一年以內，比如應收賬款、存貨、短期證券等。</p>
+<p>3）Financial Assets金融資產，公司做其他投資的資產，或者持有其他上市公司的股權資產等。</p>
+<p>4）Intangible Assets 無形資產，比如專利、商譽等。</p>
+<p>5）Current Liabilities流動負債 ，一年以內短期負債，比如應付賬款、短期負債等等</p>
+<p>6）Debt長期負債，大於一年的負債，比如銀行貸款和公司債。</p>
+<p>7）Other Liabilities其他長期負債，公司其他的需要付錢的義務，比如養老金。</p>
+<p>8）Equity股東權益是一個調劑變量，用來解釋資產和負債的差額。</p>
+<h2 id="2fixed-and-current-assets固定資產和流動資產"><strong>2.Fixed and current assets固定資產和流動資產</strong><a hidden class="anchor" aria-hidden="true" href="#2fixed-and-current-assets固定資產和流動資產">#</a></h2>
+<p>兩種計價模式：</p>
+<p>1）歷史成本計價，按照資產的成本價再減去折舊來計算資產的價值，比較舊式。此計價方法只有折舊，沒有升值。</p>
+<p>2）公允價值計價（fair value accounting），按照市場價來計算資產的價值，比較新式。</p>
+<p>目前還沒有統一的規定要用哪一種，所以比較有年紀的公司有可能就是一直沿用歷史成本計價，而比較年輕的公司有可能採用公允價值計價。在不同計價模式下，年紀越大的資產受影響差異比較大，固定資產（比如土地廠房）又比流動資產（比如存貨）差異大。</p>
+<h2 id="3financial-assets金融資產"><strong>3.Financial Assets金融資產</strong><a hidden class="anchor" aria-hidden="true" href="#3financial-assets金融資產">#</a></h2>
+<p>公司的金融資產可以是持有上市公司的股票或者是持有上市、私有公司的部分股權。</p>
+<p>1）持有上市公司的股票，按照市場價格計算。</p>
+<p>2）持有上市、私有公司的部分股權。</p>
+<ul>
+<li>minority stake 非控股持股，股權小於50%。這其中又按照持股的原因分為兩類。</li>
+</ul>
+<p>一類是交易性持股。比如巴菲特持股了很多如下很多公司，持股比例都不到50%，這些持股是交易持股。</p>
+<p><img loading="lazy" src="images/bafet11.jpg" alt=""  />
+</p>
+<p>所以波克夏的年報從2018年開始按照新的會計準則，需要列出這些持股的獲利或是損失。可以看到2018年市場下跌，波克夏的Investment gains是負22155M$，2019年市場上漲，波克夏的Investment gains是正的71123M$。</p>
+<p><img loading="lazy" src="images/brk22.jpg" alt=""  />
+</p>
+<p>另一類是持股不是為了交易，而是做為戰略投資，像是可口可樂對各個國家的瓶裝廠的投資應該就是戰略投資。這一類的投資會按照成本價入賬，然後按照Book value（賬面價值）加入到retained earning保留盈餘。</p>
+<ul>
+<li>majority stake 控股持股，股權大於50%，需要合併報表。</li>
+</ul>
+<p>比如持股60%，就需要假裝100%都是自己的，算入100%的資產，然後再把不是自己的40%算為負債，列為minority interest。</p>
+<h2 id="4intangible-assets-無形資產"><strong>4.Intangible Assets 無形資產</strong><a hidden class="anchor" aria-hidden="true" href="#4intangible-assets-無形資產">#</a></h2>
+<p>我們一般人一想到無形資產一般都會想到專利、品牌商標、著作權等等，但是會計記錄的在資產負債表上的無形資產和我們的想象很不一樣，一般資產負債表上有很大比重的無形資產是叫做Goodwill（商譽）。</p>
+<h3 id="1goodwill商誉"><strong>1）Goodwill，商誉</strong><a hidden class="anchor" aria-hidden="true" href="#1goodwill商誉">#</a></h3>
+<p>翻譯成商譽，一聽名字還以為是商家的信譽，比如鼎泰豐的信譽很好，是不是Goodwill商譽呢？不是，會計裡的Goodwill（商譽）非常具有迷惑性，Aswath認為Goodwill是最具危險性的一個會計科目。</p>
+<p>要有Goodwill，必須有收購，而且是超出Book value賬面價值（賬面價值為總資產減去折舊)的收購，超出的部分就是商譽。比如下面的ABBV的资产负债表，2020年比2019年大增了1倍的Goodwill，就是因为abbvie收购了艾尔建，而且是溢價收購。</p>
+<p><img loading="lazy" src="images/ABBV2.jpg" alt=""  />
+</p>
+<h3 id="2goodwill-impairment商誉减值"><strong>2）Goodwill impairment商誉减值</strong><a hidden class="anchor" aria-hidden="true" href="#2goodwill-impairment商誉减值">#</a></h3>
+<p>a）旧规则：Goodwill按照一定的年限（比如美股40年），每年减值1/40。</p>
+<p>b）新规则：90年代末开始，GAAP和IFRS要求会计师每年评估Goodwill的价值看其有没有減值。</p>
+<p>举例：波克夏公司每年都会评估其Goodwill的价值，巴菲特<a href="https://www.berkshirehathaway.com/letters/2020ltr.pdf" target="_blank" rel="noopener" style="color:#42b983";>2021年给股东的信</a>里有强调其2016年收购PCC出价太高导致波克夏损失100亿美金。</p>
+<p><img loading="lazy" src="images/PCC.jpg" alt=""  />
+</p>
+<p>可以看到波克夏2020的资产负债表里Goodwill一项，2020年比2019年大约減值100亿美金左右。</p>
+<p>我猜这就是Aswath認為Goodwill是财务报表里最危險的一个会计條目的原因。</p>
+<p><img loading="lazy" src="images/BRK1.png" alt=""  />
+</p>
+<h2 id="5current-liabilities流動負債"><strong>5.Current liabilities流動負債</strong><a hidden class="anchor" aria-hidden="true" href="#5current-liabilities流動負債">#</a></h2>
+<p>1）Non-interest-bearing liabilities,無利息的債務，大部分都是運營過程產生的，比如應付賬款等。</p>
+<p>2）<strong>interest-bearing short-term borrowing</strong>,短期借貸和長期借貸中1年內要付的部分。</p>
+<p>3）Defered revenue/salary/taxes/others，遞延稅收等其他短期內的付錢項目。</p>
+<p>Defered revenue比如Netflix1年的合約，有半年是下個會計年度的，其中已收到錢的還沒有履約的部分就是Defered revenue。</p>
+<p>當計算Non-cash working capital的時候，不計入interest-bearing short-term borrowing，而是把interest-bearing short-term borrowing計入到負債Debt的部分。</p>
+<h2 id="6debt-due"><strong>6.Debt due</strong><a hidden class="anchor" aria-hidden="true" href="#6debt-due">#</a></h2>
+<p>公司借貸有以下三種形式：</p>
+<p>1）Corporate bond公司債券，在公開市場發行公司債。</p>
+<p>2）Bank loan銀行借款。</p>
+<p>3）Lease debt租賃負債。</p>
+<p>2019年開始lease debt經營性的租賃負債也被要求記錄在資產負債表上。</p>
+<h2 id="7shareholders-equity股东权益"><strong>7.Shareholder’s Equity</strong>，<strong>股东权益</strong><a hidden class="anchor" aria-hidden="true" href="#7shareholders-equity股东权益">#</a></h2>
+<p>Aswath認為會計師越來越想用Shareholder’s Equity和market cap 競爭，作為估值工具。</p>
+<p>1）par value</p>
+<p>在資產負債表上常常可以看到，是歷史遺留，Aswath建議直接忽視。</p>
+<p>2）公司年紀</p>
+<p>一個公司的股東權益是這個公司歷年創造的價值之累積。所以年輕的公司的股東權益小，百年企業股東權益就大。</p>
+<p>3）Capitalization effect</p>
+<p>只有資本化的費用才會變成資產的一部分。會計師怎麼區分營業費用和資本支出會影響股東權益的大小。</p>
+<p>比如下面netflix公司的損益表，它把科技研發算入Operating expense營業費用，但是Aswath認為這不是一個會計年度內的費用，應該算作資本支出。如果算作資本支出的話，資產就增加，相應的股東權益也會增加。</p>
+<p><img loading="lazy" src="images/netfliex.jpg" alt=""  />
+</p>
+<p>4）buyback effect</p>
+<p>股票回購會大幅度的影響股東權益。</p>
+<p>股票回購用了多少錢，股東權益就減少多少錢。因為很多公司市值是賬面價值的5到10倍，所以小小的回購就會消耗股東權益，不僅會讓股東權益為零，甚至為負數。</p>
+<p>5）Equity股东权益為負值？</p>
+<p>八分之一的美國公司的股東權益為負數。股東權益為負值，有如下两个原因：</p>
+<ul>
+<li>
+<p>有可能是因為公司還在創業階段，一直虧錢；</p>
+</li>
+<li>
+<p>公司做了很多的股票回購;</p>
+</li>
+</ul>
+<p>除此之外，Aswath在課後習題裡提到還有另外2個導致股東權益為負的原因：</p>
+<ul>
+<li>
+<p>公司所付股息大於公司的淨收入Net income；</p>
+</li>
+<li>
+<p>公司有重大的重組和特別支出（Restructuring and extraordinary charges）。</p>
+</li>
+</ul>
+<h2 id="总结"><strong>总结：</strong><a hidden class="anchor" aria-hidden="true" href="#总结">#</a></h2>
+<p>关于怎么编写资产负债表，會計界有三种計價準則：</p>
+<p>1）Record of capital invested</p>
+<p>只是忠實的記錄而已。記錄所有在資產上的投資，比如土地、廠房、應收賬款等等所有在資產負債表上記錄的資產。</p>
+<p>Damodaran教授是這一派的支持者。</p>
+<p>2）Measure of current value</p>
+<p>也就是fair value accounting公允价值計價，按市價計價，要求資產負債符合現在的市場價格。</p>
+<p>這是目前的主流。</p>
+<p>3）liquidation value</p>
+<p>以清算的價格計價。</p>
+<p>所以，即使是會計師群體對資產負債表怎麼評估都各持己見談不攏，何況是我們這些普通的投資者。</p>
+<p>所以總體而言Damodaran教授認為資產負債表給我們的信息有些混亂。</p>
+<p>注：本站所有學習達摩德仁教授課程的心得文章均已獲達摩德仁教授授權。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/%E6%8A%95%E8%B3%87%E5%AD%B8%E7%BF%92/">投資學習</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/history/2021-03-17-%E4%B8%8D%E5%90%8C%E7%94%9F%E5%91%BD%E9%80%B1%E6%9C%9F%E5%85%AC%E5%8F%B8%E8%B3%87%E7%94%A2%E8%B2%A0%E5%82%B5%E8%A1%A8%E8%88%89%E4%BE%8B-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%ABas/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>不同生命週期公司資產負債表舉例——和估值大師Aswath Damodaran 學習會計心得筆記五</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2021-03-15-%E4%B8%8D%E5%90%8C%E7%94%9F%E5%91%BD%E9%80%B1%E6%9C%9F%E5%85%AC%E5%8F%B8%E6%90%8D%E7%9B%8A%E8%A1%A8%E6%AF%94%E8%BC%83-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%ABaswath-damodaran/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>不同生命週期公司損益表比較——和估值大師Aswath Damodaran 學習會計心得筆記三</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2021-03-16 00:00:00 +0000 UTC'>2021-03-16</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/%E6%8A%95%E8%B3%87%E5%AD%B8%E7%BF%92/">投資學習</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

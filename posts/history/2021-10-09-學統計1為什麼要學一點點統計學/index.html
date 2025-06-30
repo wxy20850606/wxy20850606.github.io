@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>學統計1：為什麼要學一點點統計學 | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="投資學習">
+<meta name="description" content="之前大學的時候學過統計、概率論、微積分、線性代數和博弈論，但是現在幾乎都不記得了。 甚至我都不記得我有學過這些課，還是和之前的同學討論了下才知道原來還真學過。 為什麼之前的學習這麼失敗，以至於完完全全忘記呢？ 我仔細回想了一下，感覺有如下幾個原因： 不知道為什麼學，考試能過關就可以了。 對">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2021-10-09-%E5%AD%B8%E7%B5%B1%E8%A8%881%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E5%AD%B8%E4%B8%80%E9%BB%9E%E9%BB%9E%E7%B5%B1%E8%A8%88%E5%AD%B8/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="學統計1：為什麼要學一點點統計學" />
+<meta property="og:description" content="之前大學的時候學過統計、概率論、微積分、線性代數和博弈論，但是現在幾乎都不記得了。 甚至我都不記得我有學過這些課，還是和之前的同學討論了下才知道原來還真學過。 為什麼之前的學習這麼失敗，以至於完完全全忘記呢？ 我仔細回想了一下，感覺有如下幾個原因： 不知道為什麼學，考試能過關就可以了。 對" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2021-10-09-%E5%AD%B8%E7%B5%B1%E8%A8%881%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E5%AD%B8%E4%B8%80%E9%BB%9E%E9%BB%9E%E7%B5%B1%E8%A8%88%E5%AD%B8/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-10-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-10-09T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="學統計1：為什麼要學一點點統計學"/>
+<meta name="twitter:description" content="之前大學的時候學過統計、概率論、微積分、線性代數和博弈論，但是現在幾乎都不記得了。 甚至我都不記得我有學過這些課，還是和之前的同學討論了下才知道原來還真學過。 為什麼之前的學習這麼失敗，以至於完完全全忘記呢？ 我仔細回想了一下，感覺有如下幾個原因： 不知道為什麼學，考試能過關就可以了。 對"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "學統計1：為什麼要學一點點統計學",
+      "item": "https://everydaydiva.blog/posts/history/2021-10-09-%E5%AD%B8%E7%B5%B1%E8%A8%881%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E5%AD%B8%E4%B8%80%E9%BB%9E%E9%BB%9E%E7%B5%B1%E8%A8%88%E5%AD%B8/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "學統計1：為什麼要學一點點統計學",
+  "name": "學統計1：為什麼要學一點點統計學",
+  "description": "之前大學的時候學過統計、概率論、微積分、線性代數和博弈論，但是現在幾乎都不記得了。 甚至我都不記得我有學過這些課，還是和之前的同學討論了下才知道原來還真學過。 為什麼之前的學習這麼失敗，以至於完完全全忘記呢？ 我仔細回想了一下，感覺有如下幾個原因： 不知道為什麼學，考試能過關就可以了。 對",
+  "keywords": [
+    "投資學習"
+  ],
+  "articleBody": "之前大學的時候學過統計、概率論、微積分、線性代數和博弈論，但是現在幾乎都不記得了。\n甚至我都不記得我有學過這些課，還是和之前的同學討論了下才知道原來還真學過。\n為什麼之前的學習這麼失敗，以至於完完全全忘記呢？\n我仔細回想了一下，感覺有如下幾個原因：\n不知道為什麼學，考試能過關就可以了。\n對於我這種文科生超難，也有可能是老師教的不好。\n學習方法不對，沒有複習、練習和實踐。\n所以有了前車之鑑，這次我要在學習前做好心裡準備。\n我為什麼學統計的3個理由： 1.為了投資 因為在估值的時候，會面對很多的不確定性，不如成長率就很不確定。\n學習統計可以幫助處理並量化投資的不確定性。\n我學習統計最明確首要的目的，那就是學會使用蒙地卡羅模擬法計算股價的分佈。\n比如如下這個分佈圖就是2016年達摩德仁教授給apple估值的時候做的蒙地卡羅模型。把最好的和最壞的成長率和營業利潤率的分佈放入蒙地卡羅模型，產生Apple股價的分佈估計。當時股價是93一股，按照蒙地卡羅模擬，這個價格大約排在第7%，表示有7%的機會股價會跌，有93%的機會股價會漲。這樣就把不確定性量化出來了。\nsource：Facing up to uncertainty with simulations\n關於不確定性的問題，我還寫了一篇文章：怎麼面對投資的不確定性。\n2.幫助形成多元思維模型 查理蒙格在其《窮查理普通常識》建議跨領域學習形成多元思維模型，其中就提到要學習統計學。”沒有必要精通，但是要知道不同的統計分佈圖“。\n掌握不同學科的思維模型越多，我們思考時候可以選擇的工具越多，就可以越來越避免靠直覺靠經驗法則生活，盡量避免偏見和心理謬誤。\n3.不要被欺騙 統計數據可以隨意被製造成任何內容。\n懂一點統計學比較不容易被欺騙。\n比如說護膚品公司常常會宣傳某產品有1000位測試者，其中90%測試完都反饋皺紋顯著得到改善？\n比如民調顯示4%的人支持柯文哲？\n這些所謂的依據某些統計得出的結論是可靠的嗎？還是一種欺騙？\n怎麼學一點點統計學？ 我暫時沒有想要深入徹底的學統計，因為這個需要微積分和線性代數的知識。所以我先學一點點思維模型，看能否解決我的問題。\n我計劃和達摩德仁教授學習：Statistics 101。理由如下：\n1.有針對性/實用 他的課程是專注於投資和企業金融需要用的統計。\n可以解決我的問題，也可以在學後投入實踐。\n2.簡單易懂 他很會教,只要會中等程度的英文都能聽懂他的課程。\n學習如何學習提到要使用bottom-up和top-down共用的學習方式。\n就是先看總覽課程主要的知識點，形成一個大的概念，就像是在腦中構建一個大的拼圖的框架。\n然後在從下而上一個一個的學習這些知識點，填內容到每個知識點，就像是把大評圖的每一塊都拼的很具體完整。\n這樣形成的知識的組塊（chunk）是最有效、最能記住並且最能自由取出運用的。\n我發現達摩德仁的課程就是這樣設計的。\n先介紹主要學習什麼和學習的目的，然後在每個知識拼圖慢慢介紹。\n更棒的是，他的每個知識拼圖還配合具體的應用。\n這樣我們在用中學，可以避免我們只會學不會使用的尷尬。像我之前一樣只學不用，時間長了就會忘記。\nsource：http://people.stern.nyu.edu/adamodar/New_Home_Page/webcaststatistics.htm\n3.偶像的力量 我很崇拜他，他教的任何課程我都會學。\n偶像的力量就是吸引我們想要變得和偶像一樣。\n比如查理蒙格就吸引我通過跨學科學習形成自己的思維模型。\n比如達摩德仁讓我想要學習任何關於投資的知識，並且把我的學習傳遞給他人。\n比如最近學習Learning How to Learn和看Mindshift的課程，讓我產生一種向Barbara Oakley學習，產生改變自己的想法、改變自己人生的衝動。\n總結： 現在的數據這麼多，想要更好的投資，學一點點統計是必要的。\n現在各種課程很多，想要學一點點統計，是非常簡單的。\n如果不想要學習達摩德仁的課程，也可以通過MOOC搜索平台搜索適合自己的課程。\n",
+  "wordCount" : "1608",
+  "inLanguage": "zh",
+  "datePublished": "2021-10-09T00:00:00Z",
+  "dateModified": "2021-10-09T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2021-10-09-%E5%AD%B8%E7%B5%B1%E8%A8%881%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E5%AD%B8%E4%B8%80%E9%BB%9E%E9%BB%9E%E7%B5%B1%E8%A8%88%E5%AD%B8/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      學統計1：為什麼要學一點點統計學
+    </h1>
+    <div class="post-meta"><span title='2021-10-09 00:00:00 +0000 UTC'>2021-10-09</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e6%88%91%e7%82%ba%e4%bb%80%e9%ba%bc%e5%ad%b8%e7%b5%b1%e8%a8%88%e7%9a%843%e5%80%8b%e7%90%86%e7%94%b1" aria-label="我為什麼學統計的3個理由：">我為什麼學統計的3個理由：</a><ul>
+                            
+                    <li>
+                        <a href="#1%e7%82%ba%e4%ba%86%e6%8a%95%e8%b3%87" aria-label="1.為了投資">1.為了投資</a></li>
+                    <li>
+                        <a href="#2%e5%b9%ab%e5%8a%a9%e5%bd%a2%e6%88%90%e5%a4%9a%e5%85%83%e6%80%9d%e7%b6%ad%e6%a8%a1%e5%9e%8b" aria-label="2.幫助形成多元思維模型">2.幫助形成多元思維模型</a></li>
+                    <li>
+                        <a href="#3%e4%b8%8d%e8%a6%81%e8%a2%ab%e6%ac%ba%e9%a8%99" aria-label="3.不要被欺騙">3.不要被欺騙</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e6%80%8e%e9%ba%bc%e5%ad%b8%e4%b8%80%e9%bb%9e%e9%bb%9e%e7%b5%b1%e8%a8%88%e5%ad%b8" aria-label="怎麼學一點點統計學？">怎麼學一點點統計學？</a><ul>
+                            
+                    <li>
+                        <a href="#1%e6%9c%89%e9%87%9d%e5%b0%8d%e6%80%a7%e5%af%a6%e7%94%a8" aria-label="1.有針對性/實用">1.有針對性/實用</a></li>
+                    <li>
+                        <a href="#2%e7%b0%a1%e5%96%ae%e6%98%93%e6%87%82" aria-label="2.簡單易懂">2.簡單易懂</a></li>
+                    <li>
+                        <a href="#3%e5%81%b6%e5%83%8f%e7%9a%84%e5%8a%9b%e9%87%8f" aria-label="3.偶像的力量">3.偶像的力量</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e7%b8%bd%e7%b5%90" aria-label="總結：">總結：</a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p>之前大學的時候學過統計、概率論、微積分、線性代數和博弈論，但是現在幾乎都不記得了。</p>
+<p>甚至我都不記得我有學過這些課，還是和之前的同學討論了下才知道原來還真學過。</p>
+<p>為什麼之前的學習這麼失敗，以至於完完全全忘記呢？</p>
+<p>我仔細回想了一下，感覺有如下幾個原因：</p>
+<ul>
+<li>
+<p>不知道為什麼學，考試能過關就可以了。</p>
+</li>
+<li>
+<p>對於我這種文科生超難，也有可能是老師教的不好。</p>
+</li>
+<li>
+<p>學習方法不對，沒有複習、練習和實踐。</p>
+</li>
+</ul>
+<p>所以有了前車之鑑，這次我要在學習前做好心裡準備。</p>
+<h1 id="我為什麼學統計的3個理由">我為什麼學統計的3個理由：<a hidden class="anchor" aria-hidden="true" href="#我為什麼學統計的3個理由">#</a></h1>
+<h2 id="1為了投資">1.為了投資<a hidden class="anchor" aria-hidden="true" href="#1為了投資">#</a></h2>
+<p>因為在估值的時候，會面對很多的不確定性，不如成長率就很不確定。</p>
+<p>學習統計可以幫助處理並量化投資的不確定性。</p>
+<p>我學習統計最明確首要的目的，那就是學會使用蒙地卡羅模擬法計算股價的分佈。</p>
+<p>比如如下這個分佈圖就是2016年達摩德仁教授給apple估值的時候做的蒙地卡羅模型。把最好的和最壞的成長率和營業利潤率的分佈放入蒙地卡羅模型，產生Apple股價的分佈估計。當時股價是93一股，按照蒙地卡羅模擬，這個價格大約排在第7%，表示有7%的機會股價會跌，有93%的機會股價會漲。這樣就把不確定性量化出來了。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2021-09-10-at-10.00.37-PM-1024x382.png" alt=""  />
+</p>
+<p>source：<a href="https://www.youtube.com/watch?v=rFd_qEpYFBc" target="_blank" rel="noopener" style="color:#42b983";>Facing up to uncertainty with simulations</a></p>
+<p>關於不確定性的問題，我還寫了一篇文章：<a href="https://fulltimemammy.com/%e3%80%8a%e5%8f%8d%e8%84%86%e5%bc%b1%e3%80%8b-%e8%ae%80%e6%9b%b8%e5%bf%83%e5%be%97%ef%bc%8c%e6%80%8e%e9%ba%bc%e9%9d%a2%e5%b0%8d%e6%8a%95%e8%b3%87%e6%99%82%e7%9a%84%e4%b8%8d%e7%a2%ba%e5%ae%9a%e6%80%a7/" target="_blank" rel="noopener" style="color:#42b983";>怎麼面對投資的不確定性</a>。</p>
+<h2 id="2幫助形成多元思維模型">2.幫助形成多元思維模型<a hidden class="anchor" aria-hidden="true" href="#2幫助形成多元思維模型">#</a></h2>
+<p>查理蒙格在其《<a href="https://fulltimemammy.com/%e8%ae%80%e6%9b%b8%e5%bf%83%e5%be%97%e5%92%8c%e6%91%98%e8%a6%81%ef%bc%9a%e7%aa%ae%e6%9f%a5%e7%90%86%e6%99%ae%e9%80%9a%e5%b8%b8%e8%ad%98%ef%bc%8c%e6%80%8e%e9%ba%bc%e6%8a%95%e8%b3%87%ef%bc%9f%e6%80%8e/" target="_blank" rel="noopener" style="color:#42b983";>窮查理普通常識</a>》建議跨領域學習形成多元思維模型，其中就提到要學習統計學。”沒有必要精通，但是要知道不同的統計分佈圖“。</p>
+<p>掌握不同學科的思維模型越多，我們思考時候可以選擇的工具越多，就可以越來越避免靠直覺靠經驗法則生活，盡量避免偏見和心理謬誤。</p>
+<h2 id="3不要被欺騙">3.不要被欺騙<a hidden class="anchor" aria-hidden="true" href="#3不要被欺騙">#</a></h2>
+<p>統計數據可以隨意被製造成任何內容。</p>
+<p>懂一點統計學比較不容易被欺騙。</p>
+<p>比如說護膚品公司常常會宣傳某產品有1000位測試者，其中90%測試完都反饋皺紋顯著得到改善？</p>
+<p>比如民調顯示4%的人支持柯文哲？</p>
+<p>這些所謂的依據某些統計得出的結論是可靠的嗎？還是一種欺騙？</p>
+<h1 id="怎麼學一點點統計學">怎麼學一點點統計學？<a hidden class="anchor" aria-hidden="true" href="#怎麼學一點點統計學">#</a></h1>
+<p>我暫時沒有想要深入徹底的學統計，因為這個需要微積分和線性代數的知識。所以我先學一點點思維模型，看能否解決我的問題。</p>
+<p>我計劃和達摩德仁教授學習：<a href="https://www.youtube.com/watch?v=t5pyFgnFn5E&amp;list=PLUkh9m2BorqmXcRzWFbzcjMd7fYErVexF" target="_blank" rel="noopener" style="color:#42b983";>Statistics 101</a>。理由如下：</p>
+<h2 id="1有針對性實用">1.有針對性/實用<a hidden class="anchor" aria-hidden="true" href="#1有針對性實用">#</a></h2>
+<p>他的課程是專注於投資和企業金融需要用的統計。</p>
+<p>可以解決我的問題，也可以在學後投入實踐。</p>
+<h2 id="2簡單易懂">2.簡單易懂<a hidden class="anchor" aria-hidden="true" href="#2簡單易懂">#</a></h2>
+<p>他很會教,只要會中等程度的英文都能聽懂他的課程。</p>
+<p>學習如何學習提到要使用bottom-up和top-down共用的學習方式。</p>
+<p>就是先看總覽課程主要的知識點，形成一個大的概念，就像是在腦中構建一個大的拼圖的框架。</p>
+<p>然後在從下而上一個一個的學習這些知識點，填內容到每個知識點，就像是把大評圖的每一塊都拼的很具體完整。</p>
+<p>這樣形成的知識的組塊（chunk）是最有效、最能記住並且最能自由取出運用的。</p>
+<p>我發現達摩德仁的課程就是這樣設計的。</p>
+<p>先介紹主要學習什麼和學習的目的，然後在每個知識拼圖慢慢介紹。</p>
+<p>更棒的是，他的每個知識拼圖還配合具體的應用。</p>
+<p>這樣我們在用中學，可以避免我們只會學不會使用的尷尬。像我之前一樣只學不用，時間長了就會忘記。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2021-10-09-at-7.54.00-AM-843x1024.png" alt=""  />
+</p>
+<p>source：http://people.stern.nyu.edu/adamodar/New_Home_Page/webcaststatistics.htm</p>
+<h2 id="3偶像的力量">3.偶像的力量<a hidden class="anchor" aria-hidden="true" href="#3偶像的力量">#</a></h2>
+<p>我很崇拜他，他教的任何課程我都會學。</p>
+<p>偶像的力量就是吸引我們想要變得和偶像一樣。</p>
+<p>比如查理蒙格就吸引我通過跨學科學習形成自己的思維模型。</p>
+<p>比如達摩德仁讓我想要學習任何關於投資的知識，並且把我的學習傳遞給他人。</p>
+<p>比如最近學習Learning How to Learn和看Mindshift的課程，讓我產生一種向Barbara Oakley學習，產生改變自己的想法、改變自己人生的衝動。</p>
+<h1 id="總結">總結：<a hidden class="anchor" aria-hidden="true" href="#總結">#</a></h1>
+<p>現在的數據這麼多，想要更好的投資，學一點點統計是必要的。</p>
+<p>現在各種課程很多，想要學一點點統計，是非常簡單的。</p>
+<p>如果不想要學習達摩德仁的課程，也可以通過MOOC搜索平台搜索適合自己的課程。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/%E6%8A%95%E8%B3%87%E5%AD%B8%E7%BF%92/">投資學習</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/history/2021-10-11-%E6%AF%8F%E5%80%8B%E4%BA%BA%E9%83%BD%E6%98%AF%E6%8B%96%E5%BB%B6%E7%97%87%E6%82%A3%E8%80%85%E6%80%8E%E9%BA%BC%E5%85%8B%E6%9C%8D%E6%8B%96%E5%BB%B6%E7%97%87/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>每個人都是拖延症患者,怎麼克服拖延症？</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2021-10-08-%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E5%AF%AB%E8%AE%80%E6%9B%B8-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97%E7%AD%86%E8%A8%98%E5%A6%82%E4%BD%95%E5%AF%AB%E6%89%8D%E8%83%BD%E5%AD%B8%E5%88%B0%E6%9B%B4/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>為什麼要寫讀書/學習心得筆記？如何寫才能學到更多？</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2021-10-09 00:00:00 +0000 UTC'>2021-10-09</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/%E6%8A%95%E8%B3%87%E5%AD%B8%E7%BF%92/">投資學習</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

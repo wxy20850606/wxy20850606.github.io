@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>電腦體系 on Everydaydiva&#39;s Blog</title>
+    <link>https://everydaydiva.blog/tags/%E9%9B%BB%E8%85%A6%E9%AB%94%E7%B3%BB/</link>
+    <description>Recent content in 電腦體系 on Everydaydiva&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 13 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://everydaydiva.blog/tags/%E9%9B%BB%E8%85%A6%E9%AB%94%E7%B3%BB/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>從0和1開始造一台電腦3-電腦如何記憶</title>
+      <link>https://everydaydiva.blog/posts/history/2022-09-13-computer-memory/</link>
+      <pubDate>Tue, 13 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-09-13-computer-memory/</guid>
+      <description>註：本文為From Nand to Tetris 課程學習筆記，目的為總結個人所學。如有點閱，請謹慎參考。 前一篇文章（總結了電腦如何計算，但是電腦光是計算還不夠，還需要有時間的概念和記憶的能力。 如果我們要用loop計算1+2+3+4，我們就要先設定一個sum，讓sum=0，還要有用(i=0;i&amp;lt;4;</description>
+    </item>
+    <item>
+      <title>從0和1開始造一台電腦2-電腦如何運算/2補數/加法器/ALU</title>
+      <link>https://everydaydiva.blog/posts/history/2022-09-12-2s-complement-adder-adder/</link>
+      <pubDate>Mon, 12 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-09-12-2s-complement-adder-adder/</guid>
+      <description>註：本文為From Nand to Tetris 課程學習筆記，目的為總結個人所學。如有點閱，請謹慎參考。 人類是高等動物，具有邏輯思考能力，所以我們使用文字和阿拉伯數字來傳遞信息。 但是有很多場合，當無法用文字和數字來處理信息時，也會用二進制來傳遞或處理信息。 二進制是最簡單的溝通語言 比如： 烽火 烽火有兩種狀態</description>
+    </item>
+    <item>
+      <title>從0和1開始造一台電腦1-邏輯門</title>
+      <link>https://everydaydiva.blog/posts/history/2022-09-10-logic-gates/</link>
+      <pubDate>Sat, 10 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-09-10-logic-gates/</guid>
+      <description>在學習CS50wk0的時候有學到電腦最底層都是一堆的0和1，當時就產生一堆的好奇心。感嘆每天自己使用的電子產品竟然都是從0和1這麼簡單的開和關一步步構造出來的。 所以在看到Nand2tetris part1課程號稱從NAND邏輯閘開始造一台可以跑簡單程式的電腦時，沒多想就開始上課了。</description>
+    </item>
+  </channel>
+</rss>

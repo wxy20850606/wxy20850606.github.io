@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>和估值大師學估值4-DCF(Discounted Cash Flow Valuation）現金流折現法公式 | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="投資學習">
+<meta name="description" content="注：本文是學習估值大师Prof. Aswath Damodaran（達摩德仁教授）估值課程的學習筆記。附視頻鏈接和相關資料（Session3&amp;4） 1.DCF(Discounted Cash Flow Valuation）現金流折現法介紹? **1)**現金流折現法是指企業的內含價值是其未來可以創造的現金流按照一定的風險折現到今天的價值">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2021-05-03-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%AB%E5%AD%B8%E4%BC%B0%E5%80%BC4-dcfdiscounted-cash-flow-valuation%E7%8F%BE%E9%87%91%E6%B5%81%E6%8A%98%E7%8F%BE%E6%B3%95%E5%85%AC%E5%BC%8F/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="和估值大師學估值4-DCF(Discounted Cash Flow Valuation）現金流折現法公式" />
+<meta property="og:description" content="注：本文是學習估值大师Prof. Aswath Damodaran（達摩德仁教授）估值課程的學習筆記。附視頻鏈接和相關資料（Session3&amp;4） 1.DCF(Discounted Cash Flow Valuation）現金流折現法介紹? **1)**現金流折現法是指企業的內含價值是其未來可以創造的現金流按照一定的風險折現到今天的價值" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2021-05-03-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%AB%E5%AD%B8%E4%BC%B0%E5%80%BC4-dcfdiscounted-cash-flow-valuation%E7%8F%BE%E9%87%91%E6%B5%81%E6%8A%98%E7%8F%BE%E6%B3%95%E5%85%AC%E5%BC%8F/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-05-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-05-03T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="和估值大師學估值4-DCF(Discounted Cash Flow Valuation）現金流折現法公式"/>
+<meta name="twitter:description" content="注：本文是學習估值大师Prof. Aswath Damodaran（達摩德仁教授）估值課程的學習筆記。附視頻鏈接和相關資料（Session3&amp;4） 1.DCF(Discounted Cash Flow Valuation）現金流折現法介紹? **1)**現金流折現法是指企業的內含價值是其未來可以創造的現金流按照一定的風險折現到今天的價值"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "和估值大師學估值4-DCF(Discounted Cash Flow Valuation）現金流折現法公式",
+      "item": "https://everydaydiva.blog/posts/history/2021-05-03-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%AB%E5%AD%B8%E4%BC%B0%E5%80%BC4-dcfdiscounted-cash-flow-valuation%E7%8F%BE%E9%87%91%E6%B5%81%E6%8A%98%E7%8F%BE%E6%B3%95%E5%85%AC%E5%BC%8F/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "和估值大師學估值4-DCF(Discounted Cash Flow Valuation）現金流折現法公式",
+  "name": "和估值大師學估值4-DCF(Discounted Cash Flow Valuation）現金流折現法公式",
+  "description": "注：本文是學習估值大师Prof. Aswath Damodaran（達摩德仁教授）估值課程的學習筆記。附視頻鏈接和相關資料（Session3\u0026amp;4） 1.DCF(Discounted Cash Flow Valuation）現金流折現法介紹? **1)**現金流折現法是指企業的內含價值是其未來可以創造的現金流按照一定的風險折現到今天的價值",
+  "keywords": [
+    "投資學習"
+  ],
+  "articleBody": "注：本文是學習估值大师Prof. Aswath Damodaran（達摩德仁教授）估值課程的學習筆記。附視頻鏈接和相關資料（Session3\u00264）\n1.DCF(Discounted Cash Flow Valuation）現金流折現法介紹? **1)**現金流折現法是指企業的內含價值是其未來可以創造的現金流按照一定的風險折現到今天的價值總和。是基於現金流、增長率、風險等基本面的估值方法。\n基本上DCF分為兩部分：\nD,Discounted,折現率。\n為什麼要折現，因為資產的時間價值，也是因為任何投資都有一定的風險。\nCF,Cash Flow,現金流。\n作為價值投資者，我們買股票是投資一個事業，我們的價值應該來自於這個事業未來賺取的現金流量。\n2.根據現金流的風險，DCF現金流折現法分為兩類： 在考慮公司的現金流時，是計算期望的現金流呢？還是保守一點，只計算肯定可以得到的現金流？當然，前者的風險會高一點。\n為什麼要做這個區分呢？主要是二者的折現率不同。\n做這個區分是為了提醒我們考慮折現率的時候要考慮我們的現金流是期望的現金流（風險相對高）還是保證的現金流（風險相對小）。\n1）Expected Cash Flow計算公式\nE是第1年的預期現金流，E是第2年的預期現金流,……E是第n年的預期現金流。\nr是體現風險的折現率。\n2）Guaranteed Cash Flow計算公式\nCE是第1年的保證現金流，CE是第2年的保證現金流,……CE是第n年的保證現金流。\nrf是無風險利率作为折现率。\n3.為什麼巴菲特用無風險利率作為折現率？ 巴菲特選擇的就是Guaranteed Cash Flow。巴菲特的現金流是確定的現金流，而不是預期的現金流。我們對現金流越確定，越可以用接近無風險的折現率。如果計算的是預期現金流，而學巴菲特用無風險利率來折現的話，勢必會高估企業的價值。\n4.DCF現金流計算的基本步驟： 1）確定折現率\n不同的現金流匹配不同的折現率。折現率可以是未考慮通貨膨脹的名目利率，也可以使實質利率。\n2）計算現金流\n通過財務報表計算出當前的現金流（FCFE,FCFF），還要考慮研發費用資本化等。\n3）預估增長率\n研究公司的主營業務增長率為多少。有了增長率，可以計算出每年的預期現金流。\n4）計算終值\n上市公司理論上可以一直活下去，但是用現金流折現法時需要假設一個終值。假設這個終點的時間，公司價值多少。\n5.根據現金流的利益歸屬不同，DCF現金流折現法的兩個模型： 前面提到我們投資公司，為的是可以分配未來的現金流。\n公司融資來源分為股權方和債權方（借貸和企業債權）。這兩方都可以分配現金流。\n債權方可以從現金流中分配利息和返還本金。剩下的現金流屬於股權方。\n詳情請參考一次弄懂所有的現金流。\n所以根據現金流的不同的利益歸屬，DCF現金流折現法有如下兩個模型。\n1）Equity Valuation股票自由現金流估值 股權方享有的現金流稱為股票自由現金流FCFE，Free Cash Flow to Equity，如果公司願意發股息的話，這也是公司可發放的股息的最大值。\nFCFE=營運現金流-資本支出-還債+借新債\n圖片來源：http://pages.stern.nyu.edu/~adamodar/\n2）Firm Valuation公司自由現金流估值 股權方和債權方一起分享的現金流為公司自由現金流FCFF，Free Cash Flow to Firm。\nFCFF=營業收入+折舊-稅金-非現金營運資金變動-資本支出。\n圖片來源：http://pages.stern.nyu.edu/~adamodar/\n兩個模型計算結果：\n公司自由現金流估值-長期負債=股票自由現金流估值。\n注：本站所有學習達摩德仁教授課程的心得文章均已獲達摩德仁教授授權。\n",
+  "wordCount" : "1496",
+  "inLanguage": "zh",
+  "datePublished": "2021-05-03T00:00:00Z",
+  "dateModified": "2021-05-03T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2021-05-03-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%AB%E5%AD%B8%E4%BC%B0%E5%80%BC4-dcfdiscounted-cash-flow-valuation%E7%8F%BE%E9%87%91%E6%B5%81%E6%8A%98%E7%8F%BE%E6%B3%95%E5%85%AC%E5%BC%8F/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      和估值大師學估值4-DCF(Discounted Cash Flow Valuation）現金流折現法公式
+    </h1>
+    <div class="post-meta"><span title='2021-05-03 00:00:00 +0000 UTC'>2021-05-03</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#1dcfdiscounted-cash-flow-valuation%e7%8f%be%e9%87%91%e6%b5%81%e6%8a%98%e7%8f%be%e6%b3%95%e4%bb%8b%e7%b4%b9" aria-label="1.DCF(Discounted Cash Flow Valuation）現金流折現法介紹?">1.<strong>DCF(Discounted Cash Flow Valuation）現金流折現法介紹</strong>?</a></li>
+                    <li>
+                        <a href="#2%e6%a0%b9%e6%93%9a%e7%8f%be%e9%87%91%e6%b5%81%e7%9a%84%e9%a2%a8%e9%9a%aadcf%e7%8f%be%e9%87%91%e6%b5%81%e6%8a%98%e7%8f%be%e6%b3%95%e5%88%86%e7%82%ba%e5%85%a9%e9%a1%9e" aria-label="2.根據現金流的風險，DCF現金流折現法分為兩類：">2.<strong>根據現金流的風險，DCF現金流折現法分為兩類：</strong></a></li>
+                    <li>
+                        <a href="#3%e7%82%ba%e4%bb%80%e9%ba%bc%e5%b7%b4%e8%8f%b2%e7%89%b9%e7%94%a8%e7%84%a1%e9%a2%a8%e9%9a%aa%e5%88%a9%e7%8e%87%e4%bd%9c%e7%82%ba%e6%8a%98%e7%8f%be%e7%8e%87" aria-label="3.為什麼巴菲特用無風險利率作為折現率？"><strong>3.為什麼巴菲特用無風險利率作為折現率？</strong></a></li>
+                    <li>
+                        <a href="#4dcf%e7%8f%be%e9%87%91%e6%b5%81%e8%a8%88%e7%ae%97%e7%9a%84%e5%9f%ba%e6%9c%ac%e6%ad%a5%e9%a9%9f" aria-label="4.DCF現金流計算的基本步驟："><strong>4.DCF現金流計算的基本步驟：</strong></a></li>
+                    <li>
+                        <a href="#5%e6%a0%b9%e6%93%9a%e7%8f%be%e9%87%91%e6%b5%81%e7%9a%84%e5%88%a9%e7%9b%8a%e6%ad%b8%e5%b1%ac%e4%b8%8d%e5%90%8cdcf%e7%8f%be%e9%87%91%e6%b5%81%e6%8a%98%e7%8f%be%e6%b3%95%e7%9a%84%e5%85%a9%e5%80%8b%e6%a8%a1%e5%9e%8b" aria-label="5.根據現金流的利益歸屬不同，DCF現金流折現法的兩個模型：">5.根據<strong>現金流的利益歸屬</strong>不同，<strong><strong>DCF現金流折現法的兩個模型：</strong></strong></a></li>
+                    <li>
+                        <a href="#1equity-valuation%e8%82%a1%e7%a5%a8%e8%87%aa%e7%94%b1%e7%8f%be%e9%87%91%e6%b5%81%e4%bc%b0%e5%80%bc" aria-label="1）Equity Valuation股票自由現金流估值"><strong>1）Equity Valuation股票自由現金流估值</strong></a></li>
+                    <li>
+                        <a href="#2firm-valuation%e5%85%ac%e5%8f%b8%e8%87%aa%e7%94%b1%e7%8f%be%e9%87%91%e6%b5%81%e4%bc%b0%e5%80%bc" aria-label="2）Firm Valuation公司自由現金流估值"><strong>2）Firm Valuation公司自由現金流估值</strong></a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p>注：本文是學習估值大师Prof. Aswath Damodaran（達摩德仁教授）估值課程的學習筆記。附<a href="https://www.youtube.com/watch?v=oi6M5KBWydg&amp;list=PLUkh9m2BorqlJsEfix7R9jtSXClFZhGvC" target="_blank" rel="noopener" style="color:#42b983";>視頻鏈接</a>和<a href="http://pages.stern.nyu.edu/~adamodar/" target="_blank" rel="noopener" style="color:#42b983";>相關資料</a>（Session3&amp;4）</p>
+<h2 id="1dcfdiscounted-cash-flow-valuation現金流折現法介紹">1.<strong>DCF(Discounted Cash Flow Valuation）現金流折現法介紹</strong>?<a hidden class="anchor" aria-hidden="true" href="#1dcfdiscounted-cash-flow-valuation現金流折現法介紹">#</a></h2>
+<p>**1)**現金流折現法是指企業的內含價值是其未來可以創造的現金流按照一定的風險折現到今天的價值總和。是基於現金流、增長率、風險等基本面的估值方法。</p>
+<p>基本上DCF分為兩部分：</p>
+<p><strong>D,Discounted,折現率。</strong></p>
+<p>為什麼要折現，因為資產的時間價值，也是因為任何投資都有一定的風險。</p>
+<p><strong>CF,Cash Flow,現金流</strong>。</p>
+<p>作為價值投資者，我們買股票是投資一個事業，我們的價值應該來自於這個事業未來賺取的現金流量。</p>
+<h2 id="2根據現金流的風險dcf現金流折現法分為兩類">2.<strong>根據現金流的風險，DCF現金流折現法分為兩類：</strong><a hidden class="anchor" aria-hidden="true" href="#2根據現金流的風險dcf現金流折現法分為兩類">#</a></h2>
+<p>在考慮公司的現金流時，是計算期望的現金流呢？還是保守一點，只計算肯定可以得到的現金流？當然，前者的風險會高一點。</p>
+<p>為什麼要做這個區分呢？主要是二者的折現率不同。</p>
+<p>做這個區分是為了提醒我們考慮折現率的時候要考慮我們的現金流是期望的現金流（風險相對高）還是保證的現金流（風險相對小）。</p>
+<p><strong>1）Expected Cash Flow</strong>計算公式</p>
+<p><img loading="lazy" src="images/%e5%85%ac%e5%bc%8f3.jpg" alt=""  />
+</p>
+<p>E是第1年的<strong>預期現金流</strong>，E是第2年的<strong>預期現金流</strong>,&hellip;&hellip;E是第n年的<strong>預期現金流</strong>。</p>
+<p>r是體現風險的折現率。</p>
+<p><strong>2）Guaranteed Cash Flow</strong>計算公式</p>
+<p><img loading="lazy" src="images/%e5%85%ac%e5%bc%8f4.jpg" alt=""  />
+</p>
+<p>CE是第1年的<strong>保證現金流</strong>，CE是第2年的<strong>保證現金流</strong>,&hellip;&hellip;CE是第n年的<strong>保證現金流</strong>。</p>
+<p>rf是無風險利率作为折现率。</p>
+<h2 id="3為什麼巴菲特用無風險利率作為折現率"><strong>3.為什麼巴菲特用無風險利率作為折現率？</strong><a hidden class="anchor" aria-hidden="true" href="#3為什麼巴菲特用無風險利率作為折現率">#</a></h2>
+<p>巴菲特選擇的就是Guaranteed Cash Flow。巴菲特的現金流是確定的現金流，而不是預期的現金流。我們對現金流越確定，越可以用接近無風險的折現率。如果計算的是預期現金流，而學巴菲特用無風險利率來折現的話，勢必會高估企業的價值。</p>
+<h2 id="4dcf現金流計算的基本步驟"><strong>4.DCF現金流計算的基本步驟：</strong><a hidden class="anchor" aria-hidden="true" href="#4dcf現金流計算的基本步驟">#</a></h2>
+<p><img loading="lazy" src="images/DCF-big-1024x525.jpg" alt=""  />
+</p>
+<p><strong>1）確定折現率</strong></p>
+<p>不同的現金流匹配不同的折現率。折現率可以是未考慮通貨膨脹的名目利率，也可以使實質利率。</p>
+<p><strong>2）計算現金流</strong></p>
+<p>通過財務報表計算出當前的現金流（FCFE,FCFF），還要考慮研發費用資本化等。</p>
+<p><strong>3）預估增長率</strong></p>
+<p>研究公司的主營業務增長率為多少。有了增長率，可以計算出每年的預期現金流。</p>
+<p><strong>4）計算終值</strong></p>
+<p>上市公司理論上可以一直活下去，但是用現金流折現法時需要假設一個終值。假設這個終點的時間，公司價值多少。</p>
+<h2 id="5根據現金流的利益歸屬不同dcf現金流折現法的兩個模型">5.根據<strong>現金流的利益歸屬</strong>不同，<strong><strong>DCF現金流折現法的兩個模型：</strong></strong><a hidden class="anchor" aria-hidden="true" href="#5根據現金流的利益歸屬不同dcf現金流折現法的兩個模型">#</a></h2>
+<p>前面提到我們投資公司，為的是可以分配未來的現金流。</p>
+<p>公司融資來源分為股權方和債權方（借貸和企業債權）。這兩方都可以分配現金流。</p>
+<p>債權方可以從現金流中分配利息和返還本金。剩下的現金流屬於股權方。</p>
+<p>詳情請參考<a href="https://fulltimemammy.com/%e4%b8%80%e6%ac%a1%e7%90%86%e8%a7%a3%e6%89%80%e6%9c%89%e7%9a%84%e7%8f%be%e9%87%91%e6%b5%81%ef%bc%9aebitdacf-ocffcffcff%e5%92%8cfcfe/" target="_blank" rel="noopener" style="color:#42b983";>一次弄懂所有的現金流</a>。</p>
+<p>所以根據現金流的不同的利益歸屬，DCF現金流折現法有如下兩個模型。</p>
+<h2 id="1equity-valuation股票自由現金流估值"><strong>1）Equity Valuation股票自由現金流估值</strong><a hidden class="anchor" aria-hidden="true" href="#1equity-valuation股票自由現金流估值">#</a></h2>
+<p>股權方享有的現金流稱為<strong>股票自由現金流FCFE，Free Cash Flow to Equity</strong>，如果公司願意發股息的話，這也是公司可發放的股息的最大值。</p>
+<p><strong>FCFE=營運現金流-資本支出-還債+借新債</strong></p>
+<p><img loading="lazy" src="images/FCFE1.jpg" alt=""  />
+</p>
+<p><img loading="lazy" src="images/Dcf-fcfe-1024x420.jpg" alt=""  />
+</p>
+<p>圖片來源：http://pages.stern.nyu.edu/~adamodar/</p>
+<h2 id="2firm-valuation公司自由現金流估值"><strong>2）Firm Valuation公司自由現金流估值</strong><a hidden class="anchor" aria-hidden="true" href="#2firm-valuation公司自由現金流估值">#</a></h2>
+<p>股權方和債權方一起分享的現金流為<strong>公司自由現金流FCFF，Free Cash Flow to Firm</strong>。</p>
+<p><img loading="lazy" src="images/FCFF-1024x119.jpg" alt=""  />
+</p>
+<p><strong>FCFF=營業收入+折舊-稅金-非現金營運資金變動-資本支出。</strong></p>
+<p><img loading="lazy" src="images/DCF-FCFF-1024x421.jpg" alt=""  />
+</p>
+<p>圖片來源：http://pages.stern.nyu.edu/~adamodar/</p>
+<p>兩個模型計算結果：</p>
+<p>公司自由現金流估值-長期負債=股票自由現金流估值。</p>
+<p>注：本站所有學習達摩德仁教授課程的心得文章均已獲達摩德仁教授授權。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/%E6%8A%95%E8%B3%87%E5%AD%B8%E7%BF%92/">投資學習</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/history/2021-05-07-%E5%92%8C%E4%BC%B0%E5%80%BC%E5%A4%A7%E5%B8%AB%E5%AD%B8%E4%BC%B0%E5%80%BC5-%E7%8F%BE%E9%87%91%E6%B5%81%E6%8A%98%E7%8F%BE%E6%B3%95%E4%B9%8B%E6%8A%98%E7%8F%BE%E7%8E%87-part1%E7%84%A1%E9%A2%A8%E9%9A%AA/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>和估值大師學估值5.現金流折現法之折現率-part1無風險利率</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2021-04-27-%E5%AF%B6%E8%B2%9D%E6%80%8E%E9%BA%BC%E5%AD%B8%E8%8B%B1%E6%96%87%E5%AD%B8%E9%BD%A1%E5%89%8D%E5%85%92%E7%AB%A5%E5%AD%B8%E8%8B%B1%E6%96%87%E4%B8%89%E5%A4%A7%E6%96%B9%E6%B3%95/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>寶貝怎麼學英文，學齡前兒童學英文三大方法</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2021-05-03 00:00:00 +0000 UTC'>2021-05-03</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/%E6%8A%95%E8%B3%87%E5%AD%B8%E7%BF%92/">投資學習</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Arraylist initialization on Everydaydiva&#39;s Blog</title>
+    <link>https://everydaydiva.blog/categories/arraylist-initialization/</link>
+    <description>Recent content in Arraylist initialization on Everydaydiva&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 10 May 2024 14:06:42 +0800</lastBuildDate>
+    <atom:link href="https://everydaydiva.blog/categories/arraylist-initialization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java Arraylist源碼中的三個構造器和三種對應的初始化方法</title>
+      <link>https://everydaydiva.blog/posts/java/java-arraylist%E6%BA%90%E7%A2%BC%E4%B8%AD%E7%9A%84%E4%B8%89%E5%80%8B%E6%A7%8B%E9%80%A0%E5%99%A8%E5%92%8C%E4%B8%89%E7%A8%AE%E5%B0%8D%E6%87%89%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95-/</link>
+      <pubDate>Fri, 10 May 2024 14:06:42 +0800</pubDate>
+      <guid>https://everydaydiva.blog/posts/java/java-arraylist%E6%BA%90%E7%A2%BC%E4%B8%AD%E7%9A%84%E4%B8%89%E5%80%8B%E6%A7%8B%E9%80%A0%E5%99%A8%E5%92%8C%E4%B8%89%E7%A8%AE%E5%B0%8D%E6%87%89%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95-/</guid>
+      <description>ArrayList裡有三種構造函數，對應三種ArrayList的初始化方法。 第一種 容量為空初始化 源代碼： /** * Constructs an empty list with an initial capacity of ten. */ private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {}; public ArrayList() { this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA; } 可使用如下方法初始化： List&amp;lt;String&amp;gt; fruit = new ArrayList&amp;lt;&amp;gt;(); fruit.add(&amp;#34;apple&amp;#34;); fruit.add(&amp;#34;pear&amp;#34;); 下面，來看一看代碼是如何一步一步執行的。 首先初始化arraylist： List&amp;lt;String&amp;gt; fruit = new ArrayList&amp;lt;&amp;gt;(); 呼叫A</description>
+    </item>
+  </channel>
+</rss>

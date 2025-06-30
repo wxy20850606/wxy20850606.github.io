@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>CS自學 on Everydaydiva&#39;s Blog</title>
+    <link>https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/</link>
+    <description>Recent content in CS自學 on Everydaydiva&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 10 May 2024 14:06:42 +0800</lastBuildDate>
+    <atom:link href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java Arraylist源碼中的三個構造器和三種對應的初始化方法</title>
+      <link>https://everydaydiva.blog/posts/java/java-arraylist%E6%BA%90%E7%A2%BC%E4%B8%AD%E7%9A%84%E4%B8%89%E5%80%8B%E6%A7%8B%E9%80%A0%E5%99%A8%E5%92%8C%E4%B8%89%E7%A8%AE%E5%B0%8D%E6%87%89%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95-/</link>
+      <pubDate>Fri, 10 May 2024 14:06:42 +0800</pubDate>
+      <guid>https://everydaydiva.blog/posts/java/java-arraylist%E6%BA%90%E7%A2%BC%E4%B8%AD%E7%9A%84%E4%B8%89%E5%80%8B%E6%A7%8B%E9%80%A0%E5%99%A8%E5%92%8C%E4%B8%89%E7%A8%AE%E5%B0%8D%E6%87%89%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95-/</guid>
+      <description>ArrayList裡有三種構造函數，對應三種ArrayList的初始化方法。 第一種 容量為空初始化 源代碼： /** * Constructs an empty list with an initial capacity of ten. */ private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {}; public ArrayList() { this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA; } 可使用如下方法初始化： List&amp;lt;String&amp;gt; fruit = new ArrayList&amp;lt;&amp;gt;(); fruit.add(&amp;#34;apple&amp;#34;); fruit.add(&amp;#34;pear&amp;#34;); 下面，來看一看代碼是如何一步一步執行的。 首先初始化arraylist： List&amp;lt;String&amp;gt; fruit = new ArrayList&amp;lt;&amp;gt;(); 呼叫A</description>
+    </item>
+    <item>
+      <title>Java基本數據結構——Array/List/Set/Queue/Map</title>
+      <link>https://everydaydiva.blog/posts/java/java-data-structure/</link>
+      <pubDate>Wed, 13 Mar 2024 10:59:11 +0800</pubDate>
+      <guid>https://everydaydiva.blog/posts/java/java-data-structure/</guid>
+      <description>Data Structure 是計算機存儲和組織數據的機制。wiki里有註明常見的數據結構如下： 數據結構也是一種data，先來看看Java里的data type。 Java data type 在Java裡，data type分為兩種：primitive types和reference types。 primitive types primitive types 儲存的是一個實體的值。包括byt</description>
+    </item>
+    <item>
+      <title>字符串匹配，Leetcode 28，KMP算法</title>
+      <link>https://everydaydiva.blog/posts/history/2023-09-05-leetcode-28-kmp/</link>
+      <pubDate>Tue, 05 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2023-09-05-leetcode-28-kmp/</guid>
+      <description>最近在做Leetcode，遇到有關字符串匹配的如下題目： 28. Find the Index of the First Occurrence in a String 要求從haystack 字符串裡找是否包含needle字符串，並找出首次出現位置。比如sadbutsad裡是否包含sad字符串。 發現除了暴力循環解法外，還有神奇的KMG算法可以把複雜度從O(m*n)簡化為</description>
+    </item>
+    <item>
+      <title>Gitlet design document</title>
+      <link>https://everydaydiva.blog/posts/history/2023-06-15-gitlet-design-document/</link>
+      <pubDate>Thu, 15 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2023-06-15-gitlet-design-document/</guid>
+      <description>This is the design document for Gitlet project. Classes and Data Structures Main This is the entry point to Gitlet program. It takes in arguments from the command line and based on the command (the first element of the args array) calls the corresponding command in GitletRepository which will actually execute the logic of the command. It also validates the arguments based on the command to ensure that enough arguments were passed in. Fields This class has no fields and hence no associated state: it simply validates arguments and defers the execution to the `Gitlet`Repository class. Blob GItlet, like Git, is a content-addressable filesystem. Even one byte change in content will lead to a totally different blob object. To accomplish this, Blob class implements Serializable to save each different file content as blob object for future retrieve. Fields All the</description>
+    </item>
+    <item>
+      <title>用Java寫個簡單的Git：CS61B Gitlet項目筆記</title>
+      <link>https://everydaydiva.blog/posts/history/2023-06-13-%E7%94%A8java%E5%AF%AB%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84gitcs61b-gitlet%E9%A0%85%E7%9B%AE%E7%AD%86%E8%A8%98/</link>
+      <pubDate>Tue, 13 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2023-06-13-%E7%94%A8java%E5%AF%AB%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84gitcs61b-gitlet%E9%A0%85%E7%9B%AE%E7%AD%86%E8%A8%98/</guid>
+      <description>在寫Git 原理學習筆記的時候，就有考慮要不要跟著網上的教程：Write yourself a Git! 用Python寫個或者是照抄一個Git，但是當時不會I/O的處理，就先放棄了。沒想到CS61B的其中一個Gitlet項目就是用Java寫一個簡單版本的Git（包含checkout，merge，reset等</description>
+    </item>
+    <item>
+      <title>Java 和 Python 的區別</title>
+      <link>https://everydaydiva.blog/posts/history/2023-04-07-java-python-difference/</link>
+      <pubDate>Fri, 07 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2023-04-07-java-python-difference/</guid>
+      <description>最近開始學Java，感覺和Python蠻不一樣，於是在網上找找資料，看看二者的不同之處。 先分享一篇好玩又很有啟發的文章： 两年，我学会了所有的编程语言！ 下面進入正題。 Java是編譯式的語言， Python是直譯式的語言？ 想要清楚這個問題，要稍微了解下二者的程序是如何運行的。 Pytho</description>
+    </item>
+    <item>
+      <title>Git 原理學習筆記</title>
+      <link>https://everydaydiva.blog/posts/history/2023-02-18-git-internal/</link>
+      <pubDate>Sat, 18 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2023-02-18-git-internal/</guid>
+      <description>之前學CS50W的時候學過一些Git指令覺得不好理解，這次開始CS61B課程之前又再次需要用Git。既然無可避免，那就花些時間試著了解看看git到底是什麼。 注：本文為初學者學習筆記，請謹慎參考。 名詞解釋： hash function，給予內容（value），通過hash function產生</description>
+    </item>
+    <item>
+      <title>9種方法寫Fibonacci（Python）</title>
+      <link>https://everydaydiva.blog/posts/history/2023-01-18-fibonacci-python/</link>
+      <pubDate>Wed, 18 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2023-01-18-fibonacci-python/</guid>
+      <description>受A Python Guide to the Fibonacci Sequence啟發，我也來試試看用CS61A課程所學寫Fibonacci，感覺又好玩，又可以順便複習下課程。是的，好的課程一定要花些時間好好複習。 Fibonacci是什麼？ Fibonacci，翻譯為斐波那契数。 請參考如下維基百科的定義。 source：Fibonac</description>
+    </item>
+    <item>
+      <title>CS61A 學習筆記和心得4-Tail Call</title>
+      <link>https://everydaydiva.blog/posts/history/2023-01-11-scheme-interperter-tail-call/</link>
+      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2023-01-11-scheme-interperter-tail-call/</guid>
+      <description>注：本文部分引用代碼來自CS61A(Structure and Interpretation of Computer Programs) Scheme作業，請小心劇透。個人學習筆記，請小心參考。 上一篇筆記提到了Read-Eval-Print-Loop，這篇筆記記錄其中的附加題-tail call optimization。 尾調用（tail call） 在计算机学裡，</description>
+    </item>
+    <item>
+      <title>CS61A 學習筆記和心得3-通過學習用Python寫個Scheme Interpreter來學習編程語言</title>
+      <link>https://everydaydiva.blog/posts/history/2023-01-05-scheme-interpreter-use-python/</link>
+      <pubDate>Thu, 05 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2023-01-05-scheme-interpreter-use-python/</guid>
+      <description>注：本文引用代碼來自CS61A(Structure and Interpretation of Computer Programs) Scheme作業，請小心劇透。個人學習筆記，水平有限，請小心參考。 心得： 本來我想學Scheme版本的CS61A，弄了很久環境都沒有設置成功，然後轉學Python版本的CS61A。 沒想到課程第三章是先用一個python寫的</description>
+    </item>
+    <item>
+      <title>CS61A 學習筆記和心得1：Python 函數式編程/遞歸</title>
+      <link>https://everydaydiva.blog/posts/history/2022-10-25-higher-order-functions/</link>
+      <pubDate>Tue, 25 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-10-25-higher-order-functions/</guid>
+      <description>CS61A（Fall 2022）第一部分的課程在介紹函數式編程，對應課本第一章，主要包含： 高階函數Higher-Order Functions 遞歸（一直call自己循環的函數） 也簡單帶過如下內容 Lambda( 匿名函數) Currying（只有一個argument的一串函數） Decorators（函數裝飾器，高階函</description>
+    </item>
+    <item>
+      <title>從0和1開始造一台電腦3-電腦如何記憶</title>
+      <link>https://everydaydiva.blog/posts/history/2022-09-13-computer-memory/</link>
+      <pubDate>Tue, 13 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-09-13-computer-memory/</guid>
+      <description>註：本文為From Nand to Tetris 課程學習筆記，目的為總結個人所學。如有點閱，請謹慎參考。 前一篇文章（總結了電腦如何計算，但是電腦光是計算還不夠，還需要有時間的概念和記憶的能力。 如果我們要用loop計算1+2+3+4，我們就要先設定一個sum，讓sum=0，還要有用(i=0;i&amp;lt;4;</description>
+    </item>
+    <item>
+      <title>從0和1開始造一台電腦2-電腦如何運算/2補數/加法器/ALU</title>
+      <link>https://everydaydiva.blog/posts/history/2022-09-12-2s-complement-adder-adder/</link>
+      <pubDate>Mon, 12 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-09-12-2s-complement-adder-adder/</guid>
+      <description>註：本文為From Nand to Tetris 課程學習筆記，目的為總結個人所學。如有點閱，請謹慎參考。 人類是高等動物，具有邏輯思考能力，所以我們使用文字和阿拉伯數字來傳遞信息。 但是有很多場合，當無法用文字和數字來處理信息時，也會用二進制來傳遞或處理信息。 二進制是最簡單的溝通語言 比如： 烽火 烽火有兩種狀態</description>
+    </item>
+    <item>
+      <title>從0和1開始造一台電腦1-邏輯門</title>
+      <link>https://everydaydiva.blog/posts/history/2022-09-10-logic-gates/</link>
+      <pubDate>Sat, 10 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-09-10-logic-gates/</guid>
+      <description>在學習CS50wk0的時候有學到電腦最底層都是一堆的0和1，當時就產生一堆的好奇心。感嘆每天自己使用的電子產品竟然都是從0和1這麼簡單的開和關一步步構造出來的。 所以在看到Nand2tetris part1課程號稱從NAND邏輯閘開始造一台可以跑簡單程式的電腦時，沒多想就開始上課了。</description>
+    </item>
+    <item>
+      <title>CS50 wk9 Flask學習和Finance作業心得</title>
+      <link>https://everydaydiva.blog/posts/history/2022-07-09-cs50-wk9-flask/</link>
+      <pubDate>Sat, 09 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-07-09-cs50-wk9-flask/</guid>
+      <description>學習心得： CS50 wk9 是學習用Flask框架做網絡應用，作業是做一個簡易的股票買賣網站。 wk8和wk9都是網頁相關的，一開始有些抗拒，感覺沒有前半部分的會涉及電腦底層知識的課程有趣。然後又一口氣教這麼多，壓力很大。 加上Finance是一個很大的作業，會不想下手。所以我改變想法，讓自己每天</description>
+    </item>
+    <item>
+      <title>CS50 wk8 TCP,IP,HTTP,HTML,CSS,JavaScript課程筆記</title>
+      <link>https://everydaydiva.blog/posts/history/2022-05-18-2022-05-cs50-wk8-tcpiphttphtmlcssjavascript%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-05-18-2022-05-cs50-wk8-tcpiphttphtmlcssjavascript%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98/</guid>
+      <description>本週學習： TCP(Transmission Control Protocol) IP(Internet Protocol) HTTP(HyperText Transfer Protocol) DNS（Domain NameS） HTML CSS JavaScript DOM 本週課程前面40分鐘講解了Computer Networking相關知識，教授用傳輸信件這個方式來形象的解釋了互聯網是如何傳輸信息的。 在2016年的wk6課程中，教授是用google網上的信息這個例子來說明信息是如何</description>
+    </item>
+    <item>
+      <title>CS50 wk7 SQL學習心得</title>
+      <link>https://everydaydiva.blog/posts/history/2022-04-23-cs50-wk7-sql%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</link>
+      <pubDate>Sat, 23 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-04-23-cs50-wk7-sql%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</guid>
+      <description>學習心得： 本週學習SQL，處理數據庫的語言，句法簡單。主要的句法參考下面兩個網站。 SQL Keywords Reference https://www.sqlstyle.guide 為什麼不寫筆記？ 1.可以google 2.細節內容太多太費時間 3.可以通過code練習 4.理解概念之類的可以做筆記。 不過這個對於初學者很難，比如OOP這個概念，我也沒有完全弄懂。想要用自己的話</description>
+    </item>
+    <item>
+      <title>CS50 wk6 Python課程筆記和學習心得</title>
+      <link>https://everydaydiva.blog/posts/history/2022-04-14-cs50-wk6-python%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E5%92%8C%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</link>
+      <pubDate>Thu, 14 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-04-14-cs50-wk6-python%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E5%92%8C%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</guid>
+      <description>心得： 本週從C語言轉到Python，一開課教授就說：過去的六週通過學習C語言學了很多語言的基礎，之後學任何語言靠google和stackoverflow學一下句法就可以了。經過這一個多月的學習，好像對Python稍微有點感覺了。 一週學習Python一門語言的基本語法，這節課課程本</description>
+    </item>
+    <item>
+      <title>CS50 wk5 課程筆記和作業心得</title>
+      <link>https://everydaydiva.blog/posts/history/2022-03-28-cs50-wk5-%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E5%92%8C%E4%BD%9C%E6%A5%AD%E5%BF%83%E5%BE%97/</link>
+      <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-03-28-cs50-wk5-%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E5%92%8C%E4%BD%9C%E6%A5%AD%E5%BF%83%E5%BE%97/</guid>
+      <description>註：本課程筆記參考CS50官方課程和官方notes。 本週的課程是數據結構（data structure）。 當解決複雜的問題，需要面對大量的數據的時候，就需要先想想怎麼組織這些數據。比如很多app用戶量上億，這麼大的數量，怎麼存儲用戶名和密碼，然後讓用戶花最少的時間登陸自己的帳號，這</description>
+    </item>
+    <item>
+      <title>CS50 wk4 課程筆記和作業心得</title>
+      <link>https://everydaydiva.blog/posts/history/2022-03-16-cs50-wk4-%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E5%92%8C%E4%BD%9C%E6%A5%AD%E5%BF%83%E5%BE%97/</link>
+      <pubDate>Wed, 16 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-03-16-cs50-wk4-%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98%E5%92%8C%E4%BD%9C%E6%A5%AD%E5%BF%83%E5%BE%97/</guid>
+      <description>註：本課程筆記參考CS50官方課程和官方notes。 課程筆記： 1.image-RGB 圖片是怎麼存儲的呢？圖片是無數個小小的格子。像是電視的4k是3840×2160個格子，vcd畫面是352×240個格子。 每個格子由R(red)，G(green)，和B（blue）組成，不同的數值形成不同的顏色。 white, with R:</description>
+    </item>
+    <item>
+      <title>CS50 wk3 &#43; C 學習心得</title>
+      <link>https://everydaydiva.blog/posts/history/2022-03-04-cs50-wk3-c-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</link>
+      <pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-03-04-cs50-wk3-c-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</guid>
+      <description>本週關鍵詞： algorithms searching(linear search, binary search) data structures sorting(selection sort, bubble sort，merge sort) recursion running times 我不會寫課程筆記，只是紀錄下課程的關鍵詞。因為： 1.電腦科學裡的內容很多，也不可能所有的都記住，學過然後通過作業複習所學掌握個三五成也ok，等到再次需要用的時候還可以再google。 2.沒辦法像別的學科一樣寫課程筆記，要</description>
+    </item>
+    <item>
+      <title>CS50 wk2 &#43; C 學習心得</title>
+      <link>https://everydaydiva.blog/posts/history/2022-02-18-cs50-wk2-c-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</link>
+      <pubDate>Fri, 18 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-02-18-cs50-wk2-c-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</guid>
+      <description>註：本文是個人心得筆記，初學者能力有限，內容不保證正確，請謹慎參考。 wk2主要有下面幾個內容： compiling（preprocessing, compiling, assembling, linking） debug三種方法（printf，debug50，對著鴨子復述一遍步驟） 數據類型：array（array就是儲存到電腦</description>
+    </item>
+    <item>
+      <title>CS50 wk1 &#43; C 學習心得和作業</title>
+      <link>https://everydaydiva.blog/posts/history/2022-02-12-cs50-wk1-c-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97%E5%92%8C%E4%BD%9C%E6%A5%AD/</link>
+      <pubDate>Sat, 12 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-02-12-cs50-wk1-c-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97%E5%92%8C%E4%BD%9C%E6%A5%AD/</guid>
+      <description>筆記： 1.負數的表示方法： 這是huli大大的課程導讀裡教的。huli大大補充的非常好，因為CS50沒有教電腦怎麼顯示負數。 我理解的是：先設定好幾個bits，比如4個bite，那可以用x+（-x）=0這個公式推導出來-x。因為只有4個bite，所以進位的時候變成0000，剛好等於0</description>
+    </item>
+    <item>
+      <title>CS50 wk0&#43;Scratch 學習心得和作業</title>
+      <link>https://everydaydiva.blog/posts/history/2022-02-05-cs50-wk0scratch-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</link>
+      <pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-02-05-cs50-wk0scratch-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/</guid>
+      <description>為什麼是wk0？ 之前學了Coursera 的Python for Everybody的前兩門課，老師在結尾的時候說：現在你們已經達到Level 0了。 現在想想，只是學了functions/conditionals/variables/loops等等概念，但是卻不知道背後的邏輯是什麼。也不知道</description>
+    </item>
+    <item>
+      <title>Python第一個月學習心得——Python一點都不簡單</title>
+      <link>https://everydaydiva.blog/posts/history/2022-01-29-python%E7%AC%AC%E4%B8%80%E5%80%8B%E6%9C%88%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97-python%E4%B8%80%E9%BB%9E%E9%83%BD%E4%B8%8D%E7%B0%A1%E5%96%AE/</link>
+      <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-01-29-python%E7%AC%AC%E4%B8%80%E5%80%8B%E6%9C%88%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97-python%E4%B8%80%E9%BB%9E%E9%83%BD%E4%B8%8D%E7%B0%A1%E5%96%AE/</guid>
+      <description>本文紀錄Python第一個月的學習心得。 我學Python大部分是因為好奇，小部分是為了投資和自己的網站。但是當我在搜索學習資訊的時候，卻發現很多人學Python是為了轉職做軟體工程師。 這給了我很多想像的空間，讓我考慮我能不能轉職呢？然後又想我是全職媽媽多年沒工作、年紀也不小了、還</description>
+    </item>
+    <item>
+      <title>文科生為什麼學Python？</title>
+      <link>https://everydaydiva.blog/posts/history/2022-01-17-%E6%96%87%E7%A7%91%E7%94%9F%E7%82%BA%E4%BB%80%E9%BA%BC%E5%AD%B8python/</link>
+      <pubDate>Mon, 17 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://everydaydiva.blog/posts/history/2022-01-17-%E6%96%87%E7%A7%91%E7%94%9F%E7%82%BA%E4%BB%80%E9%BA%BC%E5%AD%B8python/</guid>
+      <description>大學時學過一點C語言，覺得超級難，不得不放棄。最近開始學Python for Everybody，分享下心得。 學Python的理由： 1）利用這個強大的工具 用於投資-數據分析 用於網站-我的網站很醜 老師也說學Python的目標不見得要當軟體工程師，而是學習如何根據自己的需求使用這個工具，就像</description>
+    </item>
+  </channel>
+</rss>

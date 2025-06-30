@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>學統計3，為什麼偏見和雜訊難以避免？從收集數據Sampling談起 | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="投資學習">
+<meta name="description" content="小的時候學過盲人摸象的故事，摸到大腿的盲人覺得大象是一個柱子，摸到耳朵的盲人覺得大象是一個扇子。這些人都是用大象的一部分樣本來概括大象的全部特徵。顯然，他們都錯的離譜。 用一部分樣本來推估整個整體的特徵，這必然會導致偏見和雜訊的產生。因為我們就是在盲人摸象。 但另一方面，統計是一門科">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2021-10-21-%E5%AD%B8%E7%B5%B1%E8%A8%883%E7%82%BA%E4%BB%80%E9%BA%BC%E5%81%8F%E8%A6%8B%E5%92%8C%E9%9B%9C%E8%A8%8A%E9%9B%A3%E4%BB%A5%E9%81%BF%E5%85%8D%E5%BE%9E%E6%94%B6%E9%9B%86%E6%95%B8%E6%93%9A/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="學統計3，為什麼偏見和雜訊難以避免？從收集數據Sampling談起" />
+<meta property="og:description" content="小的時候學過盲人摸象的故事，摸到大腿的盲人覺得大象是一個柱子，摸到耳朵的盲人覺得大象是一個扇子。這些人都是用大象的一部分樣本來概括大象的全部特徵。顯然，他們都錯的離譜。 用一部分樣本來推估整個整體的特徵，這必然會導致偏見和雜訊的產生。因為我們就是在盲人摸象。 但另一方面，統計是一門科" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2021-10-21-%E5%AD%B8%E7%B5%B1%E8%A8%883%E7%82%BA%E4%BB%80%E9%BA%BC%E5%81%8F%E8%A6%8B%E5%92%8C%E9%9B%9C%E8%A8%8A%E9%9B%A3%E4%BB%A5%E9%81%BF%E5%85%8D%E5%BE%9E%E6%94%B6%E9%9B%86%E6%95%B8%E6%93%9A/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-10-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-10-21T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="學統計3，為什麼偏見和雜訊難以避免？從收集數據Sampling談起"/>
+<meta name="twitter:description" content="小的時候學過盲人摸象的故事，摸到大腿的盲人覺得大象是一個柱子，摸到耳朵的盲人覺得大象是一個扇子。這些人都是用大象的一部分樣本來概括大象的全部特徵。顯然，他們都錯的離譜。 用一部分樣本來推估整個整體的特徵，這必然會導致偏見和雜訊的產生。因為我們就是在盲人摸象。 但另一方面，統計是一門科"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "學統計3，為什麼偏見和雜訊難以避免？從收集數據Sampling談起",
+      "item": "https://everydaydiva.blog/posts/history/2021-10-21-%E5%AD%B8%E7%B5%B1%E8%A8%883%E7%82%BA%E4%BB%80%E9%BA%BC%E5%81%8F%E8%A6%8B%E5%92%8C%E9%9B%9C%E8%A8%8A%E9%9B%A3%E4%BB%A5%E9%81%BF%E5%85%8D%E5%BE%9E%E6%94%B6%E9%9B%86%E6%95%B8%E6%93%9A/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "學統計3，為什麼偏見和雜訊難以避免？從收集數據Sampling談起",
+  "name": "學統計3，為什麼偏見和雜訊難以避免？從收集數據Sampling談起",
+  "description": "小的時候學過盲人摸象的故事，摸到大腿的盲人覺得大象是一個柱子，摸到耳朵的盲人覺得大象是一個扇子。這些人都是用大象的一部分樣本來概括大象的全部特徵。顯然，他們都錯的離譜。 用一部分樣本來推估整個整體的特徵，這必然會導致偏見和雜訊的產生。因為我們就是在盲人摸象。 但另一方面，統計是一門科",
+  "keywords": [
+    "投資學習"
+  ],
+  "articleBody": "小的時候學過盲人摸象的故事，摸到大腿的盲人覺得大象是一個柱子，摸到耳朵的盲人覺得大象是一個扇子。這些人都是用大象的一部分樣本來概括大象的全部特徵。顯然，他們都錯的離譜。\n用一部分樣本來推估整個整體的特徵，這必然會導致偏見和雜訊的產生。因為我們就是在盲人摸象。\n但另一方面，統計是一門科學。我們會誤以為統計的結果是一種客觀事實，有些有心人會利用所謂的“統計數據”來宣傳，包裝成事實，以達到自己的目的。\n比如疫苗致死率的問題，有些有心人不會仔細研究背後的年齡層，也不考慮每天的自然死亡率，而只會利用致死率的數字來宣傳疫苗很危險。\n了解一點點關於如何抽樣的知識，刻意提醒我們的大腦客觀正確的看待統計數據。\n為什麼使用抽樣來收集數據？ Population vs Sample Population，母體。 Individual，個體。 Census，普查。針對總體裡的全部對象做的研究，比如人口普查。 Sample，抽樣。通過抽取一部分樣本，用樣本的特徵來代表總體。 統計中因為時間/成本/工作量等等關係，沒有辦法做普查，常常會隨機抽取一些樣本，用很多的個體的特徵來概括母體的特徵。比如用1000人的樣本來概括所有國民的民調，用500個公司的樣本來推估所有公司在2020年的營運情況。\n怎麼抽樣？ 1.非隨機抽樣（Non-probability Sampling，non-random sampling） 統計時調查樣本的抽取不是隨機的，而是根據自己的目的來故意挑選某些樣本。\n化妝品公司做的所謂的效果的統計資料，並不是隨機訪問使用的個人，而是公司特地招募的一批人。\n2.隨機抽樣（probability Sampling，random sampling） Simple Random，簡單隨機抽樣，在母體中隨機抽樣。舉例：民調時在全國的電話和手機名單中隨機抽樣1000人。 Stratified Random，分層隨機抽樣，先把母體分組，在從每組裡隨機抽樣。舉例：按年齡分組，比如20-35，35-50，50-70，70以上，每個組分別抽樣250人，總共1000人。 Cluster Random，整群隨機抽樣，把母體分組，隨機抽取一組或幾組。舉例：按地域分組，分為大台北/台中/台南高雄/東半部，然後隨機抽取2組，比如抽取大台北和東半部兩個組，每組抽取500人。 抽樣導致偏見的原因 即使是隨機抽樣，也有可能由於以下的原因導致偏見：\n**自動排除。**樣本自動排除了某些個體。比如如果做電話和手機民調，就自動排除了沒有電話和手機的人。 **自我選擇。**有些個體比較好接觸到。比如新冠肺炎的篩檢確診率，省體不適者和陪伴的人比較會去做篩檢。 沒有應答。有些個體不願意做出回答。比如某大選候選人號召其選民在遇到民調的時候不要回答。 幸存者偏見。隨機的樣本裡不包含已經陣亡的個體。比如奧運會只看到拿冠軍的人很成功，卻忘記了有千千萬萬個人沒有辦法拿冠軍。 如何處理統計產生的偏見？ **意識到偏見的存在。**對於統計者，要檢驗樣本有沒有隨機、自動排除、自我選擇和幸存者偏見等問題。對於資料使用者，也要思考同樣的問題。 **盡量修正。**比如如果大選民調故意不回答的人，有可能其中8成都是支持某個特定候選人，可以手工教正，雖然沒法完美，但至少不對錯誤視而不見。 **正確敘述。**比如統計共同基金的績效是否打敗ETF，就存在很多共同基金在半路上就陣亡的問題。這個問題無解，只能正確敘述：還存在的共同基金的績效是否打敗ETF. 抽樣產生雜訊的原因 即使抽樣沒有導致偏見，經由樣本特徵（sample statistic）推及母體特徵（population parameter），也不可避免的產生雜訊和誤差。雜訊和誤差是統計與生俱來的特性。\n最簡單的例子就是丟硬幣，概率應該是50/50，但是如果只選100次樣本，結果很可能是49/51，會存在一定的誤差範圍。\n如何處理雜訊-利用大數定理增加樣本數量 1.大數定理（Law of Large Numbers，LLN） 在獨立同分佈的條件下，樣本數量越多，則樣本的均值就會越接近母體的均值。\n比如丟錢幣，100次不准，可以丟100萬次，就會無限接近母體的均值（50/50）。\n不過也有兩個例外，一是非獨立同分佈，二是肥尾分佈。\n2.独立同分佈-i.i.d. i.i.d.-independent（互相獨立） and identically distributed（從同一分布而來）。\n独立同分佈：指一组随机变量中每个变量的概率分布都相同，且这些随机变量互相独立。\n比如丟硬幣，正面朝上和反面朝上的概率都是50%。這是概率分佈相同；這一次正面朝上的結果並不會影響下一次的發生情況，這是互相獨立。\n比如股票每年的收益率，漲跌的年份不是50/50，所以概率分佈不同；今年漲太多有可能會導致明年回調，所以不是互相獨立。\n經濟學和投資中不存在獨立同分佈，可以利用弱大數定理。\n3.弱大數定理 即使不滿足獨立同分佈的前提，在方查有限的條件下，樣本的均值還是會朝母體的均值靠攏，只不過靠攏的速度會比較慢。\n如何處理雜訊-利用中央極限定理估計分佈範圍 1.中央極限定理（[Central Limit Theorem](http://Central limit theorem)，CLT） 中央極限定理的意思是即使母體不是常態分佈（Normal Distribution），我們從母體中抽取樣本的平均值也會呈現常態分佈。我們只要從一個固定的採樣當中作夠多的樣本平均，其均值分布會接近常態分佈。然後利用樣本均值的常態部分的特徵來推導母體的特徵。\n比如漁夫養了一水池的魚，怎麼知道魚的平均重量和重量的大概分佈範圍呢？\n可以撈100條出來。然後在這100條的樣本裡，隨機抽取20個數字拿來平均。這些均值的分佈是常態分佈。然後再用這個常態分佈的均值來估計整個魚池裡所有的魚的平均體重，也可以估計有多少比例的魚介於一個或兩個標準差的範圍內。\n2.切比雪夫不等式（Chebyshev’s inequality） 即使不是常態分佈，也可以描述絕大多數個體的分佈範圍。\n在常態分佈中，2/3的概率分佈在1個標準差範圍內，95%的概率分佈在2個標準差內。\n切比雪夫不等式描述75%的概率分佈在2個標準差內，88.89分佈在3個標準差之內。\n總結： 本文學習統計學對於數據研究的第一步：收集數據。\n因為金錢、時間和工作量的關係，我們沒辦法研究母體裡的每個個體。只能抽樣一部分個體，用這部分樣本的特徵來概括母體的特徵。\n抽樣的結果必然會帶有偏見，要盡可能做到隨機抽樣，意識到偏見存在並盡量修正，實在無法修正也要正確的描述統計的結果。\n抽樣的結果本質上是以偏概全，也必然會有雜訊存在。可以利用大數定理，增加抽樣的對象，因為抽樣越多，樣本的特徵就越接近母體的特徵。\n還可以運用中央極限定理，中央極限定理告訴我們只要從一個固定的採樣分布當中作夠多的樣本平均，其分布會接近Normal Distribution。\n不僅做統計的人要要意識到統計的偏見和雜訊，我們日常中面對統計結果的時候，也要考慮到這個結果是有可能帶有偏見和雜訊的。\n關於中央極限定理的其他相關資料：\n可汗學院的教學🔗：central limit\n黑天鵝的作者Taleb的教學：https://www.youtube.com/watch?v=bfM9efdStN8\n現實運用：Real-world application of the Central Limit Theorem (CLT)\nThe Central Limit Theorem – With Examples in Python\n剖析深度學習 (1)：為什麼Normal Distribution這麼好用？\n",
+  "wordCount" : "2953",
+  "inLanguage": "zh",
+  "datePublished": "2021-10-21T00:00:00Z",
+  "dateModified": "2021-10-21T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2021-10-21-%E5%AD%B8%E7%B5%B1%E8%A8%883%E7%82%BA%E4%BB%80%E9%BA%BC%E5%81%8F%E8%A6%8B%E5%92%8C%E9%9B%9C%E8%A8%8A%E9%9B%A3%E4%BB%A5%E9%81%BF%E5%85%8D%E5%BE%9E%E6%94%B6%E9%9B%86%E6%95%B8%E6%93%9A/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      學統計3，為什麼偏見和雜訊難以避免？從收集數據Sampling談起
+    </h1>
+    <div class="post-meta"><span title='2021-10-21 00:00:00 +0000 UTC'>2021-10-21</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e7%82%ba%e4%bb%80%e9%ba%bc%e4%bd%bf%e7%94%a8%e6%8a%bd%e6%a8%a3%e4%be%86%e6%94%b6%e9%9b%86%e6%95%b8%e6%93%9a" aria-label="為什麼使用抽樣來收集數據？">為什麼使用抽樣來收集數據？</a><ul>
+                            
+                    <li>
+                        <a href="#population-vs-sample" aria-label="Population vs Sample">Population vs Sample</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e6%80%8e%e9%ba%bc%e6%8a%bd%e6%a8%a3" aria-label="怎麼抽樣？">怎麼抽樣？</a><ul>
+                            
+                    <li>
+                        <a href="#1%e9%9d%9e%e9%9a%a8%e6%a9%9f%e6%8a%bd%e6%a8%a3non-probability-samplingnon-random-sampling" aria-label="1.非隨機抽樣（Non-probability Sampling，non-random sampling）">1.非隨機抽樣（Non-probability Sampling，non-random sampling）</a></li>
+                    <li>
+                        <a href="#2%e9%9a%a8%e6%a9%9f%e6%8a%bd%e6%a8%a3probability-samplingrandom-sampling" aria-label="2.隨機抽樣（probability Sampling，random sampling）">2.隨機抽樣（probability Sampling，random sampling）</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e6%8a%bd%e6%a8%a3%e5%b0%8e%e8%87%b4%e5%81%8f%e8%a6%8b%e7%9a%84%e5%8e%9f%e5%9b%a0" aria-label="抽樣導致偏見的原因">抽樣導致偏見的原因</a></li>
+                    <li>
+                        <a href="#%e5%a6%82%e4%bd%95%e8%99%95%e7%90%86%e7%b5%b1%e8%a8%88%e7%94%a2%e7%94%9f%e7%9a%84%e5%81%8f%e8%a6%8b" aria-label="如何處理統計產生的偏見？">如何處理統計產生的偏見？</a></li>
+                    <li>
+                        <a href="#%e6%8a%bd%e6%a8%a3%e7%94%a2%e7%94%9f%e9%9b%9c%e8%a8%8a%e7%9a%84%e5%8e%9f%e5%9b%a0" aria-label="抽樣產生雜訊的原因">抽樣產生雜訊的原因</a></li>
+                    <li>
+                        <a href="#%e5%a6%82%e4%bd%95%e8%99%95%e7%90%86%e9%9b%9c%e8%a8%8a-%e5%88%a9%e7%94%a8%e5%a4%a7%e6%95%b8%e5%ae%9a%e7%90%86%e5%a2%9e%e5%8a%a0%e6%a8%a3%e6%9c%ac%e6%95%b8%e9%87%8f" aria-label="如何處理雜訊-利用大數定理增加樣本數量">如何處理雜訊-利用大數定理增加樣本數量</a><ul>
+                            
+                    <li>
+                        <a href="#1%e5%a4%a7%e6%95%b8%e5%ae%9a%e7%90%86law-of-large-numberslln" aria-label="1.大數定理（Law of Large Numbers，LLN）">1.大數定理（Law of Large Numbers，LLN）</a></li>
+                    <li>
+                        <a href="#2%e7%8b%ac%e7%ab%8b%e5%90%8chttpszhwikipediaorgwiki%e7%8b%ac%e7%ab%8b%e5%90%8c%e5%88%86%e5%b8%83%e5%88%86%e4%bd%88-iid" aria-label="2.独立同分佈-i.i.d.">2.<a href="https://zh.wikipedia.org/wiki/%e7%8b%ac%e7%ab%8b%e5%90%8c%e5%88%86%e5%b8%83" target="_blank" rel="noopener" style="color:#42b983";>独立同</a>分佈-i.i.d.</a></li>
+                    <li>
+                        <a href="#3%e5%bc%b1%e5%a4%a7%e6%95%b8%e5%ae%9a%e7%90%86" aria-label="3.弱大數定理">3.弱大數定理</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e5%a6%82%e4%bd%95%e8%99%95%e7%90%86%e9%9b%9c%e8%a8%8a-%e5%88%a9%e7%94%a8%e4%b8%ad%e5%a4%ae%e6%a5%b5%e9%99%90%e5%ae%9a%e7%90%86%e4%bc%b0%e8%a8%88%e5%88%86%e4%bd%88%e7%af%84%e5%9c%8d" aria-label="如何處理雜訊-利用中央極限定理估計分佈範圍">如何處理雜訊-利用中央極限定理估計分佈範圍</a><ul>
+                            
+                    <li>
+                        <a href="#1%e4%b8%ad%e5%a4%ae%e6%a5%b5%e9%99%90%e5%ae%9a%e7%90%86central-limit-theoremhttpcentral-limit-theoremclt" aria-label="1.中央極限定理（[Central Limit Theorem](http://Central limit theorem)，CLT）">1.中央極限定理（[Central Limit Theorem](http://Central limit theorem)，CLT）</a></li>
+                    <li>
+                        <a href="#2%e5%88%87%e6%af%94%e9%9b%aa%e5%a4%ab%e4%b8%8d%e7%ad%89%e5%bc%8fchebyshevs-inequality" aria-label="2.切比雪夫不等式（Chebyshev&amp;rsquo;s inequality）">2.切比雪夫不等式（Chebyshev&rsquo;s inequality）</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e7%b8%bd%e7%b5%90" aria-label="總結：">總結：</a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p>小的時候學過盲人摸象的故事，摸到大腿的盲人覺得大象是一個柱子，摸到耳朵的盲人覺得大象是一個扇子。這些人都是用大象的一部分樣本來概括大象的全部特徵。顯然，他們都錯的離譜。</p>
+<p>用一部分樣本來推估整個整體的特徵，這必然會導致偏見和雜訊的產生。因為我們就是在盲人摸象。</p>
+<p>但另一方面，統計是一門科學。我們會誤以為統計的結果是一種客觀事實，有些有心人會利用所謂的“統計數據”來宣傳，包裝成事實，以達到自己的目的。</p>
+<p>比如疫苗致死率的問題，有些有心人不會仔細研究背後的年齡層，也不考慮每天的自然死亡率，而只會利用致死率的數字來宣傳疫苗很危險。</p>
+<p>了解一點點關於如何抽樣的知識，刻意提醒我們的大腦客觀正確的看待統計數據。</p>
+<h2 id="為什麼使用抽樣來收集數據">為什麼使用抽樣來收集數據？<a hidden class="anchor" aria-hidden="true" href="#為什麼使用抽樣來收集數據">#</a></h2>
+<h3 id="population-vs-sample">Population vs Sample<a hidden class="anchor" aria-hidden="true" href="#population-vs-sample">#</a></h3>
+<ul>
+<li>Population，母體。</li>
+<li>Individual，個體。</li>
+<li>Census，普查。針對總體裡的全部對象做的研究，比如人口普查。</li>
+<li>Sample，抽樣。通過抽取一部分樣本，用樣本的特徵來代表總體。</li>
+</ul>
+<p>統計中因為時間/成本/工作量等等關係，沒有辦法做普查，常常會隨機抽取一些樣本，用很多的個體的特徵來概括母體的特徵。比如用1000人的樣本來概括所有國民的民調，用500個公司的樣本來推估所有公司在2020年的營運情況。</p>
+<h2 id="怎麼抽樣">怎麼抽樣？<a hidden class="anchor" aria-hidden="true" href="#怎麼抽樣">#</a></h2>
+<h3 id="1非隨機抽樣non-probability-samplingnon-random-sampling">1.非隨機抽樣（Non-probability Sampling，non-random sampling）<a hidden class="anchor" aria-hidden="true" href="#1非隨機抽樣non-probability-samplingnon-random-sampling">#</a></h3>
+<p>統計時調查樣本的抽取不是隨機的，而是根據自己的目的來故意挑選某些樣本。</p>
+<p>化妝品公司做的所謂的效果的統計資料，並不是隨機訪問使用的個人，而是公司特地招募的一批人。</p>
+<h3 id="2隨機抽樣probability-samplingrandom-sampling">2.隨機抽樣（probability Sampling，random sampling）<a hidden class="anchor" aria-hidden="true" href="#2隨機抽樣probability-samplingrandom-sampling">#</a></h3>
+<ul>
+<li><strong>Simple Random</strong>，簡單隨機抽樣，在母體中隨機抽樣。舉例：民調時在全國的電話和手機名單中隨機抽樣1000人。</li>
+<li><strong>Stratified Random</strong>，分層隨機抽樣，先把母體分組，在從每組裡隨機抽樣。舉例：按年齡分組，比如20-35，35-50，50-70，70以上，每個組分別抽樣250人，總共1000人。</li>
+<li><strong>Cluster Random</strong>，整群隨機抽樣，把母體分組，隨機抽取一組或幾組。舉例：按地域分組，分為大台北/台中/台南高雄/東半部，然後隨機抽取2組，比如抽取大台北和東半部兩個組，每組抽取500人。</li>
+</ul>
+<h2 id="抽樣導致偏見的原因">抽樣導致偏見的原因<a hidden class="anchor" aria-hidden="true" href="#抽樣導致偏見的原因">#</a></h2>
+<p>即使是隨機抽樣，也有可能由於以下的原因導致偏見：</p>
+<ul>
+<li>**自動排除。**樣本自動排除了某些個體。比如如果做電話和手機民調，就自動排除了沒有電話和手機的人。</li>
+<li>**自我選擇。**有些個體比較好接觸到。比如新冠肺炎的篩檢確診率，省體不適者和陪伴的人比較會去做篩檢。</li>
+<li><strong>沒有應答</strong>。有些個體不願意做出回答。比如某大選候選人號召其選民在遇到民調的時候不要回答。</li>
+<li><strong>幸存者偏見</strong>。隨機的樣本裡不包含已經陣亡的個體。比如奧運會只看到拿冠軍的人很成功，卻忘記了有千千萬萬個人沒有辦法拿冠軍。</li>
+</ul>
+<h2 id="如何處理統計產生的偏見">如何處理統計產生的偏見？<a hidden class="anchor" aria-hidden="true" href="#如何處理統計產生的偏見">#</a></h2>
+<ul>
+<li>**意識到偏見的存在。**對於統計者，要檢驗樣本有沒有隨機、自動排除、自我選擇和幸存者偏見等問題。對於資料使用者，也要思考同樣的問題。</li>
+<li>**盡量修正。**比如如果大選民調故意不回答的人，有可能其中8成都是支持某個特定候選人，可以手工教正，雖然沒法完美，但至少不對錯誤視而不見。</li>
+<li>**正確敘述。**比如統計共同基金的績效是否打敗ETF，就存在很多共同基金在半路上就陣亡的問題。這個問題無解，只能正確敘述：<strong>還存在</strong>的共同基金的績效是否打敗ETF.</li>
+</ul>
+<h2 id="抽樣產生雜訊的原因">抽樣產生雜訊的原因<a hidden class="anchor" aria-hidden="true" href="#抽樣產生雜訊的原因">#</a></h2>
+<p>即使抽樣沒有導致偏見，經由樣本特徵（sample statistic）推及母體特徵（<strong>population parameter</strong>），也不可避免的產生雜訊和誤差。雜訊和誤差是統計與生俱來的特性。</p>
+<p>最簡單的例子就是丟硬幣，概率應該是50/50，但是如果只選100次樣本，結果很可能是49/51，會存在一定的誤差範圍。</p>
+<h2 id="如何處理雜訊-利用大數定理增加樣本數量">如何處理雜訊-利用大數定理增加樣本數量<a hidden class="anchor" aria-hidden="true" href="#如何處理雜訊-利用大數定理增加樣本數量">#</a></h2>
+<h3 id="1大數定理law-of-large-numberslln">1.大數定理（Law of Large Numbers，LLN）<a hidden class="anchor" aria-hidden="true" href="#1大數定理law-of-large-numberslln">#</a></h3>
+<p>在獨立同分佈的條件下，樣本數量越多，則樣本的均值就會越接近母體的均值。</p>
+<p>比如丟錢幣，100次不准，可以丟100萬次，就會無限接近母體的均值（50/50）。</p>
+<p>不過也有兩個例外，一是非獨立同分佈，二是肥尾分佈。</p>
+<h3 id="2独立同httpszhwikipediaorgwiki独立同分布分佈-iid">2.<a href="https://zh.wikipedia.org/wiki/%e7%8b%ac%e7%ab%8b%e5%90%8c%e5%88%86%e5%b8%83" target="_blank" rel="noopener" style="color:#42b983";>独立同</a>分佈-i.i.d.<a hidden class="anchor" aria-hidden="true" href="#2独立同httpszhwikipediaorgwiki独立同分布分佈-iid">#</a></h3>
+<p>i.i.d.-independent（互相獨立） and identically distributed（從同一分布而來）。</p>
+<p><a href="https://zh.wikipedia.org/wiki/%e7%8b%ac%e7%ab%8b%e5%90%8c%e5%88%86%e5%b8%83" target="_blank" rel="noopener" style="color:#42b983";>独立同分佈</a>：指一组<a href="https://zh.wikipedia.org/wiki/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F" target="_blank" rel="noopener" style="color:#42b983";>随机变量</a>中每个变量的<a href="https://zh.wikipedia.org/wiki/%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83" target="_blank" rel="noopener" style="color:#42b983";>概率分布</a>都相同，且这些随机变量互相<a href="https://zh.wikipedia.org/wiki/%E7%8B%AC%E7%AB%8B_%28%E6%A6%82%E7%8E%87%E8%AE%BA%29" target="_blank" rel="noopener" style="color:#42b983";>独立</a>。</p>
+<p>比如丟硬幣，正面朝上和反面朝上的概率都是50%。這是概率分佈相同；這一次正面朝上的結果並不會影響下一次的發生情況，這是互相獨立。</p>
+<p>比如股票每年的收益率，漲跌的年份不是50/50，所以概率分佈不同；今年漲太多有可能會導致明年回調，所以不是互相獨立。</p>
+<p>經濟學和投資中不存在獨立同分佈，可以利用弱大數定理。</p>
+<h3 id="3弱大數定理">3.弱大數定理<a hidden class="anchor" aria-hidden="true" href="#3弱大數定理">#</a></h3>
+<p>即使不滿足獨立同分佈的前提，在方查有限的條件下，樣本的均值還是會朝母體的均值靠攏，只不過靠攏的速度會比較慢。</p>
+<h2 id="如何處理雜訊-利用中央極限定理估計分佈範圍">如何處理雜訊-利用中央極限定理估計分佈範圍<a hidden class="anchor" aria-hidden="true" href="#如何處理雜訊-利用中央極限定理估計分佈範圍">#</a></h2>
+<h3 id="1中央極限定理central-limit-theoremhttpcentral-limit-theoremclt">1.中央極限定理（[Central Limit Theorem](http://Central limit theorem)，CLT）<a hidden class="anchor" aria-hidden="true" href="#1中央極限定理central-limit-theoremhttpcentral-limit-theoremclt">#</a></h3>
+<p>中央極限定理的意思是即使母體不是常態分佈（Normal Distribution），我們從母體中抽取樣本的平均值也會呈現常態分佈。我們只要從一個固定的採樣當中作夠多的樣本平均，其均值分布會接近常態分佈。然後利用樣本均值的常態部分的特徵來推導母體的特徵。</p>
+<p>比如漁夫養了一水池的魚，怎麼知道魚的平均重量和重量的大概分佈範圍呢？</p>
+<p>可以撈100條出來。然後在這100條的樣本裡，隨機抽取20個數字拿來平均。這些均值的分佈是常態分佈。然後再用這個常態分佈的均值來估計整個魚池裡所有的魚的平均體重，也可以估計有多少比例的魚介於一個或兩個標準差的範圍內。</p>
+<h3 id="2切比雪夫不等式chebyshevs-inequality">2.切比雪夫不等式（Chebyshev&rsquo;s inequality）<a hidden class="anchor" aria-hidden="true" href="#2切比雪夫不等式chebyshevs-inequality">#</a></h3>
+<p>即使不是常態分佈，也可以描述絕大多數個體的分佈範圍。</p>
+<p>在常態分佈中，2/3的概率分佈在1個標準差範圍內，95%的概率分佈在2個標準差內。</p>
+<p>切比雪夫不等式描述75%的概率分佈在2個標準差內，88.89分佈在3個標準差之內。</p>
+<h2 id="總結">總結：<a hidden class="anchor" aria-hidden="true" href="#總結">#</a></h2>
+<p>本文學習統計學對於數據研究的第一步：收集數據。</p>
+<p>因為金錢、時間和工作量的關係，我們沒辦法研究母體裡的每個個體。只能抽樣一部分個體，用這部分樣本的特徵來概括母體的特徵。</p>
+<p>抽樣的結果必然會帶有偏見，要盡可能做到隨機抽樣，意識到偏見存在並盡量修正，實在無法修正也要正確的描述統計的結果。</p>
+<p>抽樣的結果本質上是以偏概全，也必然會有雜訊存在。可以利用大數定理，增加抽樣的對象，因為抽樣越多，樣本的特徵就越接近母體的特徵。</p>
+<p>還可以運用中央極限定理，中央極限定理告訴我們只要從一個固定的採樣分布當中作夠多的樣本平均，其分布會接近Normal Distribution。</p>
+<p>不僅做統計的人要要意識到統計的偏見和雜訊，我們日常中面對統計結果的時候，也要考慮到這個結果是有可能帶有偏見和雜訊的。</p>
+<p>關於中央極限定理的其他相關資料：</p>
+<p>可汗學院的教學🔗：<a href="https://www.khanacademy.org/math/ap-statistics/sampling-distribution-ap/what-is-sampling-distribution/v/central-limit-theorem" target="_blank" rel="noopener" style="color:#42b983";>central limit</a></p>
+<p>黑天鵝的作者Taleb的教學：<a href="https://www.youtube.com/watch?v=bfM9efdStN8" target="_blank" rel="noopener" style="color:#42b983";>https://www.youtube.com/watch?v=bfM9efdStN8</a></p>
+<p>現實運用：<a href="https://www.youtube.com/watch?v=N7wW1dlmMaE" target="_blank" rel="noopener" style="color:#42b983";>Real-world application of the Central Limit Theorem (CLT)</a></p>
+<p><a href="https://www.youtube.com/watch?v=1p8pBje5SOE" target="_blank" rel="noopener" style="color:#42b983";>The Central Limit Theorem – With Examples in Python</a></p>
+<p><a href="https://www.ycc.idv.tw/deep-dl_1.html" target="_blank" rel="noopener" style="color:#42b983";>剖析深度學習 (1)：為什麼Normal Distribution這麼好用？</a></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/%E6%8A%95%E8%B3%87%E5%AD%B8%E7%BF%92/">投資學習</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/history/2021-10-22-mindshift%E7%B5%A6%E5%A4%A7%E4%BA%BA%E7%9A%84%E4%BA%BA%E7%94%9F%E7%BF%BB%E8%BD%89%E5%AD%B8%E8%AE%80%E6%9B%B8%E5%BF%83%E5%BE%97/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Mindshift，《給大人的人生翻轉學》讀書心得</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2021-10-20-%E7%B4%85%E9%85%92%E8%94%AC%E8%8F%9C%E7%87%89%E7%89%9B%E8%85%B1%E8%82%89-costco-%E7%89%9B%E8%85%B1%E5%81%9A%E6%B3%95%E5%88%86%E4%BA%AB/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>紅酒蔬菜燉牛腱肉-Costco 牛腱牛尾做法分享</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2021-10-21 00:00:00 +0000 UTC'>2021-10-21</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/%E6%8A%95%E8%B3%87%E5%AD%B8%E7%BF%92/">投資學習</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

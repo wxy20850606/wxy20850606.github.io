@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>學估值10：現金流折現法之自由現金流量?以台積電為例計算FCFF公司自由現金流量,FCFE股權自由現金流量 | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="投資學習">
+<meta name="description" content="注：本文主要來自學習估值大师Prof. Aswath Damodaran（達摩德仁教授）的估值課程，課程詳情請點閱視頻鏈接和相關資料（Session8-9）。 前面分了5篇文章學習自由現金流量折現法的折現率，本文開始學習自由現金流量。 首先，當有人提到自由現金流量時，頭腦中要有一個問號：“具體是哪">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2021-06-05-%E5%AD%B8%E4%BC%B0%E5%80%BC10%E7%8F%BE%E9%87%91%E6%B5%81%E6%8A%98%E7%8F%BE%E6%B3%95%E4%B9%8B%E8%87%AA%E7%94%B1%E7%8F%BE%E9%87%91%E6%B5%81%E9%87%8F%E4%BB%A5%E5%8F%B0%E7%A9%8D%E9%9B%BB/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="學估值10：現金流折現法之自由現金流量?以台積電為例計算FCFF公司自由現金流量,FCFE股權自由現金流量" />
+<meta property="og:description" content="注：本文主要來自學習估值大师Prof. Aswath Damodaran（達摩德仁教授）的估值課程，課程詳情請點閱視頻鏈接和相關資料（Session8-9）。 前面分了5篇文章學習自由現金流量折現法的折現率，本文開始學習自由現金流量。 首先，當有人提到自由現金流量時，頭腦中要有一個問號：“具體是哪" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2021-06-05-%E5%AD%B8%E4%BC%B0%E5%80%BC10%E7%8F%BE%E9%87%91%E6%B5%81%E6%8A%98%E7%8F%BE%E6%B3%95%E4%B9%8B%E8%87%AA%E7%94%B1%E7%8F%BE%E9%87%91%E6%B5%81%E9%87%8F%E4%BB%A5%E5%8F%B0%E7%A9%8D%E9%9B%BB/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-06-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-06-05T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="學估值10：現金流折現法之自由現金流量?以台積電為例計算FCFF公司自由現金流量,FCFE股權自由現金流量"/>
+<meta name="twitter:description" content="注：本文主要來自學習估值大师Prof. Aswath Damodaran（達摩德仁教授）的估值課程，課程詳情請點閱視頻鏈接和相關資料（Session8-9）。 前面分了5篇文章學習自由現金流量折現法的折現率，本文開始學習自由現金流量。 首先，當有人提到自由現金流量時，頭腦中要有一個問號：“具體是哪"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "學估值10：現金流折現法之自由現金流量?以台積電為例計算FCFF公司自由現金流量,FCFE股權自由現金流量",
+      "item": "https://everydaydiva.blog/posts/history/2021-06-05-%E5%AD%B8%E4%BC%B0%E5%80%BC10%E7%8F%BE%E9%87%91%E6%B5%81%E6%8A%98%E7%8F%BE%E6%B3%95%E4%B9%8B%E8%87%AA%E7%94%B1%E7%8F%BE%E9%87%91%E6%B5%81%E9%87%8F%E4%BB%A5%E5%8F%B0%E7%A9%8D%E9%9B%BB/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "學估值10：現金流折現法之自由現金流量?以台積電為例計算FCFF公司自由現金流量,FCFE股權自由現金流量",
+  "name": "學估值10：現金流折現法之自由現金流量?以台積電為例計算FCFF公司自由現金流量,FCFE股權自由現金流量",
+  "description": "注：本文主要來自學習估值大师Prof. Aswath Damodaran（達摩德仁教授）的估值課程，課程詳情請點閱視頻鏈接和相關資料（Session8-9）。 前面分了5篇文章學習自由現金流量折現法的折現率，本文開始學習自由現金流量。 首先，當有人提到自由現金流量時，頭腦中要有一個問號：“具體是哪",
+  "keywords": [
+    "投資學習"
+  ],
+  "articleBody": "注：本文主要來自學習估值大师Prof. Aswath Damodaran（達摩德仁教授）的估值課程，課程詳情請點閱視頻鏈接和相關資料（Session8-9）。\n前面分了5篇文章學習自由現金流量折現法的折現率，本文開始學習自由現金流量。\n首先，當有人提到自由現金流量時，頭腦中要有一個問號：“具體是哪個現金流？”\n企業的財務報表分為三大現金流：營運現金流，投資現金流，融資現金流。其中最重要的代表公司體質的是營運現金流，也就是OCF。\n營運現金流減去資本支出得到自由現金流量（FCF）。\nFCF自由現金流量又延伸出FCFE(Free Cash Flow to Equity)和FCFF（Free Cash Flow to Firm）\n還有些CFA另闢蹊徑，認為EBITDA可以非常貼切的代表公司的真正的自由現金流量。\n還有股神巴菲特認為以上所有的現金流量都不夠精準，而只看比較保守的Owner’s earning事業主盈餘，即FCFE before debt。\n**其次，怎麼得到最新的現金流？**年報上的數據往往很滯後，怎麼根據季報和年報計算最近的自由現金流量。\n**最後，根據實際情況調整現金流？**比如要把費用化的研發支出變成資本支出。\n本文將從Earning，Reinvestment，Debt三個角度分析和計算自由現金流量。\n1.自由現金流折現法的自由現金流量,定義和計算？ 自由現金流貼現法用的自由現金流量主要為FCFF（達摩德仁教授一般都是使用DCFF來估值）,也就是公司自由現金流量，另外一小部分為FCFE，股權自由現金流量。而不是我們一般認為的FCF.\n1.1 FCFF 公式\n公司自由現金流量是指的是公司營運帶來的EBIT（利息稅收前收入）在交完稅後，減去再投資的需求金額（reinvesting），剩下的可自由支配的現金流量。\nFCFF formula=EBIT\\*1- EBIT \\*tax rate -reinvestment**， 其中 reinvestment=（CAPEX - depreciation and amortization）+changes in non-cash working capital\n1.2 FCFE 公式\n股權自由現金流量是指公司的淨利在支付了再投資需求和新增加的債務後，剩餘的只屬於股權投資者支配的現金流量。這也是股權投資者可以獲得的全部的潛在股利。\nFCFE formula=Net income-reinvestment-net debt issued\n其中 reinvestment=（CAPEX - depreciation and amortization）+changes in non-cash working capital\n註：FCFF和FCFE二者起始的金額不一樣。\n（FCFE取代了DDM股息貼現模型，因為很多公司不發股息，至少是不見得會把所有可以發的全部發光光，所以用DDM估值會低估公司的價值）\n2.理解自由現金流量的三部分 DCFF就是賺的錢繳了稅後再減去要投資的錢，就是全公司所有人（股權人和債權人）可以享有的自由現金流量。\nDCFE就是股權所有人可以享有的收益（net income），減去再投資的錢，還要減去新增加的債務，是股權人可以享受的自由現金流量。\n所以可以從下面三個面向考慮自由現金流量，賺了多少錢（Earning），再投資多少錢（Reinvestment），債務增加多少（Debt）。\n2.1 Earning,賺了多少錢？\nDCFF 的起始金額為EBIT。EBIT是利息和稅收之前的利潤。\n達摩德仁教授常常使用Operating income來代替EBIT.\nOperating income 和EBIT 不是完全一樣，但是常常可以互換使用。\nOperating income是主營業務收入，公司主業賺的錢。EBIT除了主營業務外，還包含有其他業務賺的錢。\n不過對於絕大多數的公司來說，其他業務收入所佔比例極低，像零花錢一樣，可以忽略不計。\n比如Apple的其他業務收入只占主營業務收入的1%-2%。\n2.2 Reinvestment 需要再投資多少錢？\n公司的再投資包含長期資產和短期資產的再投資。\n長期資產投資是為了未來的增長，短期資產的投資是維持目前生意所必須。\n1）长期资产投资的形式不仅是固定资产投资，也可以是R\u0026D和投资并购。\nNet CAPEX=資本支出-折舊和攤銷\n公司對長期資產的投資，是資本支出減去折舊和攤銷後的淨資本支出（Net CAPEX）,也就是说公司今年对长期资产净投资的部分。\n為什麼要減去折舊呢，因為折舊是過去投資折舊在今年的部分，钱早花了，只是會計支出，不是現金支出（可以理解為過去投資返還的錢）\n2）短期資產（存貨、應收賬款、應付賬款）的投資=公司非現金營運資金的變化，也就是Non-Cash Working Capital。\n非現金類運營資金的變動=非現金流動資產-非債務流動負債。\n因为非現金類營運資金的三个变量就是存货、應收賬款和應付賬款，所以可以用簡化的計算方式：非現金營運資金變動=存貨+應收賬款-應付賬款。\n3）Reinvestment=資本支出-折舊+公司非現金營運資金的變化。\n（再投資金額除以稅後營業收入就是公司的再投資率。）\n2.3Debt 借了多少錢？\n如果需要計算FCFE/股權自由現金流量的話，還需要計算公司的債務變化情況。新增了多少債，還了多少債等。\n除此之外，公司的lease也是負債的一部分。如果公司的財務報表沒有按照要求把所有的lease都歸為負債的話，還需要自行把lease折現為負債。\n下面開始按照這三部分，以台積電為例，一步一步分析怎麼計算自由現金流量。\n3.Earning 有些網站可以查詢自由現金流量，但是一般都是FCF，不是我們估值需要用的FCFF或者FCFE.所以如果想要估值，做好自己計算的準備。\n3.1 更新財報信息。\n做最準確的估值，需要最新的ttm(trailing twelve months)數據。\n公司的財報一年一次，如果在做現金流折現法的時候還是用最新的年報上的數字的話，會存在大幅滯後的現象。\n比如我在SEC網站台積電最新版本的財報（20F）（2021/3/21）上面最新的數據是2019年財年的數據。現在都2021年了，還用2019年的數據，可想而知有多麼不切實際。\n所以怎麼根據季報把全年的數據更新到最近的一年也是很重要的。\n簡單的辦法就是拿出最新的10K\n舉例：下圖為台積電的年報的資料和TTM資料的比較。可以看到更新後的TTM數據比最新的年報的數字差很多。\n數據來源：台積電年報和季報https://investor.tsmc.com/schinese/quarterly-results/2021/q1。單位：百萬美金\n3.2 調整財報裡的錯誤。\n1）lease租賃\n無論哪種lease都是負債，包含營業租賃和融資租賃。\n但是直到2019年，GAAP和IFRS才要求企業把所有的lease作為負債。\n在這之前，只有Captial lease融資租賃才處理為Debt，Operating lease營業租賃都處理為營業費用，這部分之前都是表外債務。\n教授說現在美國和歐洲的公司都已經把所有的lease作為債務，所以如果評估美股的話，這一步驟就可以省了。\n如果發現公司沒有把lease轉為債務的話，就需要自行計算了。計算的方法是用cost of debt把未來的lease折現到今天，得到所有的lease負債。\n2）R\u0026D研發支出\n**研發支出明明不是一個年度的費用，卻被費用化算為營業費用。**這也是我們需要調整的地方。\n（相關閱讀：怎麼把費用化的研發支出（R\u0026D）重新資本化？）\n把研發支出資本化並不會改變自由現金流量，但是會改變我們對整個公司的看法。\n把本來作為費用的研發支出重新調整為資本支出，一方面費用減少會增加利潤（EBIT），另一方面費用資本化會使得資本支出的金額增加，公司資本支出增加往往意味著未來有更多的增長引擎。\n3）一次性或者特別的收入或費用\n達摩德仁教授建議可以忽略。\n舉個特別的例子，比如因為疫情補貼的一次性收入，在估值的時候可以直接忽略。\n4）怎麼看財務報表可不可靠，有沒有做假賬？\n教授有提供一個比較好的方法：\n比較損益表裡的net income和現金流量表裡的經營性現金流（Cash income），如果損益表裡的net income持續每年都大於現金流量表裡的cash income，這表示公司很有可能用應收賬款在做賬。\n5）Loss（虧損）或者異常的虧損\n對於新創公司的Loss，比如AIRBNB，教授自己預測是從負的EBIT開始，第三年開始預測會轉為正的EBIT。\n暫時的虧損不可怕，今天虧的1億，如果公司可以高速增長，10年後有可能可以賺10億。\n對於異常的虧損，比如2020年的航空公司，可以用正常年份的EBIT先來代替2020年的，不過還要考慮未來航空公司的業務受影響的情況。\n4.Taxes and Reinvestment 4.1 Taxes\n前面提到**FCFF formula,其中的tax rate要用哪個呢？\n有Marginal tax rate邊際稅率、Effective tax rate有效稅率和Cash tax rate現金稅率。\n理論上是邊際稅率。\n但是實際估值中，像AAPL這樣高增長的公司很少會付25%的邊際稅率，因為可以用Tax deferral strategy，一般實際的稅率只有16%，但是增長放慢以後稅率會慢慢朝25%的邊際稅率靠攏。\n所以在估值中，邊際稅率和有效稅率可以一起使用。比如預期高增長的時候可以用有效稅率，預期增長變慢的時候可以慢慢朝邊際稅率靠攏。\n台積電的有效收率不到15%，邊際稅率為20%。\n4.2 Net operating loss carryforwards（NOL）虧損抵減\n2017年之前美國規定虧損可前抵 2 年或後抵 20 年，2018年起虧損可以無限期抵減未來年度課稅所得，但每年最多只能抵課稅所得的80%。\n所以在估有虧損的新公司的時候，要特別留意累積的虧損，因為這些未來都可以抵稅。\n比如某公司有NOL 1億，今年、明年、後年的營業收入各為5000萬，因為有虧損抵減，今年可以抵減80%即4000萬，明年可以抵減4000萬，後年可以抵減2000萬，所以企業真實需要納稅的收入分別為1000萬、1000萬、3000萬。\n4.3 Net CAPEX 淨資本支出\n資本支出減去折舊（攤銷）即為淨資本支出，是公司為了未來的增長所做的投資。\n1）淨資本支出和增長要匹配。\n增長一般不會無緣無故，想要增長，就要有淨資本支出的投入。預估未來的增長率要和公司的淨資本支出匹配。\n範例：台積電TTM淨資本支出為2546m$.\n4.4 研發支出要從營業費用轉為資本支出\n計算公式：Adjusted Net CAPEX=Net CAPEX+Current year R\u0026D-Amortization of past years R\u0026D\n我們查詢公司的淨資本支出的時候，還要考慮到已經被費用化的研發支出。\n雖然這個步驟不會改變公司的FCFF，但是會改變資本支出的數值。\n舉例：台積電研發支出資本化。\n第一步：假設台積電的研發支出轉化時間是3年，也就是說攤銷時間為3年。收集過去3年的研發支出。\n單位:百萬美金\n第二步：計算台積電累計未攤銷的金額為7488.33，屬於今年攤銷的部分為3213.33\n註：下圖的Current year 數值為TTM,即2021Q1-2020Q2。\n第三步：調整財務報表。\nEBIT=21142\nEBIT(1-t)=17970.7,共增加776.1m$，\nBook equity:增加7488m$，\nNet Capex：從2546m$增加到3332m$，\nFCFF 保持不變:14765.1m$（因為不論是費用化還是資本化，錢都已經花了）\nReturn on Equity：從25.4%變成23.9%。（半導體行業未做調整的ROE平均值為22.13%）\n詳細見下圖：\n4.5 收購也是資本支出\n收購消耗了公司的現金，但是帶來未來的增長。所以也要考慮進資本支出裡面。\n收購通常在cash flow裡的other investment activity裡面。\n計算公式：Adjusted Net CAPEX=Net CAPEX +acquisition of other firms-Amortization of the acquisition。\n4.6 Working capital 營運資金\n財務裡的Working capital指的是流動資產（應收賬款，現金，庫存等）減去流動負債（短期負債，長期負債的短期部分，應付賬款等）。\n但是估值裡說的working capital是指非現金流動資產（應收賬款，庫存）減去非債務流動負債（應付賬款）。即：\n非現金營運資金變動=存貨+應收賬款-應付賬款。\n在估值的時候，對於營運資金的處理有如下三個原則\n第一：打包處理，不用分看單獨看。\n第二：估計一個比率，營運資本受應收賬款、庫存和應付賬款三個因素的影響。\n因為預估營運資本變動很麻煩， 可以考慮公司過去平均的營運資本佔公司Revenue的比率，再參考同行業其他公司的營運資本的比率情況調整（達摩德仁教授有提供）。\n第三：營運資本有可能為負。是正常的。\n舉例：估計台積電Non-cash Working Capital 佔Revenue的比率為19%(因為計算ttm的比率為20.66%，顯示TSM的working capital有上升的感覺），半導體行業平均為17.44%。\n所以對於未來working capital（ttm）的數據，預估值可以用Revenue*19%。\n4.7 計算FCFF\n有了EBIT、稅率、和再投資金額，就可以得到FCFF.\n台積電公司自由現金流量FCFF（ttm）如下：\n如果要計算FCFE，還要考慮Debt的影響。\n5.From FCFF to FCFE 5.1 FCFE 公式：\nFCFE formula=Net income-reinvestment-net debt issued\n其中 reinvestment=（CAPEX - depreciation and amortization）+changes in non-cash working capital\n其中，Net debt issued是新債減去還舊債的金額。\n5.2 FCFE 計算-以台積電為例。\n第一步：net income(ttm)：18703m$,\n也可以用yahoo finance查詢，數值是540590m,應該是新台幣。\n第二步：Net CAPEX=3332\n第三步：Changes in working capital:9943\n第四步：Net Debt issued：7954\nFCFE=18703-3332-9943+7954=13382m$.\n5.3 從上面的公式可以看出借債越多，FCFE越大，那這樣會高估公司的內在價值嗎？\n答案是不會，因為債務越多，折現率越高，因為債務會影響折現率裡的beta和股權債務佔比。分子分母同時變多，互相左右之下，估值不會高估。\n6.總結 DCF現金流折現法最常用的自由現金流量是FCFF公司自由現金流。\n其中 reinvestment=（CAPEX - depreciation and amortization）+changes in non-cash working capital。\n己找個喜歡的公司來試著計算一下吧。\n注：本站所有學習達摩德仁教授課程的心得文章均已獲達摩德仁教授授權。\n",
+  "wordCount" : "5516",
+  "inLanguage": "zh",
+  "datePublished": "2021-06-05T00:00:00Z",
+  "dateModified": "2021-06-05T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2021-06-05-%E5%AD%B8%E4%BC%B0%E5%80%BC10%E7%8F%BE%E9%87%91%E6%B5%81%E6%8A%98%E7%8F%BE%E6%B3%95%E4%B9%8B%E8%87%AA%E7%94%B1%E7%8F%BE%E9%87%91%E6%B5%81%E9%87%8F%E4%BB%A5%E5%8F%B0%E7%A9%8D%E9%9B%BB/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      學估值10：現金流折現法之自由現金流量?以台積電為例計算FCFF公司自由現金流量,FCFE股權自由現金流量
+    </h1>
+    <div class="post-meta"><span title='2021-06-05 00:00:00 +0000 UTC'>2021-06-05</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#1%e8%87%aa%e7%94%b1%e7%8f%be%e9%87%91%e6%b5%81%e6%8a%98%e7%8f%be%e6%b3%95%e7%9a%84%e8%87%aa%e7%94%b1%e7%8f%be%e9%87%91%e6%b5%81%e9%87%8f%e5%ae%9a%e7%be%a9%e5%92%8c%e8%a8%88%e7%ae%97" aria-label="1.自由現金流折現法的自由現金流量,定義和計算？"><strong>1.自由現金流折現法的自由現金流量,定義和計算？</strong></a></li>
+                    <li>
+                        <a href="#2%e7%90%86%e8%a7%a3%e8%87%aa%e7%94%b1%e7%8f%be%e9%87%91%e6%b5%81%e9%87%8f%e7%9a%84%e4%b8%89%e9%83%a8%e5%88%86" aria-label="2.理解自由現金流量的三部分"><strong>2.理解自由現金流量的三部分</strong></a></li>
+                    <li>
+                        <a href="#3earning" aria-label="3.Earning"><strong>3.Earning</strong></a></li>
+                    <li>
+                        <a href="#4taxes-and-reinvestment" aria-label="4.Taxes and Reinvestment"><strong>4.Taxes and Reinvestment</strong></a></li>
+                    <li>
+                        <a href="#5from-fcff-to-fcfe" aria-label="5.From FCFF to FCFE"><strong>5.From FCFF to FCFE</strong></a></li>
+                    <li>
+                        <a href="#6%e7%b8%bd%e7%b5%90" aria-label="6.總結"><strong>6.總結</strong></a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p>注：本文主要來自學習估值大师Prof. Aswath Damodaran（達摩德仁教授）的估值課程，課程詳情請點閱<a href="https://www.youtube.com/watch?v=oi6M5KBWydg&amp;list=PLUkh9m2BorqlJsEfix7R9jtSXClFZhGvC" target="_blank" rel="noopener" style="color:#42b983";>視頻鏈接</a>和<a href="http://pages.stern.nyu.edu/~adamodar/" target="_blank" rel="noopener" style="color:#42b983";>相關資料</a>（Session8-9）。</p>
+<p>前面分了5篇文章學習自由現金流量折現法的折現率，本文開始學習自由現金流量。</p>
+<p>首先，當有人提到自由現金流量時，頭腦中要有一個問號：“具體是哪個現金流？”</p>
+<p>企業的財務報表分為三大現金流：營運現金流，投資現金流，融資現金流。其中最重要的代表公司體質的是<strong>營運現金流</strong>，也就是<strong>OCF</strong>。</p>
+<p>營運現金流減去資本支出得到<strong>自由現金流量（FCF）</strong>。</p>
+<p>FCF自由現金流量又延伸出FCF<strong>E</strong>(Free Cash Flow to <strong>Equity</strong>)和FCF<strong>F</strong>（Free Cash Flow to <strong>Firm</strong>）</p>
+<p>還有些CFA另闢蹊徑，認為<strong>EBITDA</strong>可以非常貼切的代表公司的真正的自由現金流量。</p>
+<p>還有股神巴菲特認為以上所有的現金流量都不夠精準，而只看比較保守的<strong>Owner&rsquo;s earning事業主盈餘，即FCFE before debt</strong>。</p>
+<p>**其次，怎麼得到最新的現金流？**年報上的數據往往很滯後，怎麼根據季報和年報計算最近的自由現金流量。</p>
+<p>**最後，根據實際情況調整現金流？**比如要把費用化的研發支出變成資本支出。</p>
+<p>本文將從Earning，Reinvestment，Debt三個角度分析和計算自由現金流量。</p>
+<h2 id="1自由現金流折現法的自由現金流量定義和計算"><strong>1.自由現金流折現法的自由現金流量,定義和計算？</strong><a hidden class="anchor" aria-hidden="true" href="#1自由現金流折現法的自由現金流量定義和計算">#</a></h2>
+<p>自由現金流貼現法用的自由現金流量主要為FCFF（達摩德仁教授一般都是使用DCFF來估值）,也就是公司自由現金流量，另外一小部分為FCFE，股權自由現金流量。而不是我們一般認為的FCF.</p>
+<p><strong>1.1 FCFF 公式</strong></p>
+<p><strong>公司自由現金流量</strong>是指的是公司營運帶來的EBIT（利息稅收前收入）在交完稅後，減去再投資的需求金額（reinvesting），剩下的可自由支配的現金流量。</p>
+<pre><code>FCFF formula=EBIT\*1- EBIT \*tax rate -reinvestment**，
+</code></pre>
+<p>其中 <strong>reinvestment=（CAPEX - depreciation and amortization）+changes in non-cash working capital</strong></p>
+<p><strong>1.2 FCFE 公式</strong></p>
+<p><strong>股權自由現金流量</strong>是指公司的淨利在支付了再投資需求和新增加的債務後，剩餘的只屬於股權投資者支配的現金流量。這也是股權投資者可以獲得的全部的<strong>潛在股利</strong>。</p>
+<p><strong>FCFE formula=Net income-reinvestment-net debt issued</strong></p>
+<p>其中 <strong>reinvestment=（CAPEX - depreciation and amortization）+changes in non-cash working capital</strong></p>
+<p>註：FCFF和FCFE二者起始的金額不一樣。</p>
+<p>（FCFE取代了DDM股息貼現模型，因為很多公司不發股息，至少是不見得會把所有可以發的全部發光光，所以用DDM估值會低估公司的價值）</p>
+<h2 id="2理解自由現金流量的三部分"><strong>2.理解自由現金流量的三部分</strong><a hidden class="anchor" aria-hidden="true" href="#2理解自由現金流量的三部分">#</a></h2>
+<p>DCFF就是賺的錢繳了稅後再減去要投資的錢，就是全公司所有人（股權人和債權人）可以享有的自由現金流量。</p>
+<p>DCFE就是股權所有人可以享有的收益（net income），減去再投資的錢，還要減去新增加的債務，是股權人可以享受的自由現金流量。</p>
+<p>所以可以從下面三個面向考慮自由現金流量，<strong>賺了多少錢（Earning），再投資多少錢（Reinvestment），債務增加多少（Debt）。</strong></p>
+<p><strong>2.1 Earning,賺了多少錢？</strong></p>
+<p>DCFF 的起始金額為EBIT。EBIT是利息和稅收之前的利潤。</p>
+<p>達摩德仁教授常常使用Operating income來代替EBIT.</p>
+<p>Operating income 和EBIT 不是完全一樣，但是常常可以互換使用。</p>
+<p>Operating income是主營業務收入，公司主業賺的錢。EBIT除了主營業務外，還包含有其他業務賺的錢。</p>
+<p>不過對於絕大多數的公司來說，其他業務收入所佔比例極低，像零花錢一樣，可以忽略不計。</p>
+<p>比如Apple的其他業務收入只占主營業務收入的1%-2%。</p>
+<p><strong>2.2 Reinvestment 需要再投資多少錢？</strong></p>
+<p>公司的再投資包含長期資產和短期資產的再投資。</p>
+<p>長期資產投資是為了未來的增長，短期資產的投資是維持目前生意所必須。</p>
+<p><strong>1）长期资产投资的形式不仅是固定资产投资，也可以是R&amp;D和投资并购。</strong></p>
+<p><strong>Net CAPEX=資本支出-折舊</strong>和攤銷</p>
+<p>公司對長期資產的投資，是資本支出減去折舊和攤銷後的淨資本支出（Net CAPEX）,也就是说公司今年对长期资产净投资的部分。</p>
+<p>為什麼要減去折舊呢，因為折舊是過去投資折舊在今年的部分，钱早花了，只是會計支出，不是現金支出（可以理解為過去投資返還的錢）</p>
+<p><strong>2）短期資產（存貨、應收賬款、應付賬款）的投資=公司非現金營運資金的變化，也就是Non-Cash Working Capital。</strong></p>
+<p><strong>非現金類運營資金的變動</strong>=非現金流動資產-非債務流動負債。</p>
+<p>因为非現金類營運資金的三个变量就是存货、應收賬款和應付賬款，所以可以用簡化的計算方式：<strong>非現金營運資金變動=存貨+應收賬款-應付賬款</strong>。</p>
+<p><strong>3）Reinvestment=資本支出-折舊+公司非現金營運資金的變化。</strong></p>
+<p>（再投資金額除以稅後營業收入就是公司的再投資率。）</p>
+<p><strong>2.3Debt 借了多少錢？</strong></p>
+<p>如果需要計算FCFE/股權自由現金流量的話，還需要計算公司的債務變化情況。新增了多少債，還了多少債等。</p>
+<p>除此之外，公司的lease也是負債的一部分。如果公司的財務報表沒有按照要求把所有的lease都歸為負債的話，還需要自行把lease折現為負債。</p>
+<p>下面開始按照這三部分，以台積電為例，一步一步分析怎麼計算自由現金流量。</p>
+<h2 id="3earning"><strong>3.Earning</strong><a hidden class="anchor" aria-hidden="true" href="#3earning">#</a></h2>
+<p>有些網站可以查詢自由現金流量，但是一般都是FCF，不是我們估值需要用的FCFF或者FCFE.所以如果想要估值，做好自己計算的準備。</p>
+<p><strong>3.1 更新財報信息。</strong></p>
+<p>做最準確的估值，需要最新的ttm(trailing twelve months)數據。</p>
+<p>公司的財報一年一次，如果在做現金流折現法的時候還是用最新的年報上的數字的話，會存在大幅滯後的現象。</p>
+<p>比如我在SEC網站台積電最新版本的財報（20F）（2021/3/21）上面最新的數據是2019年財年的數據。現在都2021年了，還用2019年的數據，可想而知有多麼不切實際。</p>
+<p>所以怎麼根據季報把全年的數據更新到最近的一年也是很重要的。</p>
+<p>簡單的辦法就是拿出最新的10K</p>
+<p>舉例：下圖為台積電的年報的資料和TTM資料的比較。可以看到更新後的TTM數據比最新的年報的數字差很多。</p>
+<p><img loading="lazy" src="images/image-6-1024x234.png" alt=""  />
+</p>
+<p>數據來源：台積電年報和季報<a href="https://investor.tsmc.com/schinese/quarterly-results/2021/q1" target="_blank" rel="noopener" style="color:#42b983";>https://investor.tsmc.com/schinese/quarterly-results/2021/q1</a>。單位：百萬美金</p>
+<p><strong>3.2 調整財報裡的錯誤。</strong></p>
+<p><strong>1）lease租賃</strong></p>
+<p><strong>無論哪種lease都是負債，包含營業租賃和融資租賃。</strong></p>
+<p>但是直到2019年，GAAP和IFRS才要求企業把所有的lease作為負債。</p>
+<p>在這之前，只有Captial lease融資租賃才處理為Debt，Operating lease營業租賃都處理為營業費用，這部分之前都是表外債務。</p>
+<p>教授說現在美國和歐洲的公司都已經把所有的lease作為債務，所以如果評估美股的話，這一步驟就可以省了。</p>
+<p>如果發現公司沒有把lease轉為債務的話，就需要自行計算了。計算的方法是用cost of debt把未來的lease折現到今天，得到所有的lease負債。</p>
+<p><strong>2）R&amp;D研發支出</strong></p>
+<p>**研發支出明明不是一個年度的費用，卻被費用化算為營業費用。**這也是我們需要調整的地方。</p>
+<p>（相關閱讀：怎麼把<a href="https://fulltimemammy.com/%e8%b2%bb%e7%94%a8%e5%8c%96%e7%9a%84%e7%a0%94%e7%99%bc%e6%94%af%e5%87%ba%ef%bc%88rd%ef%bc%89%e9%87%8d%e6%96%b0%e8%b3%87%e6%9c%ac%e5%8c%96/" target="_blank" rel="noopener" style="color:#42b983";>費用化的研發支出（R&amp;D）重新資本化</a>？）</p>
+<p>把研發支出資本化並不會改變自由現金流量，但是會改變我們對整個公司的看法。</p>
+<p>把本來作為費用的研發支出重新調整為資本支出，一方面費用減少會增加利潤（EBIT），另一方面費用資本化會使得資本支出的金額增加，公司資本支出增加往往意味著未來有更多的增長引擎。</p>
+<p><strong>3）一次性或者特別的收入或費用</strong></p>
+<p>達摩德仁教授建議可以忽略。</p>
+<p>舉個特別的例子，比如因為疫情補貼的一次性收入，在估值的時候可以直接忽略。</p>
+<p><strong>4）怎麼看財務報表可不可靠，有沒有做假賬？</strong></p>
+<p>教授有提供一個比較好的方法：</p>
+<p>比較損益表裡的net income和現金流量表裡的經營性現金流（Cash income），如果損益表裡的net income持續每年都大於現金流量表裡的cash income，這表示公司很有可能用應收賬款在做賬。</p>
+<p><strong>5）Loss（虧損）或者異常的虧損</strong></p>
+<p>對於新創公司的Loss，比如AIRBNB，教授自己預測是從負的EBIT開始，第三年開始預測會轉為正的EBIT。</p>
+<p>暫時的虧損不可怕，今天虧的1億，如果公司可以高速增長，10年後有可能可以賺10億。</p>
+<p>對於異常的虧損，比如2020年的航空公司，可以用正常年份的EBIT先來代替2020年的，不過還要考慮未來航空公司的業務受影響的情況。</p>
+<h2 id="4taxes-and-reinvestment"><strong>4.Taxes and Reinvestment</strong><a hidden class="anchor" aria-hidden="true" href="#4taxes-and-reinvestment">#</a></h2>
+<p><strong>4.1 Taxes</strong></p>
+<p>前面提到**FCFF formula,其中的tax rate要用哪個呢？</p>
+<p>有Marginal tax rate邊際稅率、Effective tax rate有效稅率和Cash tax rate現金稅率。</p>
+<p>理論上是邊際稅率。</p>
+<p>但是實際估值中，像AAPL這樣高增長的公司很少會付25%的邊際稅率，因為可以用Tax deferral strategy，一般實際的稅率只有16%，但是增長放慢以後稅率會慢慢朝25%的邊際稅率靠攏。</p>
+<p>所以在估值中，邊際稅率和有效稅率可以一起使用。比如預期高增長的時候可以用有效稅率，預期增長變慢的時候可以慢慢朝邊際稅率靠攏。</p>
+<p>台積電的有效收率不到15%，邊際稅率為20%。</p>
+<p>4.2 <strong>Net operating loss carryforwards（NOL）虧損抵減</strong></p>
+<p>2017年之前美國規定虧損可前抵 2 年或後抵 20 年，2018年起虧損可以無限期抵減未來年度課稅所得，但每年最多只能抵課稅所得的80%。</p>
+<p>所以在估有虧損的新公司的時候，要特別留意累積的虧損，因為這些未來都可以抵稅。</p>
+<p>比如某公司有NOL 1億，今年、明年、後年的營業收入各為5000萬，因為有虧損抵減，今年可以抵減80%即4000萬，明年可以抵減4000萬，後年可以抵減2000萬，所以企業真實需要納稅的收入分別為1000萬、1000萬、3000萬。</p>
+<p>4.3 Net CAPEX 淨資本支出</p>
+<p>資本支出減去折舊（攤銷）即為淨資本支出，是公司為了未來的增長所做的投資。</p>
+<p>1）淨資本支出和增長要匹配。</p>
+<p>增長一般不會無緣無故，想要增長，就要有淨資本支出的投入。預估未來的增長率要和公司的淨資本支出匹配。</p>
+<p>範例：台積電TTM淨資本支出為2546m$.</p>
+<p><img loading="lazy" src="images/image-10.png" alt=""  />
+</p>
+<p><strong>4.4 研發支出要從營業費用轉為資本支出</strong></p>
+<p>計算公式：Adjusted Net CAPEX=Net CAPEX+Current year R&amp;D-Amortization of past years R&amp;D</p>
+<p>我們查詢公司的淨資本支出的時候，還要考慮到已經被費用化的研發支出。</p>
+<p>雖然這個步驟不會改變公司的FCFF，但是會改變資本支出的數值。</p>
+<p>舉例：台積電研發支出資本化。</p>
+<p>第一步：假設台積電的研發支出轉化時間是3年，也就是說攤銷時間為3年。收集過去3年的研發支出。</p>
+<p><img loading="lazy" src="images/image-7.png" alt=""  />
+</p>
+<p>單位:百萬美金</p>
+<p>第二步：計算台積電累計未攤銷的金額為7488.33，屬於今年攤銷的部分為3213.33</p>
+<p>註：下圖的Current year 數值為TTM,即2021Q1-2020Q2。</p>
+<p><img loading="lazy" src="images/image-9.png" alt=""  />
+</p>
+<p>第三步：調整財務報表。</p>
+<p>EBIT=21142</p>
+<p>EBIT(1-t)=17970.7,共增加776.1m$，</p>
+<p>Book equity:增加7488m$，</p>
+<p><strong>Net Capex：從2546m$增加到3332m$，</strong></p>
+<p><strong>FCFF 保持不變:14765.1m$</strong>（因為不論是費用化還是資本化，錢都已經花了）</p>
+<p>Return on Equity：從25.4%變成23.9%。（半導體行業未做調整的ROE平均值為22.13%）</p>
+<p>詳細見下圖：</p>
+<p><img loading="lazy" src="images/image-19.png" alt=""  />
+</p>
+<p><strong>4.5 收購也是資本支出</strong></p>
+<p>收購消耗了公司的現金，但是帶來未來的增長。所以也要考慮進資本支出裡面。</p>
+<p>收購通常在cash flow裡的other investment activity裡面。</p>
+<p>計算公式：Adjusted Net CAPEX=Net CAPEX +acquisition of other firms-Amortization of the acquisition。</p>
+<p><strong>4.6 Working capital 營運資金</strong></p>
+<p>財務裡的Working capital指的是流動資產（應收賬款，現金，庫存等）減去流動負債（短期負債，長期負債的短期部分，應付賬款等）。</p>
+<p>但是估值裡說的working capital是指<strong>非現金</strong>流動資產（應收賬款，庫存）減去非債務流動負債（應付賬款）。即：</p>
+<p><strong>非現金營運資金變動=存貨+應收賬款-應付賬款</strong>。</p>
+<p>在估值的時候，對於營運資金的處理有如下三個原則</p>
+<p>第一：打包處理，不用分看單獨看。</p>
+<p>第二：估計一個比率，營運資本受應收賬款、庫存和應付賬款三個因素的影響。</p>
+<p>因為預估營運資本變動很麻煩， 可以考慮公司過去平均的營運資本佔公司Revenue的比率，再參考同行業其他公司的營運資本的比率情況調整（達摩德仁教授有提供）。</p>
+<p>第三：營運資本有可能為負。是正常的。</p>
+<p>舉例：估計台積電Non-cash Working Capital 佔Revenue的比率為19%(因為計算ttm的比率為20.66%，顯示TSM的working capital有上升的感覺），半導體行業平均為17.44%。</p>
+<p><img loading="lazy" src="images/image-14.png" alt=""  />
+</p>
+<p>所以對於未來working capital（ttm）的數據，預估值可以用Revenue*19%。</p>
+<p><strong>4.7 計算FCFF</strong></p>
+<p>有了EBIT、稅率、和再投資金額，就可以得到FCFF.</p>
+<p>台積電公司自由現金流量FCFF（ttm）如下：</p>
+<p><img loading="lazy" src="images/image-18.png" alt=""  />
+</p>
+<p>如果要計算FCFE，還要考慮Debt的影響。</p>
+<h2 id="5from-fcff-to-fcfe"><strong>5.From FCFF to FCFE</strong><a hidden class="anchor" aria-hidden="true" href="#5from-fcff-to-fcfe">#</a></h2>
+<p><strong>5.1 FCFE 公式：</strong></p>
+<p><strong>FCFE formula=Net income-reinvestment-net debt issued</strong></p>
+<p>其中 <strong>reinvestment=（CAPEX - depreciation and amortization）+changes in non-cash working capital</strong></p>
+<p>其中，Net debt issued是新債減去還舊債的金額。</p>
+<p><strong>5.2 FCFE 計算-以台積電為例。</strong></p>
+<p>第一步：net income(ttm)：18703m$,</p>
+<p><img loading="lazy" src="images/image-21.png" alt=""  />
+</p>
+<p>也可以用yahoo finance查詢，數值是540590m,應該是新台幣。</p>
+<p><img loading="lazy" src="images/image-20.png" alt=""  />
+</p>
+<p>第二步：Net CAPEX=3332</p>
+<p>第三步：Changes in working capital:9943</p>
+<p>第四步：Net Debt issued：7954</p>
+<p><img loading="lazy" src="images/image-22.png" alt=""  />
+</p>
+<p>FCFE=18703-3332-9943+7954=13382m$.</p>
+<p><strong>5.3 從上面的公式可以看出借債越多，FCFE越大，那這樣會高估公司的內在價值嗎？</strong></p>
+<p>答案是不會，因為債務越多，折現率越高，因為債務會影響折現率裡的beta和股權債務佔比。分子分母同時變多，互相左右之下，估值不會高估。</p>
+<h2 id="6總結"><strong>6.總結</strong><a hidden class="anchor" aria-hidden="true" href="#6總結">#</a></h2>
+<p>DCF現金流折現法最常用的自由現金流量是FCFF公司自由現金流。</p>
+<p>其中 <strong>reinvestment=（CAPEX - depreciation and amortization）+changes in non-cash working capital</strong>。</p>
+<p>己找個喜歡的公司來試著計算一下吧。</p>
+<p>注：本站所有學習達摩德仁教授課程的心得文章均已獲達摩德仁教授授權。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/%E6%8A%95%E8%B3%87%E5%AD%B8%E7%BF%92/">投資學習</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/history/2021-06-11-roeroc-roicroacash-flow-roiccfroi/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>各種資產報酬率學習，ROE,ROC/ROIC,ROA,Cash Flow ROIC(CFROI)</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2021-05-31-%E5%AD%B8%E4%BC%B0%E5%80%BC9-%E7%8F%BE%E9%87%91%E6%B5%81%E6%8A%98%E7%8F%BE%E6%B3%95%E4%B9%8B%E6%8A%98%E7%8F%BE%E7%8E%87-part5-%E8%82%A1%E6%AC%8A%E5%82%B5%E5%8B%99%E4%BD%94%E6%AF%94/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>學估值9-現金流折現法之折現率-part5 股權債務佔比</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2021-06-05 00:00:00 +0000 UTC'>2021-06-05</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/%E6%8A%95%E8%B3%87%E5%AD%B8%E7%BF%92/">投資學習</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

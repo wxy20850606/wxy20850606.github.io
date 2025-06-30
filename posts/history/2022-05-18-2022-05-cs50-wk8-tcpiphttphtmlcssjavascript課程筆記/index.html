@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>CS50 wk8 TCP,IP,HTTP,HTML,CSS,JavaScript課程筆記 | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="CS50">
+<meta name="description" content="本週學習： TCP(Transmission Control Protocol) IP(Internet Protocol) HTTP(HyperText Transfer Protocol) DNS（Domain NameS） HTML CSS JavaScript DOM 本週課程前面40分鐘講解了Computer Networking相關知識，教授用傳輸信件這個方式來形象的解釋了互聯網是如何傳輸信息的。 在2016年的wk6課程中，教授是用google網上的信息這個例子來說明信息是如何">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2022-05-18-2022-05-cs50-wk8-tcpiphttphtmlcssjavascript%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="CS50 wk8 TCP,IP,HTTP,HTML,CSS,JavaScript課程筆記" />
+<meta property="og:description" content="本週學習： TCP(Transmission Control Protocol) IP(Internet Protocol) HTTP(HyperText Transfer Protocol) DNS（Domain NameS） HTML CSS JavaScript DOM 本週課程前面40分鐘講解了Computer Networking相關知識，教授用傳輸信件這個方式來形象的解釋了互聯網是如何傳輸信息的。 在2016年的wk6課程中，教授是用google網上的信息這個例子來說明信息是如何" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2022-05-18-2022-05-cs50-wk8-tcpiphttphtmlcssjavascript%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-05-18T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CS50 wk8 TCP,IP,HTTP,HTML,CSS,JavaScript課程筆記"/>
+<meta name="twitter:description" content="本週學習： TCP(Transmission Control Protocol) IP(Internet Protocol) HTTP(HyperText Transfer Protocol) DNS（Domain NameS） HTML CSS JavaScript DOM 本週課程前面40分鐘講解了Computer Networking相關知識，教授用傳輸信件這個方式來形象的解釋了互聯網是如何傳輸信息的。 在2016年的wk6課程中，教授是用google網上的信息這個例子來說明信息是如何"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "CS50 wk8 TCP,IP,HTTP,HTML,CSS,JavaScript課程筆記",
+      "item": "https://everydaydiva.blog/posts/history/2022-05-18-2022-05-cs50-wk8-tcpiphttphtmlcssjavascript%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "CS50 wk8 TCP,IP,HTTP,HTML,CSS,JavaScript課程筆記",
+  "name": "CS50 wk8 TCP,IP,HTTP,HTML,CSS,JavaScript課程筆記",
+  "description": "本週學習： TCP(Transmission Control Protocol) IP(Internet Protocol) HTTP(HyperText Transfer Protocol) DNS（Domain NameS） HTML CSS JavaScript DOM 本週課程前面40分鐘講解了Computer Networking相關知識，教授用傳輸信件這個方式來形象的解釋了互聯網是如何傳輸信息的。 在2016年的wk6課程中，教授是用google網上的信息這個例子來說明信息是如何",
+  "keywords": [
+    "CS50"
+  ],
+  "articleBody": "本週學習： TCP(Transmission Control Protocol) IP(Internet Protocol) HTTP(HyperText Transfer Protocol) DNS（Domain NameS） HTML CSS JavaScript DOM 本週課程前面40分鐘講解了Computer Networking相關知識，教授用傳輸信件這個方式來形象的解釋了互聯網是如何傳輸信息的。\n在2016年的wk6課程中，教授是用google網上的信息這個例子來說明信息是如何傳遞的。其中還有一個動畫短片Warrior of the Net形象的說明信息是如何傳遞的。\nhttps://www.youtube.com/watch?v=6iXhAZKOVGE\u0026list=PLhQjrBD2T382VRUw5ZpSxQSFrxMOdFObl\u0026index=8\n課程筆記： 1.什麼是internet 從組成部分的角度：\n各種聯網的設備，比如手機、電腦、服務器等 信息交換器，比如routers和switches 信息傳輸設備，比如光纖、衛星等 各種小網絡，比如學校和企業的小網絡 source and copyright:https://gaia.cs.umass.edu/kurose_ross/index.php\n上面一系列基礎設施的存在，是為了提供使用者各種服務。\n從提供服務的角度：\n網頁瀏覽 文件傳輸 郵件傳輸 直播 遊戲 網上購物 社交媒體 等等 Internet是有史以來人類最大的、可以連結最多設備和最多人的工程，互相交換傳輸信息。如何讓這個龐大的工程有效運作，如何按需求傳輸信息，那就是靠各種Protocol網絡協議。\n2.什麼是Protocol 各種協議定義了網絡個體間傳送和接收信息的格式和順序，和收到信息後需要執行的任務。\n所有的電腦、手機和智能設備本身只是一堆電子元器件構成的工具，他們的世界只有0和1。因為這些工具有龐大的運算能力，所以我們需要他們為我們工作。我們必須提供一系列的規定，比如第一個協議是ASCII，讓電腦知道怎麼用0和1表示人類世界的文字和數字。那怎麼讓這麼多電腦和智能設備知道怎麼互相交流互相傳遞信息呢？那就是各種協議和規定。具體可以從下到上或者從上到下來說明。\n3.互聯網協議分層 應用層，HTTP等 傳輸層,TCP/UDP 網路層,IP/Routing protocols 數據鏈路層,WIFI/PPP等 實體層 互聯網有大大小小非常多的協議：List of RFCs。其中最重要是傳輸層的TCP和網路層的IP。\n網路層的IP只負責傳送，不保證送達，所以需要加上傳輸層的TCP，保證送達。所以TCP/IP是連在一起用的。\nTCP的傳輸服務有提供很多的端口（TCP/UDP端口列表），分別對應的是各種不同的服務，每個具體的服務又有本服務的協議來規範每個服務行為。比如郵件服務端口25，協議是FMTP；文件傳輸服務端口20，協議是FTP；網頁服務端口80，協議是HTTP等等。這個服務是可以無限擴展的，比如最近幾年出現的線上會議和影音串流服務等等。每出現一種服務，IETF這個組織就會出一個對應的協議。\n由此可以看出信息傳輸協議（TCP）就是這個網的核心協議之一。協議的撰寫人之一Vinton Cerf和另一位撰寫者因此獲得圖靈獎，並稱為互聯網之父。\nsource and copyright:https://gaia.cs.umass.edu/kurose_ross/index.php\n4.應用層需求的服務是如何執行的 以我們google貓的照片為例：\n第一步：發送\n我們google關鍵詞時相當於給google發送了一封信，信封上有：\nTo：google ip地址 From：自己的ip地址 Subject：服務類型，比如是要求email還是要視訊還是要瀏覽網頁等，每個服務類型需要通過不同的TCP端口。 信件裡\n需求信息：搜尋cats的圖片 第二步：傳遞\n第一步的所有信息被封裝在一封信裡，這封信就是一個package。然後這封信經過家裡的wlan，在經過中華電信提供的光纖傳輸，信息會通過很多router最後傳遞到google的ip地址，就很像送快遞一樣。這個包裹通過router間傳遞是用某種algorithm，就像我們開車時用google map，每次路徑根據實時路況調整，不一定是一樣的。教授在2016年的課程中還展示了routing通過的站點和所需時間，非常形象。\nsource：cs50 2016 wk6\n第三步：回應\n當google收到我們的包裹後，根據協議，需要做出相應回應。所以google會把所有的有貓咪的照片的結果傳送回來，避免單個包裹太大賽車，一般會限制每個包裹的大小。比如把包裹分成10份，在信封上標明1/10，2/10等等，這樣就可以避免遺漏。\n學習HTML/CSS/JavaScript CS50課程從開始到現在已經通過學習C語言學習了絕大部分的編程基礎知識（除了union和function pointer等進階知識），之後花一週課程用和C語言對比的方式學Python，然後再學SQL的基礎，現在又一下子教三種前端語言。因為克服了最開始的C，之後所有的和C語言比都是小菜一碟，無非是多花點時間自學而已。\nHTML是構建網頁的框架。CSS是裝修，讓網頁變美觀，還可以直接使用bootstrap這個現成的工具。那JavaScript是讓網頁變的可以互動，比如使用按鈕；或者讓網頁變得即時，比如通過使用API即時更新網頁信息。使用JavaScript主要要學習的是BOM，即把整個的html網頁看成一個巨大的疊套的object。\n除了CS50課程外，另外學習了如下兩節課：\nCS50 Web課程 HTML/CSS：https://cs50.harvard.edu/web/2020/weeks/0/ CS50 Web課程 JavaScript https://cs50.harvard.edu/web/2020/weeks/5/ 其他： 部分課程筆記和圖片來自於如下Computer Networking課程：\nComputer Networking: A Top-Down Approach, 7th Edition\nhttps://gaia.cs.umass.edu/kurose_ross/index.php\nComputer Networking的課程還蠻有趣的，希望未來可以單獨學習。\nCS50 wk8和wk9 是Web相關的，但是只是學個入門基礎，CS50團隊提供的更全面的CS50Web課程供以後學習。\n",
+  "wordCount" : "2171",
+  "inLanguage": "zh",
+  "datePublished": "2022-05-18T00:00:00Z",
+  "dateModified": "2022-05-18T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2022-05-18-2022-05-cs50-wk8-tcpiphttphtmlcssjavascript%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      CS50 wk8 TCP,IP,HTTP,HTML,CSS,JavaScript課程筆記
+    </h1>
+    <div class="post-meta"><span title='2022-05-18 00:00:00 +0000 UTC'>2022-05-18</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e6%9c%ac%e9%80%b1%e5%ad%b8%e7%bf%92" aria-label="本週學習："><strong>本週學習：</strong></a></li>
+                    <li>
+                        <a href="#%e8%aa%b2%e7%a8%8b%e7%ad%86%e8%a8%98" aria-label="課程筆記："><strong>課程筆記：</strong></a><ul>
+                            
+                    <li>
+                        <a href="#1%e4%bb%80%e9%ba%bc%e6%98%afinternet" aria-label="1.什麼是internet"><strong>1.什麼是internet</strong></a></li>
+                    <li>
+                        <a href="#2%e4%bb%80%e9%ba%bc%e6%98%afprotocol" aria-label="2.什麼是Protocol"><strong>2.什麼是Protocol</strong></a></li>
+                    <li>
+                        <a href="#3%e4%ba%92%e8%81%af%e7%b6%b2%e5%8d%94%e8%ad%b0%e5%88%86%e5%b1%a4" aria-label="3.互聯網協議分層"><strong>3.互聯網協議分層</strong></a></li>
+                    <li>
+                        <a href="#4%e6%87%89%e7%94%a8%e5%b1%a4%e9%9c%80%e6%b1%82%e7%9a%84%e6%9c%8d%e5%8b%99%e6%98%af%e5%a6%82%e4%bd%95%e5%9f%b7%e8%a1%8c%e7%9a%84" aria-label="4.應用層需求的服務是如何執行的"><strong>4.應用層需求的服務是如何執行的</strong></a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e5%ad%b8%e7%bf%92htmlcssjavascript" aria-label="學習HTML/CSS/JavaScript"><strong>學習HTML/CSS/JavaScript</strong></a></li>
+                    <li>
+                        <a href="#%e5%85%b6%e4%bb%96" aria-label="其他："><strong>其他：</strong></a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><h2 id="本週學習"><strong>本週學習：</strong><a hidden class="anchor" aria-hidden="true" href="#本週學習">#</a></h2>
+<ul>
+<li>TCP(Transmission Control Protocol)</li>
+<li>IP(Internet Protocol)</li>
+<li>HTTP(HyperText Transfer Protocol)</li>
+<li>DNS（Domain NameS）</li>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+<li>DOM</li>
+</ul>
+<p>本週課程前面40分鐘講解了Computer Networking相關知識，教授用傳輸信件這個方式來形象的解釋了互聯網是如何傳輸信息的。</p>
+<p>在2016年的wk6課程中，教授是用google網上的信息這個例子來說明信息是如何傳遞的。其中還有一個動畫短片Warrior of the Net形象的說明信息是如何傳遞的。</p>
+<p><a href="https://www.youtube.com/watch?v=6iXhAZKOVGE&amp;list=PLhQjrBD2T382VRUw5ZpSxQSFrxMOdFObl&amp;index=8" target="_blank" rel="noopener" style="color:#42b983";>https://www.youtube.com/watch?v=6iXhAZKOVGE&list=PLhQjrBD2T382VRUw5ZpSxQSFrxMOdFObl&index=8</a></p>
+<h2 id="課程筆記"><strong>課程筆記：</strong><a hidden class="anchor" aria-hidden="true" href="#課程筆記">#</a></h2>
+<h3 id="1什麼是internet"><strong>1.什麼是internet</strong><a hidden class="anchor" aria-hidden="true" href="#1什麼是internet">#</a></h3>
+<p><strong>從組成部分的角度：</strong></p>
+<ul>
+<li>各種聯網的設備，比如手機、電腦、服務器等</li>
+<li>信息交換器，比如routers和switches</li>
+<li>信息傳輸設備，比如光纖、衛星等</li>
+<li>各種小網絡，比如學校和企業的小網絡</li>
+</ul>
+<p><img loading="lazy" src="images/Screen-Shot-2022-04-28-at-2.40.43-PM-1024x582.png" alt=""  />
+</p>
+<p>source and copyright:<a href="https://gaia.cs.umass.edu/kurose_ross/index.php" target="_blank" rel="noopener" style="color:#42b983";>https://gaia.cs.umass.edu/kurose_ross/index.php</a></p>
+<p>上面一系列基礎設施的存在，是為了提供使用者各種服務。</p>
+<p><strong>從提供服務的角度：</strong></p>
+<ul>
+<li>網頁瀏覽</li>
+<li>文件傳輸</li>
+<li>郵件傳輸</li>
+<li>直播</li>
+<li>遊戲</li>
+<li>網上購物</li>
+<li>社交媒體</li>
+<li>等等</li>
+</ul>
+<p>Internet是有史以來人類最大的、可以連結最多設備和最多人的工程，互相交換傳輸信息。如何讓這個龐大的工程有效運作，如何按需求傳輸信息，那就是靠各種<strong>Protocol</strong>網絡協議。</p>
+<h3 id="2什麼是protocol"><strong>2.什麼是Protocol</strong><a hidden class="anchor" aria-hidden="true" href="#2什麼是protocol">#</a></h3>
+<p>各種協議定義了網絡個體間<strong>傳送和接收信息</strong>的<strong>格式和順序</strong>，和收到信息後需要<strong>執行的任務</strong>。</p>
+<p>所有的電腦、手機和智能設備本身只是一堆電子元器件構成的工具，他們的世界只有0和1。因為這些工具有龐大的運算能力，所以我們需要他們為我們工作。我們必須提供一系列的規定，比如第一個協議是<a href="https://en.wikipedia.org/wiki/ASCII" target="_blank" rel="noopener" style="color:#42b983";>ASCII</a>，讓電腦知道怎麼用0和1表示人類世界的文字和數字。那怎麼讓這麼多電腦和智能設備知道怎麼互相交流互相傳遞信息呢？那就是各種協議和規定。具體可以從下到上或者從上到下來說明。</p>
+<h3 id="3互聯網協議分層"><strong>3.互聯網協議分層</strong><a hidden class="anchor" aria-hidden="true" href="#3互聯網協議分層">#</a></h3>
+<ul>
+<li>應用層，HTTP等</li>
+<li>傳輸層,TCP/UDP</li>
+<li>網路層,IP/Routing protocols</li>
+<li>數據鏈路層,WIFI/PPP等</li>
+<li>實體層</li>
+</ul>
+<p>互聯網有大大小小非常多的協議：<a href="https://en.wikipedia.org/wiki/List_of_RFCs" target="_blank" rel="noopener" style="color:#42b983";>List of RFCs</a>。其中最重要是傳輸層的TCP和網路層的IP。</p>
+<p>網路層的IP只負責傳送，不保證送達，所以需要加上傳輸層的TCP，保證送達。所以TCP/IP是連在一起用的。</p>
+<p>TCP的傳輸服務有提供很多的端口（<a href="https://zh.wikipedia.org/wiki/TCP/UDP%e7%ab%af%e5%8f%a3%e5%88%97%e8%a1%a8" target="_blank" rel="noopener" style="color:#42b983";>TCP/UDP端口列表</a>），分別對應的是各種不同的服務，每個具體的服務又有本服務的協議來規範每個服務行為。比如郵件服務端口25，協議是FMTP；文件傳輸服務端口20，協議是FTP；網頁服務端口80，協議是HTTP等等。這個服務是可以無限擴展的，比如最近幾年出現的線上會議和影音串流服務等等。每出現一種服務，IETF這個組織就會出一個對應的協議。</p>
+<p>由此可以看出信息傳輸協議（TCP）就是這個網的核心協議之一。協議的撰寫人之一Vinton Cerf和另一位撰寫者因此獲得圖靈獎，並稱為互聯網之父。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2022-04-28-at-9.06.25-PM-1024x573.png" alt=""  />
+</p>
+<p>source and copyright:<a href="https://gaia.cs.umass.edu/kurose_ross/index.php" target="_blank" rel="noopener" style="color:#42b983";>https://gaia.cs.umass.edu/kurose_ross/index.php</a></p>
+<h3 id="4應用層需求的服務是如何執行的"><strong>4.應用層需求的服務是如何執行的</strong><a hidden class="anchor" aria-hidden="true" href="#4應用層需求的服務是如何執行的">#</a></h3>
+<p>以我們google貓的照片為例：</p>
+<p>第一步：發送</p>
+<p>我們google關鍵詞時相當於給google發送了一封信，信封上有：</p>
+<ul>
+<li>To：google ip地址</li>
+<li>From：自己的ip地址</li>
+<li>Subject：服務類型，比如是要求email還是要視訊還是要瀏覽網頁等，每個服務類型需要通過不同的TCP端口。</li>
+</ul>
+<p>信件裡</p>
+<ul>
+<li>需求信息：搜尋cats的圖片</li>
+</ul>
+<p>第二步：傳遞</p>
+<p>第一步的所有信息被封裝在一封信裡，這封信就是一個package。然後這封信經過家裡的wlan，在經過中華電信提供的光纖傳輸，信息會通過很多router最後傳遞到google的ip地址，就很像送快遞一樣。這個包裹通過router間傳遞是用某種algorithm，就像我們開車時用google map，每次路徑根據實時路況調整，不一定是一樣的。教授在2016年的課程中還展示了routing通過的站點和所需時間，非常形象。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2022-04-30-at-10.15.56-AM-1024x479.png" alt=""  />
+</p>
+<p>source：cs50 2016 wk6</p>
+<p>第三步：回應</p>
+<p>當google收到我們的包裹後，根據協議，需要做出相應回應。所以google會把所有的有貓咪的照片的結果傳送回來，避免單個包裹太大賽車，一般會限制每個包裹的大小。比如把包裹分成10份，在信封上標明1/10，2/10等等，這樣就可以避免遺漏。</p>
+<h2 id="學習htmlcssjavascript"><strong>學習HTML/CSS/JavaScript</strong><a hidden class="anchor" aria-hidden="true" href="#學習htmlcssjavascript">#</a></h2>
+<p>CS50課程從開始到現在已經通過學習C語言學習了絕大部分的編程基礎知識（除了union和function pointer等進階知識），之後花一週課程用和C語言對比的方式學Python，然後再學SQL的基礎，現在又一下子教三種前端語言。因為克服了最開始的C，之後所有的和C語言比都是小菜一碟，無非是多花點時間自學而已。</p>
+<p>HTML是構建網頁的框架。CSS是裝修，讓網頁變美觀，還可以直接使用bootstrap這個現成的工具。那<strong>JavaScript</strong>是讓網頁變的可以互動，比如使用按鈕；或者讓網頁變得即時，比如通過使用API即時更新網頁信息。使用<strong>JavaScript</strong>主要要學習的是BOM，即把整個的html網頁看成一個巨大的疊套的object。</p>
+<p>除了CS50課程外，另外學習了如下兩節課：</p>
+<ul>
+<li>CS50 Web課程 HTML/CSS：<a href="https://cs50.harvard.edu/web/2020/weeks/0/" target="_blank" rel="noopener" style="color:#42b983";>https://cs50.harvard.edu/web/2020/weeks/0/</a></li>
+<li>CS50 Web課程 JavaScript <a href="https://cs50.harvard.edu/web/2020/weeks/5/" target="_blank" rel="noopener" style="color:#42b983";>https://cs50.harvard.edu/web/2020/weeks/5/</a></li>
+</ul>
+<h2 id="其他"><strong>其他：</strong><a hidden class="anchor" aria-hidden="true" href="#其他">#</a></h2>
+<p>部分課程筆記和圖片來自於如下Computer Networking課程：</p>
+<p><a href="https://www.ucg.ac.me/skladiste/blog_44233/objava_64433/fajlovi/Computer%20Networking%20_%20A%20Top%20Down%20Approach,%207th,%20converted.pdf" target="_blank" rel="noopener" style="color:#42b983";>Computer Networking: A Top-Down Approach, 7th Edition</a></p>
+<p><a href="https://gaia.cs.umass.edu/kurose_ross/index.php" target="_blank" rel="noopener" style="color:#42b983";>https://gaia.cs.umass.edu/kurose_ross/index.php</a></p>
+<p>Computer Networking的課程還蠻有趣的，希望未來可以單獨學習。</p>
+<p>CS50 wk8和wk9 是Web相關的，但是只是學個入門基礎，CS50團隊提供的更全面的CS50Web課程供以後學習。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/cs50/">CS50</a></li>
+      <li><a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">CS自學</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/history/2022-05-19-%E9%A4%8A%E6%88%90%E6%8E%A7%E5%88%B6%E9%AB%94%E9%87%8D%E5%92%8C%E5%81%A5%E5%BA%B7%E7%94%9F%E6%B4%BB%E7%9A%8412%E5%80%8B%E5%A5%BD%E7%BF%92%E6%85%A3/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>養成控制體重和健康生活的12個好習慣</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2022-04-23-cs50-wk7-sql%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>CS50 wk7 SQL學習心得</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2022-05-18 00:00:00 +0000 UTC'>2022-05-18</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/cs50/">CS50</a>
+    <a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">、CS自學</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

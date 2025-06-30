@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>CS61A 學習筆記和心得3-通過學習用Python寫個Scheme Interpreter來學習編程語言 | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="Fibonacci">
+<meta name="description" content="注：本文引用代碼來自CS61A(Structure and Interpretation of Computer Programs) Scheme作業，請小心劇透。個人學習筆記，水平有限，請小心參考。 心得： 本來我想學Scheme版本的CS61A，弄了很久環境都沒有設置成功，然後轉學Python版本的CS61A。 沒想到課程第三章是先用一個python寫的">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2023-01-05-scheme-interpreter-use-python/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="CS61A 學習筆記和心得3-通過學習用Python寫個Scheme Interpreter來學習編程語言" />
+<meta property="og:description" content="注：本文引用代碼來自CS61A(Structure and Interpretation of Computer Programs) Scheme作業，請小心劇透。個人學習筆記，水平有限，請小心參考。 心得： 本來我想學Scheme版本的CS61A，弄了很久環境都沒有設置成功，然後轉學Python版本的CS61A。 沒想到課程第三章是先用一個python寫的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2023-01-05-scheme-interpreter-use-python/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-01-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-01-05T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CS61A 學習筆記和心得3-通過學習用Python寫個Scheme Interpreter來學習編程語言"/>
+<meta name="twitter:description" content="注：本文引用代碼來自CS61A(Structure and Interpretation of Computer Programs) Scheme作業，請小心劇透。個人學習筆記，水平有限，請小心參考。 心得： 本來我想學Scheme版本的CS61A，弄了很久環境都沒有設置成功，然後轉學Python版本的CS61A。 沒想到課程第三章是先用一個python寫的"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "CS61A 學習筆記和心得3-通過學習用Python寫個Scheme Interpreter來學習編程語言",
+      "item": "https://everydaydiva.blog/posts/history/2023-01-05-scheme-interpreter-use-python/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "CS61A 學習筆記和心得3-通過學習用Python寫個Scheme Interpreter來學習編程語言",
+  "name": "CS61A 學習筆記和心得3-通過學習用Python寫個Scheme Interpreter來學習編程語言",
+  "description": "注：本文引用代碼來自CS61A(Structure and Interpretation of Computer Programs) Scheme作業，請小心劇透。個人學習筆記，水平有限，請小心參考。 心得： 本來我想學Scheme版本的CS61A，弄了很久環境都沒有設置成功，然後轉學Python版本的CS61A。 沒想到課程第三章是先用一個python寫的",
+  "keywords": [
+    "Fibonacci"
+  ],
+  "articleBody": "注：本文引用代碼來自CS61A(Structure and Interpretation of Computer Programs) Scheme作業，請小心劇透。個人學習筆記，水平有限，請小心參考。\n心得：\n本來我想學Scheme版本的CS61A，弄了很久環境都沒有設置成功，然後轉學Python版本的CS61A。\n沒想到課程第三章是先用一個python寫的解釋器學Scheme，不用下載任何東西。然後作業是自己一步一步寫一個Scheme語言的解釋器，每完成一步還可以自己運行看看。完成作業後，我們自然了解到這個解釋器的程式也就這樣而已嘛，不難懂啊，沒什麼神秘的。\n通過這個作業，除了讓我們了解編程語言本質上就是一個程式，還知道了這個程式大概是怎麼寫出來的，加深理解。\n呼應Nand2tetris課程裡的說法，想要了解計算機，就自己造一台。\n想要了解編程語言，就自己寫個編譯器或解釋器，創造一個語言。\n另一方面，這個解釋器的程式幾乎涵蓋了課程所學的所有的主要內容，比如：Environment Frame/函數式編程/遞歸/Tree/OOP/Linked List/Iterator/空間複雜度等，還有新的尾遞歸。把這所有的概念融合到一個程式裡面，最終形成一個通用的可以運行各種程式的計算機。另外，整個scheme 語言就是一個大的data，學習寫解釋器的過程，就是學習處理data的過程。\n這個作業和lab11我特別做了兩遍，因為第一遍的時候心思全部放在過關上了。做第二遍的時候更仔細讀了一下所有的代碼（約2000行）並特別複習了下相關的課程。\n這麽精心編排的課程和作業，當然要好好學習，不然真對不起老師付出的心血。\nRead-Eval-Print-Loop(REPL) 一切從prompt（提示符）說起，我們在prompt裡輸入文字然後回車的話，就進入了一個Read-Eval-Print-Loop。\n1.Read-Eval-Print-Loop Read-讀取用戶輸入字符\nEval 程式再後台運算執行\nPrint 如果有運算結果的話print出來給用戶\nREPL有如下三種情形：\nload整個程序然後執行Read-Eval-Print-Loop，有結果的話print結果，比如先load像tests.scm這樣的整個程序再REPL再print結果\n用Read-Eval-Print-Loop執行用戶輸入的字符，使用while循環，執行完畢如果有結果的話print\n如果有錯報錯，用try/except實現,print 報錯訊息給用戶\n作業中的read_eval_print_loop主要部分如下，使用大量的函數式編程技巧，用函數呼叫另一個函數。\ndef read_eval_print_loop(next_line, env, interactive=False, quiet=False,startup=False, load_files=(), report_errors=False): if startup: for filename in load_files: scheme_load(filename, True, env) while True: try: src = next_line() while src.more_on_line(): expression = scheme_read(src) result = scheme_eval(expression, env) if not quiet and result is not None: print(repl_str(result)) except (SchemeError, SyntaxError, ValueError, RuntimeError) as err 2.Read 第一步驟是檢查用戶的輸入（String），如果沒有錯誤(比如像3.4.5這樣的數字就應該要報錯）\n_Lexical analysis_詞法分析：把每個字符變成一個token，比如(+ 1 2)會變成[’(’, ‘+’, ‘1’, ‘2’, ‘)’]這5個token組成的list。\nSyntactic analysis 句法分析：把token變成程式語言可以識別的Linked List，因為Scheme語言都是由()組成的list。（這裡是Pair類）\n這個過程叫做Parsing，Lab11的作業就是寫個簡單Parsing程式，可以通過作業了解下實現方法。理解Lab11後，比較好理解Scheme解釋器版本的parser。我覺得有趣的設計是使用iterator將token一個一個的推送處理，然後用scheme_read(）來處理第一個字符，用read_tail(）來處理剩下的字符，然後彼此呼叫直到結束。\ndef scheme_read(src): \"\"\"Read the next expression from SRC, a Buffer of tokens. \u003e\u003e\u003e scheme_read(Buffer(tokenize_lines(['nil']))) nil \u003e\u003e\u003e scheme_read(Buffer(tokenize_lines(['1']))) 1 \u003e\u003e\u003e scheme_read(Buffer(tokenize_lines(['true']))) True \u003e\u003e\u003e scheme_read(Buffer(tokenize_lines(['(+ 1 2)']))) Pair('+', Pair(1, Pair(2, nil))) \"\"\" if src.current() is None: raise EOFError val = src.pop_first() # Get and remove the first token if val == 'nil': # BEGIN PROBLEM 2 \"*** YOUR CODE HERE ***\" return nil # END PROBLEM 2 elif val == '(': # BEGIN PROBLEM 2 \"*** YOUR CODE HERE ***\" return read_tail(src) # END PROBLEM 2 elif val == \"'\": # BEGIN PROBLEM 3 \"*** YOUR CODE HERE ***\" return Pair('quote', Pair(scheme_read(src), nil)) # END PROBLEM 3 elif val not in DELIMITERS: return val else: raise SyntaxError('unexpected token: {0}'.format(val)) def read_tail(src): \"\"\"Return the remainder of a list in SRC, starting before an element or ). \u003e\u003e\u003e read_tail(Buffer(tokenize_lines([')']))) nil \u003e\u003e\u003e read_tail(Buffer(tokenize_lines(['2 3)']))) Pair(2, Pair(3, nil)) \"\"\" try: if src.current() is None: raise SyntaxError('unexpected end of file') elif src.current() == ')': # BEGIN PROBLEM 2 \"*** YOUR CODE HERE ***\" src.pop_first() return nil # END PROBLEM 2 else: # BEGIN PROBLEM 2 \"*** YOUR CODE HERE ***\" return Pair(scheme_read(src),read_tail(src)) # END PROBLEM 2 except EOFError: raise SyntaxError('unexpected end of file') 最後形成如下基於Pair類的Linked List來方便後續的evaluation。\nread\u003e (+ 1 (* 2 3) (-4 (+ 1 2))) str :(+ 1 (* 2 3) (-4 (+ 1 2))) repr: Pair('+', Pair(1, Pair(Pair('*', Pair(2, Pair(3, nil))), Pair(Pair(-4, Pair(Pair('+', Pair(1, Pair(2, nil))), nil)), nil)))) Lab11的Interpreter是只有簡單計算功能的解釋器，如果想要實現可以運行一切程式的計算機，必須先了解Environment Frame的概念。\n3.Environment Frame 因為複雜的軟體設計到很多綁定，比如各種變量和函數名都需要綁定。frame就是變量和函數運行的環境，這個環境裡包含各種綁定，也會存儲有無parent frame。取值的規則是先從當前的frame尋找；然後有parent的話，再從parent frame尋找；找parent frame的parent frame，只要有parent可以一路找上去；所有的parent都找完了還沒找到就返回錯誤。\nclass Frame: \"\"\"An environment frame binds Scheme symbols to Scheme values.\"\"\" def __init__(self, parent): \"\"\"An empty frame with parent frame PARENT (which may be None).\"\"\" self.bindings = {} self.parent = parent 當一個function運行的時候，需要索取當下的變量值，所以就會開啟一個child frame來取值。\n這個frame提供function和各種local variable的取值，運行的時候使用stack存儲區。\n如果有三個function A, B和C，此時會開啟三個frame，A是global frame會call B， B 會call C，這個時候stack的最底層存儲的是function A和裡面的local variable綁定的值，然後往上存儲的function B和裡面的local variable，再往上是function C和裡面的local variable。當function C運行的時候，function A 和B是處於暫停狀態。當function C return後，返回值到function B，function C用完馬上自行釋放所佔用stack存儲區。然後換function B運行，return後自動釋放所佔用的stack，換function A運行，最後function A 運行完，返回結果，此程式佔用stack全部釋放。\nstack是由電腦事先預留的空間，通常比heap小很多。當recursion不斷的循環，或者運行多重nested function，就需要開啟一堆pending 的frame，就有可能會產生stack overflow的問題。\nCS61A課程開始的時候花了一些時間理解environment frame，看了不下100個類似下面這種運行步驟超過50的執行圖。\n還手畫了很多圖，現在的作業是實作environment frame，增進理解。\n最後看到實作方法不過就是用Frame class，把binding放在dictionary裡面。再多設置parent的屬性和define函數（用來綁定）、lookup（用來搜尋）和make_child_frame。\nclass Frame: \"\"\"An environment frame binds Scheme symbols to Scheme values.\"\"\" def __init__(self, parent): \"\"\"An empty frame with parent frame PARENT (which may be None).\"\"\" self.bindings = {} self.parent = parent def __repr__(self): def define(self, symbol, value): def lookup(self, symbol): def make_child_frame(self, formals, vals): 上一篇筆記（CS61A 學習筆記和心得3-通過學習用Python寫個Scheme Interpreter來學習編程語言 part1）是提到了Read-Eval-Print-Loop，這篇筆記記錄其中的關鍵部分Eval。\n4.EVAL EVAL是核心運算邏輯，要實現Scheme語言的所有功能。因為Scheme採用函數式編程，所有下面這些功能應該也是所有函數式編程語言基本的功能。\n賦值（定義變量和函數）\nbuilt-in procedure（+/-/abs/append/list/equal等）\nuser-defined procedure(lambda/dynamically scoped procedure等)\nspecial forms(邏輯運算，包含and/or/if/let/condition)\n優化性能部分(尾遞歸)\n支持用戶自由擴展(marco)\n流程： 實現EVAL主要通過下面3個程式。\ndef scheme_eval(expr, env, _=None) def scheme_apply(procedure, args, env): def eval_all(expressions, env,tail=False): 1.scheme_eval 主要功能是識別，識別後呼叫scheme_apply分別處理對應的procedure\ndef scheme_eval(expr, env, _=None) 2.scheme_apply 應用參數並運算，當\ndef scheme_apply(procedure, args, env): 這一步主要是將參數傳入，把scheme_eval 識別的procedure在適合的frame下面運算。\n包含三個參數：\nprocedure （通過第一步eval得出，比如是builtin procedure還是lambda procedure）\nargs （需要傳入的參數）\nenv （執行運算時正確的frame）\n使用@trace 可以獲得運算步驟。\n舉例：簡單的（+ 1 3）運算步驟：先scheme_eval識別每個部分，再scheme_apply調用BuiltinProcedure的運算方式。\nscm\u003e (+ 1 3) scheme_eval(Pair('+', Pair(1, Pair(3, nil))), ): scheme_eval('+', ): scheme_eval('+', ) -\u003e #[+] scheme_eval(1, ): scheme_eval(1, ) -\u003e 1 scheme_eval(3, ): scheme_eval(3, ) -\u003e 3 scheme_apply(, Pair(1, Pair(3, nil)), ): scheme_apply(, Pair(1, Pair(3, nil)), ) -\u003e 4 scheme_eval(Pair('+', Pair(1, Pair(3, nil))), ) -\u003e 4 4 3.eval_all\n舉例：對於lambda函數，如何計算？\nscm\u003e (define double (lambda (x) (* 2 x))) scm\u003e double 3 先將名字和表達式綁定。\nscm\u003e (define double (lambda (x) (* 2 x))) scheme_eval(Pair('define', Pair('double', Pair(Pair('lambda', Pair(Pair('x', nil), Pair(Pair('*', Pair(2, Pair('x', nil))), nil))), nil))), ): scheme_eval(Pair('lambda', Pair(Pair('x', nil), Pair(Pair('*', Pair(2, Pair('x', nil))), nil))), ): scheme_eval(Pair('lambda', Pair(Pair('x', nil), Pair(Pair('*', Pair(2, Pair('x', nil))), nil))), ) -\u003e (lambda (x) (* 2 x)) scheme_eval(Pair('define', Pair('double', Pair(Pair('lambda', Pair(Pair('x', nil), Pair(Pair('*', Pair(2, Pair('x', nil))), nil))), nil))), ) -\u003e double double 通過scheme_eval 和scheme_apply循環呼叫計算數值。\nscm\u003e double 3 scheme_eval('double', ): scheme_eval('double', ) -\u003e (lambda (x) (* 2 x)) (lambda (x) (* 2 x)) scheme_eval(3, ): scheme_eval(3, ) -\u003e 3 3 scm\u003e (double 3) scheme_eval(Pair('double', Pair(3, nil)), ): scheme_eval('double', ): scheme_eval('double', ) -\u003e (lambda (x) (* 2 x)) scheme_eval(3, ): scheme_eval(3, ) -\u003e 3 scheme_apply(LambdaProcedure(Pair('x', nil), Pair(Pair('*', Pair(2, Pair('x', nil))), nil), ), Pair(3, nil), ): eval_all(Pair(Pair('*', Pair(2, Pair('x', nil))), nil), \u003c{x: 3} -\u003e \u003e): scheme_eval(Pair('*', Pair(2, Pair('x', nil))), \u003c{x: 3} -\u003e \u003e, True): scheme_eval('*', \u003c{x: 3} -\u003e \u003e): scheme_eval('*', \u003c{x: 3} -\u003e \u003e) -\u003e #[*] scheme_eval(2, \u003c{x: 3} -\u003e \u003e): scheme_eval(2, \u003c{x: 3} -\u003e \u003e) -\u003e 2 scheme_eval('x', \u003c{x: 3} -\u003e \u003e): scheme_eval('x', \u003c{x: 3} -\u003e \u003e) -\u003e 3 scheme_apply(, Pair(2, Pair(3, nil)), \u003c{x: 3} -\u003e \u003e): scheme_apply(, Pair(2, Pair(3, nil)), \u003c{x: 3} -\u003e \u003e) -\u003e 6 scheme_eval(Pair('*', Pair(2, Pair('x', nil))), \u003c{x: 3} -\u003e \u003e, True) -\u003e 6 eval_all(Pair(Pair('*', Pair(2, Pair('x', nil))), nil), \u003c{x: 3} -\u003e \u003e) -\u003e 6 scheme_apply(LambdaProcedure(Pair('x', nil), Pair(Pair('*', Pair(2, Pair('x', nil))), nil), ), Pair(3, nil), ) -\u003e 6 scheme_eval(Pair('double', Pair(3, nil)), ) -\u003e 6 6 5.Print 如果有運算結果的話，print運算結果的repl_str。\nresult = scheme_eval(expression, env) print(repl_str(result)) 比如下面的例子：\nscm\u003e (+ 1 3) 4 ",
+  "wordCount" : "3907",
+  "inLanguage": "zh",
+  "datePublished": "2023-01-05T00:00:00Z",
+  "dateModified": "2023-01-05T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2023-01-05-scheme-interpreter-use-python/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      CS61A 學習筆記和心得3-通過學習用Python寫個Scheme Interpreter來學習編程語言
+    </h1>
+    <div class="post-meta"><span title='2023-01-05 00:00:00 +0000 UTC'>2023-01-05</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#read-eval-print-looprepl" aria-label="Read-Eval-Print-Loop(REPL)"><strong>Read-Eval-Print-Loop(REPL)</strong></a><ul>
+                            
+                    <li>
+                        <a href="#1read-eval-print-loop" aria-label="1.Read-Eval-Print-Loop">1.<strong>Read-Eval-Print-Loop</strong></a></li>
+                    <li>
+                        <a href="#2read" aria-label="2.Read"><strong>2.Read</strong></a></li>
+                    <li>
+                        <a href="#3environment-frame" aria-label="3.Environment Frame"><strong>3.Environment Frame</strong></a></li>
+                    <li>
+                        <a href="#4eval" aria-label="4.EVAL"><strong>4.EVAL</strong></a><ul>
+                            
+                    <li>
+                        <a href="#%e6%b5%81%e7%a8%8b" aria-label="流程：">流程：</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#5print" aria-label="5.Print">5.Print</a>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p>注：本文引用代碼來自CS61A(Structure and Interpretation of Computer Programs) Scheme作業，請小心劇透。個人學習筆記，水平有限，請小心參考。</p>
+<p>心得：</p>
+<p>本來我想學Scheme版本的CS61A，弄了很久環境都沒有設置成功，然後轉學Python版本的CS61A。</p>
+<p>沒想到課程第三章是先用一個python寫的解釋器學Scheme，不用下載任何東西。然後作業是自己一步一步寫一個Scheme語言的解釋器，每完成一步還可以自己運行看看。完成作業後，我們自然了解到這個解釋器的程式也就這樣而已嘛，不難懂啊，沒什麼神秘的。</p>
+<p>通過這個作業，除了讓我們了解<strong>編程語言本質上就是一個程式</strong>，還知道了這個程式大概是怎麼寫出來的，加深理解。</p>
+<p>呼應Nand2tetris課程裡的說法，想要了解計算機，就自己造一台。</p>
+<p>想要了解編程語言，就自己寫個編譯器或解釋器，創造一個語言。</p>
+<p>另一方面，這個解釋器的程式幾乎涵蓋了課程所學的所有的主要內容，比如：Environment Frame/函數式編程/遞歸/Tree/OOP/Linked List/Iterator/空間複雜度等，還有新的尾遞歸。把這所有的概念融合到一個程式裡面，最終形成一個通用的可以運行各種程式的計算機。另外，整個scheme 語言就是一個大的data，學習寫解釋器的過程，就是學習處理data的過程。</p>
+<p>這個作業和lab11我特別做了兩遍，因為第一遍的時候心思全部放在過關上了。做第二遍的時候更仔細讀了一下所有的代碼（約2000行）並特別複習了下相關的課程。</p>
+<p>這麽精心編排的課程和作業，當然要好好學習，不然真對不起老師付出的心血。</p>
+<h1 id="read-eval-print-looprepl"><strong>Read-Eval-Print-Loop(REPL)</strong><a hidden class="anchor" aria-hidden="true" href="#read-eval-print-looprepl">#</a></h1>
+<p>一切從prompt（提示符）說起，我們在prompt裡輸入文字然後回車的話，就進入了一個<strong>Read-Eval-Print-Loop</strong>。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2023-01-04-at-11.35.38-AM-1024x151.png" alt=""  />
+</p>
+<h2 id="1read-eval-print-loop">1.<strong>Read-Eval-Print-Loop</strong><a hidden class="anchor" aria-hidden="true" href="#1read-eval-print-loop">#</a></h2>
+<ul>
+<li>
+<p><strong>Read</strong>-讀取用戶輸入字符</p>
+</li>
+<li>
+<p><strong>Eval</strong> 程式再後台運算執行</p>
+</li>
+<li>
+<p><strong>Print</strong> 如果有運算結果的話print出來給用戶</p>
+</li>
+</ul>
+<p>REPL有如下三種情形：</p>
+<ul>
+<li>
+<p>load整個程序然後執行<strong>Read-Eval-Print-Loop</strong>，有結果的話print結果，比如先load像tests.scm這樣的整個程序再REPL再print結果</p>
+</li>
+<li>
+<p>用<strong>Read-Eval-Print-Loop</strong>執行用戶輸入的字符，使用while循環，執行完畢如果有結果的話print</p>
+</li>
+<li>
+<p>如果有錯報錯，用try/except實現,print 報錯訊息給用戶</p>
+</li>
+</ul>
+<p>作業中的read_eval_print_loop主要部分如下，使用大量的函數式編程技巧，用函數呼叫另一個函數。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#815ba4">def</span> <span style="color:#06b6ef">read_eval_print_loop</span>(next_line, env, interactive<span style="color:#5bc4bf">=</span>False,              quiet<span style="color:#5bc4bf">=</span>False,startup<span style="color:#5bc4bf">=</span>False, load_files<span style="color:#5bc4bf">=</span>(), report_errors<span style="color:#5bc4bf">=</span>False):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#815ba4">if</span> startup:
+</span></span><span style="display:flex;"><span>    <span style="color:#815ba4">for</span> filename <span style="color:#5bc4bf">in</span> load_files:
+</span></span><span style="display:flex;"><span>        scheme_load(filename, True, env)
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#815ba4">while</span> True:
+</span></span><span style="display:flex;"><span>        try:
+</span></span><span style="display:flex;"><span>            src <span style="color:#5bc4bf">=</span> next_line()
+</span></span><span style="display:flex;"><span>            <span style="color:#815ba4">while</span> src<span style="color:#5bc4bf">.</span>more_on_line():
+</span></span><span style="display:flex;"><span>                expression <span style="color:#5bc4bf">=</span> scheme_read(src)
+</span></span><span style="display:flex;"><span>                result <span style="color:#5bc4bf">=</span> scheme_eval(expression, env)
+</span></span><span style="display:flex;"><span>                <span style="color:#815ba4">if</span> <span style="color:#5bc4bf">not</span> quiet <span style="color:#5bc4bf">and</span> result is <span style="color:#5bc4bf">not</span> None:
+</span></span><span style="display:flex;"><span>                    print(repl_str(result))
+</span></span><span style="display:flex;"><span>        except (SchemeError, SyntaxError, ValueError, RuntimeError) as err
+</span></span></code></pre></div><h2 id="2read"><strong>2.Read</strong><a hidden class="anchor" aria-hidden="true" href="#2read">#</a></h2>
+<p>第一步驟是檢查用戶的輸入（String），如果沒有錯誤(比如像3.4.5這樣的數字就應該要報錯）</p>
+<ul>
+<li>
+<p>_Lexical analysis_詞法分析：把每個字符變成一個token，比如(+ 1 2)會變成[&rsquo;(&rsquo;, &lsquo;<code>+</code>&rsquo;, &lsquo;<code>1</code>&rsquo;, &lsquo;<code>2</code>&rsquo;, &lsquo;)&rsquo;]這5個token組成的list。</p>
+</li>
+<li>
+<p><em>Syntactic analysis</em> 句法分析：把token變成程式語言可以識別的Linked List，因為Scheme語言都是由()組成的list。（這裡是Pair類）</p>
+</li>
+</ul>
+<p><img loading="lazy" src="images/Screen-Shot-2023-01-03-at-9.58.04-PM-1024x287.png" alt=""  />
+</p>
+<p>這個過程叫做Parsing，Lab11的作業就是寫個簡單Parsing程式，可以通過作業了解下實現方法。理解Lab11後，比較好理解Scheme解釋器版本的parser。我覺得有趣的設計是使用iterator將token一個一個的推送處理，然後用scheme_read(）來處理第一個字符，用read_tail(）來處理剩下的字符，然後彼此呼叫直到結束。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def scheme_read(src):
+</span></span><span style="display:flex;"><span>    &#34;&#34;&#34;Read the next expression from SRC, a Buffer of tokens.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &gt;&gt;&gt; scheme_read(Buffer(tokenize_lines([&#39;nil&#39;])))
+</span></span><span style="display:flex;"><span>    nil
+</span></span><span style="display:flex;"><span>    &gt;&gt;&gt; scheme_read(Buffer(tokenize_lines([&#39;1&#39;])))
+</span></span><span style="display:flex;"><span>    1
+</span></span><span style="display:flex;"><span>    &gt;&gt;&gt; scheme_read(Buffer(tokenize_lines([&#39;true&#39;])))
+</span></span><span style="display:flex;"><span>    True
+</span></span><span style="display:flex;"><span>    &gt;&gt;&gt; scheme_read(Buffer(tokenize_lines([&#39;(+ 1 2)&#39;])))
+</span></span><span style="display:flex;"><span>    Pair(&#39;+&#39;, Pair(1, Pair(2, nil)))
+</span></span><span style="display:flex;"><span>    &#34;&#34;&#34;
+</span></span><span style="display:flex;"><span>    if src.current() is None:
+</span></span><span style="display:flex;"><span>        raise EOFError
+</span></span><span style="display:flex;"><span>    val = src.pop_first()  # Get and remove the first token
+</span></span><span style="display:flex;"><span>    if val == &#39;nil&#39;:
+</span></span><span style="display:flex;"><span>        # BEGIN PROBLEM 2
+</span></span><span style="display:flex;"><span>        &#34;*** YOUR CODE HERE ***&#34;
+</span></span><span style="display:flex;"><span>        return nil
+</span></span><span style="display:flex;"><span>        # END PROBLEM 2
+</span></span><span style="display:flex;"><span>    elif val == &#39;(&#39;:
+</span></span><span style="display:flex;"><span>        # BEGIN PROBLEM 2
+</span></span><span style="display:flex;"><span>        &#34;*** YOUR CODE HERE ***&#34;
+</span></span><span style="display:flex;"><span>        return read_tail(src)
+</span></span><span style="display:flex;"><span>        # END PROBLEM 2
+</span></span><span style="display:flex;"><span>    elif val == &#34;&#39;&#34;:
+</span></span><span style="display:flex;"><span>        # BEGIN PROBLEM 3
+</span></span><span style="display:flex;"><span>        &#34;*** YOUR CODE HERE ***&#34;
+</span></span><span style="display:flex;"><span>        return Pair(&#39;quote&#39;, Pair(scheme_read(src), nil))
+</span></span><span style="display:flex;"><span>        # END PROBLEM 3
+</span></span><span style="display:flex;"><span>    elif val not in DELIMITERS:
+</span></span><span style="display:flex;"><span>        return val
+</span></span><span style="display:flex;"><span>    else:
+</span></span><span style="display:flex;"><span>        raise SyntaxError(&#39;unexpected token: {0}&#39;.format(val))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>def read_tail(src):
+</span></span><span style="display:flex;"><span>    &#34;&#34;&#34;Return the remainder of a list in SRC, starting before an element or ).
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &gt;&gt;&gt; read_tail(Buffer(tokenize_lines([&#39;)&#39;])))
+</span></span><span style="display:flex;"><span>    nil
+</span></span><span style="display:flex;"><span>    &gt;&gt;&gt; read_tail(Buffer(tokenize_lines([&#39;2 3)&#39;])))
+</span></span><span style="display:flex;"><span>    Pair(2, Pair(3, nil))
+</span></span><span style="display:flex;"><span>    &#34;&#34;&#34;
+</span></span><span style="display:flex;"><span>    try:
+</span></span><span style="display:flex;"><span>        if src.current() is None:
+</span></span><span style="display:flex;"><span>            raise SyntaxError(&#39;unexpected end of file&#39;)
+</span></span><span style="display:flex;"><span>        elif src.current() == &#39;)&#39;:
+</span></span><span style="display:flex;"><span>            # BEGIN PROBLEM 2
+</span></span><span style="display:flex;"><span>            &#34;*** YOUR CODE HERE ***&#34;
+</span></span><span style="display:flex;"><span>            src.pop_first()
+</span></span><span style="display:flex;"><span>            return nil
+</span></span><span style="display:flex;"><span>            # END PROBLEM 2
+</span></span><span style="display:flex;"><span>        else:
+</span></span><span style="display:flex;"><span>            # BEGIN PROBLEM 2
+</span></span><span style="display:flex;"><span>            &#34;*** YOUR CODE HERE ***&#34;
+</span></span><span style="display:flex;"><span>            return Pair(scheme_read(src),read_tail(src))
+</span></span><span style="display:flex;"><span>            # END PROBLEM 2
+</span></span><span style="display:flex;"><span>    except EOFError:
+</span></span><span style="display:flex;"><span>        raise SyntaxError(&#39;unexpected end of file&#39;)
+</span></span></code></pre></div><p>最後形成如下基於Pair類的Linked List來方便後續的evaluation。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>read&gt; (+ 1 (* 2 3) (-4 (+ 1 2)))
+</span></span><span style="display:flex;"><span>str :(+ 1 (* 2 3) (-4 (+ 1 2)))
+</span></span><span style="display:flex;"><span>repr: Pair(&#39;+&#39;, Pair(1, Pair(Pair(&#39;*&#39;, Pair(2, Pair(3, nil))), Pair(Pair(-4, Pair(Pair(&#39;+&#39;, Pair(1, Pair(2, nil))), nil)), nil))))
+</span></span></code></pre></div><p>Lab11的Interpreter是只有簡單計算功能的解釋器，如果想要實現可以運行一切程式的計算機，必須先了解Environment Frame的概念。</p>
+<h2 id="3environment-frame"><strong>3.Environment Frame</strong><a hidden class="anchor" aria-hidden="true" href="#3environment-frame">#</a></h2>
+<p>因為複雜的軟體設計到很多綁定，比如各種變量和函數名都需要綁定。frame就是變量和函數運行的環境，這個環境裡包含各種綁定，也會存儲有無parent frame。取值的規則是先從當前的frame尋找；然後有parent的話，再從parent frame尋找；找parent frame的parent frame，只要有parent可以一路找上去；所有的parent都找完了還沒找到就返回錯誤。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>class Frame:
+</span></span><span style="display:flex;"><span>    &#34;&#34;&#34;An environment frame binds Scheme symbols to Scheme values.&#34;&#34;&#34;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    def __init__(self, parent):
+</span></span><span style="display:flex;"><span>        &#34;&#34;&#34;An empty frame with parent frame PARENT (which may be None).&#34;&#34;&#34;
+</span></span><span style="display:flex;"><span>        self.bindings = {}
+</span></span><span style="display:flex;"><span>        self.parent = parent
+</span></span></code></pre></div><p>當一個function運行的時候，需要索取當下的變量值，所以就會開啟一個child frame來取值。</p>
+<p>這個frame提供function和各種local variable的取值，運行的時候使用stack存儲區。</p>
+<p>如果有三個function A, B和C，此時會開啟三個frame，A是global frame會call B， B 會call C，這個時候stack的最底層存儲的是function A和裡面的local variable綁定的值，然後往上存儲的function B和裡面的local variable，再往上是function C和裡面的local variable。當function C運行的時候，function A 和B是處於暫停狀態。當function C return後，返回值到function B，function C用完馬上自行釋放所佔用stack存儲區。然後換function B運行，return後自動釋放所佔用的stack，換function A運行，最後function A 運行完，返回結果，此程式佔用stack全部釋放。</p>
+<p>stack是由電腦事先預留的空間，通常比heap小很多。當recursion不斷的循環，或者運行多重nested function，就需要開啟一堆pending 的frame，就有可能會產生stack overflow的問題。</p>
+<p>CS61A課程開始的時候花了一些時間理解environment frame，看了不下100個類似下面這種運行步驟超過50的執行圖。</p>
+<p><img loading="lazy" src="images/Screen-Shot-2023-01-04-at-7.03.05-AM-1024x628.png" alt=""  />
+</p>
+<p>還手畫了很多圖，現在的作業是實作environment frame，增進理解。</p>
+<p>最後看到實作方法不過就是用Frame class，把binding放在dictionary裡面。再多設置parent的屬性和define函數（用來綁定）、lookup（用來搜尋）和make_child_frame。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>class Frame:
+</span></span><span style="display:flex;"><span>    &#34;&#34;&#34;An environment frame binds Scheme symbols to Scheme values.&#34;&#34;&#34;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    def __init__(self, parent):
+</span></span><span style="display:flex;"><span>        &#34;&#34;&#34;An empty frame with parent frame PARENT (which may be None).&#34;&#34;&#34;
+</span></span><span style="display:flex;"><span>        self.bindings = {}
+</span></span><span style="display:flex;"><span>        self.parent = parent
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    def __repr__(self):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    def define(self, symbol, value):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    def lookup(self, symbol):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    def make_child_frame(self, formals, vals):
+</span></span></code></pre></div><p>上一篇筆記（<a href="https://fulltimemammy.com/scheme-interpreter-use-python/" target="_blank" rel="noopener" style="color:#42b983";>CS61A 學習筆記和心得3-通過學習用Python寫個Scheme Interpreter來學習編程語言 part1</a>）是提到了<strong>Read-Eval-Print-Loop</strong>，這篇筆記記錄其中的關鍵部分Eval。</p>
+<h2 id="4eval"><strong>4.EVAL</strong><a hidden class="anchor" aria-hidden="true" href="#4eval">#</a></h2>
+<p>EVAL是核心運算邏輯，要實現Scheme語言的所有功能。因為Scheme採用函數式編程，所有下面這些功能應該也是所有函數式編程語言基本的功能。</p>
+<ul>
+<li>
+<p>賦值（定義變量和函數）</p>
+</li>
+<li>
+<p>built-in procedure（+/-/abs/append/list/equal等）</p>
+</li>
+<li>
+<p>user-defined procedure(lambda/dynamically scoped procedure等)</p>
+</li>
+<li>
+<p>special forms(邏輯運算，包含and/or/if/let/condition)</p>
+</li>
+<li>
+<p>優化性能部分(尾遞歸)</p>
+</li>
+<li>
+<p>支持用戶自由擴展(marco)</p>
+</li>
+</ul>
+<h3 id="流程">流程：<a hidden class="anchor" aria-hidden="true" href="#流程">#</a></h3>
+<p><img loading="lazy" src="images/Screen-Shot-2023-01-06-at-7.33.56-PM-1024x551.png" alt=""  />
+</p>
+<p>實現EVAL主要通過下面3個程式。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def scheme_eval(expr, env, _=None)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>def scheme_apply(procedure, args, env):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>def eval_all(expressions, env,tail=False):
+</span></span></code></pre></div><p>1.scheme_eval 主要功能是識別，識別後呼叫scheme_apply分別處理對應的procedure</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def scheme_eval(expr, env, _=None)
+</span></span></code></pre></div><p>2.scheme_apply 應用參數並運算，當</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def scheme_apply(procedure, args, env):
+</span></span></code></pre></div><p>這一步主要是將參數傳入，把scheme_eval 識別的procedure在適合的frame下面運算。</p>
+<p>包含三個參數：</p>
+<ul>
+<li>
+<p>procedure （通過第一步eval得出，比如是builtin procedure還是lambda procedure）</p>
+</li>
+<li>
+<p>args （需要傳入的參數）</p>
+</li>
+<li>
+<p>env （執行運算時正確的frame）</p>
+</li>
+</ul>
+<p>使用@trace 可以獲得運算步驟。</p>
+<p>舉例：簡單的（+ 1 3）運算步驟：先scheme_eval識別每個部分，再scheme_apply調用BuiltinProcedure的運算方式。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>scm&gt; (+ 1 3)
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;+&#39;, Pair(1, Pair(3, nil))), &lt;Global Frame&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(&#39;+&#39;, &lt;Global Frame&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(&#39;+&#39;, &lt;Global Frame&gt;) -&gt; #[+]
+</span></span><span style="display:flex;"><span>    scheme_eval(1, &lt;Global Frame&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(1, &lt;Global Frame&gt;) -&gt; 1
+</span></span><span style="display:flex;"><span>    scheme_eval(3, &lt;Global Frame&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(3, &lt;Global Frame&gt;) -&gt; 3
+</span></span><span style="display:flex;"><span>    scheme_apply(&lt;scheme_classes.BuiltinProcedure object at 0x10339d750&gt;, Pair(1, Pair(3, nil)), &lt;Global Frame&gt;):
+</span></span><span style="display:flex;"><span>    scheme_apply(&lt;scheme_classes.BuiltinProcedure object at 0x10339d750&gt;, Pair(1, Pair(3, nil)), &lt;Global Frame&gt;) -&gt; 4
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;+&#39;, Pair(1, Pair(3, nil))), &lt;Global Frame&gt;) -&gt; 4
+</span></span><span style="display:flex;"><span>4
+</span></span></code></pre></div><p>3.eval_all</p>
+<p>舉例：對於lambda函數，如何計算？</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>scm&gt; (define double (lambda (x) (* 2 x)))
+</span></span><span style="display:flex;"><span>scm&gt; double 3
+</span></span></code></pre></div><p>先將名字和表達式綁定。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>scm&gt; (define double (lambda (x) (* 2 x)))
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;define&#39;, Pair(&#39;double&#39;, Pair(Pair(&#39;lambda&#39;, Pair(Pair(&#39;x&#39;, nil), Pair(Pair(&#39;*&#39;, Pair(2, Pair(&#39;x&#39;, nil))), nil))), nil))), &lt;Global Frame&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(Pair(&#39;lambda&#39;, Pair(Pair(&#39;x&#39;, nil), Pair(Pair(&#39;*&#39;, Pair(2, Pair(&#39;x&#39;, nil))), nil))), &lt;Global Frame&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(Pair(&#39;lambda&#39;, Pair(Pair(&#39;x&#39;, nil), Pair(Pair(&#39;*&#39;, Pair(2, Pair(&#39;x&#39;, nil))), nil))), &lt;Global Frame&gt;) -&gt; (lambda (x) (* 2 x))
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;define&#39;, Pair(&#39;double&#39;, Pair(Pair(&#39;lambda&#39;, Pair(Pair(&#39;x&#39;, nil), Pair(Pair(&#39;*&#39;, Pair(2, Pair(&#39;x&#39;, nil))), nil))), nil))), &lt;Global Frame&gt;) -&gt; double
+</span></span><span style="display:flex;"><span>double
+</span></span></code></pre></div><p>通過scheme_eval 和scheme_apply循環呼叫計算數值。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>scm&gt; double 3
+</span></span><span style="display:flex;"><span>scheme_eval(&#39;double&#39;, &lt;Global Frame&gt;):
+</span></span><span style="display:flex;"><span>scheme_eval(&#39;double&#39;, &lt;Global Frame&gt;) -&gt; (lambda (x) (* 2 x))
+</span></span><span style="display:flex;"><span>(lambda (x) (* 2 x))
+</span></span><span style="display:flex;"><span>scheme_eval(3, &lt;Global Frame&gt;):
+</span></span><span style="display:flex;"><span>scheme_eval(3, &lt;Global Frame&gt;) -&gt; 3
+</span></span><span style="display:flex;"><span>3
+</span></span><span style="display:flex;"><span>scm&gt; (double 3)
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;double&#39;, Pair(3, nil)), &lt;Global Frame&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(&#39;double&#39;, &lt;Global Frame&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(&#39;double&#39;, &lt;Global Frame&gt;) -&gt; (lambda (x) (* 2 x))
+</span></span><span style="display:flex;"><span>    scheme_eval(3, &lt;Global Frame&gt;):
+</span></span><span style="display:flex;"><span>    scheme_eval(3, &lt;Global Frame&gt;) -&gt; 3
+</span></span><span style="display:flex;"><span>    scheme_apply(LambdaProcedure(Pair(&#39;x&#39;, nil), Pair(Pair(&#39;*&#39;, Pair(2, Pair(&#39;x&#39;, nil))), nil), &lt;Global Frame&gt;), Pair(3, nil), &lt;Global Frame&gt;):
+</span></span><span style="display:flex;"><span>        eval_all(Pair(Pair(&#39;*&#39;, Pair(2, Pair(&#39;x&#39;, nil))), nil), &lt;{x: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>            scheme_eval(Pair(&#39;*&#39;, Pair(2, Pair(&#39;x&#39;, nil))), &lt;{x: 3} -&gt; &lt;Global Frame&gt;&gt;, True):
+</span></span><span style="display:flex;"><span>                scheme_eval(&#39;*&#39;, &lt;{x: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                scheme_eval(&#39;*&#39;, &lt;{x: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; #[*]
+</span></span><span style="display:flex;"><span>                scheme_eval(2, &lt;{x: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                scheme_eval(2, &lt;{x: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 2
+</span></span><span style="display:flex;"><span>                scheme_eval(&#39;x&#39;, &lt;{x: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                scheme_eval(&#39;x&#39;, &lt;{x: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 3
+</span></span><span style="display:flex;"><span>                scheme_apply(&lt;scheme_classes.BuiltinProcedure object at 0x10339d690&gt;, Pair(2, Pair(3, nil)), &lt;{x: 3} -&gt; &lt;Global Frame&gt;&gt;):
+</span></span><span style="display:flex;"><span>                scheme_apply(&lt;scheme_classes.BuiltinProcedure object at 0x10339d690&gt;, Pair(2, Pair(3, nil)), &lt;{x: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 6
+</span></span><span style="display:flex;"><span>            scheme_eval(Pair(&#39;*&#39;, Pair(2, Pair(&#39;x&#39;, nil))), &lt;{x: 3} -&gt; &lt;Global Frame&gt;&gt;, True) -&gt; 6
+</span></span><span style="display:flex;"><span>        eval_all(Pair(Pair(&#39;*&#39;, Pair(2, Pair(&#39;x&#39;, nil))), nil), &lt;{x: 3} -&gt; &lt;Global Frame&gt;&gt;) -&gt; 6
+</span></span><span style="display:flex;"><span>    scheme_apply(LambdaProcedure(Pair(&#39;x&#39;, nil), Pair(Pair(&#39;*&#39;, Pair(2, Pair(&#39;x&#39;, nil))), nil), &lt;Global Frame&gt;), Pair(3, nil), &lt;Global Frame&gt;) -&gt; 6
+</span></span><span style="display:flex;"><span>scheme_eval(Pair(&#39;double&#39;, Pair(3, nil)), &lt;Global Frame&gt;) -&gt; 6
+</span></span><span style="display:flex;"><span>6
+</span></span></code></pre></div><h2 id="5print">5.Print<a hidden class="anchor" aria-hidden="true" href="#5print">#</a></h2>
+<p>如果有運算結果的話，print運算結果的repl_str。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>result = scheme_eval(expression, env)
+</span></span><span style="display:flex;"><span>print(repl_str(result))
+</span></span></code></pre></div><p>比如下面的例子：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>scm&gt; (+ 1 3)
+</span></span><span style="display:flex;"><span>4
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/cs61a/">CS61A</a></li>
+      <li><a href="https://everydaydiva.blog/tags/python/">Python</a></li>
+      <li><a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">CS自學</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/history/2023-01-11-scheme-interperter-tail-call/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>CS61A 學習筆記和心得4-Tail Call</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2023-01-02-2022-summary/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>2022 總結--通脹時最好的投資是投資自己</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2023-01-05 00:00:00 +0000 UTC'>2023-01-05</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/cs61a/">CS61A</a>
+    <a href="https://everydaydiva.blog/tags/python/">、Python</a>
+    <a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">、CS自學</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

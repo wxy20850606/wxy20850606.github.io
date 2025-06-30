@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Arraylist 初始化的三種方法 | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="Java裡最基礎的數據結構之一就是ArrayList。 所以花點時間學習下源代碼。 構造函數 ArrayList裡有三種構造函數。 第一種 容量為空初始化 源代碼： /** * Constructs an empty list with an initial capacity of ten. */ private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {}; public ArrayList() { this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA; } 可使用如下方法初始化： List&lt;String&gt; fruit = new ArrayList&lt;&gt;(); fruit.add(&#34;apple&#34;); fruit.add(&#34;pear&#34;); 下面，來看一看代碼是如何一步一步執行的">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/java/arraylist-source-code-study/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="Arraylist 初始化的三種方法" />
+<meta property="og:description" content="Java裡最基礎的數據結構之一就是ArrayList。 所以花點時間學習下源代碼。 構造函數 ArrayList裡有三種構造函數。 第一種 容量為空初始化 源代碼： /** * Constructs an empty list with an initial capacity of ten. */ private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {}; public ArrayList() { this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA; } 可使用如下方法初始化： List&lt;String&gt; fruit = new ArrayList&lt;&gt;(); fruit.add(&#34;apple&#34;); fruit.add(&#34;pear&#34;); 下面，來看一看代碼是如何一步一步執行的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/java/arraylist-source-code-study/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-05-10T11:01:28+08:00" />
+<meta property="article:modified_time" content="2025-06-30T11:01:28+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Arraylist 初始化的三種方法"/>
+<meta name="twitter:description" content="Java裡最基礎的數據結構之一就是ArrayList。 所以花點時間學習下源代碼。 構造函數 ArrayList裡有三種構造函數。 第一種 容量為空初始化 源代碼： /** * Constructs an empty list with an initial capacity of ten. */ private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {}; public ArrayList() { this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA; } 可使用如下方法初始化： List&lt;String&gt; fruit = new ArrayList&lt;&gt;(); fruit.add(&#34;apple&#34;); fruit.add(&#34;pear&#34;); 下面，來看一看代碼是如何一步一步執行的"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Arraylist 初始化的三種方法",
+      "item": "https://everydaydiva.blog/posts/java/arraylist-source-code-study/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Arraylist 初始化的三種方法",
+  "name": "Arraylist 初始化的三種方法",
+  "description": "Java裡最基礎的數據結構之一就是ArrayList。 所以花點時間學習下源代碼。 構造函數 ArrayList裡有三種構造函數。 第一種 容量為空初始化 源代碼： /** * Constructs an empty list with an initial capacity of ten. */ private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {}; public ArrayList() { this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA; } 可使用如下方法初始化： List\u0026lt;String\u0026gt; fruit = new ArrayList\u0026lt;\u0026gt;(); fruit.add(\u0026#34;apple\u0026#34;); fruit.add(\u0026#34;pear\u0026#34;); 下面，來看一看代碼是如何一步一步執行的",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "Java裡最基礎的數據結構之一就是ArrayList。 所以花點時間學習下源代碼。\n構造函數 ArrayList裡有三種構造函數。\n第一種 容量為空初始化 源代碼：\n/** * Constructs an empty list with an initial capacity of ten. */ private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {}; public ArrayList() { this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA; } 可使用如下方法初始化：\nList\u003cString\u003e fruit = new ArrayList\u003c\u003e(); fruit.add(\"apple\"); fruit.add(\"pear\"); 下面，來看一看代碼是如何一步一步執行的。\n首先初始化arraylist：\nList fruit = new ArrayList\u003c\u003e(); 呼叫ArrayList()構造函數執行：\nprivate static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {}; public ArrayList() { this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA; } 結果：this.elementData == {}\nnote 初始化後的ArrayList，是一個空的集合，容量為0。 當第一次add時，呼叫add(E e)，源碼：\npublic boolean add(E e) { modCount++; /** modCount是為判斷是否有多線程操作某個集合，可忽略*/ add(e, elementData, size); return true; } 其中的modCount在非線程安全的LinkedList、LinkedList和HashMap中都存在，為的判斷同一個JVM進程是否有多線程操作某個集合。\n此處可忽略，執行add(e, elementData, size)，源碼：\nprivate void add(E e, Object[] elementData, int s) { if (s == elementData.length) elementData = grow(); elementData[s] = e; size = s + 1; } 此時s==0，elementData==DEFAULTCAPACITY_EMPTY_ELEMENTDATA，length==0。\n所以if條件為真，呼叫grow()\nprivate Object[] grow() { return grow(size + 1); } 呼叫grow(int minCapacity),執行grow(1)\nprivate Object[] grow(int minCapacity) { int oldCapacity = elementData.length;/** oldCapacity==0*/ if (oldCapacity \u003e 0 || elementData != DEFAULTCAPACITY_EMPTY_ELEMENTDATA) { /** 條件不成立，跳過，進入else運算*/ int newCapacity = ArraysSupport.newLength(oldCapacity, minCapacity - oldCapacity, /* minimum growth */ oldCapacity \u003e\u003e 1 /* preferred growth */); return elementData = Arrays.copyOf(elementData, newCapacity); } else { return elementData = new Object[Math.max(DEFAULT_CAPACITY, minCapacity)]; /** DEFAULT_CAPACITY==10， minCapacity==1，是上一步傳入的參數*/ } } 條件不成立，跳過，進入else運算。\n執行完畢後，elementData = new Object[10]。\n即第一次add時，容量變更為10.\nnote 即第一次add後，容量變更為10。 接著執行add(E e, Object[] elementData, int s) 裡面接下來的代碼\nelementData[s] = e; size = s + 1; 這是第一種ArrayList的初始化方法後面執行的步驟。\n第二種 自訂容量初始化 根據實際需要，指定容量初始化。\n源碼：\n/** * Constructs an empty list with the specified initial capacity. * * @param initialCapacity the initial capacity of the list * @throws IllegalArgumentException if the specified initial capacity * is negative */ public ArrayList(int initialCapacity) { if (initialCapacity \u003e 0) { this.elementData = new Object[initialCapacity]; } else if (initialCapacity == 0) { this.elementData = EMPTY_ELEMENTDATA; } else { throw new IllegalArgumentException(\"Illegal Capacity: \"+ initialCapacity); } } 可使用如下方法初始化：\nList\u003cString\u003e student = new ArrayList\u003c\u003e(32); student.add(\"Bob\"); student.add(\"Peter\"); 自訂容量初始化的好處是：\n減少擴容的次數，提高效率。 第三種 根據現有的集合初始化。可以將其他集合轉為ArrayList，\n源碼：\n/** * Constructs a list containing the elements of the specified * collection, in the order they are returned by the collection's * iterator. * * @param c the collection whose elements are to be placed into this list * @throws NullPointerException if the specified collection is null */ public ArrayList(Collection\u003c? extends E\u003e c) { Object[] a = c.toArray(); if ((size = a.length) != 0) { if (c.getClass() == ArrayList.class) { elementData = a; } else { elementData = Arrays.copyOf(a, size, Object[].class); } } else { // replace with empty array. elementData = EMPTY_ELEMENTDATA; } } 比如可以將HashSet轉為ArrayList：\nSet\u003cString\u003e students = new HashSet\u003c\u003e(); students.add(\"Bob\"); students.add(\"Alice\"); List\u003cString\u003e list = new ArrayList\u003c\u003e(students); 此時，list裡面包含兩個元素Bob和Alice。\n後記： 此文章沒寫完，因為自學了一陣子發現自己沒有興趣了。\n",
+  "wordCount" : "1179",
+  "inLanguage": "zh",
+  "datePublished": "2024-05-10T11:01:28+08:00",
+  "dateModified": "2025-06-30T11:01:28+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Ariel"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/java/arraylist-source-code-study/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Arraylist 初始化的三種方法
+    </h1>
+    <div class="post-meta"><span title='2024-05-10 11:01:28 +0800 CST'>2024-05-10</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e6%a7%8b%e9%80%a0%e5%87%bd%e6%95%b8" aria-label="構造函數">構造函數</a><ul>
+                            
+                    <li>
+                        <a href="#%e7%ac%ac%e4%b8%80%e7%a8%ae-%e5%ae%b9%e9%87%8f%e7%82%ba%e7%a9%ba%e5%88%9d%e5%a7%8b%e5%8c%96" aria-label="第一種 容量為空初始化">第一種 容量為空初始化</a></li>
+                    <li>
+                        <a href="#%e7%ac%ac%e4%ba%8c%e7%a8%ae-%e8%87%aa%e8%a8%82%e5%ae%b9%e9%87%8f%e5%88%9d%e5%a7%8b%e5%8c%96" aria-label="第二種 自訂容量初始化">第二種 自訂容量初始化</a></li>
+                    <li>
+                        <a href="#%e7%ac%ac%e4%b8%89%e7%a8%ae" aria-label="第三種">第三種</a>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p>Java裡最基礎的數據結構之一就是ArrayList。
+所以花點時間學習下源代碼。</p>
+<h1 id="構造函數">構造函數<a hidden class="anchor" aria-hidden="true" href="#構造函數">#</a></h1>
+<p>ArrayList裡有三種構造函數。</p>
+<h2 id="第一種-容量為空初始化">第一種 容量為空初始化<a hidden class="anchor" aria-hidden="true" href="#第一種-容量為空初始化">#</a></h2>
+<p>源代碼：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span><span style="color:#776e71">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#776e71">     * Constructs an empty list with an initial capacity of ten.
+</span></span></span><span style="display:flex;"><span><span style="color:#776e71">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#815ba4">private</span> <span style="color:#815ba4">static</span> <span style="color:#815ba4">final</span> Object<span style="color:#5bc4bf">[]</span> DEFAULTCAPACITY_EMPTY_ELEMENTDATA <span style="color:#5bc4bf">=</span> {};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#815ba4">public</span> <span style="color:#06b6ef">ArrayList</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">this</span>.<span style="color:#06b6ef">elementData</span> <span style="color:#5bc4bf">=</span> DEFAULTCAPACITY_EMPTY_ELEMENTDATA;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>可使用如下方法初始化：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>List<span style="color:#5bc4bf">&lt;</span>String<span style="color:#5bc4bf">&gt;</span> fruit <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">new</span> ArrayList<span style="color:#5bc4bf">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>fruit.<span style="color:#06b6ef">add</span>(<span style="color:#48b685">&#34;apple&#34;</span>);
+</span></span><span style="display:flex;"><span>fruit.<span style="color:#06b6ef">add</span>(<span style="color:#48b685">&#34;pear&#34;</span>);
+</span></span></code></pre></div><p>下面，來看一看代碼是如何一步一步執行的。</p>
+<p>首先初始化arraylist：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>List&lt;String&gt; fruit = new ArrayList&lt;&gt;();
+</span></span></code></pre></div><p>呼叫ArrayList()構造函數執行：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>    <span style="color:#815ba4">private</span> <span style="color:#815ba4">static</span> <span style="color:#815ba4">final</span> Object<span style="color:#5bc4bf">[]</span> DEFAULTCAPACITY_EMPTY_ELEMENTDATA <span style="color:#5bc4bf">=</span> {};
+</span></span><span style="display:flex;"><span>    <span style="color:#815ba4">public</span> <span style="color:#06b6ef">ArrayList</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">this</span>.<span style="color:#06b6ef">elementData</span> <span style="color:#5bc4bf">=</span> DEFAULTCAPACITY_EMPTY_ELEMENTDATA;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>結果：this.elementData == {}</p>
+<div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw"></i>note<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><strong>初始化後的ArrayList，是一個空的集合，容量為0。</strong></div>
+        </div>
+    </div>
+<p>當第一次add時，呼叫add(E e)，源碼：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>    <span style="color:#815ba4">public</span> <span style="color:#fec418">boolean</span> <span style="color:#06b6ef">add</span>(E e) {
+</span></span><span style="display:flex;"><span>        modCount<span style="color:#5bc4bf">++</span>; <span style="color:#776e71">/** modCount是為判斷是否有多線程操作某個集合，可忽略*/</span>
+</span></span><span style="display:flex;"><span>        add(e, elementData, size);
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">return</span> <span style="color:#815ba4">true</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>其中的modCount在非線程安全的LinkedList、LinkedList和HashMap中都存在，為的判斷同一個JVM進程是否有多線程操作某個集合。</p>
+<p>此處可忽略，執行add(e, elementData, size)，源碼：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>    <span style="color:#815ba4">private</span> <span style="color:#fec418">void</span> <span style="color:#06b6ef">add</span>(E e, Object<span style="color:#5bc4bf">[]</span> elementData, <span style="color:#fec418">int</span> s) {
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">if</span> (s <span style="color:#5bc4bf">==</span> elementData.<span style="color:#06b6ef">length</span>)
+</span></span><span style="display:flex;"><span>            elementData <span style="color:#5bc4bf">=</span> grow();
+</span></span><span style="display:flex;"><span>        elementData<span style="color:#5bc4bf">[</span>s<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">=</span> e;
+</span></span><span style="display:flex;"><span>        size <span style="color:#5bc4bf">=</span> s <span style="color:#5bc4bf">+</span> 1;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>此時s==0，elementData==DEFAULTCAPACITY_EMPTY_ELEMENTDATA，length==0。</p>
+<p>所以if條件為真，呼叫grow()</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>    <span style="color:#815ba4">private</span> Object<span style="color:#5bc4bf">[]</span> <span style="color:#06b6ef">grow</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">return</span> grow(size <span style="color:#5bc4bf">+</span> 1);
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>呼叫grow(int minCapacity),執行grow(1)</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>    <span style="color:#815ba4">private</span> Object<span style="color:#5bc4bf">[]</span> <span style="color:#06b6ef">grow</span>(<span style="color:#fec418">int</span> minCapacity) {
+</span></span><span style="display:flex;"><span>        <span style="color:#fec418">int</span> oldCapacity <span style="color:#5bc4bf">=</span> elementData.<span style="color:#06b6ef">length</span>;<span style="color:#776e71">/** oldCapacity==0*/</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">if</span> (oldCapacity <span style="color:#5bc4bf">&gt;</span> 0 <span style="color:#5bc4bf">||</span> elementData <span style="color:#5bc4bf">!=</span> DEFAULTCAPACITY_EMPTY_ELEMENTDATA) {
+</span></span><span style="display:flex;"><span>            <span style="color:#776e71">/** 條件不成立，跳過，進入else運算*/</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#fec418">int</span> newCapacity <span style="color:#5bc4bf">=</span> ArraysSupport.<span style="color:#06b6ef">newLength</span>(oldCapacity,
+</span></span><span style="display:flex;"><span>                    minCapacity <span style="color:#5bc4bf">-</span> oldCapacity, <span style="color:#776e71">/* minimum growth */</span>
+</span></span><span style="display:flex;"><span>                    oldCapacity <span style="color:#5bc4bf">&gt;&gt;</span> 1           <span style="color:#776e71">/* preferred growth */</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#815ba4">return</span> elementData <span style="color:#5bc4bf">=</span> Arrays.<span style="color:#06b6ef">copyOf</span>(elementData, newCapacity);
+</span></span><span style="display:flex;"><span>        } <span style="color:#815ba4">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#815ba4">return</span> elementData <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">new</span> Object<span style="color:#5bc4bf">[</span>Math.<span style="color:#06b6ef">max</span>(DEFAULT_CAPACITY, minCapacity)<span style="color:#5bc4bf">]</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#776e71">/** DEFAULT_CAPACITY==10， minCapacity==1，是上一步傳入的參數*/</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>條件不成立，跳過，進入else運算。</p>
+<p>執行完畢後，elementData = new Object[10]。</p>
+<p>即第一次add時，容量變更為10.</p>
+<div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw"></i>note<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><strong>即第一次add後，容量變更為10。</strong></div>
+        </div>
+    </div>
+<p>接著執行add(E e, Object[] elementData, int s) 裡面接下來的代碼</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>elementData<span style="color:#5bc4bf">[</span>s<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">=</span> e;
+</span></span><span style="display:flex;"><span>size <span style="color:#5bc4bf">=</span> s <span style="color:#5bc4bf">+</span> 1;
+</span></span></code></pre></div><p>這是第一種ArrayList的初始化方法後面執行的步驟。</p>
+<h2 id="第二種-自訂容量初始化">第二種 自訂容量初始化<a hidden class="anchor" aria-hidden="true" href="#第二種-自訂容量初始化">#</a></h2>
+<p>根據實際需要，指定容量初始化。</p>
+<p>源碼：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>    <span style="color:#776e71">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#776e71">     * Constructs an empty list with the specified initial capacity.
+</span></span></span><span style="display:flex;"><span><span style="color:#776e71">     *
+</span></span></span><span style="display:flex;"><span><span style="color:#776e71">     * @param  initialCapacity  the initial capacity of the list
+</span></span></span><span style="display:flex;"><span><span style="color:#776e71">     * @throws IllegalArgumentException if the specified initial capacity
+</span></span></span><span style="display:flex;"><span><span style="color:#776e71">     *         is negative
+</span></span></span><span style="display:flex;"><span><span style="color:#776e71">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#815ba4">public</span> <span style="color:#06b6ef">ArrayList</span>(<span style="color:#fec418">int</span> initialCapacity) {
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">if</span> (initialCapacity <span style="color:#5bc4bf">&gt;</span> 0) {
+</span></span><span style="display:flex;"><span>            <span style="color:#815ba4">this</span>.<span style="color:#06b6ef">elementData</span> <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">new</span> Object<span style="color:#5bc4bf">[</span>initialCapacity<span style="color:#5bc4bf">]</span>;
+</span></span><span style="display:flex;"><span>        } <span style="color:#815ba4">else</span> <span style="color:#815ba4">if</span> (initialCapacity <span style="color:#5bc4bf">==</span> 0) {
+</span></span><span style="display:flex;"><span>            <span style="color:#815ba4">this</span>.<span style="color:#06b6ef">elementData</span> <span style="color:#5bc4bf">=</span> EMPTY_ELEMENTDATA;
+</span></span><span style="display:flex;"><span>        } <span style="color:#815ba4">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#815ba4">throw</span> <span style="color:#815ba4">new</span> IllegalArgumentException(<span style="color:#48b685">&#34;Illegal Capacity: &#34;</span><span style="color:#5bc4bf">+</span>
+</span></span><span style="display:flex;"><span>                                               initialCapacity);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>可使用如下方法初始化：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>List<span style="color:#5bc4bf">&lt;</span>String<span style="color:#5bc4bf">&gt;</span> student <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">new</span> ArrayList<span style="color:#5bc4bf">&lt;&gt;</span>(32);
+</span></span><span style="display:flex;"><span>student.<span style="color:#06b6ef">add</span>(<span style="color:#48b685">&#34;Bob&#34;</span>);
+</span></span><span style="display:flex;"><span>student.<span style="color:#06b6ef">add</span>(<span style="color:#48b685">&#34;Peter&#34;</span>);
+</span></span></code></pre></div><p>自訂容量初始化的好處是：</p>
+<ul>
+<li>減少擴容的次數，提高效率。</li>
+</ul>
+<h2 id="第三種">第三種<a hidden class="anchor" aria-hidden="true" href="#第三種">#</a></h2>
+<p>根據現有的集合初始化。可以將其他集合轉為ArrayList，</p>
+<p>源碼：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span><span style="color:#776e71">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#776e71">     * Constructs a list containing the elements of the specified
+</span></span></span><span style="display:flex;"><span><span style="color:#776e71">     * collection, in the order they are returned by the collection&#39;s
+</span></span></span><span style="display:flex;"><span><span style="color:#776e71">     * iterator.
+</span></span></span><span style="display:flex;"><span><span style="color:#776e71">     *
+</span></span></span><span style="display:flex;"><span><span style="color:#776e71">     * @param c the collection whose elements are to be placed into this list
+</span></span></span><span style="display:flex;"><span><span style="color:#776e71">     * @throws NullPointerException if the specified collection is null
+</span></span></span><span style="display:flex;"><span><span style="color:#776e71">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#815ba4">public</span> <span style="color:#06b6ef">ArrayList</span>(Collection<span style="color:#5bc4bf">&lt;?</span> <span style="color:#815ba4">extends</span> E<span style="color:#5bc4bf">&gt;</span> c) {
+</span></span><span style="display:flex;"><span>        Object<span style="color:#5bc4bf">[]</span> a <span style="color:#5bc4bf">=</span> c.<span style="color:#06b6ef">toArray</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">if</span> ((size <span style="color:#5bc4bf">=</span> a.<span style="color:#06b6ef">length</span>) <span style="color:#5bc4bf">!=</span> 0) {
+</span></span><span style="display:flex;"><span>            <span style="color:#815ba4">if</span> (c.<span style="color:#06b6ef">getClass</span>() <span style="color:#5bc4bf">==</span> ArrayList.<span style="color:#06b6ef">class</span>) {
+</span></span><span style="display:flex;"><span>                elementData <span style="color:#5bc4bf">=</span> a;
+</span></span><span style="display:flex;"><span>            } <span style="color:#815ba4">else</span> {
+</span></span><span style="display:flex;"><span>                elementData <span style="color:#5bc4bf">=</span> Arrays.<span style="color:#06b6ef">copyOf</span>(a, size, Object<span style="color:#5bc4bf">[]</span>.<span style="color:#06b6ef">class</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        } <span style="color:#815ba4">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#776e71">// replace with empty array.</span>
+</span></span><span style="display:flex;"><span>            elementData <span style="color:#5bc4bf">=</span> EMPTY_ELEMENTDATA;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>比如可以將HashSet轉為ArrayList：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>Set<span style="color:#5bc4bf">&lt;</span>String<span style="color:#5bc4bf">&gt;</span> students <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">new</span> HashSet<span style="color:#5bc4bf">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>students.<span style="color:#06b6ef">add</span>(<span style="color:#48b685">&#34;Bob&#34;</span>);
+</span></span><span style="display:flex;"><span>students.<span style="color:#06b6ef">add</span>(<span style="color:#48b685">&#34;Alice&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>List<span style="color:#5bc4bf">&lt;</span>String<span style="color:#5bc4bf">&gt;</span> list <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">new</span> ArrayList<span style="color:#5bc4bf">&lt;&gt;</span>(students);
+</span></span></code></pre></div><p>此時，list裡面包含兩個元素Bob和Alice。</p>
+<p>後記：
+此文章沒寫完，因為自學了一陣子發現自己沒有興趣了。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/java/java-arraylist%E6%BA%90%E7%A2%BC%E4%B8%AD%E7%9A%84%E4%B8%89%E5%80%8B%E6%A7%8B%E9%80%A0%E5%99%A8%E5%92%8C%E4%B8%89%E7%A8%AE%E5%B0%8D%E6%87%89%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95-/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Java Arraylist源碼中的三個構造器和三種對應的初始化方法</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/age-5-reading-list/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>學齡前學識字</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2024-05-10 11:01:28 +0800 CST'>2024-05-10</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

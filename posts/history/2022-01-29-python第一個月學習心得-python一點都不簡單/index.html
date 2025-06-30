@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Python第一個月學習心得——Python一點都不簡單 | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="CS自學">
+<meta name="description" content="本文紀錄Python第一個月的學習心得。 我學Python大部分是因為好奇，小部分是為了投資和自己的網站。但是當我在搜索學習資訊的時候，卻發現很多人學Python是為了轉職做軟體工程師。 這給了我很多想像的空間，讓我考慮我能不能轉職呢？然後又想我是全職媽媽多年沒工作、年紀也不小了、還">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2022-01-29-python%E7%AC%AC%E4%B8%80%E5%80%8B%E6%9C%88%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97-python%E4%B8%80%E9%BB%9E%E9%83%BD%E4%B8%8D%E7%B0%A1%E5%96%AE/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="Python第一個月學習心得——Python一點都不簡單" />
+<meta property="og:description" content="本文紀錄Python第一個月的學習心得。 我學Python大部分是因為好奇，小部分是為了投資和自己的網站。但是當我在搜索學習資訊的時候，卻發現很多人學Python是為了轉職做軟體工程師。 這給了我很多想像的空間，讓我考慮我能不能轉職呢？然後又想我是全職媽媽多年沒工作、年紀也不小了、還" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2022-01-29-python%E7%AC%AC%E4%B8%80%E5%80%8B%E6%9C%88%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97-python%E4%B8%80%E9%BB%9E%E9%83%BD%E4%B8%8D%E7%B0%A1%E5%96%AE/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-01-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-29T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python第一個月學習心得——Python一點都不簡單"/>
+<meta name="twitter:description" content="本文紀錄Python第一個月的學習心得。 我學Python大部分是因為好奇，小部分是為了投資和自己的網站。但是當我在搜索學習資訊的時候，卻發現很多人學Python是為了轉職做軟體工程師。 這給了我很多想像的空間，讓我考慮我能不能轉職呢？然後又想我是全職媽媽多年沒工作、年紀也不小了、還"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Python第一個月學習心得——Python一點都不簡單",
+      "item": "https://everydaydiva.blog/posts/history/2022-01-29-python%E7%AC%AC%E4%B8%80%E5%80%8B%E6%9C%88%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97-python%E4%B8%80%E9%BB%9E%E9%83%BD%E4%B8%8D%E7%B0%A1%E5%96%AE/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Python第一個月學習心得——Python一點都不簡單",
+  "name": "Python第一個月學習心得——Python一點都不簡單",
+  "description": "本文紀錄Python第一個月的學習心得。 我學Python大部分是因為好奇，小部分是為了投資和自己的網站。但是當我在搜索學習資訊的時候，卻發現很多人學Python是為了轉職做軟體工程師。 這給了我很多想像的空間，讓我考慮我能不能轉職呢？然後又想我是全職媽媽多年沒工作、年紀也不小了、還",
+  "keywords": [
+    "CS自學"
+  ],
+  "articleBody": "本文紀錄Python第一個月的學習心得。\n我學Python大部分是因為好奇，小部分是為了投資和自己的網站。但是當我在搜索學習資訊的時候，卻發現很多人學Python是為了轉職做軟體工程師。\n這給了我很多想像的空間，讓我考慮我能不能轉職呢？然後又想我是全職媽媽多年沒工作、年紀也不小了、還有2個小孩，既沒有能力轉職、年齡好像也不允許轉職、有家庭也不方便工作等等。\n就這樣越想越多，越想壓力越大越焦慮。\n最主要的後果是：還沒開始，就要放棄。\n所以我用成長型的心態來看待目前的學習，不求結果，只要今天比昨天多學了一點點就好了。\n具體學了什麼： 1.完成課程 1）Programming for Everybody (Getting Started with Python)\n2）Python Data Structures\n主要是Python for everybody的前10章的課程。\nhttps://www.py4e.com/lessons\n3）Youtube學習課程\n發現光是Python for everybody一個課程還是不會做題目，所以又看了以下的Youtube課程。\nPython Tutorial for Beginners - Learn Python in 5 Hours [FULL COURSE]\nPython Tutorial - Python for Beginners [Full Course]\n2.嘗試看python官方文件 發現官方文件內容太多，講解沒有很到位，對新手來說很不友善，果斷放棄。\nThe Python Standard Library\n3.實踐： https://www.hackerrank.com\n某天一口氣解了十幾道簡單的題目後，就再也解不開了。裡面標註為easy的我都覺得超級難。\n有些簡單的google下還可以，比如Find the Runner-Up Score! 這一題，我只記得排序是好像是sorted，但是不記得去除重複的排序是什麼，所以就google“python sorted number no repeat”，查出來可以用sorted(set()).\n有些即使google了也還是不會。比如Capitalize!這一題，我搜索了如何capitalize和如何split，結果自己還是沒辦法解題。\n為什麼上課的時候好像聽懂了，但解題的時候卻覺得很難，我感覺是因為老師上課教的其實只是冰山一角，比如這個Built-in Functions， 老師只有教其中的十分之一。也就是說即使看了再多的入門教程，老師也不可能把所有的內容教完，絕大部分的要靠學生自己研究自己自學。\n初學Python心得 1.課程聽不懂 我覺得第一個困難是課程有些地方聽不懂。\n好在這個問題好解決。那就是多看幾遍。最多3-5遍就肯定能懂。但是不是一天三五遍遍，而是三天每天一遍，目的是給我們的大腦一些學習時間。這是從《學習如何學習》這門課中學到的。\n2.題目不會做 題目不會做因為：\n上課聽懂的部分，不見得真的會動手自己編。 上課沒教的部分，要自己探索學習。 總之，自己寫代碼很難。對於很難的科目，只能期許每天學一點點。\n3.沒有電腦科學的基礎知識 維基百科說電腦科學包括計算理論、算法與數據結構、編程方法與編程語言和計算機組成與架構。我感覺沒有其他的基礎理論知識，想要單獨學編程語言好像不是很容易真正理解。\n總結： Python的課程聽起來沒有很難，但是我覺得實際解決問題編寫程式非常難。\n接下來我會試試看CS50，看看能否補充一點基礎知識。如果能學完CS50，會再回來接著學習Python。\n學CS50的原因：\n電腦科學的入門通識課程。 看自己是否真的有興趣。 據說很難，檢驗自己是否會堅持。 MOOC排名第二的課程。 ",
+  "wordCount" : "1264",
+  "inLanguage": "zh",
+  "datePublished": "2022-01-29T00:00:00Z",
+  "dateModified": "2022-01-29T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2022-01-29-python%E7%AC%AC%E4%B8%80%E5%80%8B%E6%9C%88%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97-python%E4%B8%80%E9%BB%9E%E9%83%BD%E4%B8%8D%E7%B0%A1%E5%96%AE/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Python第一個月學習心得——Python一點都不簡單
+    </h1>
+    <div class="post-meta"><span title='2022-01-29 00:00:00 +0000 UTC'>2022-01-29</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e5%85%b7%e9%ab%94%e5%ad%b8%e4%ba%86%e4%bb%80%e9%ba%bc" aria-label="具體學了什麼：">具體學了什麼：</a><ul>
+                            
+                    <li>
+                        <a href="#1%e5%ae%8c%e6%88%90%e8%aa%b2%e7%a8%8b" aria-label="1.完成課程">1.完成課程</a></li>
+                    <li>
+                        <a href="#2%e5%98%97%e8%a9%a6%e7%9c%8bpython%e5%ae%98%e6%96%b9%e6%96%87%e4%bb%b6" aria-label="2.嘗試看python官方文件">2.嘗試看python官方文件</a></li>
+                    <li>
+                        <a href="#3%e5%af%a6%e8%b8%90" aria-label="3.實踐：">3.實踐：</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e5%88%9d%e5%ad%b8python%e5%bf%83%e5%be%97" aria-label="初學Python心得">初學Python心得</a><ul>
+                            
+                    <li>
+                        <a href="#1%e8%aa%b2%e7%a8%8b%e8%81%bd%e4%b8%8d%e6%87%82" aria-label="1.課程聽不懂">1.<strong>課程聽不懂</strong></a></li>
+                    <li>
+                        <a href="#2%e9%a1%8c%e7%9b%ae%e4%b8%8d%e6%9c%83%e5%81%9a" aria-label="2.題目不會做">2.題目不會做</a></li>
+                    <li>
+                        <a href="#3%e6%b2%92%e6%9c%89%e9%9b%bb%e8%85%a6%e7%a7%91%e5%ad%b8%e7%9a%84%e5%9f%ba%e7%a4%8e%e7%9f%a5%e8%ad%98" aria-label="3.沒有電腦科學的基礎知識">3.沒有電腦科學的基礎知識</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e7%b8%bd%e7%b5%90" aria-label="總結：">總結：</a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p>本文紀錄Python第一個月的學習心得。</p>
+<p>我學Python大部分是因為好奇，小部分是為了投資和自己的網站。但是當我在搜索學習資訊的時候，卻發現很多人學Python是為了轉職做軟體工程師。</p>
+<p>這給了我很多想像的空間，讓我考慮我能不能轉職呢？然後又想我是全職媽媽多年沒工作、年紀也不小了、還有2個小孩，既沒有能力轉職、年齡好像也不允許轉職、有家庭也不方便工作等等。</p>
+<p>就這樣越想越多，越想壓力越大越焦慮。</p>
+<p>最主要的後果是：還沒開始，就要放棄。</p>
+<p>所以我用成長型的心態來看待目前的學習，不求結果，只要今天比昨天多學了一點點就好了。</p>
+<h1 id="具體學了什麼">具體學了什麼：<a hidden class="anchor" aria-hidden="true" href="#具體學了什麼">#</a></h1>
+<h2 id="1完成課程">1.完成課程<a hidden class="anchor" aria-hidden="true" href="#1完成課程">#</a></h2>
+<p>1）Programming for Everybody (Getting Started with Python)</p>
+<p>2）Python Data Structures</p>
+<p><img loading="lazy" src="images/Screen-Shot-2022-01-25-at-7.16.15-AM-1024x614.png" alt=""  />
+</p>
+<p>主要是Python for everybody的前10章的課程。</p>
+<p><a href="https://www.py4e.com/lessons" target="_blank" rel="noopener" style="color:#42b983";>https://www.py4e.com/lessons</a></p>
+<p>3）Youtube學習課程</p>
+<p>發現光是Python for everybody一個課程還是不會做題目，所以又看了以下的Youtube課程。</p>
+<p><a href="https://www.youtube.com/watch?v=t8pPdKYpowI&amp;t=8218s" target="_blank" rel="noopener" style="color:#42b983";>Python Tutorial for Beginners - Learn Python in 5 Hours [FULL COURSE]</a></p>
+<p><a href="https://www.youtube.com/watch?v=_uQrJ0TkZlc&amp;t=128s" target="_blank" rel="noopener" style="color:#42b983";>Python Tutorial - Python for Beginners [Full Course]</a></p>
+<h2 id="2嘗試看python官方文件">2.嘗試看python官方文件<a hidden class="anchor" aria-hidden="true" href="#2嘗試看python官方文件">#</a></h2>
+<p>發現官方文件內容太多，講解沒有很到位，對新手來說很不友善，果斷放棄。</p>
+<p><a href="https://docs.python.org/3/library/index.html#the-python-standard-library" target="_blank" rel="noopener" style="color:#42b983";>The Python Standard Library</a></p>
+<h2 id="3實踐">3.實踐：<a hidden class="anchor" aria-hidden="true" href="#3實踐">#</a></h2>
+<p><a href="https://www.hackerrank.com" target="_blank" rel="noopener" style="color:#42b983";>https://www.hackerrank.com</a></p>
+<p>某天一口氣解了十幾道簡單的題目後，就再也解不開了。裡面標註為easy的我都覺得超級難。</p>
+<p>有些簡單的google下還可以，比如Find the Runner-Up Score! 這一題，我只記得排序是好像是sorted，但是不記得去除重複的排序是什麼，所以就google“python sorted number no repeat”，查出來可以用sorted(set()).</p>
+<p><img loading="lazy" src="images/Screen-Shot-2022-01-25-at-10.42.32-PM-1024x343.png" alt=""  />
+</p>
+<p>有些即使google了也還是不會。比如Capitalize!這一題，我搜索了如何capitalize和如何split，結果自己還是沒辦法解題。</p>
+<p>為什麼上課的時候好像聽懂了，但解題的時候卻覺得很難，我感覺是因為老師上課教的其實只是冰山一角，比如這個Built-in Functions， 老師只有教其中的十分之一。也就是說即使看了再多的入門教程，老師也不可能把所有的內容教完，絕大部分的要靠學生自己研究自己自學。</p>
+<h1 id="初學python心得">初學Python心得<a hidden class="anchor" aria-hidden="true" href="#初學python心得">#</a></h1>
+<h2 id="1課程聽不懂">1.<strong>課程聽不懂</strong><a hidden class="anchor" aria-hidden="true" href="#1課程聽不懂">#</a></h2>
+<p>我覺得第一個困難是課程有些地方聽不懂。</p>
+<p>好在這個問題好解決。那就是多看幾遍。最多3-5遍就肯定能懂。但是不是一天三五遍遍，而是三天每天一遍，目的是給我們的大腦一些學習時間。這是從《學習如何學習》這門課中學到的。</p>
+<h2 id="2題目不會做">2.題目不會做<a hidden class="anchor" aria-hidden="true" href="#2題目不會做">#</a></h2>
+<p>題目不會做因為：</p>
+<ul>
+<li>上課聽懂的部分，不見得真的會動手自己編。</li>
+<li>上課沒教的部分，要自己探索學習。</li>
+</ul>
+<p>總之，自己寫代碼很難。對於很難的科目，只能期許每天學一點點。</p>
+<h2 id="3沒有電腦科學的基礎知識">3.沒有電腦科學的基礎知識<a hidden class="anchor" aria-hidden="true" href="#3沒有電腦科學的基礎知識">#</a></h2>
+<p>維基百科說電腦科學包括計算理論、算法與數據結構、編程方法與編程語言和計算機組成與架構。我感覺沒有其他的基礎理論知識，想要單獨學編程語言好像不是很容易真正理解。</p>
+<h1 id="總結">總結：<a hidden class="anchor" aria-hidden="true" href="#總結">#</a></h1>
+<p>Python的課程聽起來沒有很難，但是我覺得實際解決問題編寫程式非常難。</p>
+<p>接下來我會試試看CS50，看看能否補充一點基礎知識。如果能學完CS50，會再回來接著學習Python。</p>
+<p>學CS50的原因：</p>
+<ul>
+<li>電腦科學的入門通識課程。</li>
+<li>看自己是否真的有興趣。</li>
+<li>據說很難，檢驗自己是否會堅持。</li>
+<li>MOOC排名第二的課程。</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">CS自學</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/history/2022-02-05-cs50-wk0scratch-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>CS50 wk0&#43;Scratch 學習心得和作業</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2022-01-17-%E6%96%87%E7%A7%91%E7%94%9F%E7%82%BA%E4%BB%80%E9%BA%BC%E5%AD%B8python/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>文科生為什麼學Python？</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2022-01-29 00:00:00 +0000 UTC'>2022-01-29</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">CS自學</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>

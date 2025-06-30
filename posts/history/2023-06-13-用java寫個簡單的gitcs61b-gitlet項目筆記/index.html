@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>用Java寫個簡單的Git：CS61B Gitlet項目筆記 | Everydaydiva&#39;s Blog</title>
+<meta name="keywords" content="Gitlet">
+<meta name="description" content="在寫Git 原理學習筆記的時候，就有考慮要不要跟著網上的教程：Write yourself a Git! 用Python寫個或者是照抄一個Git，但是當時不會I/O的處理，就先放棄了。沒想到CS61B的其中一個Gitlet項目就是用Java寫一個簡單版本的Git（包含checkout，merge，reset等">
+<meta name="author" content="Ariel">
+<link rel="canonical" href="https://everydaydiva.blog/posts/history/2023-06-13-%E7%94%A8java%E5%AF%AB%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84gitcs61b-gitlet%E9%A0%85%E7%9B%AE%E7%AD%86%E8%A8%98/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="16x16" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="icon" type="image/png" sizes="32x32" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="apple-touch-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<link rel="mask-icon" href="https://everydaydiva.blog/images/DSC08262.JPG">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q2921LKXF');
+</script>
+<meta property="og:title" content="用Java寫個簡單的Git：CS61B Gitlet項目筆記" />
+<meta property="og:description" content="在寫Git 原理學習筆記的時候，就有考慮要不要跟著網上的教程：Write yourself a Git! 用Python寫個或者是照抄一個Git，但是當時不會I/O的處理，就先放棄了。沒想到CS61B的其中一個Gitlet項目就是用Java寫一個簡單版本的Git（包含checkout，merge，reset等" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://everydaydiva.blog/posts/history/2023-06-13-%E7%94%A8java%E5%AF%AB%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84gitcs61b-gitlet%E9%A0%85%E7%9B%AE%E7%AD%86%E8%A8%98/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-06-13T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="用Java寫個簡單的Git：CS61B Gitlet項目筆記"/>
+<meta name="twitter:description" content="在寫Git 原理學習筆記的時候，就有考慮要不要跟著網上的教程：Write yourself a Git! 用Python寫個或者是照抄一個Git，但是當時不會I/O的處理，就先放棄了。沒想到CS61B的其中一個Gitlet項目就是用Java寫一個簡單版本的Git（包含checkout，merge，reset等"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://everydaydiva.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "用Java寫個簡單的Git：CS61B Gitlet項目筆記",
+      "item": "https://everydaydiva.blog/posts/history/2023-06-13-%E7%94%A8java%E5%AF%AB%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84gitcs61b-gitlet%E9%A0%85%E7%9B%AE%E7%AD%86%E8%A8%98/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "用Java寫個簡單的Git：CS61B Gitlet項目筆記",
+  "name": "用Java寫個簡單的Git：CS61B Gitlet項目筆記",
+  "description": "在寫Git 原理學習筆記的時候，就有考慮要不要跟著網上的教程：Write yourself a Git! 用Python寫個或者是照抄一個Git，但是當時不會I/O的處理，就先放棄了。沒想到CS61B的其中一個Gitlet項目就是用Java寫一個簡單版本的Git（包含checkout，merge，reset等",
+  "keywords": [
+    "Gitlet"
+  ],
+  "articleBody": "在寫Git 原理學習筆記的時候，就有考慮要不要跟著網上的教程：Write yourself a Git! 用Python寫個或者是照抄一個Git，但是當時不會I/O的處理，就先放棄了。沒想到CS61B的其中一個Gitlet項目就是用Java寫一個簡單版本的Git（包含checkout，merge，reset等），就試試看吧。\n其實自己OOP的理解和I/O的處理都還不是很會，Java也是剛學，CS61B才學了一半，要自己手寫個Git，頗有難度，非常考驗耐心。不過這個項目有種魔力，一旦開始就很難放棄，所以我才能中途沒有放棄。（之前學CS50做tidman，覺得太難，我獲得70分後就放棄了）\nGitlet項目之前，有專門一個介紹I/O處理和序列化的lab6.\n序列化Serialization 序列化就是保存軟件運行時的一些數據到電腦到硬盤，實現永久保存。\n運行程序時所有的數據都是保存在電腦內存中，一旦斷電或者關閉程序，內存會被清空。\n拿玩遊戲來舉例，有些時候希望每次都從頭開始，比如很古老的俄羅斯方塊，此時關閉程式數據消失無所謂。\n有的遊戲希望可以一直接著玩，比如可以保存裝備/生命值等，這是就需要把暫存的內存數據持久化，即通過文件系統的操作把數據以byte的格式寫入硬盤，這樣下次再玩時可以從硬盤上恢復數據找回上次的狀態。\n為什麼要學習序列化？ 每個Git command 對應的都是對.git裡面對應的object的處理。因為幾乎每個操作都改變了狀態。需要更新硬盤文件來記憶這些改變。\n比如當我們用git add時，就是在硬盤寫入。\nexample % touch hello.txt git add hello.txt 可以看到隱藏的文件夾.git下面新增了一個object文件：\n這就是為什麼我們如果忘記了commit，哪怕一年以後再用git status還是可以看到這個沒有commit的文件，因為資料已經寫入了硬盤。\nexample % git status On branch main No commits yet Changes to be committed: (use \"git rm --cached ...\" to unstage) new file: hello.txt Java的序列化 可以使用[java.io.Serializable](https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/io/Serializable.html) 標記需要序列化的class，然後Java的虛擬機自動幫我們處理序列化。\npublic class Dog implements Serializable{ ...} 利用I/O class中的java.io.ObjectOutputStream來執行序列化和用java.io.ObjectInputStream來反序列化。\n這兩個比較複雜，簡化邏輯如下，將標記序列化的Dog class物件m寫入硬盤中的文件。\nDog m = new Dog(...); File outFile = new File(saveFileName); // Serializing the Dog object writeObject(outFile, m); 需要的時候在將已經序列化的文件反序列化，將硬盤文件讀取成Dog物件。\nDog m； File inFile = new File(saveFileName); // Deserializing the Dog object m = readObject(inFile, Dog.class); 重新理解Git原理 之前學習的時候有稍微思考了Git 原理。寫完後再梳理下git的原理。\nGit的核心是commit，每個commit就是當下文件夾的一個快照。\n比如在做一個項目，如果沒有Git的話，要如何快照呢？這裡假設每天保存一份版本。方法就是把今天的文件夾存檔名為，第二天在copy前一天的文件夾上面工作，第三天也在copy前一天的文件夾上工作。\n比如在做一個項目，如果沒有Git的話，要如何管理文件呢？這裡假設每天保存一份版本。方法就是把今天的文件夾存檔為2023/2/18，第二天先把所有的文件夾複製到2023/02/19，修改後再保存，第三天也是如此類推。\nGit的每個commit就相當於幫我們這樣手動的工作完全自動化了。\n至於如何存儲或復原任一個時間點的文件夾，這個靠的就是把內容（blob）和commit的物件用一個隱藏文件夾(.git) 存在硬盤上，利用序列化來處理。\nGit很聰明的地方在於使用SHA1這個hash function產生的值作為文件名儲存一切信息。這樣一方面優化尋找速度，另一方面環環相套，保證內容不被竄改。\n設計文件-Gitlet Design Document Design Document 也可以叫pseudocode。\n在學CS50的時候，老師就說編寫代碼之前要先寫pseudocode。\n我是寫完整個作業才寫Design Document，再來一次的話，我會在作業開始之前寫。然後過程中邊寫code邊修改Design Document。\n先寫的好處是可以提前規劃設計，逼自己設計好了再寫。比如我之前的merge功能的實現邏輯很差，很雜亂，沒有一步一步區分開來，導致自己都看不懂自己的code，是後面重新修改後才邏輯比較清楚。\n如果一開始就仔細設計整個流程，把每個小步驟分開的話，應該會節省更多debug的時間。\nDesign Document：Gitlet design document\nCode Review 這次因為code超過1000行，所以有按照課程中Software Engineering部分的建議自己review code，也有和Github上面其他的答案比較，盡自己最大能力從如下方面改進：\n修改函數和變量命名更narrative\n修改大段冗長的程式碼–邏輯混亂的地方重新梳理\n按照Gradescope的規定修改style\n檢查注釋是否清楚\n修改每行超過100字符的程式碼\n獨立重複使用的function\n修改多重迴圈\n使用string builder代替“+”\n刪除和簡化不必要的變量和方法\n刪除不是final的static variable（老師在課程中強調了好多次）\n總結： 對於初學者來說，這是一個很好的項目，幾乎從無到有，給人極大的成就感和信心。\n項目需要的最多的是耐心，估計我前後花了40天，總共超過80個小時。不過這80個小時專注在這個任務上面，心無旁騖，也是很快樂的。\n最後感謝下教授和整個教學團隊，這麽棒的課程竟然免費，唯一需要的是時間和耐心，感興趣的同學快點來學吧。\n我的repo：https://github.com/wxy20850606/cs61b2021-proj2-Gitlet\n",
+  "wordCount" : "2364",
+  "inLanguage": "zh",
+  "datePublished": "2023-06-13T00:00:00Z",
+  "dateModified": "2023-06-13T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ariel"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://everydaydiva.blog/posts/history/2023-06-13-%E7%94%A8java%E5%AF%AB%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84gitcs61b-gitlet%E9%A0%85%E7%9B%AE%E7%AD%86%E8%A8%98/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Everydaydiva's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://everydaydiva.blog/images/DSC08262.JPG"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://everydaydiva.blog" accesskey="h" title="Keep Improving (Alt + H)">Keep Improving</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/posts" title="文章">
+                    <span>文章</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/tags" title="標籤">
+                    <span>標籤</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/archives/" title="時間軸">
+                    <span>時間軸</span>
+                    
+                </a>
+            
+            </li>
+            <li class="menu-item">
+                <a href="https://everydaydiva.blog/about" title="About">
+                    <span>About</span>
+                    
+                </a>
+            
+            </li>
+        </ul>
+    </nav>
+</header><main class="main page">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://everydaydiva.blog">主页</a>&nbsp;»&nbsp;<a href="https://everydaydiva.blog/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      用Java寫個簡單的Git：CS61B Gitlet項目筆記
+    </h1>
+    <div class="post-meta"><span title='2023-06-13 00:00:00 +0000 UTC'>2023-06-13</span>&nbsp;·&nbsp;Ariel
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e5%ba%8f%e5%88%97%e5%8c%96serializationhttpsenwikipediaorgwikiserialization" aria-label="序列化Serialization"><strong>序列化<a href="https://en.wikipedia.org/wiki/Serialization" target="_blank" rel="noopener" style="color:#42b983";>Serialization</a></strong></a></li>
+                    <li>
+                        <a href="#%e7%82%ba%e4%bb%80%e9%ba%bc%e8%a6%81%e5%ad%b8%e7%bf%92%e5%ba%8f%e5%88%97%e5%8c%96" aria-label="為什麼要學習序列化？">為什麼要學習序列化？</a><ul>
+                            
+                    <li>
+                        <a href="#java%e7%9a%84%e5%ba%8f%e5%88%97%e5%8c%96" aria-label="Java的序列化">Java的序列化</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e9%87%8d%e6%96%b0%e7%90%86%e8%a7%a3git%e5%8e%9f%e7%90%86" aria-label="重新理解Git原理">重新理解<strong>Git原理</strong></a></li>
+                    <li>
+                        <a href="#%e8%a8%ad%e8%a8%88%e6%96%87%e4%bb%b6-gitlet-design-document" aria-label="設計文件-Gitlet Design Document">設計文件-Gitlet Design Document</a></li>
+                    <li>
+                        <a href="#code-review" aria-label="Code Review">Code Review</a></li>
+                    <li>
+                        <a href="#%e7%b8%bd%e7%b5%90" aria-label="總結：">總結：</a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p>在寫<a href="https://fulltimemammy.com/git-internal/" target="_blank" rel="noopener" style="color:#42b983";>Git 原理學習筆記</a>的時候，就有考慮要不要跟著網上的教程：<a href="https://wyag.thb.lt/#orga22d15c" target="_blank" rel="noopener" style="color:#42b983";>Write yourself a Git!</a> 用Python寫個或者是照抄一個Git，但是當時不會I/O的處理，就先放棄了。沒想到CS61B的其中一個<a href="https://sp21.datastructur.es/materials/proj/proj2/proj2" target="_blank" rel="noopener" style="color:#42b983";>Gitlet</a>項目就是用Java寫一個簡單版本的Git（包含checkout，merge，reset等），就試試看吧。</p>
+<p>其實自己OOP的理解和I/O的處理都還不是很會，Java也是剛學，CS61B才學了一半，要自己手寫個Git，頗有難度，非常考驗耐心。不過這個項目有種魔力，一旦開始就很難放棄，所以我才能中途沒有放棄。（之前學CS50做tidman，覺得太難，我獲得70分後就放棄了）</p>
+<p>Gitlet項目之前，有專門一個介紹I/O處理和序列化的lab6.</p>
+<h2 id="序列化serializationhttpsenwikipediaorgwikiserialization"><strong>序列化<a href="https://en.wikipedia.org/wiki/Serialization" target="_blank" rel="noopener" style="color:#42b983";>Serialization</a></strong><a hidden class="anchor" aria-hidden="true" href="#序列化serializationhttpsenwikipediaorgwikiserialization">#</a></h2>
+<p>序列化就是保存軟件運行時的一些數據到電腦到硬盤，實現永久保存。</p>
+<p>運行程序時所有的數據都是保存在電腦內存中，一旦斷電或者關閉程序，內存會被清空。</p>
+<p>拿玩遊戲來舉例，有些時候希望每次都從頭開始，比如很古老的俄羅斯方塊，此時關閉程式數據消失無所謂。</p>
+<p>有的遊戲希望可以一直接著玩，比如可以保存裝備/生命值等，這是就需要把暫存的內存數據持久化，即通過文件系統的操作把數據以byte的格式寫入硬盤，這樣下次再玩時可以從硬盤上恢復數據找回上次的狀態。</p>
+<h2 id="為什麼要學習序列化">為什麼要學習序列化？<a hidden class="anchor" aria-hidden="true" href="#為什麼要學習序列化">#</a></h2>
+<p>每個Git command 對應的都是對.git裡面對應的object的處理。因為幾乎每個操作都改變了狀態。需要更新硬盤文件來記憶這些改變。</p>
+<p>比如當我們用git add時，就是在硬盤寫入。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>example % touch hello.txt
+</span></span><span style="display:flex;"><span>git add hello.txt
+</span></span></code></pre></div><p>可以看到隱藏的文件夾.git下面新增了一個object文件：</p>
+<p><img loading="lazy" src="/images/2024031401.png" alt="s"  />
+</p>
+<p>這就是為什麼我們如果忘記了commit，哪怕一年以後再用git status還是可以看到這個沒有commit的文件，因為資料已經寫入了硬盤。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>example % git status
+</span></span><span style="display:flex;"><span>On branch main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>No commits yet
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Changes to be committed:
+</span></span><span style="display:flex;"><span>  (use &#34;git rm --cached &lt;file&gt;...&#34; to unstage)
+</span></span><span style="display:flex;"><span>	new file:   hello.txt
+</span></span></code></pre></div><h3 id="java的序列化">Java的序列化<a hidden class="anchor" aria-hidden="true" href="#java的序列化">#</a></h3>
+<p>可以使用<code>[java.io.Serializable](https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/io/Serializable.html)</code> 標記需要序列化的class，然後Java的虛擬機自動幫我們處理序列化。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>public class Dog implements Serializable{
+</span></span><span style="display:flex;"><span>...}
+</span></span></code></pre></div><p>利用I/O class中的java.io.ObjectOutputStream來執行序列化和用java.io.ObjectInputStream來反序列化。</p>
+<p>這兩個比較複雜，簡化邏輯如下，將標記序列化的Dog class物件m寫入硬盤中的文件。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Dog m = new Dog(...);
+</span></span><span style="display:flex;"><span>File outFile = new File(saveFileName);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>// Serializing the Dog object
+</span></span><span style="display:flex;"><span>writeObject(outFile, m);
+</span></span></code></pre></div><p>需要的時候在將已經序列化的文件反序列化，將硬盤文件讀取成Dog物件。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Dog m；
+</span></span><span style="display:flex;"><span>File inFile = new File(saveFileName);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>// Deserializing the Dog object
+</span></span><span style="display:flex;"><span>m = readObject(inFile, Dog.class);
+</span></span></code></pre></div><h2 id="重新理解git原理">重新理解<strong>Git原理</strong><a hidden class="anchor" aria-hidden="true" href="#重新理解git原理">#</a></h2>
+<p>之前學習的時候有稍微思考了<a href="https://fulltimemammy.com/git-internal/" target="_blank" rel="noopener" style="color:#42b983";>Git 原理</a>。寫完後再梳理下git的原理。</p>
+<p>Git的核心是commit，每個commit就是當下文件夾的一個快照。</p>
+<p>比如在做一個項目，如果沒有Git的話，要如何快照呢？這裡假設每天保存一份版本。方法就是把今天的文件夾存檔名為，第二天在copy前一天的文件夾上面工作，第三天也在copy前一天的文件夾上工作。</p>
+<p>比如在做一個項目，如果沒有Git的話，要如何管理文件呢？這裡假設每天保存一份版本。方法就是把今天的文件夾存檔為2023/2/18，第二天先把所有的文件夾複製到2023/02/19，修改後再保存，第三天也是如此類推。</p>
+<p>Git的每個commit就相當於幫我們這樣手動的工作完全自動化了。</p>
+<p><img loading="lazy" src="/images/Screenshot-2023-02-18-at-5.49.39-AM.png" alt="s"  />
+</p>
+<p>至於如何存儲或復原任一個時間點的文件夾，這個靠的就是把內容（blob）和commit的物件用一個隱藏文件夾(.git) 存在硬盤上，利用序列化來處理。</p>
+<p>Git很聰明的地方在於使用SHA1這個hash function產生的值作為文件名儲存一切信息。這樣一方面優化尋找速度，另一方面環環相套，保證內容不被竄改。</p>
+<h2 id="設計文件-gitlet-design-document">設計文件-Gitlet Design Document<a hidden class="anchor" aria-hidden="true" href="#設計文件-gitlet-design-document">#</a></h2>
+<p>Design Document 也可以叫pseudocode。</p>
+<p>在學CS50的時候，老師就說編寫代碼之前要先寫pseudocode。</p>
+<p>我是寫完整個作業才寫Design Document，再來一次的話，我會在作業開始之前寫。然後過程中邊寫code邊修改Design Document。</p>
+<p>先寫的好處是可以提前規劃設計，逼自己設計好了再寫。比如我之前的merge功能的實現邏輯很差，很雜亂，沒有一步一步區分開來，導致自己都看不懂自己的code，是後面重新修改後才邏輯比較清楚。</p>
+<p>如果一開始就仔細設計整個流程，把每個小步驟分開的話，應該會節省更多debug的時間。</p>
+<p>Design Document：<a href="https://fulltimemammy.com/gitlet-design-document/" target="_blank" rel="noopener" style="color:#42b983";>Gitlet design document</a></p>
+<h2 id="code-review">Code Review<a hidden class="anchor" aria-hidden="true" href="#code-review">#</a></h2>
+<p>這次因為code超過1000行，所以有按照課程中Software Engineering部分的建議自己review code，也有和Github上面其他的答案比較，盡自己最大能力從如下方面改進：</p>
+<ul>
+<li>
+<p>修改函數和變量命名更narrative</p>
+</li>
+<li>
+<p>修改大段冗長的程式碼&ndash;邏輯混亂的地方重新梳理</p>
+</li>
+<li>
+<p>按照Gradescope的規定修改style</p>
+</li>
+<li>
+<p>檢查注釋是否清楚</p>
+</li>
+<li>
+<p>修改每行超過100字符的程式碼</p>
+</li>
+<li>
+<p>獨立重複使用的function</p>
+</li>
+<li>
+<p>修改多重迴圈</p>
+</li>
+<li>
+<p>使用string builder代替“+”</p>
+</li>
+<li>
+<p>刪除和簡化不必要的變量和方法</p>
+</li>
+<li>
+<p>刪除不是final的static variable（老師在課程中強調了好多次）</p>
+</li>
+</ul>
+<h2 id="總結">總結：<a hidden class="anchor" aria-hidden="true" href="#總結">#</a></h2>
+<p>對於初學者來說，這是一個很好的項目，幾乎從無到有，給人極大的成就感和信心。</p>
+<p><img loading="lazy" src="/images/Screenshot-2023-06-11-at-10.19.57-PM-1024x427.png" alt="s"  />
+</p>
+<p>項目需要的最多的是耐心，估計我前後花了40天，總共超過80個小時。不過這80個小時專注在這個任務上面，心無旁騖，也是很快樂的。</p>
+<p>最後感謝下教授和整個教學團隊，這麽棒的課程竟然免費，唯一需要的是時間和耐心，感興趣的同學快點來學吧。</p>
+<p>我的repo：<a href="https://github.com/wxy20850606/cs61b2021-proj2-Gitlet" target="_blank" rel="noopener" style="color:#42b983";>https://github.com/wxy20850606/cs61b2021-proj2-Gitlet</a></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://everydaydiva.blog/tags/git/">Git</a></li>
+      <li><a href="https://everydaydiva.blog/tags/%E5%B7%A5%E5%85%B7/">工具</a></li>
+      <li><a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">CS自學</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://everydaydiva.blog/posts/history/2023-06-15-gitlet-design-document/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Gitlet design document</span>
+  </a>
+  <a class="next" href="https://everydaydiva.blog/posts/history/2023-04-07-java-python-difference/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Java 和 Python 的區別</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+<div class="post-meta"><span title='2023-06-13 00:00:00 +0000 UTC'>2023-06-13</span>&nbsp;·&nbsp;Ariel
+
+
+&nbsp;|&nbsp;标签: &nbsp;
+<ul class="post-tags-meta">
+    <a href="https://everydaydiva.blog/tags/git/">Git</a>
+    <a href="https://everydaydiva.blog/tags/%E5%B7%A5%E5%85%B7/">、工具</a>
+    <a href="https://everydaydiva.blog/tags/cs%E8%87%AA%E5%AD%B8/">、CS自學</a>
+</ul>
+
+</div>
+</main>
+
+
+<script async src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://everydaydiva.blog">Everydaydiva&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="border-bottom:1px solid"></a>&nbsp;
+    |
+    <span>
+        Copyright
+        &copy;
+        -2025
+        <a href="https://everydaydiva.blog" style="border-bottom:1px solid">Everydaydiva&#39;s Blog</a>
+    </span>
+
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {
+            }
+            ;
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild === container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName === "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+</body>
+
+</html>
