@@ -31,7 +31,7 @@ cover:
     relative: false
 ---
 
-Staying late at night is usually unproductive and unhealthy for me, so i've decided to wake up early in the morning.
+Staying late at night is usually unproductive and unhealthy for me, so I've decided to wake up early in the morning.
 
 
 # 4:30 - 5:00 AM: Preparing My Appearance
@@ -64,18 +64,16 @@ It’s not about looking perfect but about feeling ready and empowered to face t
 
 On days when I skip my grooming routine, I tend to shrink back, hide behind a hat and mask, avoid eye contact, and feel insecure. This impacts my social interactions and overall confidence.
 
-So, appearance doesn’t define my worth, but it definitely influences how i live my day.
+So, appearance doesn’t define my worth, but it definitely influences how I live my day.
 
 Good grooming is important because it goes far beyond just looking neat.
 It directly impacts my self-confidence, social interactions, and success in life.
-
-You never know what good things or challenges the day will bring, so being well-prepared is essential.
 
 You never know what good thing is going to happen today.
 
 You never know what challenge you might face today.
 
-So be well-prepared for everyday.
+So be well-prepared for every day.
 
 That’s why I dedicate half an hour each morning to taking care of my appearance — it sets the tone for a productive, confident, and successful day.
 
@@ -85,7 +83,7 @@ That’s why I dedicate half an hour each morning to taking care of my appearanc
 1. Connect with Nature
 
 I love walking in nature; it feels like a form of meditation to me. 
-It is hard to find nature since i am living in the city.
+It is hard to find nature since I am living in the city.
 so I prefer to walk just after sunrise. 
 at 5 am, the streets and parks offer a quiet and peaceful atmosphere —it feels almost like walking in nature.
 
@@ -98,7 +96,7 @@ The gentle morning breeze touches my skin.
 All of these deepens my connection to nature and the world around me.
 
 Connecting with nature boosts my happiness and improves my mood and sharpens my focus. 
-while walking, i ofen find myself smiling.
+while walking, I often find myself smiling.
 It grounds me.
 The best part is that nature is free and always there for me.
 it is like air, which is good and forever and free.
@@ -109,7 +107,7 @@ I used to have a ton of negative self-talk, but now I don’t have any.
 
 A morning walk feels like a cleanse for my soul.
 With each step, I let go of tension, overthinking, negative selftalk, self doubt and worries about uncertanity.
-At the same time, i embrace confidence, motivation and courage.
+At the same time, I embrace confidence, motivation and courage.
 
 For example, now I even believe that uncertainty in life is a blessing in disguise.
 
