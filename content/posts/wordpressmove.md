@@ -50,11 +50,8 @@ Wordpress的Tools選單裡有Export，點Export，選擇All content,然後就可
   #### 下載 wordpress-export-to-markdown 軟體包
   ```shell
   mkdir oldpost
-
   cd oldpost
-
   git clone https://github.com/lonekorean/wordpress-export-to-markdown
-
   cd wordpress-export-to-markdown
   ```
 
