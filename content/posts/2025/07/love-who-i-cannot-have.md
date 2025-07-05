@@ -1,7 +1,7 @@
 ---
 title: "He Was a Mirror, Not a Destination"
-date: 2025-06-30T20:00:00+08:00
-lastmod: 2025-06-30T20:00:00+08:00
+date: 2025-07-06T20:00:00+08:00
+lastmod: 2025-07-06T20:00:00+08:00
 author: ["Ariel"]
 keywords:
 - personal growth
