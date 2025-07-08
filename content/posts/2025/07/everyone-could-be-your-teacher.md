@@ -5,9 +5,12 @@ lastmod: 2025-07-09T07:04:48+08:00
 author: ["Ariel"]
 keywords: 
 - 
-categories: ["生活感悟"]
-tags: ["能量", "吸引力法則", "人際連結"]
-- 
+categories: 
+- 生活感悟
+tags: 
+- 能量
+- 吸引力法則
+- 人際連結
 description: "一段與公園裡阿嬤的偶遇，讓我體悟到高能量的狀態會為我們吸引來貴人與幫助。"
 weight:
 slug: ""
