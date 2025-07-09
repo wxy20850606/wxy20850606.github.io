@@ -43,8 +43,8 @@ We spoke briefly, occasionally. He added me on LINE and sent kind, beautiful mes
 In five months, we exchanged less than 30 minutes of conversation.  
 But we both felt something unspoken.
 
-He told me in May that he was returning to Italy and asked if we could have coffee before he left.  
-That’s when I cried — not because he was leaving, but because of what he said:
+He told me in May that he was returning to Italy in June and asked if we could have coffee before he left.  
+That’s when I cried — not because he was leaving, but because of what he said before:
 
 > *“You’re so positive.”*
 
@@ -74,16 +74,19 @@ He said he felt called by my energy. That it wasn’t my body or appearance, but
 
 ## He Was a Messenger
 
-He shared that he had learned to read people’s hearts through caring for his disabled sister.  
-He had helped others grow through his presence and reflections.
+He shared that he had learned to read people’s mind through caring for his disabled sister.  
+He had helped others grow through his conversations and interations.
 
-When I shared my struggles in marriage, he listened:
+So I shared my struggles in marriage, and he listened:
 
 - A lack of communication  
+- Can't feel attention and affection
 - No emotional connection  
 - His avoidance through gaming  
 - My loneliness, waking up at 4 a.m. while he plays until 3 a.m.  
 - The coldness, the anger, the feeling of invisibility
+
+And i told him i want to divorce my husband. 
 
 He encouraged me and said, *“You have everything you need to change.”*
 
@@ -91,7 +94,7 @@ He encouraged me and said, *“You have everything you need to change.”*
 
 ## I Thought I Loved Him
 
-He had so many qualities I admired:
+He shared a lot about him and showed so many qualities I admired:
 - Strong, kind, consistent  
 - Independent, mindful, present  
 - He meditated, trained, cooked healthy meals  
@@ -101,6 +104,8 @@ He had so many qualities I admired:
 I couldn’t sleep. I woke at 3 a.m. and felt compelled to tell him everything about me.
 
 I thought I was falling in love with him.
+
+So i wrote him a long email to reflect on my journery and where i am goint to.
 
 But as I told him my truth, I realized something:  
 **This wasn’t about him.**
@@ -129,10 +134,11 @@ He was a mirror showing me:
 - The woman I want to become  
 - The values I truly hold  
 - The kind of life I desire  
-- The kind of partner I long for  
 - The path I forgot I was on
+- The kind of partner I long for  
 
-> He didn’t complete me — he **reflected** the part of me I had abandoned.
+
+> He **reflected** the part of me I had abandoned.
 
 And now, that part is awake.
 
@@ -149,6 +155,7 @@ I now:
 - Take care of myself with reverence  
 - Write with clarity  
 - Heal with courage
+- Focus on my tasks with hope
 
 He didn’t *cause* this growth — he **amplified** it.  
 And for that, I am deeply grateful.
@@ -157,16 +164,21 @@ And for that, I am deeply grateful.
 
 ## I Trust the Timing
 
-This experience wasn’t about romance.  
+He left as planned.
+I pondered about this experience.
+It wasn’t about romance.  
 It was about **remembrance**.
 
 I remember who I am.  
-I remember what I want.  
+I remember what I want to become.  
 I remember the path I must walk — not toward someone else, but toward myself.
 
-I trust the Creator.  
-I trust the timing.  
-I trust that everything happens for my benefit.
+I thought he was my soul mate. 
+And he was gone and i couldn't have him.
+
+But it is not the truth.
+The truth is i fall in love the ideal image in my mind.
+And it is time to make myself ideal.
 
 ---
 
@@ -176,7 +188,13 @@ I know now:
 - Emotions like love, gratitude, sincerity, and trust **generate energy**  
 - Emotions like lack, fear, and self-doubt **drain energy**
 
-So I choose to focus my energy where it belongs:  
+So I choose to stay positive.
+I trust that everything happens for my benefit.
+His left is a good thing for me.
+And i truely appreciate his presence, how ever brief.
+
+No more distractions.
+I choose to focus my energy where it belongs:  
 **Building myself.**
 
 ---
