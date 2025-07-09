@@ -178,8 +178,7 @@ I thought he was my soul mate.
 And he was gone and i couldn't have him.
 
 But it is not the truth.
-The truth is i fall in love the ideal image in my mind.
-And it is time to make myself ideal.
+The truth is, I fell in love with the ideal image in my mind — and now, it's time to become that ideal myself.
 
 ---
 
@@ -192,7 +191,7 @@ I know now:
 So I choose to stay positive.
 I trust that everything happens for my benefit.
 His left is a good thing for me.
-And i truely appreciate his presence, how ever brief.
+And i truely appreciate his presence, however brief it was.
 
 No more distractions.
 I choose to focus my energy where it belongs:  
@@ -207,7 +206,7 @@ Don’t wait for someone to fill your empty parts.
 Be whole. Be clear. Be aligned.
 
 And when the mirror appears —  
-look deeply.  
+Look deeply.  
 Then return to your path.
 
 ---
