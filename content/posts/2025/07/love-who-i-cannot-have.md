@@ -10,6 +10,7 @@ keywords:
 - self-reflection
 categories:
 - self-discovery
+slug: he-was-a-mirror
 tags:
 - healing
 - love
