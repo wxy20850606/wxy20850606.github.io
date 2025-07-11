@@ -33,13 +33,14 @@ cover:
 
 Reaching my first 100K in the stock market wasn’t a straight path. It was a journey of trial and error, guided by curiosity, humbled by losses, and eventually anchored in timeless wisdom from Warren Buffett and Charlie Munger.
 
-This is the current value.
 
-![](/images/100k.png)
+## 📊 This Is the History
 
-This is the history.
+![My Portfolio Growth to 100K](/images/2025/07/100k.png)
+*This chart shows the slow and steady journey toward my first 100K in the stock market.*
 
-![](/images/investinghistory.png)
+![Timeline of My Investing Journey](/images/2025/07/investinghistory.png)
+*An overview of the key stages—from blind buying, to trial and error, to value investing rooted in Buffett and Munger’s principles.*
 
 ## Three Stages of My Investing Jounery
 
