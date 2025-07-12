@@ -4,12 +4,20 @@ date: 2025-07-11T06:19:21+08:00
 lastmod: 2025-07-11T06:19:21+08:00
 author: ["Ariel"]
 keywords: 
-- 
+- investing journey
+- value investing
+- investment mistakes
+- long-term investing
+- self-improvement
 categories: # 没有分类界面可以不填写
-- 
+- Investing
+- Personal Finance
+- Self Improvement
 tags: # 标签
-- 
-description: ""
+- value investing
+- buy and hold
+- investing mistakes
+description: "A personal journey of reaching the first $100K in the stock market, learning from mistakes, and embracing value investing principles inspired by Warren Buffett and Charlie Munger."
 weight:
 slug: ""
 draft: false # 是否为草稿
