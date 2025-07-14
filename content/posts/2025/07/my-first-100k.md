@@ -70,6 +70,8 @@ Honestly, I didn’t even know exactly how much I lost back then—because I avo
 
 And I was so used to buying and holding that I didn’t know how to sell.
 
+But i gained a valuable lesson, which i wouldn't forget.
+
 ### 3. **Buffett and Munger Value Investing**
 
 About 1.5 years later, I reopened my account—and to my surprise, it had grown by 62%. That year turned out to be my best performance.

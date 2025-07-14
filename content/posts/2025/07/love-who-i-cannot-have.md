@@ -1,5 +1,5 @@
 ---
-title: "He Was a Mirror, Not a Destination"
+title: "He Was a Mirror, Not a Destination, A Reflection on Synchronicity."
 date: 2025-07-06T20:00:00+08:00
 lastmod: 2025-07-06T20:00:00+08:00
 author: ["Ariel"]
@@ -27,11 +27,8 @@ showbreadcrumbs: true
 
 ## He Was a Mirror, Not a Destination
 
-I recently fell in love. But it’s over.  
-And I think that’s a good thing.
-
-Not because it didn’t matter.  
-But because it woke me up.
+When I met him, I didn’t know what it meant.
+Now I understand: it wasn’t coincidence. It was synchronicity.
 
 ---
 
@@ -41,10 +38,9 @@ We met at the gym in January.
 Our paths crossed around 6–7 a.m. — two early risers, quietly consistent.  
 We spoke briefly, occasionally. He added me on LINE and sent kind, beautiful messages. I showed them to my husband and replied only, *“Thank you.”*
 
-In five months, we exchanged less than 30 minutes of conversation.  
-But we both felt something unspoken.
-
-He told me in May that he was returning to Italy in June and asked if we could have coffee before he left.  
+After five months, he told me he was returning to Italy.
+He asked if we could have coffee before he left.
+ 
 That’s when I cried — not because he was leaving, but because of what he said before:
 
 > *“You’re so positive.”*
@@ -66,10 +62,11 @@ Instead, I asked him what he saw in me.
 He said,  
 > *“You’re not happy. You’re a positive person, and if nothing was holding you back, you would shine like the sun. But I can tell—you’re drowning.”*
 
-I cried as he spoke.  
+He saw through me. Not my surface, but my soul.
+And I cried.
 Because I felt **understood** — not just on the surface, but in my soul.
 
-He said he felt called by my energy. That it wasn’t my body or appearance, but my energy that drew him in.
+He said my energy called him in. That it wasn’t about appearance — it was something deeper.
 
 ---
 
@@ -95,6 +92,7 @@ He encouraged me and said, *“You have everything you need to change.”*
 
 ## I Thought I Loved Him
 
+He said he liked me and was attacted to me.
 He shared a lot about him and showed so many qualities I admired:
 - Strong, kind, consistent  
 - Independent, mindful, present  
@@ -102,13 +100,14 @@ He shared a lot about him and showed so many qualities I admired:
 - He read, wrote, reflected  
 - He was awake, alive, intentional
 
-I couldn’t sleep. I woke at 3 a.m. and felt compelled to tell him everything about me.
+I couldn’t sleep. I woke at 3 a.m. and felt compelled to tell him about my story.
 
 I thought I was falling in love with him.
 
-So i wrote him a long email to reflect on my journery and where i am goint to.
+So I wrote him a long email to explain myself, my journey and the road ahead of me.
 
-But as I told him my truth, I realized something:  
+But as I told him my story, I realized something:  
+
 **This wasn’t about him.**
 
 ---
@@ -125,23 +124,20 @@ And he didn’t.
 
 I had been waiting for someone to give me hope.  
 But the truth is: **I am the one I’ve been waiting for.**
-
+He simply reflected the part of me I had silenced.
 ---
 
 ## He Was a Mirror
 
 He was a mirror showing me:
-- My unlived potential  
-- The woman I want to become  
-- The values I truly hold  
-- The kind of life I desire  
-- The path I forgot I was on
-- The kind of partner I long for  
-
+- The woman I want to become
+- The values I hold dear
+- The vibrancy I had lost
+- The path I had forgotten
 
 > He **reflected** the part of me I had abandoned.
 
-And now, that part is awake.
+And now, that part of me is awake again.
 
 ---
 
@@ -163,22 +159,25 @@ And for that, I am deeply grateful.
 
 ---
 
-## I Trust the Timing
+## This Was Synchronicity
 
 He left as planned.
 I pondered about this experience.
-It wasn’t about romance.  
-It was about **remembrance**.
+It wasn’t just a coincidence.
+It was synchronicity — a meaningful alignment between my readiness and his presence.
 
-I remember who I am.  
-I remember what I want to become.  
-I remember the path I must walk — not toward someone else, but toward myself.
+Synchronicity isn’t random. It’s a mirror the universe holds up when you’re ready to remember.
+He arrived to reflect my dormant potential and accelerate my healing.
+That’s what synchronicity often does: it nudges us closer to alignment with our true path.
 
-I thought he was my soul mate. 
-And he was gone and i couldn't have him.
+He didn’t stay. He wasn’t meant to.
+Because the point wasn’t to have him.
+It was to reclaim me.
 
+I thought I fell in love with him.
 But it is not the truth.
-The truth is, I fell in love with the ideal image in my mind — and now, it's time to become that ideal myself.
+The truth is, I fell in love with the version of myself — the one I am becoming. 
+And now, it's time to become that ideal self.
 
 ---
 
@@ -205,9 +204,8 @@ Don’t expect anyone to save you.
 Don’t wait for someone to fill your empty parts.  
 Be whole. Be clear. Be aligned.
 
-And when the mirror appears —  
-Look deeply.  
-Then return to your path.
+When someone reflects your light, remember:It’s your light.
+Now it’s your turn to shine.
 
 ---
 
