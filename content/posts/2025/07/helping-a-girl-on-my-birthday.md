@@ -72,12 +72,12 @@ He reached for a pair of scissors — but the chain was too tough to cut.
 
 Then he decided to loosen some screws on the bike frame and try again.  
 This time, it worked. The chain came free.
-![](/images/2025/07/2025072301.png)
+![](/images/2025/07/2025072303.png)
 
 Our hands were covered in black grease.  
 He kindly offered us detergent to wash up.
 
-![](/images/2025/07/2025072302.png)
+![](/images/2025/07/2025072304.png)
 
 While washing my hands, I said,  
 > “I’d like to pay you. You’re running a business and spent time helping us.”
