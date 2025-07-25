@@ -206,22 +206,38 @@ And I told him:
 > “I love you.  
 > I know you’re leaving. I just wanted to say it.  
 > I admired so many things in you —  
-> But now, I carry all those things myself.  
+> But now I carry all of those qualities myself. 
 > I love you. And I’ve fallen in love with myself.”
 
-I asked for a hug.  
+Then I asked him for a hug.  
 He hugged me.  
-And this time — **I hugged him back**.  
+This time, **I hugged him back.**  
 My hands reached higher than his.  
-I felt strong, equal, whole.
+Not as someone being held, but as someone equal — someone whole.
 
 > I felt his strength.  
 > But not his warmth.  
 > And I knew: the feeling was gone.
 
-We looked into each other’s eyes.  
-But unlike before —  
-this time, *he* looked away first.
+We hugged at the gym for 30 seconds.
+Afterward, we looked into each other’s eyes —
+just like we did that day at Starbucks.
+
+But something had changed.
+
+Last time, he looked at me as if he couldn’t look away —
+as if I had captured something in him.
+I was the one who always looked away first.
+
+But this time, I held the gaze.
+Calm. Still. Steady.
+
+And this time, he looked away first.
+
+That shift was subtle, but powerful.
+It marked the end of longing, and the beginning of self-possession.
+No more hoping, no more chasing.
+A quiet return to myself.
 
 ---
 
