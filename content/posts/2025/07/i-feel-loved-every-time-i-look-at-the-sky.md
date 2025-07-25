@@ -95,42 +95,9 @@ I know she was hurt.
 She had begged me to keep trying — to go to marriage counseling, to give her son another chance.  
 But she knew what the returned money meant:
 
-
-Last month, while I visited my parents in China,  
-my in-laws took Amy to their house.
-
-When I returned, I asked gently,  
-“Should we bring Amy home?”
-
-They said no.  
-I think they could feel it — that I no longer held the same tenderness for her.  
-Not because of Amy. But because **I was shifting**.  
-Because I finally needed to **focus on myself**.
-
----
-
-Our last encounter hadn’t gone well.
-
-My mother-in-law had offered $3,000 for a family trip to Shanghai Disneyland.  
-Later, I overheard: they said I was *“too demanding.”*
-
-I felt insulted.  it is them who suggested to fund this trip at the first place.
-So I returned the money — not out of pride, but to **protect my dignity**.
-
-I told my father-in-law:
-
-> “I’ll find a job after my son go to elementary school. I’ll stand on my own.”
-
-And I meant it.
-
-I know she was hurt.  
-She had begged me to keep trying — to go to marriage counseling, to give her son another chance.  
-But she knew what the returned money meant:
-
-
 > It meant: **I want my independence back.**  
-> I had been performing the role of the good mum, the good owner, the good wife, the good daughter-in-law.  
-> But I am awake now.
+I had been performing the role of the good mum, the good owner, the good wife, the good daughter-in-law.  
+But I am awake now.
 
 ---
 
