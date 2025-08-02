@@ -35,6 +35,8 @@ cover:
     relative: false
 ---
 
+On July.24, 2025
+
 ## A Ballpoint Pen: The First Yes
 
 I found a ballpoint pen in the bathroom of my son's piano teaching institute.  

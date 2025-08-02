@@ -1,0 +1,157 @@
+---
+title: "072601"
+date: 2025-07-26T02:23:52+08:00
+lastmod: 2025-07-26T02:23:52+08:00
+author: ["Ariel"]
+keywords: 
+  - awakening journey
+  - writing as healing
+
+categories:
+  - Awakening Diary
+
+tags: 
+  - awakening
+  - writing as healing
+description: "A story of the first real conversation I had with a foreigner, and the emotional awakening it stirred within me."
+weight:
+slug: ""
+draft: false # 是否为草稿
+comments: true # 本页面是否显示评论
+reward: true # 打赏
+mermaid: true #是否开启mermaid
+showToc: true # 显示目录
+TocOpen: true # 自动展开目录
+hidemeta: false # 是否隐藏文章的元信息，如发布日期、作者等
+disableShare: true # 底部不显示分享栏
+showbreadcrumbs: true #顶部显示路径
+cover:
+    image: "" #图片路径例如：posts/tech/123/123.png
+    zoom: # 图片大小，例如填写 50% 表示原图像的一半大小
+    caption: "" #图片底部描述
+    alt: ""
+    relative: false
+---
+
+I was woken up at 2:25 a.m. by my daughter. Every Friday night, my kids ask to sleep beside me. I usually fall right back asleep, but not this time.
+
+Today is his last day at the gym.
+
+I couldn’t stop thinking about our encounter yesterday. There was no warmth in his eyes — not even a trace. If he was a mirror, maybe he was simply reflecting what I was feeling inside.
+
+Every time I said thank you to him, he’d respond with a teasing “Again?”
+Yes, again. I said it many times. Because he helped me heal. Maybe he didn’t know how much.
+
+But is it the fact or just my performing? i question myself.
+
+---
+
+Unable to fall back asleep, I got up and began recalling the story between us — where it began and how it changed me.
+
+I started to practice English online from mid January, speaking to strangers on an app. I wasn’t confident. I had spent over 60 hours in 2 weeks talking to native speakers, and I still struggled with fear.
+
+But in early February — I remember because I checked my old lesson recordings that i mentioned excitedly with my teacher— I spoke to a foreigner in person for the very first time.
+
+It was him.
+
+That morning, the gym was quiet because of the bad weather. Just the two of us were there.
+
+I was training my chest and had placed my small crossbody bag on another machine nearby. Suddenly, I noticed a man quietly move my bag to another machine. He didn’t ask — he just moved it.
+
+That surprised me. Most people would speak first. But he didn’t. He wore a black T-shirt and seemed distant, withdrawn from the world around him. 
+
+Still, I felt I could talk to him.
+Mainly because I wanted to test whether I had the courage to speak to a foreigner in person.
+
+After finishing my set, I saw he was resting too, so I approached him and asked,
+“Hi, where are you from?”
+
+He said he was from Italy. He had switched to this new gym after it opened. We talked for about three minutes — long enough for me to learn he had been weight training for 15 years. No wonder his body was so strong. So defined. I admired his discipline.
+
+I told him I had two kids. He said he did, too. About the same age as my daughter.
+
+After that, we started seeing each other regularly — because both of us liked to train around 6 a.m.
+
+We didn’t talk much, just short greetings.
+Once, he asked me to help him translate something to a Taiwanese man.
+But most days, we just exchanged smiles.
+
+There was something strange about him, though — or maybe about our energy.
+Every time we talked, he came incredibly close. Not an arm’s length — just half. Close enough that I could almost feel his heartbeat.
+
+That is the reason why our conversations were always brief.
+
+About six weeks later, he added me on LINE.
+
+He suggested we could train together or have coffee sometime.
+
+I added him back. Maybe because I admired his muscles. Maybe because I admired his discipline.
+
+After that, he sent me warm messages now and then.
+
+> “You look truly beautiful today.”
+> “I didn't see you today. I miss your beautiful presence in the gym.”
+
+I deleted most of them. But they stayed in my mind.
+
+Every time I got his message, I would't reply.
+
+Until April 14, 2025, he messaged me:
+
+>“Your smile shines like the sun. It always makes me feel happy when I get one.”
+
+I kept that message. I even took a screenshot and sent it to my husband, asking him how I should reply.
+
+He suggested: just say “Thank you.”
+
+So I replied: “Thank you.”
+
+Occasionally, he would invite me to have coffee with him.
+I would respond politely, always with an OK, but I never followed through.
+
+One week later, he messaged again.
+He said he’d be traveling to China, so he wouldn’t be at the gym for a while.
+
+I replied:
+
+>“I’m from China. I often feel lonely here. I understand how it feels to be far from home. That’s why I try to be kind and warm — maybe to help others feel less alone.”
+
+He replied:
+
+>“So it’s because you are kind to me… what a regret, I thought you liked me.”
+
+The week after he returned from China was awkward.
+I felt the atmosphere between us had changed.
+I didn’t know whether I should smile or not when I saw him.
+
+One morning, I saw him from a distance and decided to avoid him. I went to the boxing area to stretch. But he walked over to me anyway. I can’t remember what he said exactly — only that something shifted.
+
+We returned to polite smiles after that.
+
+In May, things softened. He sometime greeted me from afar with a little heart gesture, a wink, or a warm smile. Every time, I felt joy but respond only with a warm smile.
+
+I knew he was interested. I felt I liked him too.
+But we were both married.
+
+So I chose to remain polite. Just gym friends.
+
+Until mid-May, he messaged:
+
+“I really enjoy your beautiful presence in the gym. I’ve seen your progress and I’m happy for you. I’m going back to Italy in July. It would be a great honor to have a cup of coffee together.”
+
+
+Because I kind of feel relieved because he is going to leave.
+And i had a feeling he has some message for me.
+
+This time, I replied:
+
+> “OK, I’d love to.”
+
+Because… something inside me felt relieved.
+
+Maybe it was the knowing that he would be leaving soon —
+and with that, no pressure, no danger of anything going too far.
+
+And deep down, I had a quiet feeling:
+
+**he had a message for me.**
