@@ -32,6 +32,9 @@ cover:
 ---
 # Life Is Filled With Paradox
 
+> What I’ve learned after 40:  
+> The truth lives in the tension between opposites.
+
 The deeper I walk on this path, the more I realize:  
 > **Life doesn’t operate in straight lines — it flows in paradox.**
 
@@ -42,22 +45,22 @@ And through my own experience, I’ve seen how truth often hides in contradictio
 
 ## You Want Abundance? Give First.
 
-I began giving generously in May — encouragement, wisdom, love, time.  
+I began giving generously in May — money,encouragement, kindness, love.  
 Since then, my stock portfolio started rising. Coincidence? Or energy flow?
 
 > **True abundance begins when you stop clutching and start contributing.**
 
 ---
 
-## You Want Self-Discipline? Surrender.
+## You Pick the Shortcut, But It Takes You Longer
 
-I tried waking up at 4:30 a.m. for two months.  
-Eventually, it became draining. My body resisted.
+I married a rich kid to take a shortcut —
+but eventually, the marriage became draining.
 
-So I surrendered and followed my natural rhythm.  
-Suddenly, discipline felt lighter and more sustainable.
+It took me 12 years to realize:
+I need to start over again.
 
-> **Discipline doesn’t always come from control — sometimes, it comes from surrender.**
+> **Shortcuts are traps dressed as opportunities.**
 
 ---
 
@@ -72,7 +75,7 @@ So I made a decision:
 > **Love myself first.**
 
 And when I did, something changed —  
-I began to receive more respect from my family.
+I began to receive more respect from my family. 
 
 > **Self-love is not selfish. It sets the standard for how others treat you.**
 
@@ -92,14 +95,14 @@ It doesn’t pay instantly — but I know it will in the long run.
 My *worst* year in investing was when I obsessed over it.  
 My *best* year? I didn’t open my account and focused on what I loved.
 
-> **Wealth grows in stillness — not noise.**
+> **Wealth grows in waiting — not noise.**
 
 ---
 
 ## You Want Love? Let Go.
 
-I avoided connection with him for months — and he kept reaching out.  
-Later, when I chased, he pulled away.
+I avoided connection with someone for months — and he kept reaching out.  
+Later, when I noticed how good he is and I chased, he pulled away.
 
 > **Love is attracted, not chased. When you become love, you don’t need to seek it.**
 
@@ -110,7 +113,9 @@ Later, when I chased, he pulled away.
 In weight training, every gain starts with micro-tears in your muscles.  
 Pain comes before power.
 
-> **Growth is destruction and reconstruction.**
+No pain, no gain.
+
+> **Pain isn’t the enemy — it’s the entry point to strength.**
 
 ---
 

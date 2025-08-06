@@ -201,13 +201,13 @@ fall in love with the future -without needing any person, thing, or experience t
 
 staying busy keeps unwanted emotions at bay
 
-we use everything that we know in the external world to fefine our identity and to distract us from how we really feel inside.
+we use everything that we know in the external world to define our identity and to distract us from how we really feel inside.
 
-when we never overcome our limitations and coutinue carrying the baggage from the past, it will always catch up with us.
+when we never overcome our limitations and continue carrying the baggage from the past, it will always catch up with us.
 
 when we reach midlife, nothing can completely take away that feeling of emptiness
 
-all of these outer stinuli can easily distract us from those unwanted feeling inside
+all of these outer stimuli can easily distract us from those unwanted feeling inside
 
 we grow more dependent on something outside of us to change us internally.
 
@@ -219,7 +219,7 @@ stop running from the feeling that they've been trying to make go away for so lo
 
 she is honest about who she really is, at all costs, and she is not afraid to lose it all.
 
-you know what? it doesn't matter if i don't make you happy any longer. i am through obsessing aobut how i look or what other people think about me. i am finished living for everyone else. i want to be free from these chains.
+you know what? it doesn't matter if i don't make you happy any longer. i am through obsessing about how i look or what other people think about me. i am finished living for everyone else. i want to be free from these chains.
 
 it takes energy to break the bonds with the people in our lives.
 
@@ -233,20 +233,20 @@ the addict cannot find joy in the simplest things.
 
 behind every addiction, there is some memorized emotion that is driving the behavior.
 
-closing and evern eliminating the gap between who we are and who we present to the world is likely the greatest challenge we are face in life. whether we term this living authentically, conquering ourselves, or having people "get" us or accept us fro who we are, this is something that most of us desire.
+closing and even eliminating the gap between who we are and who we present to the world is likely the greatest challenge we are face in life. whether we term this living authentically, conquering ourselves, or having people "get" us or accept us for who we are, this is something that most of us desire.
 changing -closing the gap- must from within.
 
 energy can't be created or destroyed. it can only be transferred or transformed.
 
 you'll be going into the operating system of the subconscious and bringing all that data and those instructions into your conscious awareness, to turly see where those urges and proclivities that have taken control of your life are located. you become conscious of your unconscious self.
 
-when we close the gap, we release the energy that was once used to produce it. with that energy, we now have the ral material we can use to create a new life.
+when we close the gap, we release the energy that was once used to produce it. with that energy, we now have the raw material we can use to create a new life.
 
 when you liberate the body from the chains of an emotional dependency, you will feel uplifted and inspried.
 
-think about how much of your creative energy is tied up in guilt, judgment, fear or anxiety related to people and experiences from your past. imagine how much good you could do by converting any destructive energy to productive energy. contemplate what you could accomplish if you weren;t focused on survival, but instead worked to create out of positive intentions.
+think about how much of your creative energy is tied up in guilt, judgment, fear or anxiety related to people and experiences from your past. imagine how much good you could do by converting any destructive energy to productive energy. contemplate what you could accomplish if you weren't focused on survival, but instead worked to create out of positive intentions.
 
-meditating will help you peel away some of the layers, remove sone of the masks you've worn. both of those things have blocked the flow of that grand intelligence within you. as a result of shedding those layers, you will become transparent. you are transparent when how you appear is who you are. and when you live your life that way, you will experience a state of gratitude, of elevated joy, which i believe is our natural state of being. as you do this, you begin to move out of the past so that you can set your sights on the future.
+meditating will help you peel away some of the layers, remove some of the masks you've worn. both of those things have blocked the flow of that grand intelligence within you. as a result of shedding those layers, you will become transparent. you are transparent when how you appear is who you are. and when you live your life that way, you will experience a state of gratitude, of elevated joy, which i believe is our natural state of being. as you do this, you begin to move out of the past so that you can set your sights on the future.
 
 you feel happy and whole. you no longer rely on the external world to define you. the elevated emotions you are feeling are unconditional. nobody else and no event can make you feel that way. you are happy and feel inspired just becuase of who you are.
 

@@ -4,18 +4,15 @@ date: 2025-07-24T15:48:07+08:00
 lastmod: 2025-07-24T15:48:07+08:00
 author: ["Ariel"]
 keywords: 
-- awakening
-- synchronicity
-- divine guidance
-- female empowerment
-- spiritual journey
-categories: 
-- awakening
+  - awakening journey
+  - writing as healing
+
+categories:
+  - Awakening Diary
+
 tags: 
-- synchronicity
-- love as mirror
-- spiritual writing
-- feminine power
+  - awakening
+  - writing as healing
 description: "A single pen became the turning point in my spiritual awakening. This is how I received the call to begin writing my truth."
 slug: "a-ballpoint-pen"
 draft: false # 是否为草稿

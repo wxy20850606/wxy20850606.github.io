@@ -115,7 +115,7 @@ These thoughts created stress, perfectionism, and hesitation.
 
 I started replacing them with intentional thoughts:
 - “I’m making great progress.”  
-- “I am walking on the right path, slowly but steady.”  
+- “I am walking on the right path, slowly but steadily.”  
 - “My worth doesn’t depend on anyone else.”  
 - “I should love myself first.”  
 
@@ -307,7 +307,7 @@ Wealth is energy. And I’m aligned with it.
 
 - I no longer create to be seen  
 - I create to express truth, not prove worth  
-- My voice is not performance — it’s presence
+- My voice is not a performance — it’s presence
 
 ---
 
@@ -330,3 +330,5 @@ And in doing so, I’ve come back to myself — stronger, softer, freer.
 > This isn’t the end.  
 > It’s the beginning of the real me.  
 > And she’s just getting started.
+
+Your story can begin today. Change is possible, one step at a time.
