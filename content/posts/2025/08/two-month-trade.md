@@ -108,3 +108,11 @@ The position is now closed for active trading — but the dividends are permanen
 - **80%** — Self (health, purpose, creativity, spiritual growth, friendships, investing)  
 - **15–20%** — Romantic relationship (shared time, emotional presence)  
 - **0–5%** — Unexpected spikes (situational emotions)  
+
+---
+## Ending
+
+In less than three months, I experienced a sense of love and a surge of energy, creativity, and self-knowledge that might have taken years to develop otherwise.
+Now, the chapter closes not with regret, but with gratitude.
+Like a rare market event that leaves a lasting mark on an investor’s skill, this connection shaped me — and now it belongs to my history, not my future.
+The dividends remain, and I walk forward lighter, stronger, and more focused on my core asset — myself.
