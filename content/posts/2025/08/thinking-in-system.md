@@ -29,8 +29,6 @@ cover:
     relative: false
 ---
 
-# Build a Habit System for 1% Growth Every Day
-
 We’ve all heard it:  
 > “Don’t rely on motivation — build a system.”
 
