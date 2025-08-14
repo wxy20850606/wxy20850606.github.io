@@ -184,7 +184,7 @@ When I operate here, I move with clarity and confidence. Stepping outside risks 
 ---
 
 **Expanding Safely**  
-1. **Anchor in Core Habits** — Reading, writing, training, meditating, investing. These give you physical, mental, and emotional stability.  
+1. **Anchor in Core Habits** — Reading, writing, training, meditating, investing. These give myself physical, mental, and emotional stability.  
 2. **Choose Adjacent Fields** — From investing → business history. From writing → public speaking. From health → nutrition science.  
 3. **Learn → Teach → Integrate** — Study, share, then apply my insights.  
 4. **Stack Skills** — Combine abilities into something hard to copy. Example: investing + storytelling + emotional depth = “investing as life philosophy.”  
