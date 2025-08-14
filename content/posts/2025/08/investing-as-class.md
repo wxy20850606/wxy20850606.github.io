@@ -141,7 +141,7 @@ The same applies to time, focus, and energy. Every “yes” to one thing is a �
 
 **In Marriage**  
 Staying in a marriage with cold conflict drains years into emotional suppression.  
-Leaving to build independence may bring short-term discomfort, but offers long-term freedom, self-respect, and alignment with your values.
+Leaving to build independence may bring short-term discomfort, but offers long-term freedom, self-respect, and alignment with my values.
 
 ---
 
@@ -165,7 +165,8 @@ This simple rule protects your time and energy. It prevents overcommitment out o
 **In Investing**  
 I invest in companies whose products I use and understand.  
 I avoid sectors like biotech where I lack expertise.  
-The result: higher conviction and lower stress during volatility.
+I’m also gradually expanding my Circle of Competence by allocating 10–20% of my portfolio to high-growth stocks — but only when a truly great opportunity appears — while also streamlining my holdings from over 20 positions down to 6–8 high-conviction ones.
+This lets me benefit from exceptional opportunities without diluting my focus.
 
 ---
 
@@ -185,7 +186,7 @@ When I operate here, I move with clarity and confidence. Stepping outside risks 
 **Expanding Safely**  
 1. **Anchor in Core Habits** — Reading, writing, training, meditating, investing. These give you physical, mental, and emotional stability.  
 2. **Choose Adjacent Fields** — From investing → business history. From writing → public speaking. From health → nutrition science.  
-3. **Learn → Teach → Integrate** — Study, share, then apply your insights.  
+3. **Learn → Teach → Integrate** — Study, share, then apply my insights.  
 4. **Stack Skills** — Combine abilities into something hard to copy. Example: investing + storytelling + emotional depth = “investing as life philosophy.”  
 5. **Balance Slow & Fast Lanes** — Deep skills that take years alongside lighter, short-term experiments.
 
