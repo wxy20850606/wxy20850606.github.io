@@ -42,7 +42,7 @@ cover:
     relative: false
 ---
 
-# The 3 Mental Models That Cover 90% of Life’s Best Decisions
+# The 3 Mental Models That Cover 80% of Life’s Best Decisions
 
 Life is, at its core, about decision-making.  
 Every day we make choices — big and small — and over time, the quality of those choices shapes the quality of our lives.
@@ -52,7 +52,7 @@ The same thinking I use to decide *Buy, Hold, or Sell?* is the thinking I use to
 
 The beauty of investing is that it demands constant decisions and gives immediate feedback in the form of gains or losses. Over time, it becomes a **thinking gym** — strengthening not just what you know, but how you think.
 
-From my years of investing, three mental models stand out as powerful enough to guide more than **90% of good decision-making** in both life and the market:
+From my years of investing, three mental models stand out as powerful enough to guide more than **90% of good decision-making** in the market:
 
 1. **Opportunity Cost** – Choose the best alternative, not just a good one.  
 2. **Circle of Competence** – Operate where your knowledge is deepest.  
@@ -197,7 +197,7 @@ Operating inside your circle lets you make decisions with conviction. Expanding 
 
 ---
 
-## Why These 3 Cover 90%+ of Decision-Making
+## Why These 3 Cover 90% of Investing — and 80%+ of Life
 
 1. **Opportunity Cost** — Avoids poor allocation entirely.  
 2. **Circle of Competence** — Prevents unforced errors.  
@@ -207,8 +207,10 @@ Operating inside your circle lets you make decisions with conviction. Expanding 
 **Circle of Competence** ensures you *can* win.  
 **Compounding Effect** ensures you *win big* over time.
 
-Together, they eliminate most high-cost mistakes and multiply the impact of every good decision. In investing and in life, that’s how you win — and keep winning.
+Together, they eliminate most high-cost mistakes and multiply the impact of every good decision — which is why they can cover about 90% of sound investing decisions.
 
+In life:
+If you truly live by these three principles, they can realistically guide 80%+ of good decision-making. The remaining margin comes from domain-specific wisdom, emotional intelligence, and adaptability.
 ---
 
 If you treat life like investing, these three models become your **unshakable framework** — keeping you focused, avoiding unnecessary risk, and turning small daily wins into extraordinary results.
