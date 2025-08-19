@@ -4,14 +4,23 @@ date: 2025-08-19T15:49:06+08:00
 lastmod: 2025-08-19T15:49:06+08:00
 author: ["Ariel"]
 keywords: 
-- 
+  - life architecture 
+  - personal growth
+  - self-improvement
+  - habits
+  - systems thinking
 categories: # 没有分类界面可以不填写
-- 
+  - Personal Growth
+  - Life Design
 tags: # 标签
-- 
-description: ""
+  - life architect
+  - manifesto
+  - habits
+  - energy
+  - systems thinking 
+description: "My Life Architect System v.1.0 — a personal operating system designed for wholeness, sovereignty, and growth across body, mind, spirit, and wealth."
 weight:
-slug: ""
+slug: "life-architect-system-v1"
 draft: false # 是否为草稿
 comments: true # 本页面是否显示评论
 reward: true # 打赏
