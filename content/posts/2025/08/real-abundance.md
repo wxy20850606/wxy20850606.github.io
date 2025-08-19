@@ -135,7 +135,7 @@ Instead, he spends his days in a job he doesn’t enjoy, and his nights escaping
 
 On paper, he has property. But the assets are controlled by his parents.  
 
-But what should have been a blessing has become a chain.  
+What should have been a blessing now has become a chain.  
 - A chain that lets his parents keep making decisions for him.
 - A chain of comfort that keeps him from discovering his true potential.  
 

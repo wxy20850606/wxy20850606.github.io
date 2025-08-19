@@ -7,31 +7,25 @@ keywords:
 - 
 disableShare: true # 底部不显示分享栏
 ---
-# 關於我 
+About Me
 
-我是一個在家帶小孩的媽媽，不喜歡逛街，不喜歡追劇，不喜歡玩社群平台，所以平常孩子上學後無聊的時候，就學點東西，充實下生活，找點成就感。
+I’m Ariel — a writer, creator, and lifelong learner who is building a life of growth, freedom, and authenticity.
 
-2021年投資美股學了一些會計統計/投資估值課程。
+I began this journey as a stay-at-home mom, searching for more meaning and fulfillment beyond daily routines. What started as small steps — reading, investing, and learning online — gradually grew into a whole new way of living.
 
-2022年為了程式投資學的Python後，覺得蠻好玩，就陸續學了CS50,From Nand to Tetris,CS61A,CS61B。
+Investing taught me patience, discipline, and the power of compounding. Computer science showed me how to think in systems and build from first principles. Fitness and early mornings gave me energy, confidence, and presence. Writing and YouTube became the spaces where I share my reflections, stories, and transformation.
 
-2024年突然良心發現過去兩年有時自己學習太忘我，沒有好好顧小孩，於是決定好好研究育兒，每天12:30半帶五歲的弟弟和8歲多的姐姐回家半自學。
+I believe growth is not about perfection but about becoming more conscious, intentional, and aligned every day. My blog and channel are places where I document this unfolding journey — of turning challenges into strength, emotions into wisdom, and life into art.
 
-2025年在native camp上學英文，去健身房鍛鍊身體，拍youtube視頻。
-
-Keep improving.
+Keep improving. Keep awakening. Keep creating.
 
 
-# 關於本部落格 
+About This Blog
 
-本部落格原網址為fulltimemammy.com。
+This blog was originally hosted at fulltimemammy.com.
 
-2024/2/17因為wordpress的markdown插件不好用，改為Hugo搬遷至Github Pages並使用免費域名。
+On February 17, 2024, I migrated it to Hugo on GitHub Pages because WordPress plugins for Markdown didn’t fit my needs, and I used a free domain at the time. The theme is PaperMod.
 
-主題為PaperMod。主要代碼參考(copy)自下面兩個網站：
-- https://www.sulvblog.cn
-- https://www.lvbibir.cn
+On June 4, 2025, I gave up the free domain (wxy20850606.github.io) and moved to my own domain: everydaydiva.blog.
 
-2025/6/4 放棄免費域名wxy20850606.github.io，更新域名為everydaydiva.blog.
-
-部落格主要紀錄個人所思所想，幫助自己成長，也希望我的真誠分享可以幫助別人。
+Here, I record my thoughts and reflections — as a way to grow, document my journey, and share sincerely. My hope is that my writing not only supports my own transformation but also inspires and helps others along the way.

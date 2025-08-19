@@ -1,5 +1,5 @@
 baseURL: https://everydaydiva.blog  #绑定的域名
-languageCode: zh # en-us
+languageCode: en-us
 title: Everydaydiva's Blog
 theme: PaperMod  # 主题名字，和themes文件夹下的一致
 
@@ -32,19 +32,19 @@ defaultContentLanguageInSubdir: false
 menu:
   main:
     - identifier: search
-      name: 🔍 搜索
+      name: 🔍 Search
       url: search
       weight: 1
     - identifier: posts
-      name: 文章
+      name: Posts
       url: posts
       weight: 3
     - identifier: tags
-      name: 標籤
+      name: Tags
       url: tags
       weight: 15
     - identifier: archives
-      name: 時間軸
+      name: Archives
       url: archives/
       weight: 20
     - identifier: about
