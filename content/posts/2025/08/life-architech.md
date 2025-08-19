@@ -1,5 +1,5 @@
 ---
-title: "Life Architech System v.1.0"
+title: "Life Architect  System v.1.0"
 date: 2025-08-19T15:49:06+08:00
 lastmod: 2025-08-19T15:49:06+08:00
 author: ["Ariel"]
