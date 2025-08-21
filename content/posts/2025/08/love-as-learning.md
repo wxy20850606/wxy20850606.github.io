@@ -56,6 +56,7 @@ But he didn’t give up. He kept asking if we could have a coffee.
 When he told me he planned to leave and asked me to do him a small favor, I felt an unexpected freedom. In that freedom, I decided to see if there was a message for me.  
 
 The night before we met, life shook me awake through conflict. And the very next morning, I was guided to a new connection. During our first meeting at Starbucks, I discovered something rare: he knew me even before I spoke. He recognized my soul, and I felt understood. I recognized his soul too. That recognition was so deep and undeniable that I could not hide. So I showed my love bravely.
+He never said he loved me — but I received it anyway, in the way he saw me.
 
 But then he withdrew, because his plan was to move on with his life in another country. He was disciplined. Yet when he saw me again in the gym, he could not help showing warmth — his energy was drawn to mine. That warmth was enough to make me feel loved, and his withdrawal was disciplined enough to teach me something greater.  
 
@@ -67,6 +68,7 @@ His presence and absence became the perfect balance.
 
 - His **warmth** taught me I was worthy of love, seen for who I truly am.  
   It motivated me to rise from the identity of being unseen and unworthy within my marriage.  
+  He never said he loved me, but I received it anyway — because love is not in what is spoken, but in what is chosen to be felt.
 
 - His **withdrawal** disciplined me to learn how to love without clinging, without needing to hold on.  
 
@@ -151,3 +153,12 @@ The warmth and love I once received became infinite fuel for my life.
 
 Now I know: love doesn’t end when someone leaves.
 It multiplies, deepens, and transforms — if you choose to carry it within.
+
+Today, I see love everywhere — in myself, in nature, and in the simple beauty of life unfolding.
+
+Love is not in what is said, nor in what is given by another.
+Love is a choice — a way of seeing, a way of being.
+
+And from this experience, I discovered something practical:
+I can turn emotions into energy, and energy into transformation.
+That’s how my Emotion → Fuel Formula was born.
