@@ -116,7 +116,7 @@ Because **emotion is energy in motion — and I can direct it into fuel for my l
 
 ---
 
-## 🌱 My Emotion → Fuel Formula  
+## My Emotion → Fuel Formula  
 
 ### Step 1: Recognize (Awareness)  
 Pause and name the emotion as it arises.  
@@ -142,7 +142,7 @@ Example: write a reflection, train harder, record a video, or simply walk with b
 
 ---
 
-### 🌿 Formula in One Line  
+### Formula in One Line  
 **Recognize → Accept → Direct → Integrate**  
 = Emotion becomes energy, energy becomes fuel.  
 
