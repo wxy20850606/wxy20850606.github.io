@@ -61,16 +61,16 @@ Instead of being swallowed, I decided to **observe myself handling the pressure 
 
 ---
 
-## 1. Awareness & Observation
+## 1. Observation
 
 The first step is simply to notice. I said to myself: *“This is pressure.”*  
 Then I switched into the observer’s seat — watching how I was handling it without being consumed by it.  
 
 I observed the body signals: my thoughts scattering, my inability to focus, my mind wandering in all directions. This wandering was not random — it was pulled forward into imagined futures, outcomes I could not yet control.  
 
-As I stayed with awareness, I noticed something deeper: one pressure often triggered another. The moment I worried about one outcome, my mind quickly called up a chain of additional worries. They multiplied like echoes in a cave.  
+As I stayed with observation, I noticed something deeper: one pressure often triggered another. The moment I worried about one outcome, my mind quickly called up a chain of additional worries. They multiplied like echoes in a cave.  
 
-Awareness is not about stopping these echoes; it is about seeing them clearly. By observing without judgment, I broke the cycle. The act of watching was already a form of coping.  
+Observation is not about stopping these echoes; it is about seeing them clearly. By observing without judgment, I broke the cycle. The act of watching was already a form of coping.  
 
 ---
 
@@ -78,7 +78,7 @@ Awareness is not about stopping these echoes; it is about seeing them clearly. B
 
 I kept observing myself, noticing how I changed the time span.  
 
-When pressure arises, it often comes from urgency — the feeling that everything must happen *now* or I will fail. My mind raced ahead, setting strict deadlines, demanding proof of success. This narrow focus made the present moment feel unbearable.  
+When pressure arises, it often comes from urgency — the feeling that everything must happen *now* or I will fail. This narrow focus made the present moment feel unbearable.  
 
 So I expanded the frame of time. I asked myself:  
 
@@ -123,13 +123,13 @@ In that moment, I realized that pressure is not the enemy — it is a disguised 
 
 The lesson was clear: my path is not about control, but about alignment. Pressure reminded me that when I try to control outcomes, I suffer. But when I return to alignment — to writing, living, and documenting truthfully — the burden lifts and I am free.  
 
-So pressure itself became part of my training. Instead of resisting it, I learned from it. Every wave of pressure strengthened my ability to remain steady and rooted in who I am. And every time I successfully handled it, my resilience grew stronger. Each cycle of awareness and response left me more capable than before, proving that pressure is not only survivable, but also a tool for transformation.  
+So pressure itself became part of my training. Instead of resisting it, I learned from it. Every wave of pressure strengthened my ability to remain steady and rooted in who I am. And every time I successfully handled it, my resilience grew stronger. Each cycle of observation and response left me more capable than before, proving that pressure is not only survivable, but also a tool for transformation.  
 
 ---
 
 ## 5. Move to the Next Step
 
-Awareness and lessons are not enough without action. To complete the cycle, I must take action.  
+Observation and lessons are not enough without action. To complete the cycle, I must take action.  
 
 So I came back to the simplest next step:  
 - Writing this reflection.  
@@ -137,10 +137,9 @@ So I came back to the simplest next step:
 
 By doing this, I transformed pressure into contribution. Each step forward dissolved fear and built momentum. The mountain shrank into a small stone I could walk past.  
 
-I could have chosen to write about other topics today, but I felt this experience itself was worth capturing. Writing it down made the invisible visible — it turned a passing struggle into a concrete documetation.  
+I could have chosen to write about other topics today, but I felt this experience itself was worth capturing. Writing it down made the invisible visible — it turned a passing struggle into concrete documentation.  
 
 Action, no matter how small, is what reclaims energy and restores flow. This is how pressure is not only managed, but converted into growth.  
-
 
 ---
 
@@ -148,17 +147,16 @@ Action, no matter how small, is what reclaims energy and restores flow. This is 
 
 **Observation → Long-term Thinking → Surrender → Lesson → Action**  
 
-This is the cycle I follow whenever pressure arises.  
+This is the cycle I see myself follow when pressure arises.  
 - **Observation** keeps me from being consumed.  
 - **Long-term thinking** dissolves urgency.  
 - **Surrender** releases my grip on outcome.  
 - **Lesson** transforms pressure into a teacher.  
-- **Action** turns insight into momentum.  
+- **Action** return to the path of compounding.  
 
 Together, these steps form a living practice of adjustment and alignment in real time.  
 
 If I keep training myself in this way, every wave of pressure will not weaken me but shape me. In 5 years, I will become **anti-fragile** — someone who doesn’t merely endure pressure, but grows stronger because of it.  
-
 
 ---
 
@@ -167,4 +165,4 @@ If I keep training myself in this way, every wave of pressure will not weaken me
 My documentation itself is my legacy.  
 It is my contribution to the world: to live truthfully, to observe myself in real time, and to leave behind a record of real-life case studies.  
 
-Every reflection becomes part of a larger archive — proof that growth, awareness, and transformation are possible in everyday life. 
+Every reflection becomes part of a larger archive — proof that growth, awareness, and transformation are possible in everyday life.  
