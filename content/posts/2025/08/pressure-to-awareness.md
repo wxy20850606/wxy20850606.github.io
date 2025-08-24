@@ -1,7 +1,7 @@
 ---
 title: "handel pressure in real time"
-date: 2025-08-22T16:34:59+08:00
-lastmod: 2025-08-22T16:34:59+08:00
+date: 2025-08-22T17:35:19+08:00
+lastmod: 2025-08-22T17:35:19+08:00
 author: ["Ariel"]
 keywords: 
 - pressure
@@ -26,8 +26,8 @@ tags:
 
 description: "A real-time reflection on how I observed myself handling pressure, turned it into a lesson, and transformed it into documentation — my living legacy."
 
-weight: 0
-slug: "how-i-handled-pressure-in-real-time"
+weight: 
+slug: "How-I-Handled-Pressure-In-Real-Time"
 
 draft: false # 是否为草稿
 comments: true # 本页面是否显示评论

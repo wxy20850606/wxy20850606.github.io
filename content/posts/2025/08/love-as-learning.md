@@ -25,7 +25,7 @@ tags:
 
 description: "A true story of how a brief but pure connection sparked my awakening, turning sadness into fuel and love into lifelong transformation."
 
-weight: 1
+weight: 
 slug: "love-changed-my-life"
 
 draft: false # 是否为草稿

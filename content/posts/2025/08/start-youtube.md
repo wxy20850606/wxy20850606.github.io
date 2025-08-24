@@ -1,7 +1,7 @@
 ---
 title: "Start YouTube: My Life Architect Journey"
-date: 2025-08-15T16:08:52+08:00
-lastmod: 2025-08-15T16:08:52+08:00
+date: 2025-08-20T16:08:52+08:00
+lastmod: 2025-08-20T16:08:52+08:00
 author: ["Ariel"]
 keywords: 
 - YouTube
@@ -16,7 +16,7 @@ tags:
 - documenting
 - habits
 description: "Why I start YouTube: it is my public learning lab, my way to inspire others, part of my Life Architect System, and the potential engine that drives my growth."
-weight: 1
+weight: 
 slug: "start-youtube-post-4"
 draft: false # 是否为草稿
 comments: true # 本页面是否显示评论

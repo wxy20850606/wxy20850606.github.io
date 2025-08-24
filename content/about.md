@@ -24,8 +24,8 @@ About This Blog
 
 This blog was originally hosted at fulltimemammy.com.
 
-On February 17, 2024, I migrated it to Hugo on GitHub Pages because WordPress plugins for Markdown didn’t fit my needs, and I used a free domain at the time. The theme is PaperMod.
+On February 17, 2024, I migrated it to Hugo on GitHub Pages because WordPress plugins for Markdown didn’t fit my needs, and I used a free domain at the time. 
 
-On June 4, 2025, I gave up the free domain (wxy20850606.github.io) and moved to my own domain: everydaydiva.blog.
+On June 4, 2025, I moved to my own domain: everydaydiva.blog.
 
 Here, I record my thoughts and reflections — as a way to grow, document my journey, and share sincerely. My hope is that my writing not only supports my own transformation but also inspires and helps others along the way.
