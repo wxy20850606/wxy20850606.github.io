@@ -1,18 +1,38 @@
 ---
-title: "My 7 Productivity Level"
+title: "My 7 Levels of Productivity"
 date: 2025-08-24T18:35:19+08:00
 lastmod: 2025-08-24T18:35:19+08:00
 author: ["Ariel"]
-keywords: 
-- 
+keywords:  
+- levels of productivity  
+- productivity system  
+- personal development  
+- self discipline  
+- consistency  
+- creator’s mode  
+- productivity paradox  
+- spiritual productivity  
+- life architect  
+- sustainable productivity  
 categories: # 没有分类界面可以不填写
-- 
+- Productivity  
+- Personal Growth  
+- Life Architecture  
 tags: # 标签
-- 
-description: ""
-weight:
-slug: ""
-draft: false # 是否为草稿
+- 7 Levels of Productivity  
+- Habits  
+- Mindset  
+- Systems  
+- Energy  
+- Identity  
+- Vision  
+- Spirituality  
+- Good vs Toxic Productivity  
+- Paradox of Productivity  
+description: "A personal framework of the 7 Levels of Productivity — from task-level discipline to spiritual-level flow — with examples from weight training and writing, the paradox of effort and effortlessness, and the difference between good and toxic productivity."  
+weight:  
+slug: "7-levels-of-productivity"
+draft: false  是否为草稿
 comments: true # 本页面是否显示评论
 reward: true # 打赏
 mermaid: true #是否开启mermaid

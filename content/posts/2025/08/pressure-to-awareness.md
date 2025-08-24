@@ -1,5 +1,5 @@
 ---
-title: "handel pressure in real time"
+title: "Handel Pressure In Real Time"
 date: 2025-08-22T17:35:19+08:00
 lastmod: 2025-08-22T17:35:19+08:00
 author: ["Ariel"]
