@@ -50,11 +50,13 @@ cover:
 ---
 # 7 Levels of Productivity  
 
-In the past, I always admired people who could do things consistently.  
-But now, I find myself getting better and better at it too.  
+In the past, I always admired people who could stay consistent.  
+But now, I realize I’m getting better and better at it too.  
 
-I used to have weeks or even months of unproductive periods.  
-Now, I feel I no longer need willpower to push myself.  
+I used to fall into weeks — even months — of unproductive periods.  
+For example, I didn’t write for almost half a year in 2024, when I was affected by the election.  
+
+Now, I feel I no longer need willpower to push myself. Consistency is becoming natural.  
 
 To explain, I’ll use two of my own habits — **weight training (physical)** and **writing (mental)** — to show how I’ve grown through the **7 Levels of Productivity** I’ve discovered.  
 
@@ -158,7 +160,7 @@ To explain, I’ll use two of my own habits — **weight training (physical)** a
 
 ---
 
-# 🌱 Summary of the 7 Levels
+#  Summary of the 7 Levels
 
 1. **Task-level** → You check boxes.  
 2. **Mindset-level** → You see differently, effort becomes fuel.  
