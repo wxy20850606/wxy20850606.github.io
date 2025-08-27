@@ -27,7 +27,7 @@ tags: # 标签
 - recognition
 - wholeness
 - self-growth
-description: "How a gift of Iyengar’s *Tree of Yoga* became the seed of my awakening — reconnecting me with my old self, uniting body–mind–soul into 5D awareness, and revealing love’s paradox of recognition and space."
+description: "How a gift of Iyengar’s Tree of Yoga became the seed of my awakening — reconnecting me with my old self, uniting body–mind–soul into 5D awareness, and revealing love’s paradox of recognition and space."
 
 weight: 
 
