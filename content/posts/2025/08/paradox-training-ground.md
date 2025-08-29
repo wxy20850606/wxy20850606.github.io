@@ -48,7 +48,7 @@ but light and shadow to be held.
 Integrating both sides of paradox creates wholeness and alignment.
 
 Paradox awakens depth
-and unlocks the fundamental truths of the universe.
+and reveals the hidden patterns of life.
 
 Embracing paradox turns life into art.
 
@@ -96,9 +96,9 @@ Dream paradox: Whether dreams come true doesn’t matter — holding them alread
 
 Pain paradox: Pain and longing, instead of destroying me, become fuel for awakening and creation.
 
-Ordinary/Extraordinary paradox: As a stay-at-home mom, I live an “ordinary” life that holds extraordinary awakening.
+Ordinary/Extraordinary paradox: In the ordinariness of daily life, I discover extraordinary awakening.
 
-Anger/Smile paradox: I get mad with my kids, but I cannot help expressing my angry with a warm smile. Strength is in transformation, not suppression.
+Anger/Smile paradox: I get mad with my kids, but I cannot help expressing my anger with a warm smile. Strength is in transformation, not suppression.
 
 Learning paradox: The more I give by sharing, the more I learn myself.
 
@@ -143,7 +143,6 @@ I hold strength (weight training) and sensitivity.
 I can love deeply, yet give freedom.
 I carry depth, yet also lightness — laughing at simple beauty.
 I have discipline, yet move with the flow.
-
 
 I live in paradox.
 Not as confusion, but as clarity.
