@@ -34,7 +34,7 @@ This september, people tell me I look like I’m in my 20s.
 No surgery. No shortcuts. Just habits, energy, and clarity that changed my body — and even my face. Let me show you how.”
 
 This was me in September last year: tired, older, like someone around 50 instead of 40. That’s when I finally realized how much I had overlooked myself. And I decided: it’s time to invest in me.
-![Alt text](/images/2025/2025090601.jpg)
+![Alt text](/images/2025/2025090601.png)
 I tried one Thermage treatment in September (radiofrequency tightening) and one PicoSure laser in November. By March, I looked better — but still close to my chronological age.
 
 From March on, I shifted everything. I changed my mindset. I changed my focus — from only my kids to also myself. I chose to take good care of me.
@@ -50,7 +50,7 @@ I believe skin treatments account for only about 10% of anti-aging.
 They help — but just a little.
 
 My Thermage treatment improved skin texture. My laser treatment removed some dark spots. But the effect was limited, short-lived and only at the surface level.
-![Alt text](/images/2025/2025090602.jpg)
+![Alt text](/images/2025/2025090602.png)
 And let’s be honest — they are expensive. I could do them because I know how to invest. But without the foundation of a healthy lifestyle, they are just a waste of money.
 
 The truth is: when you combine treatments with lifestyle changes, you multiply the results.
@@ -102,7 +102,7 @@ I discovered a truth: loving gives more energy than being loved.
 
 Love is not limited to a person. It is an act of giving, a sign of inner abundance. And when love flows out of inner abundance, it doesn’t drain you — it creates even more energy.
 
-5. writing.
+5. Writing.
 As I changed my body gradually, I realized it was time to also rewire my brain.
 
 Alongside meditation, I began writing every day starting in July.
@@ -116,7 +116,7 @@ Each time I finished a piece, I cleared away a little more doubt, and I gained a
 ## sumer up
 Treatments gave me maybe 10% improvement.
 But these five habits gave me 90%.
-![Alt text](/images/2025/2025090603.jpg)
+![Alt text](/images/2025/2025090603.png)
 Together, they didn’t just change my face —
 they transformed my body, my energy, and my soul aliveness.
 
