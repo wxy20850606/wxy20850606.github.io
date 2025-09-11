@@ -1,14 +1,26 @@
 ---
 title: "Energy Portfolio"
-date: 2025-09-10T05:07:18+08:00
-lastmod: 2025-09-10T05:07:18+08:00
+date: 2025-09-11T05:07:18+08:00
+lastmod: 2025-09-11T05:07:18+08:00
 author: ["Ariel"]
 keywords: 
-- 
-categories: # 没有分类界面可以不填写
-- 
-tags: # 标签
-- 
+- energy leaks
+- energy economy
+- personal growth
+- transformation
+- marriage
+- mother
+- discipline
+- investing
+- 50% YTD
+- creativity
+- awakening
+categories: 
+- Energy & Discipline
+- Wealth & Investing
+
+tags: 
+- Energy Economy
 description: ""
 weight:
 slug: ""
