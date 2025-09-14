@@ -1,5 +1,5 @@
 ---
-title: "Manage as Decision Maker"
+title: "Energy Is the Decision-Maker"
 date: 2025-09-13T04:21:27+08:00
 lastmod: 2025-09-13T04:21:27+08:00
 author: ["Ariel"]
