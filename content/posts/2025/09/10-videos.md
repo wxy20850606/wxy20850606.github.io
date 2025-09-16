@@ -93,10 +93,16 @@ Celebrating small wins keeps me motivated.
 
 ## 5. Create With Passion  
 Make videos you actually care about.  
-I share my awakening journey — even if no one watches, it still gives me energy.  
+I share my awakening journey — and even if no one watches, it still gives me energy.  
 
-Because creating itself helps me rewire my brain.  
-Even if my videos don’t help others yet, they’re already transforming me.  
+Because creating itself rewires my brain.  
+Even if my videos don’t help others yet, they are already transforming me.  
+
+I even feel motivated watching my own videos.  
+Every upload is more than content — it’s a mirror of my growth.  
+Watching them is like reviewing my progress journal in motion.  
+
+And that gives me energy to keep going.  
 
 ---
 
