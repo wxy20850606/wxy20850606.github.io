@@ -1,5 +1,5 @@
 ---
-title: "No Suger More Productivity"
+title: "Once You Master This, Productivity Becomes Flow"
 date: 2025-09-18T04:59:13+08:00
 lastmod: 2025-09-18T04:59:13+08:00
 author: ["Ariel"]
@@ -43,29 +43,36 @@ cover:
 *(Thumbnail: “Root of Productivity”)*  
 
 ---
-
 ## 🎬 Hook (0:00–0:30)  
-Most people think productivity is about planners, apps, or waking up earlier.  
-But let me tell you something I’ve discovered:  
+This year my portfolio is up over 50%.  
+I dropped my body fat from 28% to 20%.  
+And I wake up at 3 AM without an alarm.  
+
+I know it sounds extreme — but here’s the truth:  
+Most people think productivity comes from planners, apps, or waking up earlier.  
+But that’s only surface level.  
+
 The *root of productivity* isn’t about time.  
 It’s about mastering this one thing…  
 **your emotions.**  
 
 ---
-
 ## 🎬 Story (0:30–2:00)  
 For years, I struggled with consistency.  
-I had motivation, I had goals — but whenever my emotions took over, I would lose my energy.  
+I had motivation, I had goals — but whenever my emotions took over, I would lose my energy and usually it took me more than one week to regain it.  
+
 Fear of the future.  
 Overthinking.  
-Longing.  
-Disappointment.  
+Low self-worth.  
+Thinking I am a failure.  
+Fear.  
 
 All of those invisible feelings drained me more than lack of time ever did.  
 
 But then, something shifted.  
 
-This year, I faced the greatest emotional test of my life — falling deeply in love, facing silence, and learning not to collapse.  
+This year, I faced the greatest emotional test of my life — falling deeply in love, facing silence, and learning not to collapse but instead, use it to rise and transform.  
+
 I learned how to hold love without losing myself.  
 And in that process, I passed what I call the **emotional gate.**  
 
@@ -75,11 +82,13 @@ And in that process, I passed what I call the **emotional gate.**
 Once I passed that gate, something magical happened:  
 
 - I started waking up at 3 AM full of energy.  
-- I could record 7 videos a week without burnout.  
-- I stopped leaking energy through emotions — and suddenly, productivity became flow.  
+- I could record 5–7 videos a week without burnout while still walking, trainning, taking care of kids.  
+- I trimmed my relationships and stopped leaking energy through emotions.  
 
-It wasn’t about discipline anymore.  
-It was about freedom.  
+And suddenly, productivity became flow.  
+
+It wasn’t about forcing discipline anymore.  
+I was being carried forward by my energy.  
 
 ---
 
@@ -90,17 +99,17 @@ Here’s the truth:
 - Productivity is **energy management.**  
 And emotions are the biggest leak in your system.  
 
-When you master your emotions — when you stop collapsing from fear, rejection, or longing — your energy stabilizes.  
-And when energy flows, productivity stops being a struggle.  
-It becomes natural. Effortless.  
+When you master your emotions — when you stop collapsing from fear, rejection, or self-doubt — your energy stabilizes. 
+And your clarity, focus, motivation will return and grow.
+With them, productivity becomes natural. Effortless.  
 
 ---
 
 ## 🎬 Practical Takeaway (4:00–4:30)  
-So if you want to be more productive, don’t just download another app.  
+So if you want to be more productive, don’t just try to push yourself get up early. 
 Ask yourself:  
 👉 *Where am I leaking energy emotionally?*  
-Close that leak, and you’ll unlock flow.  
+Notice it. Work on closing that leak and you’ll unlock flow.  
 
 ---
 
@@ -110,3 +119,9 @@ It feels like breathing.
 It feels like flow.  
 
 ✨ And that’s the root of productivity.  
+
+---
+
+## 🎬 Call to Action  
+If this resonates with you, subscribe — because I’m going to share much more about **energy and productivity**, and how mastering both can transform every area of your life.  
+Join me on this journey. Let’s grow together
