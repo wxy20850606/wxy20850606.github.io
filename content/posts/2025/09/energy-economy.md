@@ -91,6 +91,7 @@ In the Energy Economy:
 
 ## Core Principles  
 
+- **From scarcity to abundance** → Scarcity leaks. Abundance multiplies.
 - **Energy precedes everything** → Money and time only gain value when fueled by energy.  
 - **Giving multiplies energy** → Love, awareness, and discipline don’t drain you — they expand you.  
 - **Guard against leaks** → Energy drains faster through unresolved emotions, toxic environments, or misaligned relationships than through hard work.  
@@ -153,7 +154,7 @@ But this mindset often ends in burnout, emptiness, and the illusion of progress.
 The **Energy Economy** flips this logic:  
 
 - It’s not about **willpower and force** → decisions made on energy create alignment, and discipline becomes effortless.  
-- It’s not about doing more with less time → it’s about having more *energy* so what you do has real impact.  
+- It’s not about doing more with less time → it’s about having more *energy* so what you are more likely to create in flow. 
 - It’s not about squeezing output from exhaustion → it’s about generating *sustainable energy* that makes action natural.  
 - It’s not about chasing money directly → it’s about letting money flow as a by-product of aligned energy.  
 - It’s not about proving your worth by being busy → it’s about *directing energy* so your work feels meaningful.  

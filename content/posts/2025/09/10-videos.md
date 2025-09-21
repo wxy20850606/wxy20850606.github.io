@@ -46,100 +46,115 @@ cover:
 ---
 # No Views? How I Stay Consistent on YouTube
 
-About **90% of new YouTube channels quit before uploading 10 videos.**  
-Not because they can’t do it… but because they lose motivation when no one is watching.  
+About 90% of new YouTube channels quit before uploading 10 videos.
+But I uploaded 10 videos in just 18 days — and now I’m challenging myself to make one video every day.
 
-I just crossed my first 10 videos, but instead of quitting, I’m challenging myself to make **one video every day**.  
-Here’s how I stay productive — even without feedback.  
+In this video, I’ll share how I stay consistent by breaking it down into three parts:
 
----
+The right mindset
 
-## 1. Accept No Views at First  
-At the beginning, no views are normal. Don’t take it personally.  
-It doesn’t mean you’re failing — it just means you’re at the starting line.  
+The action plan
 
----
+The system
 
-## 2. Focus on Video Count  
-Instead of chasing views, I chase **video count**.  
-My goal is to make **100 videos**. Some days, I even push myself to post daily.  
+1. Mindset Change — YouTube Is a Dojo
+In martial arts, the dojo is where you repeat simple moves until they become part of who you are.
 
-Don’t waste your energy worrying about SEO, settings, or the algorithm at the start.  
-Focus on creating. Focus on your **100 videos mission** first.  
+That’s how I see YouTube.
 
----
+This dojo gives me real practice in 10 meta-skills:
 
-## 3. Make It a Consistency Challenge  
-I think of making videos as a **consistency challenge**.  
-It’s a test of whether I can stay inside my **energy economy**.  
+Pattern Noticing: spotting hooks, titles, and analytics trends
 
-By seeing it this way, I shift my focus.  
-I’m not just making videos — I’m testing whether energy itself can keep me consistent enough to do something that feels impossible.  
+Clarity: turning complex feelings into simple messages
 
-Honestly, making 100 videos in 100 days sounds a little crazy… but it excites me.  
-It turns this lonely journey into something meaningful — and even fun.  
+Emotional Regulation: staying steady when views are low
 
----
+Resilience & Consistency: posting even if no one is watching
 
-## 4. Celebrate Small Wins  
-Every video is a win. Every script finished, every upload completed — that’s progress.  
+Communication: speaking with story, energy, and presence
 
-Sometimes I share with my English teachers:  
-“I made 4 videos last week!” or “I’ve uploaded 9 already!” or “I think I can do one every day!”  
+Learning How to Learn: script → record → edit → publish → analyze → adjust
 
-Celebrating small wins keeps me motivated.  
+Adaptability: testing new formats when things don’t work
 
----
+Focus: choosing the right idea out of hundreds
 
-## 5. Create With Passion  
-Make videos you actually care about.  
-I share my awakening journey — and even if no one watches, it still gives me energy.  
+Energy Management: knowing when to record, rest, or push
 
-Because creating itself rewires my brain.  
-Even if my videos don’t help others yet, they are already transforming me.  
+Self-Awareness: seeing blind spots and growing confidence on camera
 
-I even feel motivated watching my own videos.  
-Every upload is more than content — it’s a mirror of my growth.  
-Watching them is like reviewing my progress journal in motion.  
+These aren’t just YouTube skills—they’re universal life skills.
 
-And that gives me energy to keep going.  
+YouTube is a fantastic learning ground with immediate feedback: learn → apply → adjust → repeat.
 
----
+It feels like a university.
 
-## 6. Drop Perfectionism  
-Perfection is the fastest way to burn out. Progress is what compounds.  
-Done is better than perfect — especially at the beginning.  
+So even if no one watches, I’m still upgrading my entire operating system.
 
-That’s why I keep things simple:  
-- Basic editing  
-- Basic thumbnails  
-- Basic SEO  
+2. Action Plan — Anchor It into Action
+Mindset alone isn’t enough. Action is the best cure for self-doubt.
 
-I don’t split my energy across too many things.  
-I stay focused on my **100 videos mission**.  
+Here’s how I structure mine:
 
----
+Focus on Video Count — 80% of my energy
+Instead of chasing views, I chase video count.
+My goal: 100 videos.
+At first, don’t waste too much energy on SEO or algorithms.
+Focus on creating your first 50 to 100 videos.
 
-## 7. Build a Daily System  
-I follow a simple system: I keep my **energy level high** with early bedtime, healthy eating, weight training, meditation, and writing.  
+Drop Perfectionism — 20% of my energy
+I improve about 1% every video.
+That’s my “learning tax” — test, observe, adjust.
+For example, I keep a simple improvement log:
 
-Then my daily flow is simple:  
-- Write my script after waking up before 4 AM  
-- Shoot in the morning  
-- Edit in the afternoon  
-- Upload by 8 PM  
+Last week, I learned how to use YouTube metadata to study tags.
 
-When you have a system like this, productivity becomes automatic.  
+This week, i noticed i need to :
 
----
+Study patterns in titles & thumbnails
 
-## Outro / Call to Action  
-In the beginning, no one sees you.  
-But keep going — make 100 videos.  
+Use Analytics to study retention
 
-**Things might change in ways you can’t imagine.**  
-And if nothing changes after that? Make another 100.  
+Build a personal b-roll list
 
-You can’t lose if you don’t give up.  
+Collect b-roll ideas from other channels
 
-If you’re also on this lonely journey, let me know in the comments — we’re not actually alone.  
+Record b-roll from computer & phone screens
+
+When you focus on making and improving, you don’t waste energy worrying about views.
+
+3. Build  Systems
+- My daily system(weekdays):
+Write my script before 4 AM
+Shoot in the morning
+Edit in the afternoon
+Upload by 8 PM
+- My improvement system:
+If it’s simple, fix it right away
+If it takes time,i log it down and batch it on weekends
+- My energy management system:
+Early bedtime, healthy eating, weight training, meditation, writing
+Celebrate small wins — every script, every upload is progress
+Create with passion — videos I truly want to share
+Watch my own videos — they feel like a progress journal in motion
+This system keeps my energy high and my growth consistent.
+
+Outro / Call to Action
+At the beginning, no one sees you.
+
+But keep going.
+Make 100 videos.
+
+Things might change in ways you can’t imagine.
+
+And if nothing changes after that?
+Make another 100.
+
+Because YouTube is a dojo.
+
+Even without views, you’re practicing skills that will serve you everywhere.
+
+You can’t lose anyway
+
+If you’re also on this wonderful journey, let me know in the comments.
