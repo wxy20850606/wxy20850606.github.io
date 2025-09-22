@@ -28,17 +28,30 @@ cover:
     alt: ""
     relative: false
 ---
-This is the script for my very first YouTube video. I’m posting it here on my blog as a record of my clarity, so I can always look back and remember where I started.
+
+
+Hi, I’m Ariel. This is my first YouTube video.
 
 “If you’re watching this in the future, maybe you’re wondering:
 Why did she succeed?
 
 The answer is simple: clarity.
 
-I’m not here to try YouTube — I’ve committed for three years, 40 hours per week, no matter what.
-I’ve already proven to myself that I can invest, write 300 blog posts, transform my body, and build strong daily habits.
+“I’m not here to try YouTube — I’ve committed for three years, 40 hours a week, no matter what.
 
-Now, I’m bringing it all here — to inspire others through holistic wellbeing.
+And I’ve already proven to myself that I can stay consistent:
+
+I’ve written over 200 blog posts.
+
+I’ve been waking up before 5 a.m. for almost four months.
+
+I self-studied computer science and once coded an assignment with over a thousand lines.
+
+I’ve transformed my body and reshaped my personality.
+
+And now, at 40, I’m walking through a true awakening journey.
+
+Now, I’m here to share and inspire — not just in words, but through videos.”
 
 Clarity is the foundation of success.
 And this is just the beginning.”
