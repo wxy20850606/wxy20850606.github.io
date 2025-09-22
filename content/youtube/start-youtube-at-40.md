@@ -1,7 +1,8 @@
 ---
-title: "Start Youtube at 40"
-date: 2025-2-25T21:51:37+08:00
-lastmod: 2025-2-25T21:51:37+08:00
+title: "Start YouTube at 40"
+date: 2025-09-22T06:40:00+08:00
+lastmod: 2025-09-22T06:40:00+08:00
+draft: false
 author: ["Ariel"]
 keywords: 
 - 

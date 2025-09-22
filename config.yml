@@ -15,7 +15,8 @@ buildExpired: false
 googleAnalytics:  # 谷歌统计
 # Copyright: Sulv
 
-paginate: 15    # 首页每页显示的文章数
+pagination:
+  pagerSize: 15   # 首页每页显示的文章数
 summaryLength: 140 # 文章概览的自字数，默认70
 
 minify:
@@ -183,30 +184,28 @@ markup:
     # lineNumbersInTable：使用表来格式化行号和代码,而不是 标签。这个属性一般设置为 true.
     # noClasses：使用 class 标签，而不是内嵌的内联样式
 
+# replace entire privacy block (twitter → x)
 privacy:
   vimeo:
     disabled: false
     simple: true
-
-  twitter:
+  x:
     disabled: false
     enableDNT: true
     simple: true
-
   instagram:
     disabled: false
     simple: true
-
   youtube:
     disabled: false
     privacyEnhanced: true
 
+
+# merge duplicate services blocks into ONE (and twitter → x)
 services:
   instagram:
     disableInlineCSS: true
-  twitter:
+  x:
     disableInlineCSS: true
-
-services:
   googleAnalytics:
     ID: G-6Q2921LKXF
