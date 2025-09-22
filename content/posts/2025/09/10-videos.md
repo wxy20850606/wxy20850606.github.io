@@ -134,9 +134,9 @@ If it’s simple, fix it right away
 If it takes time,i log it down and batch it on weekends
 - My energy management system:
 Early bedtime, healthy eating, weight training, meditation, writing
-Celebrate small wins — every script, every upload is progress
-Create with passion — videos I truly want to share
-Watch my own videos — they feel like a progress journal in motion
+- Celebrate small wins — every script, every upload is progress
+- Create with passion — videos I truly want to share
+- Watch my own videos — they feel like a progress journal in motion
 This system keeps my energy high and my growth consistent.
 
 Outro / Call to Action
