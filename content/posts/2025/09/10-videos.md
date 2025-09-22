@@ -7,7 +7,6 @@ keywords:
 - productivity
 - consistency
 - YouTube growth
-- motivation
 - energy economy
 - 100 videos challenge
 
@@ -157,4 +156,4 @@ Even without views, you’re practicing skills that will serve you everywhere.
 
 You can’t lose anyway
 
-If you’re also on this wonderful journey, let me know in the comments.
+If you’re also on this wonderful journey, let me know in the comment
