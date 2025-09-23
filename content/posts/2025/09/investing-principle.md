@@ -47,17 +47,18 @@ cover:
 You might think I was chasing risky stocks — but actually, I’m super conservative, holding 32% in cash.  
 My gains weren’t luck. They came from inner wealth.  
 As Warren Buffett says, *‘The most important investment you can make is in yourself.’*  
-And in this video, I’ll share 5 important qualities that guide the way I invest — not just in the stock market, but also in my life.”  
+And in this video, I’ll share 6 important qualities I invest in myself that guide me — not just in the stock market, but also in my life.”  
 
 ---
 
 ## 1. Circle of Competence (0:20 – 1:00)
 
 “In investing, I only buy what I understand. That’s my circle of competence.  
-My top holdings are TSM, Nvidia, and UNH — because we all need chips, AI, and healthcare.  
+My top holdings are TSM, Nvidia, and UNH — because they have undeniable moats and competence.  
 Warren Buffett said, *‘The size of your circle of competence is not very important; knowing its boundaries is vital.’*  
-There are thousands of companies in the world, but I only invest in the ones I truly understand and have the confidence to hold long term.  
-In life, it’s the same. I don’t try to be everything. Right now, my circle is YouTube — because I know how to invest, I wake up before 4 a.m., I have abs at 40, and I’ve gone through awakening. These are my strengths, and I know I can grow here.  
+There are thousands of companies in the world, but I only invest in the ones I understand and have the confidence to hold long term.  
+In life, it’s the same. I don’t try to be everything. Right now, my circle is YouTube — because I know how to invest, I wake up before 4 a.m., I have abs at 40, I study mental models from investing and computer science, I alchemize negative emotions into energy for growth, and I’ve gone through awakening.  
+These are my strengths, and I treat YouTube as a dojo to train my meta-skills.  
 When I stay inside my circle, I move forward with clarity.”  
 
 ---
@@ -67,7 +68,8 @@ When I stay inside my circle, I move forward with clarity.”
 “Warren Buffett said, *‘Life is like a snowball. The important thing is finding wet snow and a really long hill.’*  
 In investing, that long hill is constant demand — and I believe we’ll need chips, AI, and healthcare forever.  
 In life, a long runway means working on something with leverage, no limits, no ceiling.  
-That’s why I chose YouTube. It has wet snow — creativity, connection, expression, media, other opportunities — and it has a really long hill.  
+That’s why I chose YouTube. It has wet snow — creativity, connection, expression, media, and other opportunities — and it has a really long hill.  
+As a stay-at-home mom for 10 years, this is the best leverage choice for me.  
 It can give me creative freedom, location freedom, time freedom, financial freedom, and emotional freedom.  
 That’s why I want to devote 3 years, 5 years, even longer here. Because the longer I stay on this path, the bigger my snowball becomes.”  
 
@@ -77,6 +79,7 @@ That’s why I want to devote 3 years, 5 years, even longer here. Because the lo
 
 “In investing, I don’t hold 50 stocks. I focus on the bets I believe in — most of my portfolio is concentrated in just three companies.  
 Warren Buffett said, *‘Wide diversification is only required when investors do not understand what they are doing.’*  
+I have clarity so I can bet heavy.  
 In life, I don’t chase 10 projects. Right now, I put my full focus on YouTube.  
 If you pick one thing and pour your energy and time into creating and improving, success becomes just a matter of time.  
 One focus, improving every day — that’s how compounding really works.”  
@@ -88,10 +91,12 @@ One focus, improving every day — that’s how compounding really works.”
 “In investing, wealth doesn’t come overnight. It comes from the patience to wait — even while sitting with cash. Right now, I hold 30% cash.  
 It comes from holding through market ups and downs — like during April’s tariff panic selling, I didn’t move.  
 Warren Buffett said, *‘The stock market is designed to transfer money from the active to the patient.’*  
+My 54% gain is from patience — holding cash without greed, and stocks without fear.  
 In life, I play the same game. I chose YouTube.  
 I wait when there are no views.  
 And I hold this dream for 3, 5, 10 years — not just 30 days.  
-Patience is my edge. While others quit, I’m still here, still creating.”  
+Patience is my edge. I waited 2 years to enter LLY. Now I use the same patience here.  
+While others quit, I’m still here, still creating, still improving.”  
 
 ---
 
@@ -100,14 +105,27 @@ Patience is my edge. While others quit, I’m still here, still creating.”
 “In investing, I only buy with a margin of safety. I avoid the temptation of chasing quick money — buying low, selling high, or jumping on every dip.  
 I keep 20–30% in cash. And I measure my performance by inner peace and clarity, not just by gains.  
 Charlie Munger said, *‘The big money is not in the buying and selling, but in the waiting.’* Discipline is what makes waiting possible.  
-In life, my discipline is waking up at 3 or 4 a.m., walking 15,000 steps, writing, and uploading videos daily.  
-Discipline is not a cage. Discipline is freedom.”  
+In life, my discipline is waking up at 3 or 4 a.m., walking 15,000 steps, doing weight training 3 times a week, writing every day, and uploading videos daily.  
+
+Discipline is not a cage. Discipline is freedom. It makes life fulfilling, not empty.”  
 
 ---
 
-## Why These Five Guarantee Success (3:00 – 3:40)
+## 6. Surrender (3:00 – 3:40)
 
-“Why do these five principles guarantee success — in both investing and in life?  
+“In investing, I don’t set a return target — because it’s out of my control.  
+I just want to test whether I can make the right decisions. I detach from the outcome.  
+Warren Buffett said he simply loves to invest: *‘I tap dance to work every day.’* Performance is just a by-product.  
+In YouTube, I don’t chase views. I create because I love to express myself, and I upgrade myself in the process.  
+I can’t control the views.  
+But I can control my effort: first, not giving up because I love it; second, improving along the journey because learning new things excites me.  
+Surrender means freedom — because the process is mine, even if the outcome isn’t.”  
+
+---
+
+## Why These Six Guarantee Success (3:40 – 4:10)
+
+“Why do these six principles guarantee success — in investing, YouTubing, and life?  
 
 1. **Circle of competence** — When you stay inside your circle, you avoid costly mistakes and wasted effort. You know what you’re doing, and that clarity gives you confidence. In investing, it means picking the right stocks. In life, it means choosing the right battles.  
 
@@ -119,13 +137,21 @@ Discipline is not a cage. Discipline is freedom.”
 
 5. **Discipline** — Discipline turns good intentions into daily action. It’s what makes you wake up early, save cash, study, create, or train — day after day. Discipline is the bridge between vision and reality.  
 
-Put all five together, and you have a system that protects you, directs you, and compounds your effort. That’s why with these five principles, you don’t just get lucky once — you become unstoppable.”  
+6. **Surrender** — Because no matter how good your strategy, outcomes are never fully in your control. Detachment from results gives you resilience, joy in the process, and true freedom.  
+
+Put all six together, and you have a system that protects you, directs you, and compounds your effort.  
+That’s why with these six principles, you don’t just get lucky once — you become unstoppable.”  
 
 ---
 
-## Closing (3:40 – 4:00)
+## Closing (4:10 – 4:30)
 
 “The same principles that gave me +54% in my portfolio are the ones I use to build my life.  
-Circle of competence. A long runway. Focus. Patience. Discipline.  
+Circle of competence — do what you’re good at.  
+A long runway — use leverage with a future.  
+Focus — direct your energy and time.  
+Patience — think in the long term, not the short term.  
+Discipline — take action every day.  
+Surrender — detach from outcomes and love the process.  
 Whether it’s investing or YouTube, I don’t just bet on markets — I bet on clarity, energy, and time.  
 That’s the real compounding.”  
