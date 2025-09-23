@@ -43,18 +43,18 @@ cover:
 
 ## Hook (0:00 – 0:20)
 
-“I gained 54% in my portfolio this year so far.  
-You might think I was chasing risky stocks — but actually, I’m super conservative, holding 32% in cash.  
-My gains weren’t luck. They came from inner wealth.  
-As Warren Buffett says, *‘The most important investment you can make is in yourself.’*  
-And in this video, I’ll share 6 important qualities I invest in myself that guide me — not just in the stock market, but also in my life.”  
+I gained 54% in my portfolio this year — but I wasn’t chasing risky stocks.
+I’m actually super conservative, holding 32% in cash.
+These gains weren’t luck; they came from inner wealth.
+As Warren Buffett says, ‘The most important investment you can make is in yourself.’
+And in this video, I’ll share 6 powerful qualities I invest in — guiding me not just in the stock market, but in life itself.
 
 ---
 
 ## 1. Circle of Competence (0:20 – 1:00)
 
 “In investing, I only buy what I understand. That’s my circle of competence.  
-My top holdings are TSM, Nvidia, and UNH — because they have undeniable moats and competence.  
+My top holdings are TSM, Nvidia, and UNH — because they have strong moats and proven competence.
 Warren Buffett said, *‘The size of your circle of competence is not very important; knowing its boundaries is vital.’*  
 There are thousands of companies in the world, but I only invest in the ones I understand and have the confidence to hold long term.  
 In life, it’s the same. I don’t try to be everything. Right now, my circle is YouTube — because I know how to invest, I wake up before 4 a.m., I have abs at 40, I study mental models from investing and computer science, I alchemize negative emotions into energy for growth, and I’ve gone through awakening.  
@@ -79,7 +79,7 @@ That’s why I want to devote 3 years, 5 years, even longer here. Because the lo
 
 “In investing, I don’t hold 50 stocks. I focus on the bets I believe in — most of my portfolio is concentrated in just three companies.  
 Warren Buffett said, *‘Wide diversification is only required when investors do not understand what they are doing.’*  
-I have clarity so I can bet heavy.  
+Because I have clarity, I can confidently bet heavy.
 In life, I don’t chase 10 projects. Right now, I put my full focus on YouTube.  
 If you pick one thing and pour your energy and time into creating and improving, success becomes just a matter of time.  
 One focus, improving every day — that’s how compounding really works.”  
@@ -105,8 +105,7 @@ While others quit, I’m still here, still creating, still improving.”
 “In investing, I only buy with a margin of safety. I avoid the temptation of chasing quick money — buying low, selling high, or jumping on every dip.  
 I keep 20–30% in cash. And I measure my performance by inner peace and clarity, not just by gains.  
 Charlie Munger said, *‘The big money is not in the buying and selling, but in the waiting.’* Discipline is what makes waiting possible.  
-In life, my discipline is waking up at 3 or 4 a.m., walking 15,000 steps, doing weight training 3 times a week, writing every day, and uploading videos daily.  
-
+In life, my discipline is waking up at 3 or 4 a.m., walking 15,000 steps daily, weight training three times a week, writing every day, and uploading videos consistently.
 Discipline is not a cage. Discipline is freedom. It makes life fulfilling, not empty.”  
 
 ---
