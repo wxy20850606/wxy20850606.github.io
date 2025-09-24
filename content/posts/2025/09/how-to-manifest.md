@@ -66,9 +66,9 @@ Once I started building those from the inside, the outer results naturally follo
 
 - **Clarity** changed my life first. I used to be distracted all the time, jumping from one thing to another. When I got clear on my priorities — investing only in what I understood, creating videos instead of wasting hours scrolling — that clarity grew my portfolio by 54% and gave me direction.  
 
-- Then came **discipline**. I wasn’t always an early riser. But discipline got me to bed before 9:30, so I could get up before 4 a.m., day after day. It got me into the gym when I didn’t feel like going. That discipline is why I dropped my body fat to 20%.  
+- Then came **discipline**. I wasn’t always an early riser. But discipline got me to bed before 9:30, so I could get out of bed before 4 a.m., day after day. It got me into the gym when I didn’t feel like going. That discipline is why I dropped my body fat to 20%.  
 
-- **Peace** was harder. I used to live restless, always feeling like something was missing. But by building a morning routine — walking, writing, breathing before the world wakes up — I found peace inside myself. That peace made me productive instead of overwhelmed.  
+- **Peace** was harder. I used to live restlessly, always feeling like something was missing. But by building a morning routine — walking, writing, breathing before the world wakes up — I found peace inside myself. That peace made me productive instead of overwhelmed.  
 
 - **Self-worth** was a breakthrough. For so long, I doubted myself: “Who am I to share on YouTube? Who would listen to me?” But the moment I believed I was worthy, I created 20 videos in my very first month. I stopped waiting for permission.  
 
@@ -88,10 +88,10 @@ It’s not instant. It’s not glamorous. But once I started building it from th
 
 Manifestation isn’t “magic.” It’s built by **energy**.  
 
-When your energy is high — through health, discipline, and vitality — you are open, you are creative, you take action immediately, and opportunities come to you (or you create them).  
+When your energy is high — through health, discipline, and vitality — you are open, creative, and ready to take action immediately. Opportunities come to you, or you create them yourself.  
 
 When your energy is low — through fear, distraction, and guilt — money and chances leak away.  
-There was one year I lost 50% of my portfolio because I was over-confident, greedy, and eager to prove my self-worth by chasing high-risk stocks.  
+There was one year I lost 50% of my portfolio because I was overconfident, greedy, and eager to prove my self-worth by chasing high-risk stocks.  
 
 For me, quitting sugar and waking up early gave me more energy. Writing gave me clarity. Making videos gave me leverage.  
 
@@ -104,7 +104,7 @@ This is the **energy economy**: manage your energy first, and you are powered to
 ## 3. Outer Wealth Mirrors Inner Wealth (2:20 – 3:20)
 
 My +54% portfolio growth this year wasn’t luck.  
-It was the reflection of my **inner clarity, patience, and discipline**.  
+It was the reflection of my inner clarity, patience, and discipline.  
 
 - When I had no clarity, I used to jump from one stock to another, chasing tips, following gurus’ advice. My results were inconsistent. But once I focused only on my circle of competence — companies I understood deeply — my investing became calmer, and my returns grew.  
 
@@ -132,9 +132,9 @@ So how do you practice manifestation every day?
 
 - **Awareness practice**: emotions will test you, drag you back to distractions. Practice awareness. Catch your emotions before they rule you.  
 
-- **Aligned action**: take one small step daily — get up 5 minutes early, read 5 pages and apply the takeaway immediately, upload a video, hold a stock for the long term.  
+- **Aligned action**: take one small step daily — get up 5 minutes earlier, read 5 pages and apply the takeaway immediately, upload a video, hold a stock for the long term.  
 
-- **Think long horizon**: 3, 5, 10 years. Don’t dream to own everything overnight. Compounding works the same in spirit and in wealth.  
+- **Think long horizon**: 3, 5, 10 years. Don’t dream of owning everything overnight. Compounding works the same in spirit as it does in wealth.  
 
 Manifestation is not instant gratification. It’s the patience to let compounding do the work.  
 
@@ -149,3 +149,4 @@ When you cultivate clarity, discipline, peace, self-worth, and love, your outer 
 Protect your energy. Take aligned action. Trust compounding.  
 
 Because energy is the real currency of life — and when you master it, you don’t just manifest quick wins. You build a life of freedom, wealth, and fulfillment that lasts.”  
+
