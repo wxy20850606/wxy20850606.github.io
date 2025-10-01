@@ -1,5 +1,5 @@
 ---
 title: "Posts"
-_build:
+build:
   list: always
 ---

@@ -1,7 +1,7 @@
 ---
-title: "How to Get Up Before 5"
-date: 2025-09-01T04:23:56+08:00
-lastmod: 2025-09-01T04:23:56+08:00
+title: "How to Get Up at 3AM"
+date: 2025-09-22T04:23:56+08:00
+lastmod: 2025-09-22T04:23:56+08:00
 author: ["Ariel"]
 keywords: 
 - wake up early
