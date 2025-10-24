@@ -1,5 +1,5 @@
 ---
-title: "My Youtube Clarity - October Reflection  
+title: "My Youtube Clarity - October Reflection"
 date: 2025-10-24T04:43:14+08:00
 lastmod: 2025-10-24T04:43:14+08:00
 author: ["Ariel"]
