@@ -1,7 +1,7 @@
 ---
-title: "I Love You"
-date: 2025-09-06T04:52:51+08:00
-lastmod: 2025-09-06T04:52:51+08:00
+title: "Why “I Love You” Is Often Just Validation"
+date: 2025-10-01T04:52:51+08:00
+lastmod: 2025-10-01T04:52:51+08:00
 author: ["Ariel"]
 keywords: 
 - 
@@ -68,7 +68,7 @@ Love is presence: being held without needing constant words.
 
 Love is freedom: not dependence on validation, but wholeness even in silence.
 
-✨ Conclusion
+5. Conclusion
 
 “I love you” is beautiful to hear — but real love is not in the words.
 It is in recognition, presence, and freedom.

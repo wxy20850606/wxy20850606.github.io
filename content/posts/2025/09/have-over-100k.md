@@ -1,7 +1,7 @@
 ---
-title: "How I Reached $130K as a Stay-at-Home Mom "
-date: 2025-09-13T04:32:22+08:00
-lastmod: 2025-09-13T04:32:22+08:00
+title: "How I Reached $120K as a Stay-at-Home Mom "
+date: 2025-10-01T04:32:22+08:00
+lastmod: 2025-10-01T04:32:22+08:00
 author: ["Ariel"]
 keywords: 
 - 
@@ -28,7 +28,7 @@ cover:
     alt: ""
     relative: false
 ---
-# 🌱 How I Reached $130K as a Stay-at-Home Mom  
+# 🌱 How I Reached $120K as a Stay-at-Home Mom  
 
 On YouTube, many people proudly announce: *“This is my first $1 million.”*  
 But here’s the truth: for most people, even in the U.S., reaching **$100K is harder, rarer, and more important** than the first million.  

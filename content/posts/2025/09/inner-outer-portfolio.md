@@ -1,7 +1,7 @@
 ---
-title: "Inner Outer Portfolio"
-date: 2025-09-13T04:41:11+08:00
-lastmod: 2025-09-13T04:41:11+08:00
+title: "The Mirror of Wealth: Inner and Outer Portfolios  "
+date: 2025-10-01T04:41:11+08:00
+lastmod: 2025-10-01T04:41:11+08:00
 author: ["Ariel"]
 keywords: 
 - 
@@ -29,7 +29,7 @@ cover:
     relative: false
 ---
 
-# 🪞 The Mirror of Wealth: Inner and Outer Portfolios  
+# The Mirror of Wealth: Inner and Outer Portfolios  
 
 We often separate *money* from *life*.  
 On one side: investments, savings, portfolios.  
@@ -49,7 +49,6 @@ My Inner Energy Portfolio is made of assets like:
 These aren’t abstract values. They are energetic assets I can generate, protect, and multiply every day.  
 
 ---
-
 ## 💰 The Outer Portfolio  
 My financial portfolio — currently over **$130,000** — looks like:  
 - **Compounding stocks** → TSMC, NVIDIA, UNH, etc.  

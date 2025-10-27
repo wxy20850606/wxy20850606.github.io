@@ -32,21 +32,23 @@ cover:
     relative: false
 ---
 
-# From -52% to +63%: The Year That Transformed My Investing — and Myself
+# From -52% to +63%: avoid my investing mistakes
 **Thumbnail:** -52% → +63%
+ “how to invest,” “how to start investing,” “investing mistakes,” 
 
 ---
 
 ## 🎬 Hook
 
 In 2022, my portfolio dropped **52.6%** — it hurt deeply.  
-That year broke my ego but built my awareness.  
-It became my greatest teacher.  
+but every failure is a lesson in disguise.
+so i turned my biggest fall into my greatest teacher.  
 
-Because after that loss, I gained **59%, 31%, and 63%** in the following years.  
+after that loss, I gained **59%, 31%, and 63%** in the following years.  
 
 In this video, I’ll share **how I turned the worst year of my investing life into my greatest life lesson.**
 
+That lesson began with a question I didn’t want to face — why did I lose so much?
 ---
 
 | Year | My Return | SPY | Gap |
@@ -61,15 +63,14 @@ In this video, I’ll share **how I turned the worst year of my investing life i
 | 2024 | 31.27% | 25.72% | 5.55% |
 | 🟢 **2025** | 🟢 **63.52%** | 14.03% | 🟢 **49.49%** |
 
-> When you lose a lot in the market, treat it as a **lesson**, not a failure.
-
 ---
 
 ## Why I Lost Over 50%
 
-It wasn’t the market that defeated me — it was the noise in my own mind.
+It wasn’t the market that defeated me — it was the noise in my own mind.  
+There are three reasons why I lost.
 
-### Tried Every Style
+### 1. Too Many Styles
 
 At the beginning of my investing journey, I deliberately experimented with every style — because I wanted to learn.  
 I tried ETFs vs. active investing, value vs. growth, diversification vs. concentration, dividends vs. non-dividends, buy-and-hold vs. market timing, and even fixed equity-bond ratios.  
@@ -77,55 +78,59 @@ I tried ETFs vs. active investing, value vs. growth, diversification vs. concent
 Each approach taught me something new, but also scattered my focus.  
 I was chasing methods before mastering my mindset.
 
-When my growth stocks dropped sharply, I didn’t know what to do — because I was still juggling multiple, conflicting strategies at once.
+When my growth stocks dropped sharply, I didn’t know what to do — because I was still living in buy-and-hold mindset.
 
+but struggling with strategy is only surface level, the root of my problem was copying others blindly.
 ---
 
-### Imitation
+### 2. Imitation
 
-I copied others’ portfolios before I learned to listen to my own temperament.
-
-In the beginning, I followed everyone:  
-Warren Buffett. Charlie Munger. Aswath Damodaran.  
-Buyandhold2012 on Seeking Alpha. Saul from Motley Fool.  
-Mohnish Pabrai from India. Yongpin Duan from China.  
+Before my biggest loss, I followed everyone —
+Warren Buffett. Charlie Munger. Aswath Damodaran.
+Buyandhold2012 on Seeking Alpha. Saul from Motley Fool.
+Mohnish Pabrai from India. Yongpin Duan from China.
 Even Cathie Wood — for a short while.
 
-I studied their words, their holdings, their philosophies — searching for the “right” way to invest.  
-But over time, I realized something deeper: following others was only the first step.  
+I studied their words, their holdings, their philosophies — searching for the “right” way to invest.
+But over time, I realized something deeper: there were too many voices…
+and I had lost my own inner one.
 
-I had copied, but I hadn’t yet applied their wisdom to **my own temperament, rhythm, and energy.**
+Sometimes I bought a stock just because Motley Fool recommended it —
+or because a YouTuber said it was a great buy.
 
+I wasn’t using my own judgment anymore.
+I was on autopilot — following noise, not awareness.
 ---
 
-### Lack of Inner Peace
+### 3. Lack of Temperament
 
 I wasn’t truly investing anymore — I was simply reacting to noise.
+Because I lost humility and became greedy.
 
-I studied accounting, valuation, and statistics —  
-and I became arrogant.  
-I was greedy, wanting to get rich quickly.  
-I compared my performance to the S&P 500 and to other investors online.  
-Each comparison made me anxious, even when I was doing fine.  
+I had studied accounting, valuation, and statistics —
+and I became arrogant. I even told myself that Warren Buffett was no longer my role model —
+because I thought I had found something better.
 
-I began to lose humility.  
-I even told myself that Warren Buffett was no longer my role model —  
-because I thought I had found something better.  
+I compared my performance to the S&P 500 and to other investors online.
+Each comparison made me anxious and restless.
 
-“Markets mirror your state of consciousness.”  
-When I lost awareness, I lost myself — and the market reflected that loss.
+I poured all my energy into investing, hoping it would give me certainty.
+But that obsession only made me lose balance.
+
+The market mirrors your state of consciousness.
+When I lost myself — the market reflected that loss.
+
+It took a complete breakdown to reset not just my investing, but my entire way of being.
 
 ---
 
 ## Turning Point
 
-When your mind is restless, no strategy can save you.  
 My 50% drawdown wasn’t just a market correction — it was a mirror.  
 It showed me how far my actions had drifted from awareness.  
 
 > “The biggest lessons come from pain.”
 
-I didn’t even know how much I had lost —  
 I didn’t open my account for over a year.  
 
 Then one day, I reread *The Education of a Value Investor.*  
@@ -135,123 +140,79 @@ In Chapter 13, the author wrote:
 > But beyond external wealth, investors must pursue inner growth —  
 > self-awareness, humility, and the ability to face their own weaknesses.”
 
-That line changed everything.
+Those words hit me like truth finally arriving — not from the market, but from within.
 
-I realized I shouldn’t focus on the stock market;  
-I needed to **invest in myself.**
+“I thought I needed more knowledge, more strategies, more control.
+But the market didn’t need me to be smarter.
+It needed me to be still.”
 
-So I poured my energy into learning computer science, believing it would sharpen my thinking.  
-To my surprise, my portfolio grew nearly 60% — and I hadn’t even opened my account all year.  
+That’s when I changed everything — my routine, my focus, my energy.
 
-The contrast was too clear:  
-- The year I obsessed over investing, I lost 52%.  
-- The year I ignored the market and focused on learning, I gained 60%.
+I stopped investing in the market and started investing in myself. —
+to rebuild inner strength, clarity, and discipline.
 
+I studied computer science, believing it would sharpen my thinking.
+To my surprise, my portfolio grew nearly 60%.
+
+The contrast was undeniable:
+
+The year I obsessed over investing, I lost 52%.
+
+The year I stopped watching the market and focused on learning, I gained 60%.
+
+That’s when I began to see the truth —
+the outer market follows the inner one.
+And in the next two years, everything that happened confirmed it.
 ---
 
 ## Why I Gained Over 60% Again
 
-My 60% gain in 2023 was half luck, half unconscious alignment.  
+My 60% gain in 2023 was half luck, half unconscious alignment.
 
-In the second half of 2024, I got distracted by politics and stopped studying.  
-I lost focus again — buying and selling too often, hoping to do better.  
-But in the end, I only outperformed SPY by 5%.  
-I could have done better simply by holding.  
+But in the second half of 2024, I got distracted by politics and stopped studying.
+I lost focus again — buying and selling too often, hoping to do better.
+In the end, I only outperformed the S&P 500 by 5%.
+I could have done better simply by holding.
 
-In 2025, I decided to cut off the news and **change myself.**  
-I became a value investor again.
+So in 2025, I decided to cut off the news and change myself.
+I chose value investing not just as a financial strategy,
+but as a way to save time — so I could invest all my energy in myself again.
 
-Value investing sounds simple — find the right company, wait for the right price, and hold for years.  
-But it’s hard to apply because there’s too much noise every day.
+Value investing sounds simple: find a great company, wait for the right price, and hold for years.
+But in practice, it’s hard — because there’s too much noise every day.
 
-To be a better investor, the key is to make better decisions.
+How to avoid noise?
+By focusing on building myself.
 
-So I used 99% of my time to invest in myself.  
-I studied English, trained my body, faced my negative emotions,  
-and practiced love, awareness, and surrender through writing and videos.  
+I studied English, trained my body, faced my negative emotions,
+and practiced love, awareness, and surrender through writing and videos.
 
-And without chasing results, my investing results soared —  
-a 60% gain, with 30% in bonds and 20% in UNH.  
+And without chasing results, my investing results soared —
+a 58% gain, with 30% in bonds.
 
-Because the moment I stopped looking outward  
-and started looking inward,  
-the market began to reward the energy I had cultivated inside.
+Because the moment I stopped looking outward
+and started looking inward,
+the market began to reward the energy I had cultivated within.
 
----
+My portfolio started to compound — quietly, steadily, naturally.
+That’s when I began to see the deeper pattern:
+the market was simply responding to who I was becoming.
 
-## Inner Assets and Outer Reflections
+For years, I thought investing was about finding the right stocks.
+Now I see it’s about finding the right state of being.
 
-| **Inner Asset** | **Outer Reflection** |
-|------------------|----------------------|
-| **Patience** | Holding through market dips without fear. |
-| **Clarity** | Staying within my circle of competence. |
-| **Discipline** | Minimalist lifestyle, 20–30% cash, buying with a margin of safety. |
-| **Awareness** | Observing myself behind every transaction — fear, selling, holding, uncertainty. |
-| **Vision** | Investing in my body, my decisions, my inner wealth. |
-| **Focus** | Concentrating my portfolio, time, and energy. |
-| **Surrender** | Trusting the process instead of forcing control. |
-| **Sensitivity** | Feeling the energy of the herd — and staying calm when others panic. |
+When my inner world was chaotic, my portfolio followed.
+When I became grounded, clear, and patient — my returns reflected that peace.
 
-After years of chasing numbers, I finally understood —  
-money isn’t the source of wealth;  
-it’s the **reflection** of it.  
+The market doesn’t reward intelligence alone.
+It rewards awareness, discipline, and emotional balance.
 
-External compounding begins only after internal compounding starts.
+True compounding begins inside — in how you think, feel, and live every day.
+Once your inner energy compounds, your outer wealth simply follows.
 
-When my inner world was chaotic, my portfolio mirrored that chaos.  
-When I became patient, centered, and focused,  
-my portfolio began to compound — quietly, steadily, naturally.
+That’s why I no longer chase numbers.
+I build myself — and let the market mirror that growth.
+
+in the next video i will explain more about the inner assets and outer wealth.
 
 ---
-
-## The Spiritual Side of Investing
-
-Investing, for me, is no longer about outperforming the market.  
-It’s a **spiritual gym.**  
-
-Every emotion — fear, greed, hope, pride — is a weight I must learn to lift.  
-
-When I panic, I practice awareness.  
-When I’m tempted by greed, I practice patience.  
-When I’m uncertain, I practice surrender.  
-When I feel joy, I practice gratitude.  
-
-Each market cycle is a mirror for my consciousness.  
-Each decision is a meditation in disguise.  
-
-**Inner wealth compounds just like capital.**  
-The more awareness you build, the less you react.  
-The less you react, the wiser your actions become.  
-And wisdom always compounds — in portfolio, in peace, in life.
-
----
-
-## 🌸 Closing
-
-After all these years, I realized:  
-investing isn’t about beating others — it’s about understanding myself.
-
-In the past, I invested **for** freedom.  
-Now, I invest **from** freedom.  
-
-The greatest wealth is knowing you already have enough.  
-I have what I need for this season of life,  
-and I trust myself to adapt when the seasons change.
-
-Once you truly feel you have enough,  
-you stop chasing, stop seeking validation, stop comparing, stop fearing the future.  
-From that stillness, clarity emerges —  
-and you naturally become a wiser investor, a conscious creator.  
-Outer wealth simply follows inner sufficiency.
-
-I used to measure my returns in percentages.  
-Now, I measure them in **inner peace, clarity, and stillness** —  
-in the ability to stay calm when the world shakes,  
-in surrender, in gratitude, in trust.  
-
-Because in the end,  
-the greatest portfolio isn’t made of stocks or bonds —  
-it’s made of **wisdom, awareness, and peace.**
-
-And that’s the portfolio I’ll keep compounding  
-for the rest of my life.

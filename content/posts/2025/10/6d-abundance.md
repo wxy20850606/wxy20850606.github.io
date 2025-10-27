@@ -1,5 +1,5 @@
 ---
-title: "6d Abundance"
+title: "After 8 Years of Investing, I Awakened"
 date: 2025-10-21T11:55:15+08:00
 lastmod: 2025-10-21T11:55:15+08:00
 author: ["Ariel"]
@@ -28,273 +28,280 @@ cover:
     alt: ""
     relative: false
 ---
+Title: After 8 Years of Investing, I Awakened
+Thumbnail: Pursue Wealth, Not Money
 
-# Why Meditation Alone Isn’t Enough to Manifest
+# After 8 Years of Investing, I Awakened
 
-> Meditation awakens potential, but lifestyle integration fulfills it.  
-> Because manifestation isn’t a single moment of stillness — it’s a lifestyle of alignment.  
+## Start
+Last month, I met a girl from Israel.
+She travels the world, meditates every morning for fifteen minutes, writes every day, and exercises regularly.
+But she still told me — “I feel like a loser. I keep running away from life.”
 
----
+Then she looked at me and asked,
 
-## The Story
+“Why doesn’t it work?”
 
-Last month, I met a girl from Israel.  
-She told me she meditates every morning for 15 minutes,  
-but still feels like a loser and keeps running away from life.  
-She asked me: *why doesn’t it work?*
+That moment stayed with me — because I’ve seen the same thing everywhere.
+So many people try to fill the emptiness by chasing more — more meaning, more status, more money —
+and end up feeling even less inside.
 
-I noticed the same thing everywhere —  
-so much talk about **visualizing, meditating, raising vibration**.  
-
-And yes — those things *do* work.  
-But I’ve learned something deeper:  
-you can meditate for years and still live from lack,  
-if your daily life doesn’t match your inner state.
-
-Real change — or real manifestation —  
-is not a single moment of stillness,  
-but a **lifestyle of alignment**.
-
----
-
-## 1. The Trap of Temporary Peace
-
-When you meditate, you tune into possibility.  
-But if you spend the rest of your day scrolling, comparing, and doubting,  
-you return to the same frequency that created your old reality.  
-
-The body learns what you **repeat**, not what you visit.  
-Real change happens when meditation stops being an *event* —  
-and becomes a **way of being**.
-
+So I shared with her my 6D Abundance Framework —
+how I started from feeling enough,
+and built alignment in my body, mind, emotions, and spirit,
+until true abundance — including financial freedom — began to flow naturally.
 ---
 
 ## 💪 2. Physical Abundance — Energy
-
-Your body is the first dimension of abundance.  
+Your body is the first dimension of abundance.
 If you want to hold higher energy and frequencies, you need a strong container.
 
-Your nervous system constantly reads your body for cues of safety or danger.  
+Your nervous system constantly reads your body for cues of safety or danger.
 When your body feels safe, your nervous system calms down — and the mind grows quiet.
 
-That’s why I was able to awaken by myself when I faced strong emotions.  
+Dr. Joe Dispenza often says, “The body is the subconscious mind.”
+Most people try to change their lives by thinking differently — but the body still remembers the emotions of fear, stress, or doubt.
+Real abundance begins when you retrain the body to feel safe, present, and open — when the body and mind finally work together instead of against each other.
+
+That’s why I was able to awaken by myself when I faced strong emotions.
 My safe body and quiet mind gave me the clarity and energy to face challenges and grow from them.
 
-My disciplined physical training — **strength, yoga, walks, massage, and early sleep** —  
-has built what spiritual teachers call “energetic capacity.”
+That’s also why I could keep buying during the tariff sell-off in April — a stable body made a clear mind.
+In investing, emotional stability is everything.
+When your body feels grounded, you don’t panic with the market.
 
-The energy wakes me up at 4 a.m. to create.  
+My disciplined physical training — strength, yoga, walks, massage, and early sleep —
+has built what spiritual teachers call energetic capacity.
+It’s the ability to hold energy without being overwhelmed by it.
+
+This energy wakes me up at 4 a.m. to create.
 It helps me recover from old patterns faster each time — from months to days, from days to hours.
 
-So if you want abundance, start with your body.  
-A disciplined body creates a stable nervous system.  
-And with that stability, you can resist every temptation — overthinking, fear, distraction, or comfort —  
+So if you want abundance, start with your body.
+A relax body creates a stable nervous system.
+And with that stability, you can resist every temptation — overthinking, greed, fear, distraction, or comfort —
 and stay aligned with your highest frequency.
 
 ---
 
 ## 🧠 3. Mental Abundance — Clarity
 
-Mental abundance means **clarity, focus, and calm**.
+Mental abundance means clarity, focus, and stillness.
 
-Dr. Joe Dispenza says, *“Your thoughts create your reality.”*  
-That’s true — but thoughts only create lasting change when they are **proved by experience**.
+Dr. Joe Dispenza says, “Your thoughts create your reality.”
+That’s true — but thoughts alone don’t change your life.
+They only become real when they are proved by experience — when your actions and emotions reflect the same intention.
 
-So I practice clarity not by thinking “I’m clear,”  
+So I practice clarity not by thinking “I’m clear,”
 but by living clearly.
 
-Reading — and then applying what I learn in real life — helps me combine knowledge with experience to form my own wisdom.  
-Reflecting and observing myself daily allows me to adjust old thought and behavior patterns.  
-Writing and creating from my own experience help me clarify what’s in my mind.  
+Reading — and then applying what I learn in real life — helps me merge knowledge with experience to form my own wisdom.
+Reflecting and observing myself daily allow me to rewrite old thought and behavior patterns.
+Writing and creating from my experience help me organize my mind and gain more clarity.
 
-It’s my form of **mental strength training** —  
-every session is a rep that builds more clarity.
+It’s my form of mental strength training —
+each reflection, each decision, each piece of writing is a rep that builds more clarity.
 
-More clarity means better decisions — in every area of life.  
+And clarity compounds.
+It sharpens focus, simplifies choices, and reduces emotional noise.
 With clarity, you know how to invest, how to build relationships, how to live your potential, what truly matters, and how to parent with awareness and love.
 
-I believe I became a better investor because I studied computer science.  
-It trained me to think in systems, to recognize patterns — both in the market and in my own emotions —  
-to think from first principles, and to differentiate signal from noise.
+I think I became a better investor because I studied computer science.
+It taught me to think in systems, to recognize patterns — both in the market and in my own emotions —
+to reason from first principles, and to separate signal from noise.
 
-That’s why I’m committed to creating videos long-term.  
-The more I create, the more mental abundance I gain.  
-And the more clarity I build, the better decisions I make — in the market, in relationships, and in life.
+That same mindset guides how I create videos.
+Each video is another practice in clarity — turning insights into structure, chaos into order.
+The more I create, the more mental abundance I gain.
+And the clearer I become, the wiser my decisions — in the market, in relationships, and in life.
 
 ---
 
 ## 💓 4. Emotional Abundance — Peace
 
 Emotional abundance means feeling fully without being consumed —  
-to experience emotion as **energy**, not identity.
+to experience emotion as **information**, not identity.
 
 For most of my life, emotions ruled me.  
 When I felt anger, sadness, or fear, I believed something was wrong with me.  
 So I tried to control, suppress, or escape them — through positivity, distraction, or silence.
 
-But emotions are not enemies; they’re **messages**.  
-Each one carries information about what’s unhealed or unloved inside.
+But emotions are not enemies; they’re **messages**.Each one carries information about what’s unhealed or unloved inside.
 
-With the support of a stronger body, I learned to face emotions without running away.  
+In brain science,emotions are predictions your brain makes about what’s happening inside and outside of you.
+They are energy signals — chemical and electrical patterns — that help you prepare for action (fight, rest, connect, reflect).
+
+With the support of a stronger body, I learned to read my emtions without supressing them.
 English used to be my shame — it was one of my majors, yet I couldn’t speak confidently.  
 It took me years to confront that.  
 When I finally did, it became healing.  
 Speaking English helped me rediscover a version of myself that was once hidden —  
 confident, expressive, and free.
 
-I also fell in love knowing it would be brief.  
-But I chose truth over illusion, and that short romance became my awakening.  
-Confronting that emotional turbulence revealed what I truly missed inside.  
-Through it, I transformed longing into clarity, and pain into power.
+I also fell in love knowing it would be brief.
+But I chose truth over suppression, and that brief encounter accelerated my awakening.
 
-Every time I face my emotions directly, I heal another layer of my inner wound and gain more peace.  
-Because in the process, I discovered that **emotion is energy in motion** —  
-and **gratitude** is the key that channels it.
+Every wave of emotion carried information — each feeling pointing to what was missing inside me.
+Through that turbulence, I found a part of myself I still needed to build.
+I turned longing into clarity, and pain into progress.
+Every time I face my emotions directly, I heal another layer of my inner wound and gain more peace.
 
-When I miss someone, I could easily fall into self-doubt or low self-worth.  
-But when I choose gratitude — for the meeting, the lesson, the memory —  
-the same energy that once hurt me begins to lift me.  
-I use it to grow, create, and become more whole.
+Warren Buffett once said, “Be fearful when others are greedy, and greedy when others are fearful.”
+How do you actually do that? By treating collective emotions as data, and as valuation signals.
+I used to value a company by DCF — discounted cash flow.
+Now I  value it by fear.
+The more uncertainty and panic there is, the faster prices drop — and the greater the opportunity to pick real value.
 
-In just nine months, I turned my weakest part into my strongest.  
-Now, every emotional test feels like a deposit into my inner account of peace —  
-each challenge becomes a new layer of **emotional abundance**.
-
+Emotion, whether in life or in markets, is information.
+When you can read it without reacting to it, you turn volatility into wealth.
 ---
 
 ## 🌸 5. Spiritual Abundance — Surrender & Trust
 
-Spiritual abundance means **surrendering to truth** and **trusting life** to unfold in perfect timing.
+Spiritual abundance means surrendering to truth and trusting life to unfold in perfect timing.
 
-Surrender is my spiritual strength training.  
-It’s not giving up — it’s aligning.  
-To align with life means to align with **truth**, not ego.  
-Ego wants control, validation, and certainty.  
-Truth wants freedom, honesty, and peace.
+Surrender is my spiritual strength training.
+It’s not giving up — it’s aligning.
+To align with life means to align with truth, not ego.
+Ego seeks control, validation, and certainty.
+Truth seeks freedom, honesty, and peace.
 
-It shifts my focus from what I can gain at the destination  
+It shifts my focus from what I can gain at the destination
 to what is meaningful in the journey.
 
-I appreciate all the good things in my life,  
+I appreciate the blessings in my life,
 and I also appreciate the tests and frustrations.
 
-I take every event as training for evolution.  
-Market fluctuations give me the greatest test of peace in chaos.  
-Creating videos gives me the greatest test of consistency, patience, and detachment from outcome.
+I see every life experience as training for inner wealth.
+Market fluctuations give me the greatest test of peace in chaos.
+My 50% loss became my greatest lesson — don’t just chase outward returns; build inner wealth.
+Being a stay-at-home mom trained my patience.
+Creating videos tests my consistency, detachment, and faith in process over outcome.
 
-I surrender and trust — knowing that the process itself is the greatest treasure.
+I surrender and trust — knowing that the process itself is the treasure.
 
-> “What stands in the way becomes the way.”
+“What stands in the way becomes the way.”
 
-When you trust life, you stop forcing — and start flowing.  
-You begin to notice that the journey itself is meaningful,  
-and that every small step along the way compounds into a meaningful life.
+When you trust life, you stop forcing — and start flowing.
+You begin to see that everything in your life is shaping you,
+and that every small step compounds into a meaningful whole.
 
+I used to set annual return targets.
+Now, I surrender.
+I’m satisfied with a 10% annual return and focus on what I can control instead:
+Can I stay calm and act wisely in moments of panic and greed?
+And to my surprise, I did — and achieved 50% annual returns in the last three years.
 ---
 
 ## ⚡ 6. Energetic Abundance — Flow
 
-Energetic abundance is the harmony of all dimensions —  
+Energetic abundance is the harmony of all dimensions —
 body, mind, emotion, and spirit moving as one current.
 
-When energy flows freely, life feels effortless.  
-You don’t have to push — things align, people appear, ideas connect.  
-But when energy is blocked by fear, tension, or resistance, even small tasks feel heavy.
+When energy flows freely, life feels effortless. You don’t have to push — things align, people appear, ideas connect. That’s why I can now make English videos effortlessly — the ideas simply flow through me. I haven’t read many English books, and English is my second language. I only began speaking practice this January. Yet now, I’m amazed by how clearly I can express what I feel — even while writing this script. The reason is flow — when I stop all the noise, truth flows through me. Everything has always been inside of you; you just need to be still enough to hear it.
 
-In the past, I leaked energy everywhere —  
-through overthinking, emotional reactivity, and chasing what didn’t align.  
-Now, I see energy as my **real currency**.  
+In the past, I leaked energy everywhere —
+through back pain, overthinking, suppressed emotions, and forcing outcomes without detachment.
+Now I see energy as my real currency.
 Where I place my attention is where my energy — and my life — grows.
 
-Flow begins when your body feels safe,  
-your mind feels clear,  
-your emotions feel seen,  
-and your spirit feels trusted.
+That’s why I make decisions based on energy, not money.
+I ask: Does this give me energy or drain my energy in the long term?
+So I invested in another 60 strength-training sessions.
+I buy great companies at good prices and hold them — saving energy for what truly matters.
+I say no to relationships that don’t nurture me.
+I create videos without worrying about results — because creating itself gives me energy.
 
-Then, every action — walking, writing, training, investing, creating —  
-becomes an expression of the same balanced energy.  
-You no longer move from pressure; you move from presence.
+Then every action — walking, writing, training, investing, creating —
+becomes an expression of the same balanced energy.
+All effort becomes effortless, I wake up at 4 a.m. full of ideas,
+, as if life want to express truth through me, so i get up and write.
 
-That’s why I protect my energy like wealth.  
-I spend it on what expands me, not what drains me.  
-I rest before I’m empty.  
-I say no with peace, and yes with full heart.
+Now, life itself feels like a dialogue —
+between my energy and the world’s energy.
+When I stay aligned, the universe responds.
 
-Now, life itself feels like a dialogue —  
-between my energy and the world’s energy.  
-When I stay aligned, the universe responds.  
-Opportunities arise not because I chase them,  
-but because I’ve become a match for them.
+Opportunities arise not because I chase them,
+but because I’m well-prepared to receive them.
 
-**Energetic abundance is the art of living in flow** —  
+Energetic abundance is the art of living in flow —
 where every breath, thought, and action returns you to harmony with life.
 
+When energy flows freely within, wealth flows naturally without — because money, too, is only energy seeking alignment.
 ---
 
-## 💰 7. Financial Abundance — Freedom
+## 💰 7. Financial Abundance - byproduct
+Money is the exchange of energy.
+It flows to where attention, creativity, and value flow.
+But for me, the real lesson was this — money isn’t the goal; it’s the byproduct of inner alignment.
 
-Financial abundance isn’t about having everything —  
-it’s about having *enough* to live aligned, free, and at peace.
+For a long time, money was my biggest fear.
+When results came too slowly, I lost patience — and I lost 50%.
+That fear came from lack — from believing I needed more before I could feel safe.
 
-For a long time, money was my biggest fear.  
-So I saved and invested, but I did it anxiously — always afraid it wasn’t enough.  
-When results came too slowly, I lost patience.  
-I checked the market constantly, compared myself with others, and acted from scarcity.  
-That mindset made me greedy and reactive — and I lost 50%.
+Then I learned my lesson. I stopped chasing money and began feeling enough.
+I turned my focus toward investing in myself — in health, clarity, and energy.
 
-Then I stopped chasing and started feeling enough.  
-Once my energy shifted, my outer results changed too.  
-Without forcing, my portfolio grew 60% — twice.
+Once my inner state shifted, my outer results changed too.
+Without forcing, my portfolio grew 60%.
+That’s when I awakened.
+I realized: money can’t be chased — it’s attracted through alignment.
 
-> “Outer wealth mirrors inner stability.”
+When you chase, your focus is on lack.
+You’re saying to life, “I don’t have enough.”
+Your nervous system tightens; your body moves into fight or flight.
+Practically, that inner friction clouds your judgment and slows your actions —
+you end up being defeated by yourself.
+Energetically, that contraction blocks flow —
+you stop being a magnet and start being a pursuer.
 
-When you feel enough inside, you gain patience to grow your portfolio.  
-If you don’t feel enough, even billions won’t bring peace.
+Abundance attracts abundance — because it removes all the inner frictions that block it,
+physically, mentally, emotionally, and spiritually.
+And when energy flows freely, wealth flows naturally —
+because money is the exchange of energy.
 
-Now I see money as energy — a reflection of my inner peace, not a measure of worth.  
-I no longer spend to fill emptiness;  
-I invest — in the market and in myself — to express alignment.  
-I no longer chase short-term returns;  
-I compound long-term wisdom and peace with patience.
+Now I see money as a reflection of my aligned energy, not a measure of worth.
+It’s the byproduct of a flow state — where body, mind, soul, and spirit move as one.
+So instead of chasing money, I expand my 6D abundance.
 
-True financial freedom isn’t just numbers in a portfolio —  
-it’s the ability to live fully on your terms,  
-to work with joy instead of pressure,  
-to give without fear of lack,  
-and to know you already have enough.
+True wealth isn’t just numbers in an account —
+it’s the lightness in your body,
+the clarity in your mind,
+the peace in your soul,
+and the aliveness in your spirit.
 
-It takes time, but that’s the gift —  
-because along the way, you build inner wealth: patience, trust, discipline, and clarity.
+And the beauty is, the opposite is also true:
+When your body feels safe, your mind grows calm.
+When your mind is clear, you focus on what truly matters — in investing and in life.
+When your soul is at peace, you gain patience to compound both wealth and wisdom.
+And when your spirit is alive, you live in a vibration that naturally attracts abundance.
 
-And one day you realize:  
-**Freedom is not having everything — it’s needing less.**  
-When you stabilize at this frequency, abundance naturally flows to you.
+That is abundance —
+you start from enough, expand your life through alignment,
+and financial return becomes only a byproduct.
 
----
-
-## 🌈 8. Integration – From Meditation to Embodiment
-
-The 6D Abundance System is about **integration**:  
-Body for stability.  
-Mind for clarity.  
-Emotion for truth.  
-Spirit for alignment.  
-Energy for power.  
-Wealth for expression.  
-
-Meditation opens the door — living these six dimensions keeps you there.  
-
-Every morning practice becomes a choice to embody what you once imagined.  
-Every habit anchors your highest frequency into real life.  
-
+In the end, money is the exchange of energy —
+and alignment is the source,
+because it clears the blocks in your body, mind, heart, and soul.
 ---
 
 ## 🌞 Closing – Live It
+The paradox of abundance is that it begins the moment you stop chasing it.
 
-Meditation can change your state — but living it changes your life.  
-Don’t just sit in the field of infinite possibility — become its evidence.  
+You realize abundance isn’t what you own — it’s what you no longer need.
 
-Because manifestation isn’t about escaping reality —  
-it’s about **elevating how you walk through it**.  
+From that mindset, you become still and expand what truly matters:
+a body with strength,
+a mind with clarity,
+a heart with love,
+and a spirit at peace.
 
-**Live it — that’s where real abundance begins.**
+Then your actions flow not from ego, but from alignment.
+
+You don’t attract what you want; you attract what you are.
+
+When you stop chasing money and pursue holistic alignment instead,
+money arrives as the natural consequence of who you’ve become.
+
+Start from enough. Live in alignment. Let wealth be the byproduct.
+

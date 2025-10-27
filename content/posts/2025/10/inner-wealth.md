@@ -40,24 +40,7 @@ Warren Buffett once said,
 
 > “The most important quality for an investor is temperament, not intellect.”
 
-In this video, I’ll share how my own losses and gains taught me that temperament — not strategy — is what truly determines your returns.
-
-# Temperament vs Inner Wealth vs Awareness
-
-Temperament is how you emotionally behave under pressure.
-It’s what others see — your patience, calm, and consistency when things get difficult.
-
-Inner wealth is your emotional capital — peace, clarity, trust, gratitude, and sufficiency.
-It’s what gives temperament its stability.
-
-Awareness is the silent observer — the ability to see your thoughts, emotions, and impulses without being ruled by them.
-It’s the root of all transformation.
-
-Awareness is the root, inner wealth is the soil, and temperament is the fruit.
-
-So if you want to build true temperament,
-you must first cultivate awareness and grow inner wealth —
-because behavior changes only when consciousness deepens.
+“In this video, I’ll share how my own losses and gains taught me that temperament — not strategy — is what truly determines your returns.”
 
 # Inner Assets and Market Reflections
 The market mirrors your state of being.
@@ -71,6 +54,7 @@ Because I could wait for the right price to buy, and hold through both the ups a
 
 So if you want to compound wealth, start from within.
 External compounding begins only after internal compounding starts.
+That’s the first principle of all growth — in money, health, and life.
 
 1. Patience
 
@@ -156,39 +140,6 @@ It’s what turns reaction into wisdom, and motion into compounding.
 
 To be a good investor, cultivate your inner portfolio
 and practice awareness along the way.
----
-
-# Investing reinfoced my inner porfolio
-Once I saw the connection between investing and awareness,
-investing stopped being a game of numbers — it became a mirror for my soul.
-
-It’s no longer about outperforming the market.
-It’s a spiritual gym.
-
-Every emotion — fear, greed, hope, pride —
-is a weight I must learn to lift.
-
-When I panic, I practice awareness.
-When I’m tempted by greed, I practice patience.
-When I’m uncertain, I practice surrender.
-When I feel joy, I practice gratitude.
-
-Each market cycle reflects my consciousness.
-Each decision becomes a meditation in disguise —
-a moment to act intentionally, not reactively.
-
-Inner wealth compounds just like capital.
-The more awareness I build, the less I react.
-The less I react, the wiser my actions become.
-And wisdom always compounds —
-in portfolio, in peace, and in life.
-
-All these realizations brought me back to one simple truth:
-what I seek outside already exists inside.
-
-So now, I treat every experience — gains, losses, and emotions —
-as training for awareness.
-I call it spiritual investing.
 
 ---
 
@@ -196,16 +147,18 @@ I call it spiritual investing.
 
 Inner wealth doesn’t just improve investing —
 it transforms every part of life.
-
 Because awareness is not limited to the market;
 it’s the light that reveals truth in everything you do.
 
+In health — your body reflects your habits and emotions.
+In relationships — others reflect your inner sense of love and sufficiency.
+In creativity — your work reflects your inner clarity and energy.
+
 When I became more aware, I started making better choices —
-not just with money, but with energy.
 
 🧘‍♀️ Health
 
-I used to exercise for appearance.
+I used to exercise to health.
 Now, I train my body to strengthen my mind —
 to feel alive, grounded, and centered.
 
@@ -267,5 +220,54 @@ it’s made of wisdom, awareness, and peace.
 And that’s the portfolio I’ll keep compounding
 for the rest of my life.
 
-In the next video, I’ll share the habits that help me feel I have enough —
-the mindset that keeps me still in chaos.
+In the next video, I’ll share the mindset that keeps me still in chaos.
+
+# Temperament vs Inner Wealth vs Awareness
+
+Temperament is how you emotionally behave under pressure.
+It’s what others see — your patience, calm, and consistency when things get difficult.
+
+Inner wealth is your emotional capital — peace, clarity, trust, gratitude, and sufficiency.
+It’s what gives temperament its stability.
+
+Awareness is the silent observer — the ability to see your thoughts, emotions, and impulses without being ruled by them.
+It’s the root of all transformation.
+
+Awareness is the root, inner wealth is the soil, and temperament is the fruit.
+
+So if you want to build true temperament,
+you must first cultivate awareness and grow inner wealth —
+because behavior changes only when consciousness deepens.
+
+# Investing reinfoced my inner porfolio
+Once I saw the connection between investing and awareness,
+investing stopped being a game of numbers — it became a mirror for my soul.
+
+It’s no longer about outperforming the market.
+It’s a spiritual gym.
+
+Every emotion — fear, greed, hope, pride —
+is a weight I must learn to lift.
+
+When I panic, I practice awareness.
+When I’m tempted by greed, I practice patience.
+When I’m uncertain, I practice surrender.
+When I feel joy, I practice gratitude.
+
+Each market cycle reflects my consciousness.
+Each decision becomes a meditation in disguise —
+a moment to act intentionally, not reactively.
+
+Inner wealth compounds just like capital.
+The more awareness I build, the less I react.
+The less I react, the wiser my actions become.
+And wisdom always compounds —
+in portfolio, in peace, and in life.
+
+All these realizations brought me back to one simple truth:
+what I seek outside already exists inside.
+
+So now, I treat every experience — gains, losses, and emotions —
+as training for awareness.
+I call it spiritual investing.
+
