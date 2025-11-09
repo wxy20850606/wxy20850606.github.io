@@ -116,23 +116,27 @@ Bond holdings help protect against the third.
 
 ### 1. How many holdings are most efficient
 
-| **Number of Stocks** | **Approx Portfolio σ** | **Risk Reduction vs 1 Stock** | **Meaning** |
+| **Number of Stocks** | **Approx Portfolio σ** | **Risk Reduction vs 1 Stock** | **Meaning**                                                                 |
 | -------------------: | ---------------------: | ----------------------------: | :-------------------------------------------------------------------------- |
-| 1 | 25.0 % | — | All risk concentrated in one company |
-| 2 | 17.7 % | ↓ 29 % | One bad stock still hurts a lot |
-| 3 | 14.4 % | ↓ 42 % | Big improvement; still high volatility |
-| **4** | **12.5 %** | **↓ 50 %** | 🟢 **Half the single-stock risk gone — diversification becomes meaningful.** |
-| 5 | 11.2 % | ↓ 55 % | Risk reduction slows down |
-| 6 | 10.2 % | ↓ 59 % | Moderate smoothing |
-| 7 | 9.5 % | ↓ 62 % | Marginal improvement |
-| **8** | **8.8 %** | **↓ 65 %** | 🟢 **Optimal balance of focus + diversification.** |
-| 9 | 8.3 % | ↓ 67 % | Most idiosyncratic risk removed |
-| 10 | 7.9 % | ↓ 68 % | Diminishing benefit begins |
-| 12 | 7.2 % | ↓ 71 % | Essentially diversified |
-| 15 | 6.5 % | ↓ 74 % | Beyond this, returns converge to the market average |
+|                    1 |                 25.0 % |                             — | All risk concentrated in one company                                        |
+|                    2 |                 17.7 % |                        ↓ 29 % | One bad stock still hurts a lot                                             |
+|                    3 |                 14.4 % |                        ↓ 42 % | Big improvement; still high volatility                                      |
+|                **4** |             **12.5 %** |                    **↓ 50 %** | 🟢 Half the single-stock risk gone — diversification becomes meaningful     |
+|                    5 |                 11.2 % |                        ↓ 55 % | Risk reduction slows down                                                   |
+|                    6 |                 10.2 % |                        ↓ 59 % | Moderate smoothing                                                          |
+|                    7 |                  9.5 % |                        ↓ 62 % | Marginal improvement                                                        |
+|                **8** |              **8.8 %** |                    **↓ 65 %** | 🟢 Optimal balance of focus + diversification                               |
+|                    9 |                  8.3 % |                        ↓ 67 % | Most idiosyncratic risk removed                                             |
+|                   10 |                  7.9 % |                        ↓ 68 % | Diminishing benefit begins                                                  |
+|                   12 |                  7.2 % |                        ↓ 71 % | Essentially diversified                                                     |
+|                   15 |                  6.5 % |                        ↓ 74 % | Beyond this, returns converge to market average                             |
+|                   17 |                  6.2 % |                        ↓ 75 % | Marginally smoother; nearly full diversification                            |
+|                   20 |                  6.0 % |                        ↓ 76 % | Fully diversified — behaves like broad market                               |
+|               **30** |              **5.8 %** |                    **↓ 77 %** | 🟢 Near-complete diversification; adding more stocks adds almost no benefit |
 
-Most of the diversification benefit appears by eight holdings.  
+
 At four, diversification starts to protect you.
+Most of the diversification benefit appears by eight holdings.  
 Beyond fifteen, volatility barely changes — but conviction weakens.
 
 ---
@@ -141,14 +145,24 @@ Beyond fifteen, volatility barely changes — but conviction weakens.
 The more you subtract unnecessary thoughts, opinions, control, and comparisons,
 the clearer you see reality.
 
-When your mind is quiet,
-you act less — but each action carries more precision and power.
+In any system — the mind, the market, or nature — every observation contains both signal and noise.
+
+Observation = Signal + Noise
+
+Signal is the truth — the real pattern, the underlying trend.
+
+Noise is random variation — emotion, luck, short-term error.
+
+When you take one careful measurement, noise stays small.
+When you take many rushed or overlapping measurements, the noise doesn’t cancel out — it adds variance.
+
+The same is true for the mind.
+When your mind is quiet, you act less — but each action carries more precision and power.
 
 Charlie Munger called it “sit-on-your-ass investing” —
 the discipline to do nothing until the odds are clearly in your favor.
 It looks like stillness from the outside,
-but it’s actually patience in motion —
-clarity choosing timing over activity.
+but it’s actually patience in motion — clarity choosing timing over activity.
 
 You don’t need to search for great investments every day.
 True opportunities — the kind that change your trajectory —
@@ -164,7 +178,6 @@ one quiet decision after a decade of silence.
 And Li Lu has held BYD for more than fifteen years —
 one decision that multiplied thirty-fold without another move.
 That’s what patience looks like in practice.
-
 ---
 
 # Less Thinking, More Energy
@@ -176,13 +189,17 @@ Even if you’re logical, this kind of thinking drains energy.
 Because underneath logic, there’s still uncertainty — and the need for control.
 It’s the fight-or-flight state disguised as analysis.
 
+but in reality, all the effort are wasted, or becomes negetive contribution.
+Charlie muger said: I’ve never been able to predict accurately. I don’t make money predicting accurately. We just tend to get into good businesses and stay there."
+
 You can’t control the market.
 You can’t time it perfectly.
 So focus on what you can control.
 
-After I surrendered, I could learn new things, train my body, and create.
+After I accepted i can't control and surrendered, I free the energy and time to learn new things, train my body, and create.
 If you can surrender, imagine how much energy you’ll free —
 to do the things that truly matter.
+and you are probably gain more return.
 
 Investing is simple: you’re buying a piece of a business and sharing its future profits.
 But businesses need time to create cash flow.

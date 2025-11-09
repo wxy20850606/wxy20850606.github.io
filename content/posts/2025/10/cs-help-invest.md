@@ -32,153 +32,149 @@ cover:
 
 Why Coding Taught Me the Secret of Long-Term Investing
 
-From Algorithms to Investing: The Logic of Inner Wealth
 
-# start 
+## **Why I Chose Computer Science**
 
-In 2022, I spent almost all my time studying — reading dozens of books about investing, learning valuation from the “valuation guru,” studying accounting, statistics, and even considering the CFP exam.
-But despite all that effort, I lost 52%.
+In 2022, I spent almost all my time studying — reading dozens of investing books, learning valuation, accounting, and statistics.  
+Yet despite all that effort, I lost **52%**.  
 
-That contrast was shocking.
-I had focused all my time on numbers, charts, and ratios — yet I lost money.
+That contrast shocked me.  
+I realized I was optimizing for **information**, not **intelligence**.  
 
-Charlie Munger once said in Poor Charlie’s Almanack that you need to build a latticework of mental models — a way of thinking that connects knowledge across disciplines.
-So I decided to study computer science, the subject of thinking itself.
+Charlie Munger once said that you need to build a *latticework of mental models* — a way of thinking that connects knowledge across disciplines.  
+So I decided to study **computer science**, the subject of *thinking itself*.  
 
-To my surprise, after I started learning it, my returns changed completely.
-Over the next three years, I averaged around 50% annual growth — not because I found better stocks, but because I learned to think differently.
+To my surprise, after I started learning it, my returns changed completely.  
+Over the next three years, I averaged around **50% annual growth** — not because I found better stocks, but because I learned to **think differently**.  
 
-In this post, I’ll share why learning computer science helped me become a better investor — and how understanding systems, logic, and feedback loops improved not just my portfolio, but my mind.
+In this post, I’ll share why learning computer science helped me become a better investor — and how understanding systems, logic, and feedback loops improved not just my portfolio, but my mind.  
 
+---
 
-# why i choose cs
+## **Abstraction — The Logic of Investing**
 
-1. Fast Feedback Loop
+Abstraction means rising above the details until you can see the underlying logic.  
 
-In computer science, feedback is instant. You write code, run it, and see the result within seconds.
-Every line you write gives you immediate reflection — whether it works or fails, the system tells you the truth.
+There are thousands of books about investing, each with its own claim.  
+But at its core, investing is simple:  
 
-That rhythm — observe → test → correct → improve — trains your mind to think experimentally, not emotionally.
-You stop fearing mistakes because every error becomes information.
-Over time, you develop a calm, analytical way of seeing problems: adjust, rerun, and refine until it works.
+> **It’s buying a piece of a business today to share in the cash it will create tomorrow.**  
 
-2. Learning by Doing
+That’s why long-term holding is essential — a company needs time to generate real free cash flow.  
 
-In programming, you can’t just read — you have to build.
-Real understanding comes from experience, not memorization.
-Every project is an experiment: you write, test, fail, fix, and learn.
-That process trains you to think in feedback loops — to grow through iteration rather than theory.
+In the end, every investment comes down to one timeless question:  
 
-3. The Art of Thinking
-Computer science isn’t only about code — it’s about how to think.
-Sometimes you have to look top-down — to see the overall logic, the architecture behind everything, the principles that hold the system together.
-Other times you must go bottom-up — to understand how each module works, and how optimizing one part can affect the entire system.
+> **Is it worth it?**  
 
-These three principles — fast feedback, learning by doing, and the art of thinking — are why I chose computer science. It’s not just a subject to study, but a discipline of the mind that shapes how I learn, create, and see the world.
+To think clearly about value, imagine a small coffee shop.  
+How much would you pay to own it?  
+How much cash could it earn each year?  
+Would the return justify the price?  
 
-# what cs taught about investing
+It’s the same logic behind every investment — just with bigger numbers.  
 
-1. Abstraction — the logic of investing
-Abstraction means rising above the details until you can see the underlying logic.
+That’s what computer science taught me:  
+to rise above the noise, see the core logic, and design decisions from **first principles**.  
 
-There are thousands of books about investing, each with its own claim.
-But at its core,
+---
 
-Investing is buying a piece of a business today to share in the cash it will create tomorrow.
+## **Algorithms — Turning Wisdom into Process**
 
-That’s why long-term holding is essential — a company needs time to generate free cash flow.
+In computer science, an algorithm is a repeatable process that solves a problem.  
+It takes an input, follows a defined sequence of steps, and produces a predictable output.  
 
-In the end, investing can be reduced to one timeless question:
+But the deeper beauty of algorithms isn’t in the code — it’s in the **clarity of logic**.  
+They train you to think in systems instead of emotions — to break big goals into precise, testable steps.  
 
-Is it worth it?
+Every algorithm is a repeatable path from **chaos to order**.  
 
-To think clearly about value, imagine a coffee shop.
-How much would you pay to own it? How much cash could it earn each year?
-Would the return justify the price?
-It’s the same logic behind every investment — just with bigger numbers.
+These are my algorithms in investing:  
 
-That’s what computer science taught me:
-to rise above the noise, see the core logic, and design decisions from first principles.
+1. **Hold long term →** Companies need time to create free cash flow.  
+   I bought UMH; its price went down a lot, and the company struggled — but I gave the CEO time to adjust and operate more efficiently.  
 
-2. Algorithms — Turning Wisdom into Process
+2. **Stay within your circle of competence AND focus→**  
+   Focus on fewer holdings i understand and avoid averaging away excellence.  
+As Charlie Munger taught, true outperformance comes from a few great ideas held with conviction — not from owning everything.
 
-In computer science, an algorithm is a repeatable process that solves a problem.
-It takes an input, follows a defined sequence of steps, and produces a predictable output.
+3. **Maintain 20–30% bond allocation →**  
+   Stability under any condition builds the right temperament.  
+   When the market drops, you can buy.  
+   When it rises, your holdings rise too.  
+   True steadiness is built on being **always prepared**.  
 
-But the deeper beauty of algorithms isn’t in the code — it’s in the clarity of logic.
-They teach you to think in systems instead of emotions, to break big goals into precise, testable steps.
+---
 
-Every algorithm is a repeatable path from chaos to order.
-this is my algorithms in investing.
+## **Debugging — Metacognition in Investing**
 
-Hold long term → separate noise from signal — let time reveal truth.
+Investing is a constant debugging process — not of code, but of **judgment, perception, and emotion**.  
+Every act of debugging — whether in code, investing, or life — is a **feedback loop in motion**.  
+That’s how wisdom accumulates: through **observation, adjustment, and refinement**.  
 
-Stay within circle of competence → Energy efficiency in closed systems — focus energy where understanding compounds.
+Debugging is the art of catching your own thinking errors.  
+It trains patience, precision, and non-reactive awareness — the same skills practiced in meditation and self-reflection.  
 
-Fewer holdings → Central Limit Theorem — avoid averaging away excellence.
+When you debug code or emotion, you’re doing the same thing:  
+noticing what doesn’t serve, tracing it to the cause, adjusting, and trying again.  
 
-20–30% bond → steady compounding > volatility — choose stability over excitement.
+When I lost 50%, I debugged the root cause:  
+I was too greedy, too arrogant, and constantly comparing myself with others.  
+So I learned the lesson and adjusted my **thinking system**.  
 
-Reflect on every transaction → feedback loop — turn mistakes into data.
+Over time, this process rewires not just programs — but **perception itself**.  
+Each loop refines clarity. Each correction expands consciousness.  
 
-When wisdom becomes a process, emotion turns into clarity, and success becomes repeatable.
+Investing algorithms are the **architecture of clarity**.  
+Debugging is the **process that keeps that architecture alive**.  
+Together, they form a **self-correcting loop** — a living intelligence that compounds truth over time.  
 
-3. Debugging — Metacognition in 
+---
 
-Investing is a constant debugging process — not of code, but of judgment, perception, and emotion.
-Every act of debugging, whether in code, investing, or life, is a feedback loop in motion.
-That’s how wisdom accumulates — through observation, adjustment, and refinement.
+## **Systems Thinking — Seeing the Whole System Behind Every Decision**
 
-Debugging is the art of catching your own thinking errors.
-It trains patience, precision, and non-reactive awareness — the same skills practiced in meditation and self-reflection.
-When you debug code or emotion, you’re doing the same thing:
-noticing what doesn’t serve, tracing it to the cause, adjusting, and trying again.
+Computer science teaches you to think in **networks, dependencies, and flow**.  
+When you invest, it’s not only your mind making the decision — it’s your **whole system**.  
+Returns don’t come from intellect alone, but from **alignment between mind, body, spirit, and energy**.  
 
-Over time, this process rewires not just programs — but perception itself.
-Each loop refines clarity. Each correction expands consciousness.
+Every layer of life connects:  
+**body → thoughts → emotions → energy → actions → results** —  
+just like a system of **inputs → processes → outputs**.  
 
-investing algorithms are the architecture of clarity.
-Debugging is the process of keeping that architecture alive.
-Together, they form a self-correcting loop — a living intelligence that compounds truth over time.
+In the long run, what determines your return is not just skill or timing —  
+it’s the **efficiency of your entire system**.  
 
-4. Systems Thinking — Seeing the Whole System Behind Every Decision
+When my energy is low, my decisions weaken.  
+When I feel enough, my choices expand.  
+My clarity in writing trains my clarity in stock-picking.  
+My physical discipline shapes my mental discipline in the market.  
+My surrender in relationships strengthens the same muscle that helps me surrender to uncertainty in investing.  
 
-Computer science teaches you to think in networks, dependencies, and flow.
-That’s why it aligns so naturally with my Life Architect OS and Energy Economy.
+Life itself is a system.  
+How I invest is how I live —  
+and how I live is how I invest.  
 
-You start to notice how every layer of life connects —
-body → thoughts → emotions → energy → actions → results —
-just like a system of inputs → processes → outputs.
+---
 
-When my energy is low, my decisions weaken.
-When I feel enough, my choices expand.
-My physical discipline shapes my mental discipline in the market.
-My surrender in relationships trains the same muscle that helps me surrender to uncertainty in investing.
+## **End**
 
-Life is a system.
-How I invest is how I live —
-and how I live is how I invest.
+Most people stay within the walls of each discipline — math in math, finance in finance.  
 
-# end
+> “To the man with only a hammer, every problem looks like a nail.”  
 
-Most people stay inside the walls of each discipline — math in math, finance in finance.
+Investing is a **human activity — an enlarged one.**  
+It’s not only about numbers and charts.  
 
-“To the man with only a hammer, every problem looks like a nail.”
+If you focus only on accounting, valuation, and strategies — as I once did — and overlook **thinking and temperament**,  
+the market will eventually teach you a lesson.  
 
-if you want to be a better invest, lattiework of thinking, + tempratment. that is why charlie munger and warren and navel all suggest to read. becasue you 
+You might get lucky for a while,  
+but what you gain by luck will be taken away if you don’t build **clarity and character**.  
+That is the **law of wealth**: before you build fortune, you must build the container that can hold it.  
 
-investing is human acitivity, and enlarged one. it is not only about numbers and charts. if you focus on learning accounting, valuation, investing statage like me, and overlook thinking and temperatment, market will teach you a lesson. 
-you might got lucky, but what you gained by lucky will be taken away if you don't build clarity and temperament.
-that is law of wealth, you need to build container first.
-that container is you.
+And that container — is **you**.  
 
-The work i am doing — building awareness, discipline, and emotional intelligence and the lattiework of thinking — is building my container.
+> The work I am doing — seeing the essence, refining my algorithms through feedback loops, and upgrading my whole being — is how I build my container.  
 
-That’s why inner wealth creates outer wealth. 
+That’s why **inner wealth creates outer wealth.**  
 
-“Go to bed smarter than when you woke up.
-
-so no learning is my hobby now.
-
-If it is too hard for you, just find another hobby, go fishing, go hiking, don't stare at  the market everyday, you will do much better.
-
+> “Go to bed smarter than when you woke up.” — *Warren Buffett*  
