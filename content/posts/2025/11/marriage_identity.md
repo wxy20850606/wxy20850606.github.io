@@ -62,7 +62,7 @@ That version of me fit the marriage perfectly.
 Not because anything was wrong—  
 but because that truly was who I was back then.
 
-But then I awakened unexpected at 40.
+But then I awakened unexpectedly at 40.
 
 I became more conscious.  
 More emotionally honest.  
@@ -147,7 +147,7 @@ But within my marriage, I had to:
 
 This is painful when your awakened self needs expression to breathe.
 
-I didn’t grow tired of **my parterner**.  
+I didn’t grow tired of **my partner**.  
 I grew tired of shrinking **myself**.
 
 ---
@@ -157,7 +157,7 @@ I grew tired of shrinking **myself**.
 All long-term relationships change as people grow.  
 But the direction and speed of growth don’t always match.
 
-For many years, my parterner and I grew toward:
+For many years, my partner and I grew toward:
 
 - stability  
 - routine  
@@ -203,7 +203,7 @@ I believed:
 - stability = love  
 - silence = peace  
 - routine = happiness  
-- marriage = compromise
+- marriage = compromise  
 
 I didn’t know there was something deeper.
 
