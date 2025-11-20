@@ -1,5 +1,5 @@
 ---
-title: "Marriage_identity"
+title: "Why Marriage Became Heavy During My Awakening"
 date: 2025-11-20T05:29:18+08:00
 lastmod: 2025-11-20T05:29:18+08:00
 author: ["Ariel"]
