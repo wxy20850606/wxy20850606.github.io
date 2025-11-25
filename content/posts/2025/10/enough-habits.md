@@ -28,12 +28,25 @@ cover:
     alt: ""
     relative: false
 ---
+
+If You’re Burnt Out or Doubting Yourself, Watch This
+
 # start
 Yesterday, I spent an hour on WeChat —
 and was flooded with “get rich, get younger, get prettier” content.
 
 By the end, I felt miserable. these platforms are built to trigger lack,
 so we keep spending money or energy trying to fix ourselves — while they profit.
+
+
+
+In this video, I’ll share how I shifted my frequency
+by healing scarcity in every area of my life —
+not by changing how I think,
+but by changing how I live.
+
+Because when you finally feel enough,
+abundance starts to find you.
 
 Then I realized —
 a lot of manifestation content does the same thing.
@@ -48,14 +61,6 @@ The hidden message underneath is often the same:
 when your nervous system feels that “not enough” energy, it keeps broadcasting scarcity, not abundance.
 
 The most common block to manifestation is the belief that you need manifestation to make you enough.
-
-In this video, I’ll share how I shifted my frequency
-by healing scarcity in every area of my life —
-not by changing how I think,
-but by changing how I live.
-
-Because when you finally feel enough,
-abundance starts to find you.
 
 # Feeling Enough by Curing Lack
 

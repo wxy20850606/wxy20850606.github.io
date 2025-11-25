@@ -29,6 +29,8 @@ cover:
     relative: false
 ---
 
+title: Awakening at 40 — Part 1: Why Marriage Felt Heavy
+
 # Why Marriage Became Heavy During My Awakening
 
 From the outside, my life looked complete—  
