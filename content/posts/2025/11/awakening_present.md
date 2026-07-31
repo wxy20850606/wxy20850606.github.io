@@ -29,6 +29,10 @@ cover:
     relative: false
 ---
 
+“How I Finally Learned to Live in the Present (The Real Way)”
+
+⭐ I Show Up Every Day Anyway
+
 # **Showing Up Daily Is Living in the Present**
 
 For most of my life, “living in the present” felt vague.  

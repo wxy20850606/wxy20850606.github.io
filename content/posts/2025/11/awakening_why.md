@@ -174,31 +174,18 @@ the right things and the right people arrived
 exactly when I needed them —  
 from far outside my own culture.
 
-I read **Indistractable**,  
-and learned that 90% of distraction  
-comes from running away from our emotions.  
-My entire life proved this was true.  
-So I decided to face my emotions bravely.
-
 In February, I met an online teacher from Canada  
 who told me honestly:
 
-**“You’re doing great — except you avoid your emotions.”**
+**“You’re doing great, you will be perfect if you work on your emotions”**
 
-That one sentence woke me up.
-
-Then I read **The Celestine Prophecy**,  
-and my morning walks began filling me with energy and synchronicity.
-
-Then I read **Breaking the Habit of Being Yourself**,  
+Then I read Indistractable **The Celestine Prophecy**,  
+ **Breaking the Habit of Being Yourself**,  
 and I finally understood how to change the patterns inside my mind.
 
-And then… fate brought someone unexpected.  
-I had three coffees with an Italian man I met at the gym —  
-someone who saw both my soul’s struggle  
-and my potential with clarity.
+And then… I saw a mirror. an Italian man I met at the gym saw both my soul’s struggle  
+and my potential. 
 
-After he left, everything snapped into place.  
 I finally understood the root cause of my struggle: **misalignment**.  
 For years, I had abandoned myself,  
 hid inside my marriage,  

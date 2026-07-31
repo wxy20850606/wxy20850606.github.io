@@ -69,7 +69,7 @@ Our awareness is always ahead of our reality.
 And every time we catch up, a new part of us expands.  
 There is always a gap.
 
-And this gap can sometimes feel like a brake —  
+And this gap cause inner frition, it becomes a brake —  
 something that slows us down inside.
 
 ---
@@ -84,7 +84,7 @@ to the **future ideal version** of who we want to be.
 Our awareness grows faster than our actions.  
 So the gap feels like inadequacy.
 
-But instead of thinking:
+But instead of thinking: 
 
 **“I’m not good enough,”**
 
@@ -99,7 +99,7 @@ This simple shift does three things:
 ### **① It acknowledges the truth**
 
 There *is* a gap between your awareness and your current reality.  
-That’s normal. That’s growth.  
+That’s normal. That’s growth mindset.  
 You’re not denying it — you’re understanding it.
 
 ### **② It shifts your focus: perfection → progress**
@@ -147,13 +147,13 @@ I even re-recorded the same video many times.
 Refinement *is* improvement —  
 but I realized something:
 
-**It was a huge energy leak.**
+**It was a huge energy leak too.**
 
 My real improvement didn’t come from polishing the same thing.  
-It came from **creating the next thing**.
+It comes more from **creating the next thing**.
 
-Daily iteration grows you.  
-Daily refinement drains you.
+Daily iteration grows you faster.  
+Daily refinement slows you down.
 
 The fastest growth comes from showing up today,  
 releasing it,  
@@ -236,6 +236,7 @@ and let your emotion align with who you’re becoming.
 
 Because you don’t grow through pressure.  
 You grow through daily alignment.
+So show up anyway everyday.
 
 And when you live from that place,  
 consistency becomes natural,  

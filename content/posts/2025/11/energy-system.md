@@ -45,7 +45,7 @@ this is **sustained vitality**.
 
 You don’t “get motivated” — you **stay connected**.
 
-In this video (and article), I share how I built the **Energy System** that keeps me motivated forever.
+In this video (and article), I share how I built the **Energy System** that keeps me motivated easily.
 
 ---
 

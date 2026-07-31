@@ -233,4 +233,4 @@ Why Posting on YouTube Every Day Changed My Life (Even With No Views)
 
 Thumbnail:
 
-ONE VIDEO EVERY DAY
+NO VIEWS. COMPLETE GROWTH

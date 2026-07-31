@@ -1,5 +1,5 @@
 ---
-title: "Substaction in Investing"
+title: "My Investing Philosophy at 40"
 date: 2025-12-11T09:09:21+08:00
 lastmod: 2025-12-11T09:09:21+08:00
 author: ["Ariel"]
@@ -47,8 +47,7 @@ Until I lost 50% in 2022.
 Only then did I understand:  
 I needed to **subtract**.
 
-And unexpectedly, after that,  
-I gained **50% annual return for three consecutive years**.
+And unexpectedly, I achieved a 50% average annual return for the next three years—all by doing less.
 
 In this video, I’ll share why my subtraction journey  
 made me a better investor.

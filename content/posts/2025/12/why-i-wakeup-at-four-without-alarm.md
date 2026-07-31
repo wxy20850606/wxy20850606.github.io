@@ -39,8 +39,6 @@ I still wake up around 4 AM every day — sometimes between 3:30 and 4:30.
 It’s not discipline.  
 It’s not motivation.
 
-The real reason is much deeper.
-
 Here are the 5 reasons:
 
 ---
@@ -186,11 +184,6 @@ During that period, something important happened without me even noticing:
 I wasn’t just waking up earlier —  
 I was creating an environment that *supported* waking up earlier.
 
-A system.  
-Not a strict schedule.  
-Not discipline.  
-Just alignment.
-
 When your environment is aligned, your biology naturally shifts.
 
 I began to:
@@ -238,7 +231,7 @@ This is exactly what happened to me.
 Starting in July, something became very clear:
 
 I wasn’t “adopting” new habits anymore.  
-My identities were finally stabilizing.
+My identities were expending through them.
 
 Once my **gym identity** and my **morning-walker identity** were fixed,  
 I naturally started adding more layers:
@@ -253,11 +246,11 @@ I wasn’t stacking habits.
 
 And now I carry a bundle of identities that *love* the morning:
 
-- a thinker who loves morning clarity  
 - a writer who loves morning creativity  
 - a reader who loves morning focus  
 - a walker who loves morning energy  
 - an awakened woman who loves morning spirit  
+- a thinker who loves morning clarity  
 
 When identity is built,  
 action becomes automatic.  
@@ -274,9 +267,9 @@ It’s not willpower.
 
 **It is identity.**
 
-Your body wakes up naturally — almost joyfully —  
+My body wakes up naturally — almost joyfully —  
 because rising early becomes the most natural expression  
-of who you have already become.
+of who i have already become.
 
 ---
 

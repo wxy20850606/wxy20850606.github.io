@@ -1,5 +1,5 @@
 ---
-title: "I Woke up around 4AM for Six Months — Here’s What I Learned"
+title: "How Morning Became My Way Out of a Lifetime of Overthinking"
 date: 2025-12-01T18:41:02+08:00
 lastmod: 2025-12-01T18:41:02+08:00
 author: ["Ariel"]
@@ -38,6 +38,9 @@ cover:
     relative: false
 ---
 
+TITLE:How Morning Became My Way Out of a Lifetime of Overthinking
+THUMBNAIL:REGULATION FOR HSP
+
 I stopped waking up early for one week, and my life fell apart.
 That’s how I knew this wasn’t about being productive — it was about staying sane.
 
@@ -69,25 +72,15 @@ My nervous system learned to stay alert, to overthink, to self-correct constantl
 So during the day, if I don’t regulate myself first,  
 my mind naturally drifts toward rumination, self-questioning and fear.
 
-In the early morning, before the world arrives,  
-that identity hasn’t fully switched on yet.
+In the early morning, that identity hasn’t fully switched on yet.
 
-That’s when I walk.  
-That’s when I read slowly.  
-That’s when I write — not to create content, but to clear my inner world.
-
-Over time, something changed.
-
-I didn’t force myself to become disciplined.  
-I slowly became calmer, clearer, and more aligned —  
-because my system finally had space to reset every day.
+That’s when I walk, read slowly and write, not to be productive, but to clean my inner room.
 
 ---
 
 ## Early Rising Is Where I Shape Myself
 
-Right after waking, the mind is at its clearest point of the day.
-
+Right after waking, there is 
 No self.  
 No noise.  
 No stress.  
@@ -101,9 +94,7 @@ the same states associated with deep meditation and subconscious rewiring.
 This is the one window when the mind is open enough  
 to rewrite identity.
 
-This is how I used my mornings this year —  
-unconsciously at first.
-
+This is how I used my mornings this year.
 I became a gym person.  
 For half a year, I trained around 6 a.m.
 
@@ -113,13 +104,10 @@ using sunrise walks to process and release emotion.
 Then I became a writer,  
 using early hours not to perform, but to heal.
 
-Then I became a thinker,  
-reflecting on past mistakes so I wouldn’t repeat the same patterns.
-
 One year ago, I was a stay-at-home mom  
 caught in self-deprecation and emotional suppression.
 
-Now I actively shape my life:
+Now if i have:
 
 - a stronger body  
 - a clearer mind  
@@ -140,7 +128,6 @@ and not yet shaped by the world.
 Before sunrise, nothing is asked of me.
 
 I am not a mom.  
-Not a wife.  
 Not anyone’s support system.  
 I am not even myself yet.
 
@@ -150,23 +137,7 @@ It is why it recharges me.
 Fear of the future and regret about the past do not appear —  
 because the identity that produces them hasn’t activated yet.
 
-Fear, uncertainty, and regret do not come from the present moment.  
-They come from **identity**.
-
-And identity is not a single thing.
-
-It is a layered system of roles, personal stories, responsibilities, expectations, and social selves —  
-a system that gradually switches on as the day begins.
-
-Before sunrise, that system is still offline.
-
 When identity is quiet, relief is immediate.
-
-Some people barely notice this shift.  
-I do — because I am sensitive, and the contrast is clear.
-
-When identity turns on, I feel the weight.  
-When it turns off, the calm is unmistakable.
 
 Everyone relaxes differently.
 
@@ -203,7 +174,6 @@ while my system is still quiet and unclaimed.
 
 Early in the morning, my emotional state is very different.
 
-My mind is quieter.  
 My emotions are lighter.  
 My nervous system feels softer and less reactive.
 
@@ -221,14 +191,10 @@ bringing regret and shame.
 After months of walking every morning,  
 those memories gradually lost their emotional charge.
 
-After about six months, most of that long-held weight had already eased.
-
 Then last week, I stopped my morning walks for one week.
 
 This time, what surfaced wasn’t distant memories.  
-It was recent, unfinished experiences from this year —  
-especially around my marriage decisions  
-and someone I met who accelerated my awakening.
+It was recent, unfinished experiences from this year.
 
 When I stopped walking, those thoughts grew louder.
 
@@ -280,8 +246,7 @@ I train my mind in advance —
 before the world touches it,  
 before my old patterns touch it.
 
-Because I am sensitive, and because I grew up with scarcity and criticism,  
-my mind naturally drifts toward disorder:
+without structure, my mind naturally drifts toward disorder:
 
 - fear of future uncertainty  
 - constant self-questioning  
@@ -297,10 +262,6 @@ will always tell you to hurry.
 
 That is why structure is not optional for me.  
 It is **life support**.
-
-The world trains wanting and fear.  
-My old self pulls me toward rumination and self-doubt.  
-I train sufficiency and direction.
 
 With my morning routine,  
 I set my direction — and walk toward it.

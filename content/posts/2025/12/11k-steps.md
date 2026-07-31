@@ -46,12 +46,11 @@ I didn’t plan to walk 11,000 steps a day when the year began.
 
 At first, it was incidental.
 
-On my way to the gym early in the morning, I felt something I hadn’t felt in a long time —  
-the quiet energy of morning.
+On my way to the gym early in the morning, I felt the quiet energy of morning.
 
 The streets were still.  
-The light was soft.  
-There was no urgency yet.
+Fewer pedestrians.
+The city felt like the forest.
 
 I fell in love with that energy.
 
@@ -61,17 +60,17 @@ from 7k to 10k — simply because I wanted to stay in that space longer.
 Then life happened.
 
 I went through a period filled with strong emotions — anxiety, fear, inner struggle.  
-Morning became the only time I could truly be with myself.
+Morning walking became one way I could process those emotions.
 
-That’s why, during June, July, and August, I walked **15,000 steps a day**.  
+That’s why, during June, July, and August, I walked **15k steps a day**.  
 Not to exercise —  
-but to move through what I couldn’t yet explain.
+but to regulate myself through storms.
 
 After about three months of walking for an hour every morning, something shifted.  
 Most of the emotional intensity cleared.  
 A sense of peace appeared.
 
-Naturally, my steps settled at around **11,000**.
+Naturally, my steps settled at around **11k**.
 
 Two weeks ago, I stopped walking for a week.
 
@@ -94,13 +93,12 @@ I used to think of walking as exercise.
 This year, without planning it, walking became **regulation and presence**.
 
 When I walk, I:
-- walk slowly  
+- walk slowly around sunrise
 - don’t chase numbers  
 - don’t listen to music or podcasts  
-- don’t optimize  
-- enjoy the time around sunrise  
+- enjoy the time   
 - let thoughts come and go naturally  
-- stay with the sky, trees, light, and air  
+- stay with the sky, trees, birds
 
 I’ve tried sitting meditation before, and it never worked for me.
 
@@ -171,7 +169,7 @@ time stopped feeling like an enemy.
 
 And from that place,  
 I learned to trust time —  
-and, with it, trust life itself.
+and, trust life itself.
 
 ---
 
@@ -189,7 +187,7 @@ without being forced.
 
 There is something quietly powerful about this time.
 
-In the morning, I can shift perspective more easily.
+In the morning around sunrise, I can shift perspective more easily.
 
 I used to be troubled by cringe moments.  
 They triggered shame, self-questioning, and rumination.
@@ -202,7 +200,6 @@ but they no longer take over.
 
 As a result:
 - baseline anxiety lowered  
-- emotional reactions became less sharp  
 - heaviness stopped accumulating day after day  
 
 Nothing dramatic happened —  
@@ -223,7 +220,7 @@ At first, I appreciated simple things:
 - the sky  
 - flowers along the way  
 - the cold wind that sharpens my clarity  
-- rainy mornings, when only a handful of people are outside  
+- even rainy mornings, when only a handful of people are outside  
 
 Over time, this appreciation widened.
 
