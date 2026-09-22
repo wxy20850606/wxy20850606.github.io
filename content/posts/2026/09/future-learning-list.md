@@ -127,3 +127,10 @@ cover:
 
 *   **Yale University: 死亡 (PHIL 176: Death — By Shelly Kagan)**
     *   **核心功能：** 系統終局的例外處理（Try-Catch）反編譯手冊，用純粹的分析哲學邏輯去冷靜 debug 人類對虛無與死亡的背景恐懼。
+
+# 其他
+
+*   [ ] **MIT 6.042J: Mathematics for Computer Science (計算機科學數學)**
+    *   **核心攻堅：** 邏輯與證明 (Proofs)、圖論 (Graph Theory)、組合數學 (Combinatorics)、遞迴關係。
+    *   **實作與轉化：** 徒手推導邏輯命題，將 Gitlet 的 Commit Tree 與大腦突觸的連接圖譜，在數學上進行幾何學式的對稱化歸納。
+    *   **戰略意義：** 為模組五的「控制系統」與模組六的「神經網路盲刻」提供最堅實的底層彈藥，徹底治癒童年應試教育留下的數學陰影。
