@@ -212,6 +212,8 @@ services:
 
 markup:
   goldmark:
+    renderer:
+      unsafe: true  # 👈 核心：永久放行 Markdown 內部的原生 HTML 標籤，消滅所有警告！
     extensions:
       passthrough:
         enable: true
