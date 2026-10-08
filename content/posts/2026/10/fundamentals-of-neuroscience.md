@@ -1,14 +1,11 @@
 ---
-title: "Fundamentals of Neuroscience (HarvardX MCB80.1x) 學習筆記-霍奇金-赫胥黎模型（HH Model）"
+title: "Fundamentals of Neuroscience (HarvardX MCB80.1x) 學習筆記–霍奇金-赫胥黎模型 (HH Model) "
 date: 2026-10-06T05:40:29+08:00
 lastmod: 2026-10-06T05:40:29+08:00
 author: ["Ariel"]
-keywords: HarvardX MCB80x, 霍奇金-赫胥黎模型（HH Model）
-- 
-categories: # 没有分类界面可以不填写
-- 
-tags: # 标签
-- 
+keywords: ["HarvardX MCB80x","霍奇金-赫胥黎模型 (HH Model)"]
+categories: []
+tags: []
 description: ""
 weight:
 slug: ""
