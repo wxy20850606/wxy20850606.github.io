@@ -209,3 +209,20 @@ services:
     disableInlineCSS: true
   googleAnalytics:
     ID: G-6Q2921LKXF
+
+markup:
+  goldmark:
+    extensions:
+      passthrough:
+        enable: true
+        delimiters:
+          block:
+            - - "$$"
+              - "$$"
+            - - "\\["
+              - "\\]"
+          inline:
+            - - "$"
+              - "$"
+            - - "\\("
+              - "\\)"
