@@ -1,6 +1,9 @@
-<head>
-    <!-- 如果Hugo的版本大于0.120，使用此参数 -->
-    {{- if not hugo.IsServer }}
-        {{ template "_internal/google_analytics.html" . }}
-    {{- end }}
-</head>
+<!-- 載入 Google Analytics -->
+{{- if not hugo.IsServer }}
+    {{ template "_internal/google_analytics.html" . }}
+{{- end }}
+
+<!-- 載入 LaTeX 數學公式引擎 -->
+{{ if or .Params.math .Site.Params.math }}
+    {{ partial "math.html" . }}
+{{ end }}
