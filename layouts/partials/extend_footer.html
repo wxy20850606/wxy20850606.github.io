@@ -1,0 +1,19 @@
+<!-- 🎯 終極防禦：放在文末的萬能 KaTeX 強制渲染器 -->
+<link rel="stylesheet" href="https://cloudflare.com" crossorigin="anonymous">
+<script src="https://cloudflare.com" crossorigin="anonymous"></script>
+<script src="https://cloudflare.com" crossorigin="anonymous"></script>
+
+<script>
+    // 移除 defer，直接在文末強制執行，全面掃描網頁
+    if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\\\(', right: '\\\\)', display: false},
+                {left: '\\\\[', right: '\\\\]', display: true}
+            ],
+            throwOnError : false
+        });
+    }
+</script>
