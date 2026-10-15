@@ -3,7 +3,6 @@ title: "5d Wellbeing"
 date: 2025-10-01T10:44:12+08:00
 lastmod: 2025-10-01T10:44:12+08:00
 author: ["Ariel"]
-date: 2025-09-15
 slug: "living-in-systems-5d-framework"
 keywords:
 - wellbeing

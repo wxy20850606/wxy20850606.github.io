@@ -89,7 +89,7 @@ Nernst 方程（能斯特方程）用來計算當大腦的「生物電池」單�
 ### GHK 方程
 GHK方程是根據影響最大電位最大的四大離子在考慮了細胞膜通透性的影響下，計算出的靜止膜電位。
 
-* **1. 鉀離子（$\text{K}^{+}$）| 大腦的「Reset 重置鍵」**
+* **1. 鉀離子（$\text{K}\^{+}$）\| 大腦的「Reset 重置鍵」**
     * **Nernst（理想極限）**：$-80\text{mV}$ 到 $-90\text{mV}$
     * **通透性（開關）**：靜止時敞開（鉀漏通道），把大腦水位壓在 $-70\text{mV}$ 的靜息狀態；放電高峰時**瞬間暴增**，在千分之一秒內將大腦強行 **Reset 歸零**。
 
@@ -292,4 +292,25 @@ $$ \frac{dV_m}{dt} = \frac{1}{C_m} \left( I_{\text{ext}} - I_{\text{leak}} - I_{
 # 總結
 
 大腦用最混亂、最隨機的奈米級積木（離子通道），透過統計學的宏大定理（大數定律），構築出了一個世界上最精準、最優雅、且最省電的智能系統（僅需約 20 瓦功率）。
+<!-- 壓軸大絕招：直接在文章內強制植入 KaTeX 引擎 -->
+<link rel="stylesheet" href="https://cloudflare.com" crossorigin="anonymous">
+<script src="https://cloudflare.com" crossorigin="anonymous"></script>
+<script src="https://cloudflare.com" crossorigin="anonymous"></script>
+
+<script>
+    // 網頁載入完成後，立刻強制把內文的 $ 符號全部擦亮成公式
+    document.addEventListener("DOMContentLoaded", function() {
+        if (typeof renderMathInElement === 'function') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\\\(', right: '\\\\)', display: false},
+                    {left: '\\\\[', right: '\\\\]', display: true}
+                ],
+                throwOnError : false
+            });
+        }
+    });
+</script>
 

@@ -209,22 +209,3 @@ services:
     disableInlineCSS: true
   googleAnalytics:
     ID: G-6Q2921LKXF
-
-markup:
-  goldmark:
-    renderer:
-      unsafe: true  # 👈 核心：永久放行 Markdown 內部的原生 HTML 標籤，消滅所有警告！
-    extensions:
-      passthrough:
-        enable: true
-        delimiters:
-          block:
-            - - "$$"
-              - "$$"
-            - - "\\["
-              - "\\]"
-          inline:
-            - - "$"
-              - "$"
-            - - "\\("
-              - "\\)"

@@ -3,7 +3,6 @@ title: "Birthday Present From Universe"
 date: 2025-07-23T06:52:28+08:00
 lastmod: 2025-07-23T06:52:28+08:00
 author: ["Ariel"]
-author: ["Ariel"]
 keywords: 
 - synchronicity
 - high frequency

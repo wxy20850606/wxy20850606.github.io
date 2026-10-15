@@ -22,21 +22,12 @@ categories:
 - Personal Story
 - Awakening
 
-tags: 
-- love story
-- marriage struggle
-- self discovery
-- personal growth
-- awakening journey
-- feminine power
 
 description: "A true story of how love awakened me, how leaving became the greater gift, and how facing my struggles set me free."
 
 weight: 
 slug: "the-gift-of-his-leaving"
-description: ""
-weight:
-slug: ""
+
 draft: false # 是否为草稿
 comments: true # 本页面是否显示评论
 reward: true # 打赏
