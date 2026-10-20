@@ -32,7 +32,7 @@ description: "How a gift of Iyengar’s Tree of Yoga became the seed of my awake
 weight: 
 
 slug: "tree-of-yoga-paradox-of-love"
-draft: false # 是否为草稿
+draft: true # 是否为草稿
 comments: true # 本页面是否显示评论
 reward: true # 打赏
 mermaid: true #是否开启mermaid

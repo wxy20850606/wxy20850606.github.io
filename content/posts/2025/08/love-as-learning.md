@@ -28,7 +28,7 @@ description: "A true story of how a brief but pure connection sparked my awakeni
 weight: 
 slug: "love-changed-my-life"
 
-draft: false # 是否为草稿
+draft: true # 是否为草稿
 comments: true # 本页面是否显示评论
 reward: true # 打赏
 mermaid: true #是否开启mermaid

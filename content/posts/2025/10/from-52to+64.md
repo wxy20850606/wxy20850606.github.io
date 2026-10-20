@@ -15,7 +15,7 @@ tags:
 description: "How losing 52% in 2022 became my greatest teacher — and how I turned it into a 63% gain by transforming not just my portfolio, but myself."
 weight:
 slug: ""
-draft: false # 是否为草稿
+draft: true # 是否为草稿
 comments: true # 本页面是否显示评论
 reward: true # 打赏
 mermaid: true #是否开启mermaid

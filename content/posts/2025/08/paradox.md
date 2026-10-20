@@ -14,7 +14,7 @@ tags:
 description: "A personal reflection on how life reveals wisdom through paradox — and how embracing contradiction leads to growth, peace, and inner harmony."
 weight: 
 slug: "life-filled-with-paradox"
-draft: false # 是否为草稿
+draft: true # 是否为草稿
 comments: true # 本页面是否显示评论
 reward: true # 打赏
 mermaid: true #是否开启mermaid

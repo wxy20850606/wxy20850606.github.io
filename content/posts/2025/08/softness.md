@@ -18,7 +18,7 @@ tags:
 - emotional intelligence
 - self-awareness
 description: "A personal reflection on transforming sadness into love and discovering that ultimate softness is the strongest form of strength."
-draft: false # 是否为草稿
+draft: true # 是否为草稿
 comments: true # 本页面是否显示评论
 reward: true # 打赏
 mermaid: true #是否开启mermaid

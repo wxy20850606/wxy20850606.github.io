@@ -25,7 +25,7 @@ tags: # 标签
 description: "Discover the top 3 mental models from investing — Opportunity Cost, Circle of Competence, and the Compounding Effect — and learn how to apply them to everyday life decisions for better focus, fewer mistakes, and long-term success."
 weight:
 slug: "top-3-mental-models-investing-life-decision-making"
-draft: false # 是否为草稿
+draft: true # 是否为草稿
 comments: true # 本页面是否显示评论
 reward: true # 打赏
 mermaid: true #是否开启mermaid

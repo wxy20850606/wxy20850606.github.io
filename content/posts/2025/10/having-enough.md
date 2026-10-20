@@ -1,5 +1,5 @@
 ---
-title: "I Failed to Manifest for Years — Until I Fixed This."
+title: "I Have Enough."
 date: 2025-10-14T10:26:53+08:00
 lastmod: 2025-10-14T10:26:53+08:00
 author: ["Ariel"]

@@ -16,7 +16,7 @@ tags:
 description: "From rain-soaked walks to quiet partings, a story of personal awakening, synchronicities, and the quiet claim of total freedom."
 weight:
 slug: "total-freedom"
-draft: false # 是否为草稿
+draft: true # 是否为草稿
 comments: true # 本页面是否显示评论
 reward: true # 打赏
 mermaid: true #是否开启mermaid

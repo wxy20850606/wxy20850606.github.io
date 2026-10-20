@@ -21,7 +21,7 @@ tags:
 description: "A manifesto of the paradoxes I live — where discipline creates freedom, absence deepens love, and holding opposites awakens wholeness."
 weight: 
 slug: "i-live-in-paradox"
-draft: false # 是否为草稿
+draft: true # 是否为草稿
 comments: true # 本页面是否显示评论
 reward: true # 打赏
 mermaid: true #是否开启mermaid

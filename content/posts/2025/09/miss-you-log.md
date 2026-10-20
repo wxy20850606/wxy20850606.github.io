@@ -21,7 +21,7 @@ tags:
 description: "A reflective log on how missing someone transforms into energy, love, and awakening — turning absence into strength instead of weakness."  
 weight:
 slug: "miss-you-log"  
-draft: false # 是否为草稿
+draft: true # 是否为草稿
 comments: true # 本页面是否显示评论
 reward: true # 打赏
 mermaid: true #是否开启mermaid

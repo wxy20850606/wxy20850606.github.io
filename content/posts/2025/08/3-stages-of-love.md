@@ -21,7 +21,7 @@ tags:
 description: "My reflection on the three stages of love — from possession to recognition, and finally to freedom. A journey through personal experience, philosophy, and poetry."
 weight: 
 slug: "three-stages-of-love"
-draft: false # 是否为草稿
+draft: true # 是否为草稿
 comments: true # 本页面是否显示评论
 reward: true # 打赏
 mermaid: true #是否开启mermaid

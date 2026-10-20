@@ -24,7 +24,7 @@ tags:
 description: "A reflection on meta-awareness as the ability to observe, reframe, and transmute emotions — turning longing into encouragement, absence into growth, and emotion into sovereignty." 
 weight:
 slug: "meta-awareness"
-draft: false # 是否为草稿
+draft: true # 是否为草稿
 comments: true # 本页面是否显示评论
 reward: true # 打赏
 mermaid: true #是否开启mermaid

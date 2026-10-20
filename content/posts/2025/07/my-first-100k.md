@@ -20,7 +20,7 @@ tags: # 标签
 description: "A personal journey of reaching the first $100K in the stock market, learning from mistakes, and embracing value investing principles inspired by Warren Buffett and Charlie Munger."
 weight:
 slug: ""
-draft: false # 是否为草稿
+draft: true # 是否为草稿
 comments: true # 本页面是否显示评论
 reward: true # 打赏
 mermaid: true #是否开启mermaid

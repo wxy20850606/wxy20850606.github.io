@@ -15,7 +15,7 @@ tags:
   - writing as healing
 description: "A single pen became the turning point in my spiritual awakening. This is how I received the call to begin writing my truth."
 slug: "a-ballpoint-pen"
-draft: false # 是否为草稿
+draft: true # 是否为草稿
 comments: true # 本页面是否显示评论
 reward: true # 打赏
 mermaid: true #是否开启mermaid

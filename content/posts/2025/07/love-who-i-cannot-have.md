@@ -17,7 +17,7 @@ tags:
 - self-worth
 - relationships
 description: "How one short connection awakened me to my true path—not romance, but returning to myself."
-draft: false
+draft: true
 comments: true
 reward: true
 showToc: true

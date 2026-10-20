@@ -31,7 +31,7 @@ description: "How I transformed longing and heartbreak into energy, and turned t
 weight: 
 slug: how-i-turned-love-into-energy-productivity
 
-draft: false # 是否为草稿
+draft: true # 是否为草稿
 comments: true # 本页面是否显示评论
 reward: true # 打赏
 mermaid: true #是否开启mermaid
