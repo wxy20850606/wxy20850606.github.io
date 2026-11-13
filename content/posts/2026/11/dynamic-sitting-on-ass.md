@@ -30,7 +30,7 @@ cover:
 ---
 註：個人投資實驗心得，不作為投資建議。
 
-距離上次發文 [How I Invest After Awakening](https://everydaydiva.blog) 才過去 20 天，GOOG、TSM、NVDA 輪番出現劇烈大跌與恐慌拋售，我也執行了許多關鍵操作。
+距離上次發文 [How I Invest After Awakening](https://everydaydiva.blog/posts/2026/10/how-to-invest-after-awakening/) 才過去 20 天，GOOG、TSM、NVDA 輪番出現劇烈大跌與恐慌拋售，我也執行了許多關鍵操作。
 
 感覺有必要更新一下我的投資演算法。當然這個算法也不是最終版本，因為只要我還在市場上，我就會犯錯，犯錯後就會再調整算法修 bug。
 
