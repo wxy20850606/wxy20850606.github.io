@@ -98,9 +98,9 @@ cover:
 
 從電流輸入會經過下面的傳遞過程：
 
-• 突觸前（Presynaptic Terminal，發射端）：電壓門控 Ca²⁺ 通道、突觸囊泡（Vesicles）、SNARE 蛋白。
-• 突觸間隙（Synaptic Cleft，傳輸通道）：20 nm 空間、回收幫浦（DAT/SERT）、降解酶。
-• 突觸後（Postsynaptic，接收端）：Ionotropic（離子型）與 Metabotropic（代謝型）受體。
+* **突觸前（Presynaptic Terminal，發射端）**：電壓門控 Ca²⁺ 通道、突觸囊泡（Vesicles）、SNARE 蛋白。
+* **突觸間隙（Synaptic Cleft，傳輸通道）**：20 nm 空間、回收幫浦（DAT/SERT）、降解酶。
+* **突觸後（Postsynaptic，接收端）**：Ionotropic（離子型）與 Metabotropic（代謝型）受體。
 
 最後如果有輸出，就走向「改寫記憶權重」、「驅動肌肉行為」或「調控內臟腺體」這三大出口。
 
