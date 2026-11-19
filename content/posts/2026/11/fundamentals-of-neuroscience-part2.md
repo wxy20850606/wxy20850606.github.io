@@ -1,7 +1,7 @@
 ---
 title: "Notes of Fundamentals of Neuroscience MCB80.2x"
-date: 2026-11-18T13:34:39+08:00
-lastmod: 2026-11-18T13:34:39+08:00
+date: 2026-11-19T12:20:39+08:00
+lastmod: 2026-11-19T12:20:39+08:00
 author: ["Ariel"]
 keywords: 
 - 
