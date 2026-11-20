@@ -13,7 +13,7 @@ Deeply inspired by Charlie Munger’s cross-domain approach and Nassim Nicholas 
 
 This blog is a version-controlled log of my journey learning and implementing cross-disciplinary frameworks into real-world skin in the game—investing, neural-emotional refactoring, energy management, and heavy barbell training.
 
-Keeping improving.
+Keep improving.
 
 ---
 

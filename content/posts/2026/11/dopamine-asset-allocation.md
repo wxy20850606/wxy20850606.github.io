@@ -1,5 +1,5 @@
 ---
-title: "多巴胺投資組合"
+title: "The Dopamine Portfolio - Diversifying My Brain’s Currency to Reclaim Sovereignty"
 date: 2026-11-04T10:48:16+08:00
 lastmod: 2026-11-04T10:48:16+08:00
 author: ["Ariel"]
