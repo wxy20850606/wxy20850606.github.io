@@ -69,7 +69,7 @@ cover:
 # 🕹️ 模組二：全域控制與通信 (Control & Communications Protocol)
 > **系統規格簡介：** 負責研究多節點分佈式系統在充滿噪點的環境下，如何設定閾值並達成系統自我修正與決策共識。
 
-*   **HarvardX MCB80.1X 2X: Fundamentals of Neuroscience, 2Part 1 & 2** *(✅ 2026-11 Completed，筆記[1](https://everydaydiva.blog/posts/2026/10/fundamentals-of-neuroscience/)，[2](https://everydaydiva.blog/posts/2026/11/fundamentals-of-neuroscience-part2/))
+*   **HarvardX MCB80.1X 2X: Fundamentals of Neuroscience, Part 1 & 2** *(✅ 2026-11 Completed，筆記[1](https://everydaydiva.blog/posts/2026/10/fundamentals-of-neuroscience/)，[2](https://everydaydiva.blog/posts/2026/11/fundamentals-of-neuroscience-part2/))
     *   **核心功能：** 從單一晶體管跨越到網路拓撲，解構上百億個神經元如何利用興奮與抑制信號組裝出生物級邏輯閘電路。
 
 *   **Stanford University (BIO 150): Human Behavioral Biology — By Robert Sapolsky**
@@ -156,10 +156,3 @@ cover:
 
 *   **MIT 18.06: Linear Algebra — By Gilbert Strang**
     *   **核心功能：** 矽基 AI 與碳基神經網路共通的「高維向量空間語言」，用矩陣變換、特徵值與空間投影，將複雜的多維度資訊流壓縮並抽象為可計算的幾何底層運算。
-
-# 其他
-
-*   [ ] **MIT 6.042J: Mathematics for Computer Science (計算機科學數學)**
-    *   **核心攻堅：** 邏輯與證明 (Proofs)、圖論 (Graph Theory)、組合數學 (Combinatorics)、遞迴關係。
-    *   **實作與轉化：** 徒手推導邏輯命題，將 Gitlet 的 Commit Tree 與大腦突觸的連接圖譜，在數學上進行幾何學式的對稱化歸納。
-    *   **戰略意義：** 為模組五的「控制系統」與模組六的「神經網路盲刻」提供最堅實的底層彈藥，徹底治癒童年應試教育留下的數學陰影。
