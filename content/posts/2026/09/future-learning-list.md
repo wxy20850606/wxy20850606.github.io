@@ -1,7 +1,7 @@
 ---
 title: "Future Learning List"
 date: 2026-09-17T07:49:53+08:00
-lastmod: 2026-09-17T07:49:53+08:00
+lastmod: 2026-11-23T07:49:53+08:00
 author: ["Ariel"]
 keywords: 
 - 
@@ -10,7 +10,7 @@ categories: # 没有分类界面可以不填写
 tags: # 标签
 - 
 description: ""
-weight:
+weight: 1
 slug: ""
 draft: false # 是否为草稿
 comments: true # 本页面是否显示评论
@@ -46,6 +46,15 @@ cover:
 # 💻 模組一：資訊與編譯 (Information & Compilation Architecture)
 > **系統規格簡介：** 負責解構虛擬世界與大腦心智如何進行高階代碼打包、資料流轉與狀態儲存。
 
+*   [x] **Harvard CS50: Introduction to Computer Science** *(✅ Completed)*
+    *   **核心功能：** 計算機科學的第一性原理啟動盤，從二進位、C 語言記憶體指標到高階抽象，徹底打通軟體背後的底層執行邏輯。
+*   [x] **UC Berkeley CS61A: Structure and Interpretation of Computer Programs** *(✅ Completed)*
+    *   **核心功能：** 抽象思維與控制複雜度的最高心法，透過高階函數、遞迴與解釋器設計，看穿「程式即資料、資料即程式」的編譯本質。
+*   [ ] **UC Berkeley CS61B: Data Structures and Algorithms** *(🟡 Completed except graph theory)*
+    *   **核心功能：** 資訊儲存與檢索的時空複雜度優化手冊，從樹、雜湊表到圖論（DAG），為大規模資料流建立高速運作的記憶體骨架。
+*   [ ] **Nand2Tetris: From Nand to Tetris (Building a Modern Computer from First Principles)** *(🟡 Hardware Part Completed — Part 1)*
+    *   **核心功能：** 矽基硬體的創世手冊，從最基礎的 NAND 邏輯閘開始，親手焊接出 ALU、CPU 與組合語言介面，徹底消滅硬體底層的黑盒子（待解鎖 Part 2：虛擬機、編譯器與作業系統）。
+
 *   **UC Berkeley CS61C: Great Ideas in Computer Architecture**
     *   **核心功能：** 軟硬體對接的最終密鑰，教你高階程式碼如何被編譯成 RISC-V 組合語言並直接操控實體晶片流水線。
 
@@ -60,7 +69,7 @@ cover:
 # 🕹️ 模組二：全域控制與通信 (Control & Communications Protocol)
 > **系統規格簡介：** 負責研究多節點分佈式系統在充滿噪點的環境下，如何設定閾值並達成系統自我修正與決策共識。
 
-*   **HarvardX MCB80.2x: Fundamentals of Neuroscience, Part 2 (Neurons to Networks)**
+*   **HarvardX MCB80.1X 2X: Fundamentals of Neuroscience, 2Part 1 & 2** *(✅ 2026-11 Completed)
     *   **核心功能：** 從單一晶體管跨越到網路拓撲，解構上百億個神經元如何利用興奮與抑制信號組裝出生物級邏輯閘電路。
 
 *   **Stanford University (BIO 150): Human Behavioral Biology — By Robert Sapolsky**
@@ -68,6 +77,12 @@ cover:
 
 *   **Yale ECON 159: Game Theory — By Ben Polak**
     *   **核心功能：** 跨節點交互作用的決策優化演算法，用嚴密的數學矩陣與策略樹找出多方博弈下的系統最穩定解（納什均衡）。
+
+*   **Santa Fe Institute (SFI): Introduction to Complexity — By Melanie Mitchell**
+    *   **核心功能：** 去中心化分佈式網路的「湧現（Emergence）」協議，揭示大量無中央控制器的簡單節點（如神經元、螞蟻或市場交易者）如何透過局部互動，自發演化出高階集體智慧與非線性混沌崩盤。
+
+*   **Computational Cognitive Neuroscience (CCN — 計算認知神經科學)**
+    *   **核心功能：** 碳基大腦與矽基 AI 的「高階認知編譯器」，將微觀的神經突觸電路（如 k-WTA 贏者通吃與預測編碼）抽象為可計算的數學模型，直接對接現代深度學習的注意力機制（Attention）、工作記憶快取與前額葉執行控制系統。
 
 ---
 
@@ -88,12 +103,17 @@ cover:
 # ⚖️ 模組四：全域資源配置與日誌 (Global Resource Allocation & Logs)
 > **系統規格簡介：** 負責追蹤大型文明伺服器在歷史時間軸上的折舊軌跡，以及大腦應用層使用者介面的信號編碼。
 
+*   [x] **NYU Stern: Valuation — By Aswath Damodaran（達摩德仁估值課）** *(✅ Completed)*
+    *   **核心功能：** 企業與資產內在價值的第一性原理計算機，透過自由現金流折現（DCF）、風險溢酬與敘事驗證（Narrative & Numbers），在市場噪點中校準系統的真實價值錨點。
+
 *   **Yale HIST 210: The Early Middle Ages — By Paul Freedman**
     *   **核心功能：** 大型伺服器群組崩潰與重灌（System Crash & Format）的歷史日誌，看穿現代世俗枷鎖不過是古代系統留下來的舊遺留代碼。
 
 *   **Yale PSYC 110: Introduction to Psychology — By Paul Bloom**
     *   **核心功能：** 大腦的高階應用層使用者介面（UI）說明書，從行為進化角度拆解道德、偏見與愛情是如何被包裝投影出來的。
 
+*   **Yale ECON 252: Financial Markets — By Robert Shiller**
+    *   **核心功能：** 現代文明最龐大的資本與風險配置引擎，從行為金融學與制度設計底層，解構金融市場如何在人類群體非理性與心理噪點中，完成動態定價與跨時空資源調度。
 ---
 
 # 🛠️ 模組五：實體工程與優化 (Physical Implementation & Engineering)
@@ -127,6 +147,9 @@ cover:
 
 *   **Yale University: 死亡 (PHIL 176: Death — By Shelly Kagan)**
     *   **核心功能：** 系統終局的例外處理（Try-Catch）反編譯手冊，用純粹的分析哲學邏輯去冷靜 debug 人類對虛無與死亡的背景恐懼。
+
+*   **MIT 18.06: Linear Algebra — By Gilbert Strang**
+    *   **核心功能：** 矽基 AI 與碳基神經網路共通的「高維向量空間語言」，用矩陣變換、特徵值與空間投影，將複雜的多維度資訊流壓縮並抽象為可計算的幾何底層運算。
 
 # 其他
 
