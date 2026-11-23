@@ -46,13 +46,13 @@ cover:
 # 💻 模組一：資訊與編譯 (Information & Compilation Architecture)
 > **系統規格簡介：** 負責解構虛擬世界與大腦心智如何進行高階代碼打包、資料流轉與狀態儲存。
 
-*   [x] **Harvard CS50: Introduction to Computer Science** *(✅ Completed)*
+*   [x] **Harvard CS50: Introduction to Computer Science** *(✅ Completed Pre-2025)*
     *   **核心功能：** 計算機科學的第一性原理啟動盤，從二進位、C 語言記憶體指標到高階抽象，徹底打通軟體背後的底層執行邏輯。
-*   [x] **UC Berkeley CS61A: Structure and Interpretation of Computer Programs** *(✅ Completed)*
+*   [x] **UC Berkeley CS61A: Structure and Interpretation of Computer Programs** *(✅ Completed Pre-2025)*
     *   **核心功能：** 抽象思維與控制複雜度的最高心法，透過高階函數、遞迴與解釋器設計，看穿「程式即資料、資料即程式」的編譯本質。
-*   [ ] **UC Berkeley CS61B: Data Structures and Algorithms** *(🟡 Completed except graph theory)*
+*   [ ] **UC Berkeley CS61B: Data Structures and Algorithms** *(🟡 Completed except graph theory Pre-2025)*
     *   **核心功能：** 資訊儲存與檢索的時空複雜度優化手冊，從樹、雜湊表到圖論（DAG），為大規模資料流建立高速運作的記憶體骨架。
-*   [ ] **Nand2Tetris: From Nand to Tetris (Building a Modern Computer from First Principles)** *(🟡 Hardware Part Completed — Part 1)*
+*   [ ] **Nand2Tetris: From Nand to Tetris (Building a Modern Computer from First Principles)** *(🟡 Hardware Part Completed — Part 1 Pre-2025)*
     *   **核心功能：** 矽基硬體的創世手冊，從最基礎的 NAND 邏輯閘開始，親手焊接出 ALU、CPU 與組合語言介面，徹底消滅硬體底層的黑盒子（待解鎖 Part 2：虛擬機、編譯器與作業系統）。
 
 *   **UC Berkeley CS61C: Great Ideas in Computer Architecture**
@@ -69,7 +69,7 @@ cover:
 # 🕹️ 模組二：全域控制與通信 (Control & Communications Protocol)
 > **系統規格簡介：** 負責研究多節點分佈式系統在充滿噪點的環境下，如何設定閾值並達成系統自我修正與決策共識。
 
-*   **HarvardX MCB80.1X 2X: Fundamentals of Neuroscience, 2Part 1 & 2** *(✅ 2026-11 Completed)
+*   **HarvardX MCB80.1X 2X: Fundamentals of Neuroscience, 2Part 1 & 2** *(✅ 2026-11 Completed，筆記[1](https://everydaydiva.blog/posts/2026/10/fundamentals-of-neuroscience/)，[2](https://everydaydiva.blog/posts/2026/11/fundamentals-of-neuroscience-part2/))
     *   **核心功能：** 從單一晶體管跨越到網路拓撲，解構上百億個神經元如何利用興奮與抑制信號組裝出生物級邏輯閘電路。
 
 *   **Stanford University (BIO 150): Human Behavioral Biology — By Robert Sapolsky**
@@ -103,7 +103,7 @@ cover:
 # ⚖️ 模組四：全域資源配置與日誌 (Global Resource Allocation & Logs)
 > **系統規格簡介：** 負責追蹤大型文明伺服器在歷史時間軸上的折舊軌跡，以及大腦應用層使用者介面的信號編碼。
 
-*   [x] **NYU Stern: Valuation — By Aswath Damodaran（達摩德仁估值課）** *(✅ Completed)*
+*   [x] **NYU Stern: Valuation — By Aswath Damodaran（達摩德仁估值課）** *(✅ Completed Pre-2025)*
     *   **核心功能：** 企業與資產內在價值的第一性原理計算機，透過自由現金流折現（DCF）、風險溢酬與敘事驗證（Narrative & Numbers），在市場噪點中校準系統的真實價值錨點。
 
 *   **Yale HIST 210: The Early Middle Ages — By Paul Freedman**
@@ -124,6 +124,12 @@ cover:
 
 *   **MITx 2.14x: 回饋控制系統工程 (Feedback Control Systems)**
     *   **核心功能：** 自動化系統的動態反饋調校手冊，教你如何利用 PID 控制器在系統內部加上完美阻尼以徹底隔絕外在噪點。
+
+*   [x] **怪獸訓練（Monster Training）：C 級肌力及體能教練認證** *(✅ 2026-10 Completed｜[C 級課程筆記](/posts/2026/10/monster-training-c-level-notes/))*
+    *   **核心功能：** 碳基肉體的「結構力學與神經招募實作手冊」，透過槓鈴自由重量技術、最大肌力週期化與能量系統配置，在絕對剛性安全軌跡下重構中樞神經系統（CNS）的發力效率與抗壓反脆弱性。
+
+*   [ ] **怪獸訓練（Monster Training）：B 級肌力及體能教練認證** 
+    *   **核心功能：** 高階「去專項化（De-specialization）與非線性負載適應」工程，導入沙包、安全槓（SSB）與不穩定重心等非傳統器材，將最大肌力轉化為真實複雜環境下的爆發力與動態動作控制能力。
 
 ---
 
