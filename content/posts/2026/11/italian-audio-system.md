@@ -8,7 +8,6 @@ keywords:
 categories: # 没有分类界面可以不填写
 - 
 tags: ["Italian", "Python", "Learning Science", "Productivity", "AI"]
-- 
 description: ""
 weight:
 slug: ""
